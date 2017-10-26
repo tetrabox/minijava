@@ -76,29 +76,214 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
     new MiniJavaSwitch<Adapter>()
     {
       @Override
-      public Adapter caseDomainmodel(Domainmodel object)
+      public Adapter caseGoal(Goal object)
       {
-        return createDomainmodelAdapter();
+        return createGoalAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
+      public Adapter caseCompilationUnit(CompilationUnit object)
       {
-        return createTypeAdapter();
+        return createCompilationUnitAdapter();
       }
       @Override
-      public Adapter caseDataType(DataType object)
+      public Adapter caseTypeDeclaration(TypeDeclaration object)
       {
-        return createDataTypeAdapter();
+        return createTypeDeclarationAdapter();
       }
       @Override
-      public Adapter caseEntity(Entity object)
+      public Adapter caseModifiers(Modifiers object)
       {
-        return createEntityAdapter();
+        return createModifiersAdapter();
       }
       @Override
-      public Adapter caseFeature(Feature object)
+      public Adapter caseClassDeclaration(ClassDeclaration object)
       {
-        return createFeatureAdapter();
+        return createClassDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseClassBody(ClassBody object)
+      {
+        return createClassBodyAdapter();
+      }
+      @Override
+      public Adapter caseClassMemberDeclaration(ClassMemberDeclaration object)
+      {
+        return createClassMemberDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseFieldDeclaration(FieldDeclaration object)
+      {
+        return createFieldDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseMethodDeclaration(MethodDeclaration object)
+      {
+        return createMethodDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseMethodHeader(MethodHeader object)
+      {
+        return createMethodHeaderAdapter();
+      }
+      @Override
+      public Adapter caseMethodBody(MethodBody object)
+      {
+        return createMethodBodyAdapter();
+      }
+      @Override
+      public Adapter caseBlock(Block object)
+      {
+        return createBlockAdapter();
+      }
+      @Override
+      public Adapter caseBlockStatement(BlockStatement object)
+      {
+        return createBlockStatementAdapter();
+      }
+      @Override
+      public Adapter caseLocalVariableDeclarationStatement(LocalVariableDeclarationStatement object)
+      {
+        return createLocalVariableDeclarationStatementAdapter();
+      }
+      @Override
+      public Adapter caseLocalVariableDeclaration(LocalVariableDeclaration object)
+      {
+        return createLocalVariableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseVariableDeclarators(VariableDeclarators object)
+      {
+        return createVariableDeclaratorsAdapter();
+      }
+      @Override
+      public Adapter caseVariableDeclarator(VariableDeclarator object)
+      {
+        return createVariableDeclaratorAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseExpressionStatement(ExpressionStatement object)
+      {
+        return createExpressionStatementAdapter();
+      }
+      @Override
+      public Adapter caseStatementExpression(StatementExpression object)
+      {
+        return createStatementExpressionAdapter();
+      }
+      @Override
+      public Adapter caseIfThenStatement(IfThenStatement object)
+      {
+        return createIfThenStatementAdapter();
+      }
+      @Override
+      public Adapter caseIfThenElseStatement(IfThenElseStatement object)
+      {
+        return createIfThenElseStatementAdapter();
+      }
+      @Override
+      public Adapter caseWhileStatement(WhileStatement object)
+      {
+        return createWhileStatementAdapter();
+      }
+      @Override
+      public Adapter caseDoWhileStatement(DoWhileStatement object)
+      {
+        return createDoWhileStatementAdapter();
+      }
+      @Override
+      public Adapter caseReturnStatement(ReturnStatement object)
+      {
+        return createReturnStatementAdapter();
+      }
+      @Override
+      public Adapter caseForStatement(ForStatement object)
+      {
+        return createForStatementAdapter();
+      }
+      @Override
+      public Adapter caseForInit(ForInit object)
+      {
+        return createForInitAdapter();
+      }
+      @Override
+      public Adapter caseForUpdate(ForUpdate object)
+      {
+        return createForUpdateAdapter();
+      }
+      @Override
+      public Adapter caseStatementExpressionList(StatementExpressionList object)
+      {
+        return createStatementExpressionListAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseAssignmentExpression(AssignmentExpression object)
+      {
+        return createAssignmentExpressionAdapter();
+      }
+      @Override
+      public Adapter caseConditionalExpression(ConditionalExpression object)
+      {
+        return createConditionalExpressionAdapter();
+      }
+      @Override
+      public Adapter caseInfixExpression(InfixExpression object)
+      {
+        return createInfixExpressionAdapter();
+      }
+      @Override
+      public Adapter casePrefixExpression(PrefixExpression object)
+      {
+        return createPrefixExpressionAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpression(PostfixExpression object)
+      {
+        return createPostfixExpressionAdapter();
+      }
+      @Override
+      public Adapter caseSuffix(Suffix object)
+      {
+        return createSuffixAdapter();
+      }
+      @Override
+      public Adapter caseArrayAccess(ArrayAccess object)
+      {
+        return createArrayAccessAdapter();
+      }
+      @Override
+      public Adapter caseMethodInvocation(MethodInvocation object)
+      {
+        return createMethodInvocationAdapter();
+      }
+      @Override
+      public Adapter caseArgumentList(ArgumentList object)
+      {
+        return createArgumentListAdapter();
+      }
+      @Override
+      public Adapter casePrimary(Primary object)
+      {
+        return createPrimaryAdapter();
+      }
+      @Override
+      public Adapter caseArrayCreationExpression(ArrayCreationExpression object)
+      {
+        return createArrayCreationExpressionAdapter();
+      }
+      @Override
+      public Adapter caseModifier(Modifier object)
+      {
+        return createModifierAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -123,76 +308,631 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Domainmodel <em>Domainmodel</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Goal <em>Goal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.miniJava.Domainmodel
+   * @see org.tetrabox.miniJava.Goal
    * @generated
    */
-  public Adapter createDomainmodelAdapter()
+  public Adapter createGoalAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Type <em>Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.CompilationUnit <em>Compilation Unit</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.miniJava.Type
+   * @see org.tetrabox.miniJava.CompilationUnit
    * @generated
    */
-  public Adapter createTypeAdapter()
+  public Adapter createCompilationUnitAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.DataType <em>Data Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.TypeDeclaration <em>Type Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.miniJava.DataType
+   * @see org.tetrabox.miniJava.TypeDeclaration
    * @generated
    */
-  public Adapter createDataTypeAdapter()
+  public Adapter createTypeDeclarationAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Entity <em>Entity</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Modifiers <em>Modifiers</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.miniJava.Entity
+   * @see org.tetrabox.miniJava.Modifiers
    * @generated
    */
-  public Adapter createEntityAdapter()
+  public Adapter createModifiersAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Feature <em>Feature</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ClassDeclaration <em>Class Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.miniJava.Feature
+   * @see org.tetrabox.miniJava.ClassDeclaration
    * @generated
    */
-  public Adapter createFeatureAdapter()
+  public Adapter createClassDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ClassBody <em>Class Body</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ClassBody
+   * @generated
+   */
+  public Adapter createClassBodyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ClassMemberDeclaration <em>Class Member Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ClassMemberDeclaration
+   * @generated
+   */
+  public Adapter createClassMemberDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.FieldDeclaration <em>Field Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.FieldDeclaration
+   * @generated
+   */
+  public Adapter createFieldDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.MethodDeclaration <em>Method Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.MethodDeclaration
+   * @generated
+   */
+  public Adapter createMethodDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.MethodHeader <em>Method Header</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.MethodHeader
+   * @generated
+   */
+  public Adapter createMethodHeaderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.MethodBody <em>Method Body</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.MethodBody
+   * @generated
+   */
+  public Adapter createMethodBodyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.Block
+   * @generated
+   */
+  public Adapter createBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.BlockStatement <em>Block Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.BlockStatement
+   * @generated
+   */
+  public Adapter createBlockStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.LocalVariableDeclarationStatement <em>Local Variable Declaration Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.LocalVariableDeclarationStatement
+   * @generated
+   */
+  public Adapter createLocalVariableDeclarationStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.LocalVariableDeclaration <em>Local Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.LocalVariableDeclaration
+   * @generated
+   */
+  public Adapter createLocalVariableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.VariableDeclarators <em>Variable Declarators</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.VariableDeclarators
+   * @generated
+   */
+  public Adapter createVariableDeclaratorsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.VariableDeclarator <em>Variable Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.VariableDeclarator
+   * @generated
+   */
+  public Adapter createVariableDeclaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ExpressionStatement <em>Expression Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ExpressionStatement
+   * @generated
+   */
+  public Adapter createExpressionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.StatementExpression <em>Statement Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.StatementExpression
+   * @generated
+   */
+  public Adapter createStatementExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.IfThenStatement <em>If Then Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.IfThenStatement
+   * @generated
+   */
+  public Adapter createIfThenStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.IfThenElseStatement <em>If Then Else Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.IfThenElseStatement
+   * @generated
+   */
+  public Adapter createIfThenElseStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.WhileStatement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.WhileStatement
+   * @generated
+   */
+  public Adapter createWhileStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.DoWhileStatement <em>Do While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.DoWhileStatement
+   * @generated
+   */
+  public Adapter createDoWhileStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ReturnStatement <em>Return Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ReturnStatement
+   * @generated
+   */
+  public Adapter createReturnStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ForStatement <em>For Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ForStatement
+   * @generated
+   */
+  public Adapter createForStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ForInit <em>For Init</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ForInit
+   * @generated
+   */
+  public Adapter createForInitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ForUpdate <em>For Update</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ForUpdate
+   * @generated
+   */
+  public Adapter createForUpdateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.StatementExpressionList <em>Statement Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.StatementExpressionList
+   * @generated
+   */
+  public Adapter createStatementExpressionListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.AssignmentExpression <em>Assignment Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.AssignmentExpression
+   * @generated
+   */
+  public Adapter createAssignmentExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ConditionalExpression <em>Conditional Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ConditionalExpression
+   * @generated
+   */
+  public Adapter createConditionalExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.InfixExpression <em>Infix Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.InfixExpression
+   * @generated
+   */
+  public Adapter createInfixExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.PrefixExpression <em>Prefix Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.PrefixExpression
+   * @generated
+   */
+  public Adapter createPrefixExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.PostfixExpression <em>Postfix Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.PostfixExpression
+   * @generated
+   */
+  public Adapter createPostfixExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Suffix <em>Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.Suffix
+   * @generated
+   */
+  public Adapter createSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ArrayAccess <em>Array Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ArrayAccess
+   * @generated
+   */
+  public Adapter createArrayAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.MethodInvocation <em>Method Invocation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.MethodInvocation
+   * @generated
+   */
+  public Adapter createMethodInvocationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ArgumentList <em>Argument List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ArgumentList
+   * @generated
+   */
+  public Adapter createArgumentListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Primary <em>Primary</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.Primary
+   * @generated
+   */
+  public Adapter createPrimaryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.ArrayCreationExpression <em>Array Creation Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.ArrayCreationExpression
+   * @generated
+   */
+  public Adapter createArrayCreationExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.miniJava.Modifier <em>Modifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.miniJava.Modifier
+   * @generated
+   */
+  public Adapter createModifierAdapter()
   {
     return null;
   }

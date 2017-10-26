@@ -65,11 +65,48 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     switch (eClass.getClassifierID())
     {
-      case MiniJavaPackage.DOMAINMODEL: return createDomainmodel();
-      case MiniJavaPackage.TYPE: return createType();
-      case MiniJavaPackage.DATA_TYPE: return createDataType();
-      case MiniJavaPackage.ENTITY: return createEntity();
-      case MiniJavaPackage.FEATURE: return createFeature();
+      case MiniJavaPackage.GOAL: return createGoal();
+      case MiniJavaPackage.COMPILATION_UNIT: return createCompilationUnit();
+      case MiniJavaPackage.TYPE_DECLARATION: return createTypeDeclaration();
+      case MiniJavaPackage.MODIFIERS: return createModifiers();
+      case MiniJavaPackage.CLASS_DECLARATION: return createClassDeclaration();
+      case MiniJavaPackage.CLASS_BODY: return createClassBody();
+      case MiniJavaPackage.CLASS_MEMBER_DECLARATION: return createClassMemberDeclaration();
+      case MiniJavaPackage.FIELD_DECLARATION: return createFieldDeclaration();
+      case MiniJavaPackage.METHOD_DECLARATION: return createMethodDeclaration();
+      case MiniJavaPackage.METHOD_HEADER: return createMethodHeader();
+      case MiniJavaPackage.METHOD_BODY: return createMethodBody();
+      case MiniJavaPackage.BLOCK: return createBlock();
+      case MiniJavaPackage.BLOCK_STATEMENT: return createBlockStatement();
+      case MiniJavaPackage.LOCAL_VARIABLE_DECLARATION_STATEMENT: return createLocalVariableDeclarationStatement();
+      case MiniJavaPackage.LOCAL_VARIABLE_DECLARATION: return createLocalVariableDeclaration();
+      case MiniJavaPackage.VARIABLE_DECLARATORS: return createVariableDeclarators();
+      case MiniJavaPackage.VARIABLE_DECLARATOR: return createVariableDeclarator();
+      case MiniJavaPackage.STATEMENT: return createStatement();
+      case MiniJavaPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
+      case MiniJavaPackage.STATEMENT_EXPRESSION: return createStatementExpression();
+      case MiniJavaPackage.IF_THEN_STATEMENT: return createIfThenStatement();
+      case MiniJavaPackage.IF_THEN_ELSE_STATEMENT: return createIfThenElseStatement();
+      case MiniJavaPackage.WHILE_STATEMENT: return createWhileStatement();
+      case MiniJavaPackage.DO_WHILE_STATEMENT: return createDoWhileStatement();
+      case MiniJavaPackage.RETURN_STATEMENT: return createReturnStatement();
+      case MiniJavaPackage.FOR_STATEMENT: return createForStatement();
+      case MiniJavaPackage.FOR_INIT: return createForInit();
+      case MiniJavaPackage.FOR_UPDATE: return createForUpdate();
+      case MiniJavaPackage.STATEMENT_EXPRESSION_LIST: return createStatementExpressionList();
+      case MiniJavaPackage.EXPRESSION: return createExpression();
+      case MiniJavaPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
+      case MiniJavaPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
+      case MiniJavaPackage.INFIX_EXPRESSION: return createInfixExpression();
+      case MiniJavaPackage.PREFIX_EXPRESSION: return createPrefixExpression();
+      case MiniJavaPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
+      case MiniJavaPackage.SUFFIX: return createSuffix();
+      case MiniJavaPackage.ARRAY_ACCESS: return createArrayAccess();
+      case MiniJavaPackage.METHOD_INVOCATION: return createMethodInvocation();
+      case MiniJavaPackage.ARGUMENT_LIST: return createArgumentList();
+      case MiniJavaPackage.PRIMARY: return createPrimary();
+      case MiniJavaPackage.ARRAY_CREATION_EXPRESSION: return createArrayCreationExpression();
+      case MiniJavaPackage.MODIFIER: return createModifier();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -80,10 +117,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Domainmodel createDomainmodel()
+  public Goal createGoal()
   {
-    DomainmodelImpl domainmodel = new DomainmodelImpl();
-    return domainmodel;
+    GoalImpl goal = new GoalImpl();
+    return goal;
   }
 
   /**
@@ -91,10 +128,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
+  public CompilationUnit createCompilationUnit()
   {
-    TypeImpl type = new TypeImpl();
-    return type;
+    CompilationUnitImpl compilationUnit = new CompilationUnitImpl();
+    return compilationUnit;
   }
 
   /**
@@ -102,10 +139,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataType createDataType()
+  public TypeDeclaration createTypeDeclaration()
   {
-    DataTypeImpl dataType = new DataTypeImpl();
-    return dataType;
+    TypeDeclarationImpl typeDeclaration = new TypeDeclarationImpl();
+    return typeDeclaration;
   }
 
   /**
@@ -113,10 +150,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity createEntity()
+  public Modifiers createModifiers()
   {
-    EntityImpl entity = new EntityImpl();
-    return entity;
+    ModifiersImpl modifiers = new ModifiersImpl();
+    return modifiers;
   }
 
   /**
@@ -124,10 +161,417 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Feature createFeature()
+  public ClassDeclaration createClassDeclaration()
   {
-    FeatureImpl feature = new FeatureImpl();
-    return feature;
+    ClassDeclarationImpl classDeclaration = new ClassDeclarationImpl();
+    return classDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClassBody createClassBody()
+  {
+    ClassBodyImpl classBody = new ClassBodyImpl();
+    return classBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClassMemberDeclaration createClassMemberDeclaration()
+  {
+    ClassMemberDeclarationImpl classMemberDeclaration = new ClassMemberDeclarationImpl();
+    return classMemberDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldDeclaration createFieldDeclaration()
+  {
+    FieldDeclarationImpl fieldDeclaration = new FieldDeclarationImpl();
+    return fieldDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodDeclaration createMethodDeclaration()
+  {
+    MethodDeclarationImpl methodDeclaration = new MethodDeclarationImpl();
+    return methodDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodHeader createMethodHeader()
+  {
+    MethodHeaderImpl methodHeader = new MethodHeaderImpl();
+    return methodHeader;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodBody createMethodBody()
+  {
+    MethodBodyImpl methodBody = new MethodBodyImpl();
+    return methodBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockStatement createBlockStatement()
+  {
+    BlockStatementImpl blockStatement = new BlockStatementImpl();
+    return blockStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LocalVariableDeclarationStatement createLocalVariableDeclarationStatement()
+  {
+    LocalVariableDeclarationStatementImpl localVariableDeclarationStatement = new LocalVariableDeclarationStatementImpl();
+    return localVariableDeclarationStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LocalVariableDeclaration createLocalVariableDeclaration()
+  {
+    LocalVariableDeclarationImpl localVariableDeclaration = new LocalVariableDeclarationImpl();
+    return localVariableDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableDeclarators createVariableDeclarators()
+  {
+    VariableDeclaratorsImpl variableDeclarators = new VariableDeclaratorsImpl();
+    return variableDeclarators;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableDeclarator createVariableDeclarator()
+  {
+    VariableDeclaratorImpl variableDeclarator = new VariableDeclaratorImpl();
+    return variableDeclarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionStatement createExpressionStatement()
+  {
+    ExpressionStatementImpl expressionStatement = new ExpressionStatementImpl();
+    return expressionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementExpression createStatementExpression()
+  {
+    StatementExpressionImpl statementExpression = new StatementExpressionImpl();
+    return statementExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfThenStatement createIfThenStatement()
+  {
+    IfThenStatementImpl ifThenStatement = new IfThenStatementImpl();
+    return ifThenStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfThenElseStatement createIfThenElseStatement()
+  {
+    IfThenElseStatementImpl ifThenElseStatement = new IfThenElseStatementImpl();
+    return ifThenElseStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WhileStatement createWhileStatement()
+  {
+    WhileStatementImpl whileStatement = new WhileStatementImpl();
+    return whileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DoWhileStatement createDoWhileStatement()
+  {
+    DoWhileStatementImpl doWhileStatement = new DoWhileStatementImpl();
+    return doWhileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReturnStatement createReturnStatement()
+  {
+    ReturnStatementImpl returnStatement = new ReturnStatementImpl();
+    return returnStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForStatement createForStatement()
+  {
+    ForStatementImpl forStatement = new ForStatementImpl();
+    return forStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForInit createForInit()
+  {
+    ForInitImpl forInit = new ForInitImpl();
+    return forInit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForUpdate createForUpdate()
+  {
+    ForUpdateImpl forUpdate = new ForUpdateImpl();
+    return forUpdate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementExpressionList createStatementExpressionList()
+  {
+    StatementExpressionListImpl statementExpressionList = new StatementExpressionListImpl();
+    return statementExpressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AssignmentExpression createAssignmentExpression()
+  {
+    AssignmentExpressionImpl assignmentExpression = new AssignmentExpressionImpl();
+    return assignmentExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConditionalExpression createConditionalExpression()
+  {
+    ConditionalExpressionImpl conditionalExpression = new ConditionalExpressionImpl();
+    return conditionalExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InfixExpression createInfixExpression()
+  {
+    InfixExpressionImpl infixExpression = new InfixExpressionImpl();
+    return infixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrefixExpression createPrefixExpression()
+  {
+    PrefixExpressionImpl prefixExpression = new PrefixExpressionImpl();
+    return prefixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpression createPostfixExpression()
+  {
+    PostfixExpressionImpl postfixExpression = new PostfixExpressionImpl();
+    return postfixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Suffix createSuffix()
+  {
+    SuffixImpl suffix = new SuffixImpl();
+    return suffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayAccess createArrayAccess()
+  {
+    ArrayAccessImpl arrayAccess = new ArrayAccessImpl();
+    return arrayAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodInvocation createMethodInvocation()
+  {
+    MethodInvocationImpl methodInvocation = new MethodInvocationImpl();
+    return methodInvocation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArgumentList createArgumentList()
+  {
+    ArgumentListImpl argumentList = new ArgumentListImpl();
+    return argumentList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Primary createPrimary()
+  {
+    PrimaryImpl primary = new PrimaryImpl();
+    return primary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayCreationExpression createArrayCreationExpression()
+  {
+    ArrayCreationExpressionImpl arrayCreationExpression = new ArrayCreationExpressionImpl();
+    return arrayCreationExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Modifier createModifier()
+  {
+    ModifierImpl modifier = new ModifierImpl();
+    return modifier;
   }
 
   /**

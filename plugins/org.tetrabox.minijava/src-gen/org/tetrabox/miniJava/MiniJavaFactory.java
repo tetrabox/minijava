@@ -24,49 +24,382 @@ public interface MiniJavaFactory extends EFactory
   MiniJavaFactory eINSTANCE = org.tetrabox.miniJava.impl.MiniJavaFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Domainmodel</em>'.
+   * Returns a new object of class '<em>Goal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domainmodel</em>'.
+   * @return a new object of class '<em>Goal</em>'.
    * @generated
    */
-  Domainmodel createDomainmodel();
+  Goal createGoal();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>Compilation Unit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>Compilation Unit</em>'.
    * @generated
    */
-  Type createType();
+  CompilationUnit createCompilationUnit();
 
   /**
-   * Returns a new object of class '<em>Data Type</em>'.
+   * Returns a new object of class '<em>Type Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Type</em>'.
+   * @return a new object of class '<em>Type Declaration</em>'.
    * @generated
    */
-  DataType createDataType();
+  TypeDeclaration createTypeDeclaration();
 
   /**
-   * Returns a new object of class '<em>Entity</em>'.
+   * Returns a new object of class '<em>Modifiers</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity</em>'.
+   * @return a new object of class '<em>Modifiers</em>'.
    * @generated
    */
-  Entity createEntity();
+  Modifiers createModifiers();
 
   /**
-   * Returns a new object of class '<em>Feature</em>'.
+   * Returns a new object of class '<em>Class Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature</em>'.
+   * @return a new object of class '<em>Class Declaration</em>'.
    * @generated
    */
-  Feature createFeature();
+  ClassDeclaration createClassDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Class Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class Body</em>'.
+   * @generated
+   */
+  ClassBody createClassBody();
+
+  /**
+   * Returns a new object of class '<em>Class Member Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class Member Declaration</em>'.
+   * @generated
+   */
+  ClassMemberDeclaration createClassMemberDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Field Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Declaration</em>'.
+   * @generated
+   */
+  FieldDeclaration createFieldDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Method Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Declaration</em>'.
+   * @generated
+   */
+  MethodDeclaration createMethodDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Method Header</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Header</em>'.
+   * @generated
+   */
+  MethodHeader createMethodHeader();
+
+  /**
+   * Returns a new object of class '<em>Method Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Body</em>'.
+   * @generated
+   */
+  MethodBody createMethodBody();
+
+  /**
+   * Returns a new object of class '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block</em>'.
+   * @generated
+   */
+  Block createBlock();
+
+  /**
+   * Returns a new object of class '<em>Block Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block Statement</em>'.
+   * @generated
+   */
+  BlockStatement createBlockStatement();
+
+  /**
+   * Returns a new object of class '<em>Local Variable Declaration Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Local Variable Declaration Statement</em>'.
+   * @generated
+   */
+  LocalVariableDeclarationStatement createLocalVariableDeclarationStatement();
+
+  /**
+   * Returns a new object of class '<em>Local Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Local Variable Declaration</em>'.
+   * @generated
+   */
+  LocalVariableDeclaration createLocalVariableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Variable Declarators</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Declarators</em>'.
+   * @generated
+   */
+  VariableDeclarators createVariableDeclarators();
+
+  /**
+   * Returns a new object of class '<em>Variable Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Declarator</em>'.
+   * @generated
+   */
+  VariableDeclarator createVariableDeclarator();
+
+  /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression Statement</em>'.
+   * @generated
+   */
+  ExpressionStatement createExpressionStatement();
+
+  /**
+   * Returns a new object of class '<em>Statement Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement Expression</em>'.
+   * @generated
+   */
+  StatementExpression createStatementExpression();
+
+  /**
+   * Returns a new object of class '<em>If Then Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Then Statement</em>'.
+   * @generated
+   */
+  IfThenStatement createIfThenStatement();
+
+  /**
+   * Returns a new object of class '<em>If Then Else Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Then Else Statement</em>'.
+   * @generated
+   */
+  IfThenElseStatement createIfThenElseStatement();
+
+  /**
+   * Returns a new object of class '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While Statement</em>'.
+   * @generated
+   */
+  WhileStatement createWhileStatement();
+
+  /**
+   * Returns a new object of class '<em>Do While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Do While Statement</em>'.
+   * @generated
+   */
+  DoWhileStatement createDoWhileStatement();
+
+  /**
+   * Returns a new object of class '<em>Return Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return Statement</em>'.
+   * @generated
+   */
+  ReturnStatement createReturnStatement();
+
+  /**
+   * Returns a new object of class '<em>For Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Statement</em>'.
+   * @generated
+   */
+  ForStatement createForStatement();
+
+  /**
+   * Returns a new object of class '<em>For Init</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Init</em>'.
+   * @generated
+   */
+  ForInit createForInit();
+
+  /**
+   * Returns a new object of class '<em>For Update</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Update</em>'.
+   * @generated
+   */
+  ForUpdate createForUpdate();
+
+  /**
+   * Returns a new object of class '<em>Statement Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement Expression List</em>'.
+   * @generated
+   */
+  StatementExpressionList createStatementExpressionList();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Assignment Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assignment Expression</em>'.
+   * @generated
+   */
+  AssignmentExpression createAssignmentExpression();
+
+  /**
+   * Returns a new object of class '<em>Conditional Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conditional Expression</em>'.
+   * @generated
+   */
+  ConditionalExpression createConditionalExpression();
+
+  /**
+   * Returns a new object of class '<em>Infix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Infix Expression</em>'.
+   * @generated
+   */
+  InfixExpression createInfixExpression();
+
+  /**
+   * Returns a new object of class '<em>Prefix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Prefix Expression</em>'.
+   * @generated
+   */
+  PrefixExpression createPrefixExpression();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression</em>'.
+   * @generated
+   */
+  PostfixExpression createPostfixExpression();
+
+  /**
+   * Returns a new object of class '<em>Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Suffix</em>'.
+   * @generated
+   */
+  Suffix createSuffix();
+
+  /**
+   * Returns a new object of class '<em>Array Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Access</em>'.
+   * @generated
+   */
+  ArrayAccess createArrayAccess();
+
+  /**
+   * Returns a new object of class '<em>Method Invocation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Invocation</em>'.
+   * @generated
+   */
+  MethodInvocation createMethodInvocation();
+
+  /**
+   * Returns a new object of class '<em>Argument List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Argument List</em>'.
+   * @generated
+   */
+  ArgumentList createArgumentList();
+
+  /**
+   * Returns a new object of class '<em>Primary</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary</em>'.
+   * @generated
+   */
+  Primary createPrimary();
+
+  /**
+   * Returns a new object of class '<em>Array Creation Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Creation Expression</em>'.
+   * @generated
+   */
+  ArrayCreationExpression createArrayCreationExpression();
+
+  /**
+   * Returns a new object of class '<em>Modifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modifier</em>'.
+   * @generated
+   */
+  Modifier createModifier();
 
   /**
    * Returns the package supported by this factory.

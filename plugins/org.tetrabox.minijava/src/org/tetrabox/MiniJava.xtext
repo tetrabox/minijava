@@ -14,25 +14,25 @@ Goal:
 
 //The Java lexical definition describes tokens for Identifier, and the various literals:
 Literal:
-	IntegerLiteral |
-	BooleanLiteral |
-	CharacterLiteral |
-	StringLiteral |
-	NullLiteral;
+	INTEGER_LITERAL |
+	BOOLEAN_LITERAL |
+	CHARACTER_LITERAL |
+	STRING_LITERAL |
+	NULL_LITERAL;
 
-terminal NullLiteral:
+terminal NULL_LITERAL:
 	"null";
 
-terminal StringLiteral:
+terminal STRING_LITERAL:
 	STRING;
 
-terminal CharacterLiteral:
+terminal CHARACTER_LITERAL:
 	"\'" . "\'";
 
-terminal BooleanLiteral:
+terminal BOOLEAN_LITERAL:
 	"true" | "false";
 
-terminal IntegerLiteral:
+terminal INTEGER_LITERAL:
 	INT;
 
 	// In MiniJava we accept identifiers consisting of ASCII characters only, integer literals including octal and hexadecimal, and character and string literals consisting of ASCII characters only, and including escapes.
@@ -224,8 +224,8 @@ ConditionalExpression:
 	(condition=InfixExpression) "?" (expressionIf=Expression) ":" (expressionElse=ConditionalExpression);
 
 InfixExpression:
-	PrefixExpression |
-	InfixExpression InfixOp PrefixExpression;
+	(expressions+=PrefixExpression) (InfixOp (expressions+=PrefixExpression))*;
+	
 
 InfixOp:
 	"||" |
@@ -250,7 +250,7 @@ PrefixOp:
 	"!";
 
 PostfixExpression:
-	Primary Suffix*;
+	Primary (suffixes+=Suffix)*;
 
 Suffix:
 	ArrayAccess |
@@ -267,7 +267,7 @@ FieldAccess:
 	Selector;
 
 MethodInvocation:
-	{MethodInvocation} Selector "(" arguments=ArgumentList? ")";
+	{MethodInvocation} (selector=Selector) "(" arguments=ArgumentList? ")";
 
 ArgumentList:
 	Expression (',' (expressions+=Expression))*;

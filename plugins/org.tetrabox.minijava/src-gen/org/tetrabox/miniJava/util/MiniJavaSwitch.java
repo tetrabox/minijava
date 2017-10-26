@@ -73,40 +73,415 @@ public class MiniJavaSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case MiniJavaPackage.DOMAINMODEL:
+      case MiniJavaPackage.GOAL:
       {
-        Domainmodel domainmodel = (Domainmodel)theEObject;
-        T result = caseDomainmodel(domainmodel);
+        Goal goal = (Goal)theEObject;
+        T result = caseGoal(goal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.TYPE:
+      case MiniJavaPackage.COMPILATION_UNIT:
       {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
+        CompilationUnit compilationUnit = (CompilationUnit)theEObject;
+        T result = caseCompilationUnit(compilationUnit);
+        if (result == null) result = caseGoal(compilationUnit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.DATA_TYPE:
+      case MiniJavaPackage.TYPE_DECLARATION:
       {
-        DataType dataType = (DataType)theEObject;
-        T result = caseDataType(dataType);
-        if (result == null) result = caseType(dataType);
+        TypeDeclaration typeDeclaration = (TypeDeclaration)theEObject;
+        T result = caseTypeDeclaration(typeDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.ENTITY:
+      case MiniJavaPackage.MODIFIERS:
       {
-        Entity entity = (Entity)theEObject;
-        T result = caseEntity(entity);
-        if (result == null) result = caseType(entity);
+        Modifiers modifiers = (Modifiers)theEObject;
+        T result = caseModifiers(modifiers);
+        if (result == null) result = caseFieldDeclaration(modifiers);
+        if (result == null) result = caseMethodHeader(modifiers);
+        if (result == null) result = caseMethodDeclaration(modifiers);
+        if (result == null) result = caseClassMemberDeclaration(modifiers);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.FEATURE:
+      case MiniJavaPackage.CLASS_DECLARATION:
       {
-        Feature feature = (Feature)theEObject;
-        T result = caseFeature(feature);
+        ClassDeclaration classDeclaration = (ClassDeclaration)theEObject;
+        T result = caseClassDeclaration(classDeclaration);
+        if (result == null) result = caseTypeDeclaration(classDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.CLASS_BODY:
+      {
+        ClassBody classBody = (ClassBody)theEObject;
+        T result = caseClassBody(classBody);
+        if (result == null) result = caseClassDeclaration(classBody);
+        if (result == null) result = caseTypeDeclaration(classBody);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.CLASS_MEMBER_DECLARATION:
+      {
+        ClassMemberDeclaration classMemberDeclaration = (ClassMemberDeclaration)theEObject;
+        T result = caseClassMemberDeclaration(classMemberDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.FIELD_DECLARATION:
+      {
+        FieldDeclaration fieldDeclaration = (FieldDeclaration)theEObject;
+        T result = caseFieldDeclaration(fieldDeclaration);
+        if (result == null) result = caseClassMemberDeclaration(fieldDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.METHOD_DECLARATION:
+      {
+        MethodDeclaration methodDeclaration = (MethodDeclaration)theEObject;
+        T result = caseMethodDeclaration(methodDeclaration);
+        if (result == null) result = caseClassMemberDeclaration(methodDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.METHOD_HEADER:
+      {
+        MethodHeader methodHeader = (MethodHeader)theEObject;
+        T result = caseMethodHeader(methodHeader);
+        if (result == null) result = caseMethodDeclaration(methodHeader);
+        if (result == null) result = caseClassMemberDeclaration(methodHeader);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.METHOD_BODY:
+      {
+        MethodBody methodBody = (MethodBody)theEObject;
+        T result = caseMethodBody(methodBody);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.BLOCK:
+      {
+        Block block = (Block)theEObject;
+        T result = caseBlock(block);
+        if (result == null) result = caseMethodBody(block);
+        if (result == null) result = caseStatement(block);
+        if (result == null) result = caseBlockStatement(block);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.BLOCK_STATEMENT:
+      {
+        BlockStatement blockStatement = (BlockStatement)theEObject;
+        T result = caseBlockStatement(blockStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.LOCAL_VARIABLE_DECLARATION_STATEMENT:
+      {
+        LocalVariableDeclarationStatement localVariableDeclarationStatement = (LocalVariableDeclarationStatement)theEObject;
+        T result = caseLocalVariableDeclarationStatement(localVariableDeclarationStatement);
+        if (result == null) result = caseBlockStatement(localVariableDeclarationStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.LOCAL_VARIABLE_DECLARATION:
+      {
+        LocalVariableDeclaration localVariableDeclaration = (LocalVariableDeclaration)theEObject;
+        T result = caseLocalVariableDeclaration(localVariableDeclaration);
+        if (result == null) result = caseLocalVariableDeclarationStatement(localVariableDeclaration);
+        if (result == null) result = caseForInit(localVariableDeclaration);
+        if (result == null) result = caseForStatement(localVariableDeclaration);
+        if (result == null) result = caseStatement(localVariableDeclaration);
+        if (result == null) result = caseBlockStatement(localVariableDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.VARIABLE_DECLARATORS:
+      {
+        VariableDeclarators variableDeclarators = (VariableDeclarators)theEObject;
+        T result = caseVariableDeclarators(variableDeclarators);
+        if (result == null) result = caseLocalVariableDeclaration(variableDeclarators);
+        if (result == null) result = caseLocalVariableDeclarationStatement(variableDeclarators);
+        if (result == null) result = caseForInit(variableDeclarators);
+        if (result == null) result = caseForStatement(variableDeclarators);
+        if (result == null) result = caseStatement(variableDeclarators);
+        if (result == null) result = caseBlockStatement(variableDeclarators);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.VARIABLE_DECLARATOR:
+      {
+        VariableDeclarator variableDeclarator = (VariableDeclarator)theEObject;
+        T result = caseVariableDeclarator(variableDeclarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.STATEMENT:
+      {
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
+        if (result == null) result = caseBlockStatement(statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.EXPRESSION_STATEMENT:
+      {
+        ExpressionStatement expressionStatement = (ExpressionStatement)theEObject;
+        T result = caseExpressionStatement(expressionStatement);
+        if (result == null) result = caseStatement(expressionStatement);
+        if (result == null) result = caseBlockStatement(expressionStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.STATEMENT_EXPRESSION:
+      {
+        StatementExpression statementExpression = (StatementExpression)theEObject;
+        T result = caseStatementExpression(statementExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.IF_THEN_STATEMENT:
+      {
+        IfThenStatement ifThenStatement = (IfThenStatement)theEObject;
+        T result = caseIfThenStatement(ifThenStatement);
+        if (result == null) result = caseStatement(ifThenStatement);
+        if (result == null) result = caseBlockStatement(ifThenStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.IF_THEN_ELSE_STATEMENT:
+      {
+        IfThenElseStatement ifThenElseStatement = (IfThenElseStatement)theEObject;
+        T result = caseIfThenElseStatement(ifThenElseStatement);
+        if (result == null) result = caseStatement(ifThenElseStatement);
+        if (result == null) result = caseBlockStatement(ifThenElseStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.WHILE_STATEMENT:
+      {
+        WhileStatement whileStatement = (WhileStatement)theEObject;
+        T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseStatement(whileStatement);
+        if (result == null) result = caseBlockStatement(whileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.DO_WHILE_STATEMENT:
+      {
+        DoWhileStatement doWhileStatement = (DoWhileStatement)theEObject;
+        T result = caseDoWhileStatement(doWhileStatement);
+        if (result == null) result = caseStatement(doWhileStatement);
+        if (result == null) result = caseBlockStatement(doWhileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.RETURN_STATEMENT:
+      {
+        ReturnStatement returnStatement = (ReturnStatement)theEObject;
+        T result = caseReturnStatement(returnStatement);
+        if (result == null) result = caseStatement(returnStatement);
+        if (result == null) result = caseBlockStatement(returnStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.FOR_STATEMENT:
+      {
+        ForStatement forStatement = (ForStatement)theEObject;
+        T result = caseForStatement(forStatement);
+        if (result == null) result = caseStatement(forStatement);
+        if (result == null) result = caseBlockStatement(forStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.FOR_INIT:
+      {
+        ForInit forInit = (ForInit)theEObject;
+        T result = caseForInit(forInit);
+        if (result == null) result = caseForStatement(forInit);
+        if (result == null) result = caseStatement(forInit);
+        if (result == null) result = caseBlockStatement(forInit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.FOR_UPDATE:
+      {
+        ForUpdate forUpdate = (ForUpdate)theEObject;
+        T result = caseForUpdate(forUpdate);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.STATEMENT_EXPRESSION_LIST:
+      {
+        StatementExpressionList statementExpressionList = (StatementExpressionList)theEObject;
+        T result = caseStatementExpressionList(statementExpressionList);
+        if (result == null) result = caseForInit(statementExpressionList);
+        if (result == null) result = caseForUpdate(statementExpressionList);
+        if (result == null) result = caseForStatement(statementExpressionList);
+        if (result == null) result = caseStatement(statementExpressionList);
+        if (result == null) result = caseBlockStatement(statementExpressionList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = caseVariableDeclarator(expression);
+        if (result == null) result = caseStatementExpression(expression);
+        if (result == null) result = caseIfThenStatement(expression);
+        if (result == null) result = caseIfThenElseStatement(expression);
+        if (result == null) result = caseWhileStatement(expression);
+        if (result == null) result = caseReturnStatement(expression);
+        if (result == null) result = caseArgumentList(expression);
+        if (result == null) result = casePrimary(expression);
+        if (result == null) result = caseStatement(expression);
+        if (result == null) result = casePostfixExpression(expression);
+        if (result == null) result = caseBlockStatement(expression);
+        if (result == null) result = casePrefixExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.ASSIGNMENT_EXPRESSION:
+      {
+        AssignmentExpression assignmentExpression = (AssignmentExpression)theEObject;
+        T result = caseAssignmentExpression(assignmentExpression);
+        if (result == null) result = caseExpression(assignmentExpression);
+        if (result == null) result = caseVariableDeclarator(assignmentExpression);
+        if (result == null) result = caseStatementExpression(assignmentExpression);
+        if (result == null) result = caseIfThenStatement(assignmentExpression);
+        if (result == null) result = caseIfThenElseStatement(assignmentExpression);
+        if (result == null) result = caseWhileStatement(assignmentExpression);
+        if (result == null) result = caseReturnStatement(assignmentExpression);
+        if (result == null) result = caseArgumentList(assignmentExpression);
+        if (result == null) result = casePrimary(assignmentExpression);
+        if (result == null) result = caseStatement(assignmentExpression);
+        if (result == null) result = casePostfixExpression(assignmentExpression);
+        if (result == null) result = caseBlockStatement(assignmentExpression);
+        if (result == null) result = casePrefixExpression(assignmentExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.CONDITIONAL_EXPRESSION:
+      {
+        ConditionalExpression conditionalExpression = (ConditionalExpression)theEObject;
+        T result = caseConditionalExpression(conditionalExpression);
+        if (result == null) result = caseExpression(conditionalExpression);
+        if (result == null) result = caseVariableDeclarator(conditionalExpression);
+        if (result == null) result = caseStatementExpression(conditionalExpression);
+        if (result == null) result = caseIfThenStatement(conditionalExpression);
+        if (result == null) result = caseIfThenElseStatement(conditionalExpression);
+        if (result == null) result = caseWhileStatement(conditionalExpression);
+        if (result == null) result = caseReturnStatement(conditionalExpression);
+        if (result == null) result = caseArgumentList(conditionalExpression);
+        if (result == null) result = casePrimary(conditionalExpression);
+        if (result == null) result = caseStatement(conditionalExpression);
+        if (result == null) result = casePostfixExpression(conditionalExpression);
+        if (result == null) result = caseBlockStatement(conditionalExpression);
+        if (result == null) result = casePrefixExpression(conditionalExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.INFIX_EXPRESSION:
+      {
+        InfixExpression infixExpression = (InfixExpression)theEObject;
+        T result = caseInfixExpression(infixExpression);
+        if (result == null) result = caseConditionalExpression(infixExpression);
+        if (result == null) result = caseExpression(infixExpression);
+        if (result == null) result = caseVariableDeclarator(infixExpression);
+        if (result == null) result = caseStatementExpression(infixExpression);
+        if (result == null) result = caseIfThenStatement(infixExpression);
+        if (result == null) result = caseIfThenElseStatement(infixExpression);
+        if (result == null) result = caseWhileStatement(infixExpression);
+        if (result == null) result = caseReturnStatement(infixExpression);
+        if (result == null) result = caseArgumentList(infixExpression);
+        if (result == null) result = casePrimary(infixExpression);
+        if (result == null) result = caseStatement(infixExpression);
+        if (result == null) result = casePostfixExpression(infixExpression);
+        if (result == null) result = caseBlockStatement(infixExpression);
+        if (result == null) result = casePrefixExpression(infixExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.PREFIX_EXPRESSION:
+      {
+        PrefixExpression prefixExpression = (PrefixExpression)theEObject;
+        T result = casePrefixExpression(prefixExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.POSTFIX_EXPRESSION:
+      {
+        PostfixExpression postfixExpression = (PostfixExpression)theEObject;
+        T result = casePostfixExpression(postfixExpression);
+        if (result == null) result = casePrefixExpression(postfixExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.SUFFIX:
+      {
+        Suffix suffix = (Suffix)theEObject;
+        T result = caseSuffix(suffix);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.ARRAY_ACCESS:
+      {
+        ArrayAccess arrayAccess = (ArrayAccess)theEObject;
+        T result = caseArrayAccess(arrayAccess);
+        if (result == null) result = caseSuffix(arrayAccess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.METHOD_INVOCATION:
+      {
+        MethodInvocation methodInvocation = (MethodInvocation)theEObject;
+        T result = caseMethodInvocation(methodInvocation);
+        if (result == null) result = caseSuffix(methodInvocation);
+        if (result == null) result = casePrimary(methodInvocation);
+        if (result == null) result = casePostfixExpression(methodInvocation);
+        if (result == null) result = casePrefixExpression(methodInvocation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.ARGUMENT_LIST:
+      {
+        ArgumentList argumentList = (ArgumentList)theEObject;
+        T result = caseArgumentList(argumentList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.PRIMARY:
+      {
+        Primary primary = (Primary)theEObject;
+        T result = casePrimary(primary);
+        if (result == null) result = casePostfixExpression(primary);
+        if (result == null) result = casePrefixExpression(primary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.ARRAY_CREATION_EXPRESSION:
+      {
+        ArrayCreationExpression arrayCreationExpression = (ArrayCreationExpression)theEObject;
+        T result = caseArrayCreationExpression(arrayCreationExpression);
+        if (result == null) result = casePrimary(arrayCreationExpression);
+        if (result == null) result = casePostfixExpression(arrayCreationExpression);
+        if (result == null) result = casePrefixExpression(arrayCreationExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.MODIFIER:
+      {
+        Modifier modifier = (Modifier)theEObject;
+        T result = caseModifier(modifier);
+        if (result == null) result = caseModifiers(modifier);
+        if (result == null) result = caseFieldDeclaration(modifier);
+        if (result == null) result = caseMethodHeader(modifier);
+        if (result == null) result = caseMethodDeclaration(modifier);
+        if (result == null) result = caseClassMemberDeclaration(modifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,81 +490,673 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Domainmodel</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Goal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Domainmodel</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Goal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDomainmodel(Domainmodel object)
+  public T caseGoal(Goal object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Compilation Unit</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Compilation Unit</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseType(Type object)
+  public T caseCompilationUnit(CompilationUnit object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Type Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Type Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDataType(DataType object)
+  public T caseTypeDeclaration(TypeDeclaration object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Modifiers</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Modifiers</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEntity(Entity object)
+  public T caseModifiers(Modifiers object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Class Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Class Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFeature(Feature object)
+  public T caseClassDeclaration(ClassDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Class Body</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class Body</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClassBody(ClassBody object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Class Member Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class Member Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClassMemberDeclaration(ClassMemberDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Field Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Field Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFieldDeclaration(FieldDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodDeclaration(MethodDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Header</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Header</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodHeader(MethodHeader object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Body</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Body</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodBody(MethodBody object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlock(Block object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Block Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Block Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlockStatement(BlockStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Local Variable Declaration Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Local Variable Declaration Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocalVariableDeclarationStatement(LocalVariableDeclarationStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Local Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Local Variable Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocalVariableDeclaration(LocalVariableDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Declarators</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Declarators</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableDeclarators(VariableDeclarators object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Declarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableDeclarator(VariableDeclarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpressionStatement(ExpressionStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatementExpression(StatementExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Then Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Then Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfThenStatement(IfThenStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Then Else Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Then Else Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfThenElseStatement(IfThenElseStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhileStatement(WhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDoWhileStatement(DoWhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Return Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Return Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReturnStatement(ReturnStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForStatement(ForStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Init</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Init</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForInit(ForInit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Update</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Update</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForUpdate(ForUpdate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement Expression List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatementExpressionList(StatementExpressionList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assignment Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assignment Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssignmentExpression(AssignmentExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConditionalExpression(ConditionalExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Infix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Infix Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInfixExpression(InfixExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Prefix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Prefix Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrefixExpression(PrefixExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Postfix Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePostfixExpression(PostfixExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Suffix</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSuffix(Suffix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayAccess(ArrayAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Invocation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Invocation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodInvocation(MethodInvocation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Argument List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Argument List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArgumentList(ArgumentList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primary</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primary</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimary(Primary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Creation Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Creation Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayCreationExpression(ArrayCreationExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Modifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Modifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModifier(Modifier object)
   {
     return null;
   }
