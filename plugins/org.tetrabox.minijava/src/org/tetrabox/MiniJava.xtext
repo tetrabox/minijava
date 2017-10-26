@@ -1,0 +1,294 @@
+grammar org.tetrabox.MiniJava with org.eclipse.xtext.common.Terminals
+
+generate miniJava "http://www.tetrabox.org/MiniJava"
+
+/**
+ * Source: https://www.cs.purdue.edu/homes/hosking/502/project/grammar.html
+ */
+
+// The Syntactic Grammar
+Goal:
+	CompilationUnit;
+
+	//Lexical Structure
+
+//The Java lexical definition describes tokens for Identifier, and the various literals:
+Literal:
+	IntegerLiteral |
+	BooleanLiteral |
+	CharacterLiteral |
+	StringLiteral |
+	NullLiteral;
+
+terminal NullLiteral:
+	"null";
+
+terminal StringLiteral:
+	STRING;
+
+terminal CharacterLiteral:
+	"\'" . "\'";
+
+terminal BooleanLiteral:
+	"true" | "false";
+
+terminal IntegerLiteral:
+	INT;
+
+	// In MiniJava we accept identifiers consisting of ASCII characters only, integer literals including octal and hexadecimal, and character and string literals consisting of ASCII characters only, and including escapes.
+
+// Types
+Type:
+	PrimitiveType |
+	ReferenceType;
+
+PrimitiveType:
+	"int" |
+	"boolean";
+
+ReferenceType:
+	ClassType
+	//   	|ArrayType
+;
+
+ClassType:
+	Name;
+
+ArrayType:
+	PrimitiveType "[]" |
+	ClassType "[]" |
+	ArrayType "[]";
+
+	//Names
+Name:
+	SimpleName |
+	QualifiedName;
+
+SimpleName:
+	Identifier;
+
+Identifier:
+	ID;
+
+QualifiedName:
+	Identifier ('.' Identifier)*
+	//  	Name "." Identifier // original rule
+;
+
+//Packages
+CompilationUnit:
+	(types+=TypeDeclaration)+;
+
+TypeDeclaration:
+	ClassDeclaration;
+
+	//Modifiers
+Modifiers:
+	{Modifier} (modifiers+=Modifier)*;
+
+Modifier:
+	"public" |
+	"static" |
+	"native";
+
+	//Classes
+//Class Declaration
+ClassDeclaration:
+	'class' Identifier (Super)? ClassBody;
+
+Super:
+	"extends" ClassType;
+
+ClassBody:
+	{ClassBody} '{' (classMembers+=ClassMemberDeclaration)* '}';
+
+ClassMemberDeclaration:
+	FieldDeclaration |
+	MethodDeclaration;
+
+	//Field Declarations
+FieldDeclaration:
+	Modifiers Type IdentifierList;
+
+IdentifierList:
+	Identifier (',' Identifier)*;
+
+	//Method Declarations
+MethodDeclaration:
+	MethodHeader (body=MethodBody);
+
+MethodHeader:
+	Modifiers (type=Type) (declarator=MethodDeclarator) (throws=Throws)? |
+	Modifiers "void" (declarator=MethodDeclarator) (throws=Throws)?;
+
+MethodDeclarator:
+	Identifier "(" (FormalParameterList)? ")";
+
+FormalParameterList:
+	FormalParameter (',' FormalParameter)*;
+
+FormalParameter:
+	Type Identifier;
+
+Throws:
+	"throws" ClassType;
+
+MethodBody:
+	Block;
+
+	//Blocks and Statements
+Block:
+	{Block} "{" (statements+=BlockStatement)* "}";
+
+BlockStatement:
+	LocalVariableDeclarationStatement |
+	Statement;
+
+LocalVariableDeclarationStatement:
+	LocalVariableDeclaration;
+
+LocalVariableDeclaration:
+	Type VariableDeclarators;
+
+VariableDeclarators:
+	(variableDeclarators+=VariableDeclarator) (',' (variableDeclarators+=VariableDeclarator))*;
+
+VariableDeclarator:
+	{VariableDeclarator}
+	Identifier |
+	Identifier "=" Expression;
+
+Statement:
+	Block |
+	ExpressionStatement |
+	IfThenStatement |
+	IfThenElseStatement |
+	WhileStatement |
+	DoWhileStatement |
+	ReturnStatement |
+	BreakStatement |
+	ContinueStatement |
+	ForStatement;
+
+ExpressionStatement:
+	{ExpressionStatement}
+	(statementExpression=StatementExpression)?;
+
+StatementExpression:
+	Expression;
+
+IfThenStatement:
+	"if" "(" Expression ")" (statement=Statement);
+
+IfThenElseStatement:
+	"if" "(" Expression ")" (statementIf=Statement) "else" (statementElse=Statement);
+
+WhileStatement:
+	"while" "(" Expression ")" (statement=Statement);
+
+DoWhileStatement:
+	"do" (statement=Statement) "while" "(" (expression=Expression) ")";
+
+ReturnStatement:
+	"return" Expression?;
+
+BreakStatement:
+	"break";
+
+ContinueStatement:
+	"continue";
+
+ForStatement:
+	"for" "(" ForInit? ";" (expression=Expression)? ";" (update=ForUpdate)? ")" (statement=Statement);
+
+ForInit:
+	StatementExpressionList |
+	LocalVariableDeclaration;
+
+ForUpdate:
+	StatementExpressionList;
+
+StatementExpressionList:
+	(statementExpressions+=StatementExpression) ("," (statementExpressions+=StatementExpression))*;
+
+	//Expressions
+Expression:
+	ConditionalExpression |
+	AssignmentExpression;
+
+AssignmentExpression:
+	(left=ConditionalExpression) "=" (right=Expression);
+
+ConditionalExpression:
+	InfixExpression |
+	(condition=InfixExpression) "?" (expressionIf=Expression) ":" (expressionElse=ConditionalExpression);
+
+InfixExpression:
+	PrefixExpression |
+	InfixExpression InfixOp PrefixExpression;
+
+InfixOp:
+	"||" |
+	"&&" |
+	"==" |
+	"!=" |
+	"<" |
+	">" |
+	"<=" |
+	">=" |
+	"+" |
+	"-" |
+	"*" |
+	"/";
+
+PrefixExpression:
+	PrefixOp PrefixExpression |
+	PostfixExpression;
+
+PrefixOp:
+	"-" |
+	"!";
+
+PostfixExpression:
+	Primary Suffix*;
+
+Suffix:
+	ArrayAccess |
+	FieldAccess |
+	MethodInvocation;
+
+ArrayAccess:
+	"[" (expression=Expression) "]";
+
+Selector:
+	"." Identifier;
+
+FieldAccess:
+	Selector;
+
+MethodInvocation:
+	{MethodInvocation} Selector "(" arguments=ArgumentList? ")";
+
+ArgumentList:
+	Expression (',' (expressions+=Expression))*;
+
+Primary :
+	"(" Expression ")" |
+	"this" |
+	Literal |
+	Identifier |
+	"super" FieldAccess |
+	"super" MethodInvocation |
+	ClassInstanceCreationExpression |
+	ArrayCreationExpression;
+
+ClassInstanceCreationExpression:
+	"new" ClassType "(" ")";
+
+ArrayCreationExpression:
+	"new" PrimitiveType "[" (expression=Expression) "]" (Dimension)* |
+	"new" ClassType "[" (expression=Expression) "]" (Dimension)*;
+
+Dimension:
+	"[" "]";
+
