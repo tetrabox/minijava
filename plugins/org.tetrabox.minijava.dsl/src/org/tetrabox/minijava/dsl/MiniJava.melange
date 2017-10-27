@@ -14,19 +14,7 @@ external language MiniJava {
 }
 
 language XMiniJava {
-	syntax "platform:/resource/org.tetrabox.minijava.semantics/model/MiniJavaDynamicData.ecore"
-	with org.tetrabox.minijava.semantics.MethodCallAspect
-	with org.tetrabox.minijava.semantics.ExpressionAspect
-	with org.tetrabox.minijava.semantics.SelectionAspect
-	with org.tetrabox.minijava.semantics.ThisAspect
-	with org.tetrabox.minijava.semantics.FieldSelectionAspect
-	with org.tetrabox.minijava.semantics.ProgramAspect
-	with org.tetrabox.minijava.semantics.NewAspect
-	with org.tetrabox.minijava.semantics.BoolConstantAspect
-	with org.tetrabox.minijava.semantics.MessageAspect
-	with org.tetrabox.minijava.semantics.VariableAspect
-	with org.tetrabox.minijava.semantics.CastAspect
-	with org.tetrabox.minijava.semantics.StringConstantAspect
-	with org.tetrabox.minijava.semantics.IntConstantAspect
+	syntax "platform:/resource/org.tetrabox.minijava.semantics.modelstate/model/MiniJavaDynamicData.ecore"
+	with org.tetrabox.minijava.semantics.*
 
 }

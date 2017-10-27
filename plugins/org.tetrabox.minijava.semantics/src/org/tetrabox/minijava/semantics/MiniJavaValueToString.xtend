@@ -1,30 +1,46 @@
 package org.tetrabox.minijava.semantics
 
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 
-class MiniJavaValueToString {
+@Aspect(className=Value)
+class ValueToStringAspect {
+	def String customToString() {}
+}
 
-//	static def String simpleInstanceValueToString(Instance instance) {
-//		'''«instance.type.name»«instance»@«System.identityHashCode(instance)»'''
-//	}
-	static def dispatch String valueToString(Instance instance) {
-			///«b.field.name»: «IF b.value instanceof Instance»«simpleInstanceValueToString(b.value as Instance)»«ELSE»«valueToString(b.value)»«ENDIF»
-		return '''«instance.type.name» {«FOR b : instance.fieldbindings SEPARATOR "\n\t"»«b.field.name»: «valueToString(b.value) »«ENDFOR»}''';
+@Aspect(className=Instance)
+class InstanceToStringAspect extends ValueToStringAspect {
+	@OverrideAspectMethod
+	def String customToString() {
+		return '''«_self.type.name» {«FOR b : _self.fieldbindings SEPARATOR "\n\t"»«b.field.name»: «b.value.customToString »«ENDFOR»}''';
 	}
+}
 
-	static def dispatch String valueToString(IntegerValue integerValue) {
-		return integerValue.value.toString
+@Aspect(className=IntegerValue)
+class IntegerValueToStringAspect extends ValueToStringAspect {
+	@OverrideAspectMethod
+	def String customToString() {
+		return _self.value.toString
 	}
+}
 
-	static def dispatch String valueToString(BooleanValue booleanValue) {
-		return booleanValue.value.toString
+@Aspect(className=BooleanValue)
+class BooleanValueToStringAspect extends ValueToStringAspect {
+	@OverrideAspectMethod
+	def String customToString() {
+		return _self.value.toString
 	}
+}
 
-	static def dispatch String valueToString(StringValue stringValue) {
-		return stringValue.value.toString
+@Aspect(className=StringValue)
+class StringValueToStringAspect extends ValueToStringAspect {
+	@OverrideAspectMethod
+	def String customToString() {
+		return _self.value.toString
 	}
-
 }

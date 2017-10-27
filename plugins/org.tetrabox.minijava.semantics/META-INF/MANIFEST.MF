@@ -1,9 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: org.tetrabox.minijava.semantics;singleton:=true
-Export-Package: org.tetrabox.minijava.dynamic.minijavadynamicdata,
- org.tetrabox.minijava.dynamic.minijavadynamicdata.impl,
- org.tetrabox.minijava.dynamic.minijavadynamicdata.util,
- org.tetrabox.minijava.semantics
+Export-Package: org.tetrabox.minijava.semantics
 Bundle-Name: %pluginName
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -16,8 +13,9 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.8.0";visibility:=reexport,
  org.eclipse.emf.common;bundle-version="2.8.0";visibility:=reexport,
- org.tetrabox.minijava.xtext;bundle-version="0.0.0";visibility:=reexport
+ org.tetrabox.minijava.xtext;bundle-version="0.0.0";visibility:=reexport,
+ org.tetrabox.minijava.semantics.modelstate;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
