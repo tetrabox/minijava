@@ -36,21 +36,10 @@ class MiniJavaScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	def public IScope scope_Variable_variable(Method meth, EReference ref) {
-		System.out.println("scope_Variable_variable(Method");
-		System.out.println("mb: " + meth);
-		System.out.println("ref: " + ref);
 		return Scopes.scopeFor(meth.getParams());
 	}
 
-	/*
-	 * IScope scope_MethodCall_name(Selection sel, EReference ref) {
-	 * 	System.out.println("scope_MethodCall_name(Selection sel");
-	 * 	System.out.println("sel: " + sel);
-	 * 	//print(sel, "sel: ");
-	 * 	System.out.println("ref: " + ref);
-	 * 	return null;
-	 * }
-	 */
+
 	/**
 	 * Computes all the fields available in the class of the receiver
 	 * in a field selection expression
@@ -60,13 +49,9 @@ class MiniJavaScopeProvider extends AbstractDeclarativeScopeProvider {
 	 * @return the scope containing all the fields reachable
 	 */
 	def public IScope scope_FieldSelection_name(Selection sel, EReference ref) {
-		/*System.out.println("scope_FieldSelection_name(Selection sel");
-		 * System.out.println("sel: " + sel);
-		 System.out.println("ref: " + ref);*/
 		val TypeResult selectionExpressionType = typeSystem.getType(sel.getReceiver());
 		val Class receiverType = selectionExpressionType.getClassref();
 		if (receiverType !== null) {
-			System.out.println("receiver type: " + receiverType.getName());
 			return Scopes.scopeFor(auxiliaryFunctions.getFields(receiverType));
 		}
 
@@ -85,13 +70,9 @@ class MiniJavaScopeProvider extends AbstractDeclarativeScopeProvider {
 	 * @return the scope containing all the fields reachable
 	 */
 	def public IScope scope_MethodCall_name(Selection sel, EReference ref) {
-		/*System.out.println("scope_MethodCall_name(Selection sel");
-		 * System.out.println("sel: " + sel);
-		 System.out.println("ref: " + ref);*/
 		val TypeResult selectionExpressionType = typeSystem.getType(sel.getReceiver());
 		val Class receiverType = selectionExpressionType.getClassref();
 		if (receiverType !== null) {
-			System.out.println("receiver type: " + receiverType.getName());
 			return Scopes.scopeFor(auxiliaryFunctions.getMethods(receiverType));
 		}
 
@@ -114,8 +95,6 @@ class MiniJavaScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	override public IScope getScope(EObject context, EReference reference) {
-		// System.out.println("context: " + context);
-		// System.out.println("reference: " + reference);
 		val IScope scope = super.getScope(context, reference);
 		return scope
 	}

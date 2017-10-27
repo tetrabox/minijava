@@ -24,8 +24,7 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Program program, extension IFormattableDocument document) {
 
-		// TODO debug
-		println(textRegionAccess)
+		//println(textRegionAccess)
 
 		// In field declarations, there is no space a semicolumn, and there is a newline after
 		program.allRegionsFor.keyword(";").prepend[noSpace]
