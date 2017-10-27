@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="miniJava" nsURI="http://org.tetrabox.minijava.xminijava/miniJava/" nsPrefix="miniJava">
+    <eClassifiers xsi:type="ecore:EClass" name="Program">
+      <eOperations name="execute">
+        <eAnnotations source="aspect"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1" eType="/0/Class" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="/0/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BasicType" eSuperTypes="/0/Type">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="basic">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ClassType" eSuperTypes="/0/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classref" eType="/0/Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="/0/Type" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Class">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="/0/Class"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1" eType="/0/Field" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1" eType="/0/Method" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="/0/TypedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="/0/TypedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Method">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returntype" eType="/0/Type" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1" eType="/0/Parameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="/0/MethodBody" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MethodBody">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="/0/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="/0/Argument">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Message">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+        <eParameters name="receiver" eType="/0/Instance"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MethodCall" eSuperTypes="/0/Message">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+        <eParameters name="receiver" eType="/0/Instance"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="/0/Method"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="/0/Argument" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FieldSelection" eSuperTypes="/0/Message">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+        <eParameters name="receiver" eType="/0/Instance"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="/0/Field"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="This" eSuperTypes="/0/Expression">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="/0/Expression">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="paramref" eType="/0/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="New" eSuperTypes="/0/Expression">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="/0/ClassType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="/0/Argument" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Cast" eSuperTypes="/0/Expression">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="/0/ClassType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="/0/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="/0/Expression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StringConstant" eSuperTypes="/0/Constant">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntConstant" eSuperTypes="/0/Constant">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BoolConstant" eSuperTypes="/0/Constant">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Argument"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="/0/Expression">
+      <eOperations name="evaluate" eType="/0/Value">
+        <eAnnotations source="aspect"/>
+        <eParameters name="context" eType="/0/Context"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="/0/Expression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="/0/Message" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Context">
+      <eAnnotations source="aspect"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Instance">
+      <eAnnotations source="aspect"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Value">
+      <eAnnotations source="aspect"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="minijavadynamicdata" nsURI="http://org.tetrabox.minijava.xminijava/minijavadynamicdata/" nsPrefix="minijavadynamicdata">
+    <eClassifiers xsi:type="ecore:EClass" name="Context">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall" eType="/0/MethodCall"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="/1/Instance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="/1/ParameterBinding" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="/1/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Instance" eSuperTypes="/1/Value">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldbindings" upperBound="-1" eType="/1/FieldBinding" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="/1/Value" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="/0/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FieldBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" eType="/0/Field"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="/1/Value" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="/1/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="/1/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>
