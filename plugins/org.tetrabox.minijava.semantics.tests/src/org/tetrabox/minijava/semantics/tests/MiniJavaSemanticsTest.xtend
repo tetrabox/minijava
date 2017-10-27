@@ -10,37 +10,22 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
-import static extension org.tetrabox.minijava.semantics.ClassAspect.*
+import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaSemanticsTest {
 	@Inject
-	ParseHelper<Class> parseHelper
+	ParseHelper<Program> parseHelper
 
-	@Test
-	def void loadModel() {
-		val Class result = parseHelper.parse('''
-			class X {
-				public static void main ( String [] aa ) { return 1; }
-			}
-			
 
-			
-		''')
-
-		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
-
-		result.execute
-	}
 
 	@Test
 	def void longModel() {
-		val Class result = parseHelper.parse('''class A {
+		val Program result = parseHelper.parse('''class A {
 		
 		}
 		
@@ -92,7 +77,7 @@ class MiniJavaSemanticsTest {
 	
 	@Test
 	def void test3() {
-		val Class result = parseHelper.parse('''
+		val Program result = parseHelper.parse('''
 				
 		class B {
 			int x;
