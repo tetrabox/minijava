@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage
  * @generated
  */
 public interface MinijavadynamicdataFactory extends EFactory {
@@ -19,7 +19,7 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	MinijavadynamicdataFactory eINSTANCE = org.tetrabox.minijava.semantics.minijavadynamicdata.impl.MinijavadynamicdataFactoryImpl.init();
+	MinijavadynamicdataFactory eINSTANCE = org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Context</em>'.

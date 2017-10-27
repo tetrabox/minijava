@@ -8,6 +8,7 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 import org.tetrabox.minijava.xtext.miniJava.Cast
 import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.Expression
 import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MethodBody
@@ -24,8 +25,7 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Program program, extension IFormattableDocument document) {
 
-		//println(textRegionAccess)
-
+		// println(textRegionAccess)
 		// In field declarations, there is no space a semicolumn, and there is a newline after
 		program.allRegionsFor.keyword(";").prepend[noSpace]
 		program.allRegionsFor.keyword(";").append[newLine]
@@ -119,6 +119,9 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(New _new, extension IFormattableDocument document) {
+
+		formatExpressionParentheses(_new, document)
+
 		_new.regionFor.keyword("new").append[oneSpace]
 
 		// No spaces surrounding args list
@@ -136,6 +139,8 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(Cast cast, extension IFormattableDocument document) {
+		formatExpressionParentheses(cast, document)
+
 		// No spaces surrounding args list
 		cast.regionFor.keyword("(").append[noSpace]
 		cast.regionFor.keyword(")").surround[noSpace]
@@ -143,9 +148,18 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(Selection selection, extension IFormattableDocument document) {
+		formatExpressionParentheses(selection, document)
+
 		// No spaces surrounding selection dots
 		selection.regionFor.keyword(".").surround[noSpace]
 
+	}
+
+	// TODO does not work
+	private def void formatExpressionParentheses(Expression expression, extension IFormattableDocument document) {
+		// No spaces surrounding parenthesized expressions
+		expression.regionFor.keyword("(").append[noSpace]
+		expression.regionFor.keyword(")").surround[noSpace]
 	}
 
 // TODO: implement for Parameter, Method, MethodBody, Selection, MethodCall, New, Cast

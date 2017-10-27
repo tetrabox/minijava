@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.tetrabox.minijava.semantics.minijavadynamicdata.*;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.*;
 
 /**
  * <!-- begin-user-doc -->

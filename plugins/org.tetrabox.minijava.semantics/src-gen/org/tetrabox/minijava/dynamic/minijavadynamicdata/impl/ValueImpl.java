@@ -1,13 +1,13 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Value;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
 /**
  * <!-- begin-user-doc -->

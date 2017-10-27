@@ -1,27 +1,30 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.IntegerValue;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage;
+
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Integer Value</b></em>'.
+ * An implementation of the model object '<em><b>String Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.IntegerValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StringValueImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntegerValueImpl extends ValueImpl implements IntegerValue {
+public class StringValueImpl extends ValueImpl implements StringValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -30,7 +33,8 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VALUE_EDEFAULT = 0;
+	protected static final String VALUE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -39,14 +43,14 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected int value = VALUE_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntegerValueImpl() {
+	protected StringValueImpl() {
 		super();
 	}
 
@@ -57,7 +61,7 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.INTEGER_VALUE;
+		return MinijavadynamicdataPackage.Literals.STRING_VALUE;
 	}
 
 	/**
@@ -65,7 +69,7 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -74,11 +78,11 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(int newValue) {
-		int oldValue = value;
+	public void setValue(String newValue) {
+		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.INTEGER_VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.STRING_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -89,7 +93,7 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INTEGER_VALUE__VALUE:
+			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -103,8 +107,8 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INTEGER_VALUE__VALUE:
-				setValue((Integer)newValue);
+			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -118,7 +122,7 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INTEGER_VALUE__VALUE:
+			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -133,8 +137,8 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INTEGER_VALUE__VALUE:
-				return value != VALUE_EDEFAULT;
+			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,4 +159,4 @@ public class IntegerValueImpl extends ValueImpl implements IntegerValue {
 		return result.toString();
 	}
 
-} //IntegerValueImpl
+} //StringValueImpl

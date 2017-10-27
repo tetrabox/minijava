@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: org.tetrabox.minijava.semantics;singleton:=true
-Export-Package: org.tetrabox.minijava.semantics,
- org.tetrabox.minijava.semantics.minijavadynamicdata,
- org.tetrabox.minijava.semantics.minijavadynamicdata.impl,
- org.tetrabox.minijava.semantics.minijavadynamicdata.util
+Export-Package: org.tetrabox.minijava.dynamic.minijavadynamicdata,
+ org.tetrabox.minijava.dynamic.minijavadynamicdata.impl,
+ org.tetrabox.minijava.dynamic.minijavadynamicdata.util,
+ org.tetrabox.minijava.semantics
 Bundle-Name: %pluginName
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .

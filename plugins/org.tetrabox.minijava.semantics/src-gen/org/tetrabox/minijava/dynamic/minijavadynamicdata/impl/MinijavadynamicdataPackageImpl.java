@@ -1,23 +1,25 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.BooleanValue;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Context;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Instance;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.IntegerValue;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataFactory;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.ParameterBinding;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.StringValue;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Value;
+
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
+
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 
 /**
@@ -94,7 +96,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#eNS_URI
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
@@ -233,6 +235,15 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInstance_Type() {
+		return (EReference)instanceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParameterBinding() {
 		return parameterBindingEClass;
 	}
@@ -358,6 +369,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		instanceEClass = createEClass(INSTANCE);
 		createEReference(instanceEClass, INSTANCE__FIELDBINDINGS);
+		createEReference(instanceEClass, INSTANCE__TYPE);
 
 		parameterBindingEClass = createEClass(PARAMETER_BINDING);
 		createEReference(parameterBindingEClass, PARAMETER_BINDING__VALUE);
@@ -423,6 +435,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		initEClass(instanceEClass, Instance.class, "Instance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInstance_Fieldbindings(), this.getFieldBinding(), null, "fieldbindings", null, 0, -1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInstance_Type(), theMiniJavaPackage.getClass_(), null, "type", null, 1, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterBindingEClass, ParameterBinding.class, "ParameterBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterBinding_Value(), this.getValue(), null, "value", null, 0, 1, ParameterBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

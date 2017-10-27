@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -8,49 +8,49 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.StringValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Value</b></em>'.
+ * An implementation of the model object '<em><b>Boolean Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.StringValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.BooleanValueImpl#isValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StringValueImpl extends ValueImpl implements StringValue {
+public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #isValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final boolean VALUE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #isValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected boolean value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StringValueImpl() {
+	protected BooleanValueImpl() {
 		super();
 	}
 
@@ -61,7 +61,7 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.STRING_VALUE;
+		return MinijavadynamicdataPackage.Literals.BOOLEAN_VALUE;
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public boolean isValue() {
 		return value;
 	}
 
@@ -78,11 +78,11 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public void setValue(boolean newValue) {
+		boolean oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.STRING_VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.BOOLEAN_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
-				return getValue();
+			case MinijavadynamicdataPackage.BOOLEAN_VALUE__VALUE:
+				return isValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +107,8 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
-				setValue((String)newValue);
+			case MinijavadynamicdataPackage.BOOLEAN_VALUE__VALUE:
+				setValue((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,7 +122,7 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
+			case MinijavadynamicdataPackage.BOOLEAN_VALUE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -137,8 +137,8 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.STRING_VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MinijavadynamicdataPackage.BOOLEAN_VALUE__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -159,4 +159,4 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 		return result.toString();
 	}
 
-} //StringValueImpl
+} //BooleanValueImpl

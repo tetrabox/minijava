@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.util;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,14 +9,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.tetrabox.minijava.semantics.minijavadynamicdata.*;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage
  * @generated
  */
 public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
@@ -120,13 +120,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Context <em>Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.Context
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 	 * @generated
 	 */
 	public Adapter createContextAdapter() {
@@ -134,13 +134,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Value <em>Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.Value
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 	 * @generated
 	 */
 	public Adapter createValueAdapter() {
@@ -148,13 +148,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.IntegerValue <em>Integer Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue <em>Integer Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.IntegerValue
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 	 * @generated
 	 */
 	public Adapter createIntegerValueAdapter() {
@@ -162,13 +162,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Instance <em>Instance</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance <em>Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.Instance
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
 	 * @generated
 	 */
 	public Adapter createInstanceAdapter() {
@@ -176,13 +176,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.ParameterBinding <em>Parameter Binding</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding <em>Parameter Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.ParameterBinding
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding
 	 * @generated
 	 */
 	public Adapter createParameterBindingAdapter() {
@@ -190,13 +190,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding <em>Field Binding</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding <em>Field Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding
 	 * @generated
 	 */
 	public Adapter createFieldBindingAdapter() {
@@ -204,13 +204,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.StringValue <em>String Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue <em>String Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.StringValue
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 	 * @generated
 	 */
 	public Adapter createStringValueAdapter() {
@@ -218,13 +218,13 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.BooleanValue <em>Boolean Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue <em>Boolean Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.BooleanValue
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
 	 * @generated
 	 */
 	public Adapter createBooleanValueAdapter() {

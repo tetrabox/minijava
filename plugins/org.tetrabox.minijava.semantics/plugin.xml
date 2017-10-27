@@ -5,7 +5,7 @@
       <!-- @generated MiniJavaDynamicData -->
       <package
             uri="minijavadynamicdata"
-            class="org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage"
+            class="org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage"
             genModel="model/MiniJavaDynamicData.genmodel"/>
    </extension>
 

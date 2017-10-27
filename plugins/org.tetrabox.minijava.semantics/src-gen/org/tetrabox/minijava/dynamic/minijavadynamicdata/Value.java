@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getValue()
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getValue()
  * @model abstract="true"
  * @generated
  */

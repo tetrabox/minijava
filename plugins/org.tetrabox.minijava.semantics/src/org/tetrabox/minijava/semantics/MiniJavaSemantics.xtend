@@ -4,14 +4,15 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Context
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Instance
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Value
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant
 import org.tetrabox.minijava.xtext.miniJava.Cast
-import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.ClassType
 import org.tetrabox.minijava.xtext.miniJava.Expression
+import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.FieldSelection
 import org.tetrabox.minijava.xtext.miniJava.IntConstant
 import org.tetrabox.minijava.xtext.miniJava.Message
@@ -33,8 +34,11 @@ class ProgramAspect {
 	@Step
 	def void execute() {
 		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
-		val result = _self.main.evaluate(initialContext)
-		println("Result: " + result)
+		if (_self.main !== null) {
+			val result = _self.main.evaluate(initialContext)
+			println(MiniJavaValueToString::valueToString(result))
+		} else
+			println("No main expression.")
 	}
 
 }
@@ -106,15 +110,17 @@ class VariableAspect extends ExpressionAspect {
 class NewAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
-		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance
+		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance => [
+			type = _self.type.classref
+		]
 
 		for (arg : _self.args) {
-			val field = (_self.type as Class).fields.get(_self.args.indexOf(arg))
+			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))
 			val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding
 			binding.field = field
 			binding.value = (arg as Expression).evaluate(context)
+			result.fieldbindings.add(binding)
 		}
-		result.fieldbindings
 
 		return result
 	}

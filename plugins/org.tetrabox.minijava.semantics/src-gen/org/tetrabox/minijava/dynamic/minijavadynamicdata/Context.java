@@ -1,9 +1,11 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 
 /**
@@ -15,17 +17,16 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Context#getMethodcall <em>Methodcall</em>}</li>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Context#getInstance <em>Instance</em>}</li>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Context#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getMethodcall <em>Methodcall</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getInstance <em>Instance</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getBindings <em>Bindings</em>}</li>
  * </ul>
  *
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getContext()
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext()
  * @model
  * @generated
  */
 public interface Context extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Methodcall</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -36,14 +37,14 @@ public interface Context extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Methodcall</em>' reference.
 	 * @see #setMethodcall(MethodCall)
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Methodcall()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Methodcall()
 	 * @model
 	 * @generated
 	 */
 	MethodCall getMethodcall();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Context#getMethodcall <em>Methodcall</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getMethodcall <em>Methodcall</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Methodcall</em>' reference.
@@ -62,14 +63,14 @@ public interface Context extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Instance</em>' reference.
 	 * @see #setInstance(Instance)
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Instance()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Instance()
 	 * @model
 	 * @generated
 	 */
 	Instance getInstance();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.Context#getInstance <em>Instance</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getInstance <em>Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Instance</em>' reference.
@@ -80,7 +81,7 @@ public interface Context extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.semantics.minijavadynamicdata.ParameterBinding}.
+	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
@@ -88,9 +89,10 @@ public interface Context extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Bindings()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Bindings()
 	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ParameterBinding> getBindings();
+
 } // Context

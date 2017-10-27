@@ -1,23 +1,28 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Context;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Instance;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.ParameterBinding;
+
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding;
+
 import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 
 /**
@@ -28,9 +33,9 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.ContextImpl#getMethodcall <em>Methodcall</em>}</li>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.ContextImpl#getInstance <em>Instance</em>}</li>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.ContextImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getMethodcall <em>Methodcall</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getInstance <em>Instance</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getBindings <em>Bindings</em>}</li>
  * </ul>
  *
  * @generated

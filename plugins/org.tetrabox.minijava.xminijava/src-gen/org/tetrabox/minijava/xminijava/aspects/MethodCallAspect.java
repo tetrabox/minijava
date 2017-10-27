@@ -5,14 +5,14 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.tetrabox.minijava.xminijava.minijavadynamicdata.Context;
+import org.tetrabox.minijava.xminijava.minijavadynamicdata.Instance;
+import org.tetrabox.minijava.xminijava.minijavadynamicdata.MinijavadynamicdataFactory;
+import org.tetrabox.minijava.xminijava.minijavadynamicdata.ParameterBinding;
+import org.tetrabox.minijava.xminijava.minijavadynamicdata.Value;
 import org.tetrabox.minijava.xminijava.aspects.ExpressionAspect;
 import org.tetrabox.minijava.xminijava.aspects.MessageAspect;
 import org.tetrabox.minijava.xminijava.aspects.MethodCallAspectMethodCallAspectProperties;
-import org.tetrabox.minijava.xminijava.aspects.minijavadynamicdata.Context;
-import org.tetrabox.minijava.xminijava.aspects.minijavadynamicdata.Instance;
-import org.tetrabox.minijava.xminijava.aspects.minijavadynamicdata.MinijavadynamicdataFactory;
-import org.tetrabox.minijava.xminijava.aspects.minijavadynamicdata.ParameterBinding;
-import org.tetrabox.minijava.xminijava.aspects.minijavadynamicdata.Value;
 import org.tetrabox.minijava.xminijava.miniJava.Argument;
 import org.tetrabox.minijava.xminijava.miniJava.Expression;
 import org.tetrabox.minijava.xminijava.miniJava.MethodCall;
@@ -23,15 +23,13 @@ import org.tetrabox.minijava.xminijava.miniJava.Parameter;
 public class MethodCallAspect extends MessageAspect {
   @OverrideAspectMethod
   public static Value evaluate(final MethodCall _self, final Context context, final Instance receiver) {
-    final org.tetrabox.minijava.xminijava.aspects.MethodCallAspectMethodCallAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.MethodCallAspectMethodCallAspectContext.getSelf(_self);
-    Object result = null;
-     if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.MethodCall){
-    					result = org.tetrabox.minijava.xminijava.aspects.MethodCallAspect._privk3_evaluate(_self_, (org.tetrabox.minijava.xminijava.miniJava.MethodCall)_self,context,receiver);
-    } else  if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.Message){
-    					result = org.tetrabox.minijava.xminijava.aspects.MessageAspect.evaluate((org.tetrabox.minijava.xminijava.miniJava.Message)_self,context,receiver);
-    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
-    return (org.tetrabox.minijava.xminijava.aspects.minijavadynamicdata.Value)result;
-  }
+	final org.tetrabox.minijava.xminijava.aspects.MethodCallAspectMethodCallAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.MethodCallAspectMethodCallAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_evaluate(_self_, _self, context, receiver);
+	;
+	return (org.tetrabox.minijava.xminijava.minijavadynamicdata.Value) result;
+}
   
   private static Value super_evaluate(final MethodCall _self, final Context context, final Instance receiver) {
     final org.tetrabox.minijava.xminijava.aspects.MessageAspectMessageAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.MessageAspectMessageAspectContext.getSelf(_self);

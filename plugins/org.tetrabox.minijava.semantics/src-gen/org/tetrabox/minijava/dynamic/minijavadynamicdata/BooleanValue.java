@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 
 /**
@@ -12,10 +12,10 @@ package org.tetrabox.minijava.semantics.minijavadynamicdata;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.BooleanValue#isValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue#isValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getBooleanValue()
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getBooleanValue()
  * @model
  * @generated
  */
@@ -30,14 +30,14 @@ public interface BooleanValue extends Value {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(boolean)
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getBooleanValue_Value()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getBooleanValue_Value()
 	 * @model
 	 * @generated
 	 */
 	boolean isValue();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.BooleanValue#isValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue#isValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.

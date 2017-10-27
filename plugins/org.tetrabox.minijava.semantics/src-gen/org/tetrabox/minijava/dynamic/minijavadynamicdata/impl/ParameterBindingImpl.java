@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.impl;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.ParameterBinding;
-import org.tetrabox.minijava.semantics.minijavadynamicdata.Value;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
 
@@ -25,8 +25,8 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.ParameterBindingImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.impl.ParameterBindingImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated

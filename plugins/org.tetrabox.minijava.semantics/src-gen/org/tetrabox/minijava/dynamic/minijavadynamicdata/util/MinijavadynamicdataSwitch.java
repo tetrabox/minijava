@@ -1,13 +1,13 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata.util;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.tetrabox.minijava.semantics.minijavadynamicdata.*;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import org.tetrabox.minijava.semantics.minijavadynamicdata.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage
  * @generated
  */
 public class MinijavadynamicdataSwitch<T> extends Switch<T> {

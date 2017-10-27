@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 
 /**
@@ -12,10 +12,10 @@ package org.tetrabox.minijava.semantics.minijavadynamicdata;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.StringValue#getValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getStringValue()
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getStringValue()
  * @model
  * @generated
  */
@@ -30,14 +30,14 @@ public interface StringValue extends Value {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getStringValue_Value()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getStringValue_Value()
 	 * @model
 	 * @generated
 	 */
 	String getValue();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.StringValue#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.

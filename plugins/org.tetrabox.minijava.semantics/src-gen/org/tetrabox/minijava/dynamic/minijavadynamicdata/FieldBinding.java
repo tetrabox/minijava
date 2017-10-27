@@ -1,6 +1,6 @@
 /**
  */
-package org.tetrabox.minijava.semantics.minijavadynamicdata;
+package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -15,11 +15,11 @@ import org.tetrabox.minijava.xtext.miniJava.Field;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding#getField <em>Field</em>}</li>
- *   <li>{@link org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding#getValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding#getField <em>Field</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getFieldBinding()
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFieldBinding()
  * @model
  * @generated
  */
@@ -34,14 +34,14 @@ public interface FieldBinding extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Field</em>' reference.
 	 * @see #setField(Field)
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getFieldBinding_Field()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFieldBinding_Field()
 	 * @model required="true"
 	 * @generated
 	 */
 	Field getField();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding#getField <em>Field</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding#getField <em>Field</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Field</em>' reference.
@@ -60,14 +60,14 @@ public interface FieldBinding extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(Value)
-	 * @see org.tetrabox.minijava.semantics.minijavadynamicdata.MinijavadynamicdataPackage#getFieldBinding_Value()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFieldBinding_Value()
 	 * @model containment="true"
 	 * @generated
 	 */
 	Value getValue();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.semantics.minijavadynamicdata.FieldBinding#getValue <em>Value</em>}' containment reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding#getValue <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' containment reference.
