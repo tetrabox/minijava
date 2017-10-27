@@ -2416,13 +2416,13 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TerminalExpression__Alternatives"
-    // InternalMiniJava.g:722:1: rule__TerminalExpression__Alternatives : ( ( ruleThis ) | ( ruleVariable ) | ( ruleNew ) | ( ruleCast ) | ( ruleConstant ) | ( ( ruleParen ) ) );
+    // InternalMiniJava.g:722:1: rule__TerminalExpression__Alternatives : ( ( ruleThis ) | ( ruleVariable ) | ( ruleNew ) | ( ( ruleCast ) ) | ( ruleConstant ) | ( ruleParen ) );
     public final void rule__TerminalExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMiniJava.g:726:1: ( ( ruleThis ) | ( ruleVariable ) | ( ruleNew ) | ( ruleCast ) | ( ruleConstant ) | ( ( ruleParen ) ) )
+            // InternalMiniJava.g:726:1: ( ( ruleThis ) | ( ruleVariable ) | ( ruleNew ) | ( ( ruleCast ) ) | ( ruleConstant ) | ( ruleParen ) )
             int alt4=6;
             alt4 = dfa4.predict(input);
             switch (alt4) {
@@ -2496,19 +2496,25 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // InternalMiniJava.g:745:2: ( ruleCast )
+                    // InternalMiniJava.g:745:2: ( ( ruleCast ) )
                     {
-                    // InternalMiniJava.g:745:2: ( ruleCast )
-                    // InternalMiniJava.g:746:3: ruleCast
+                    // InternalMiniJava.g:745:2: ( ( ruleCast ) )
+                    // InternalMiniJava.g:746:3: ( ruleCast )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3()); 
                     }
+                    // InternalMiniJava.g:747:3: ( ruleCast )
+                    // InternalMiniJava.g:747:4: ruleCast
+                    {
                     pushFollow(FOLLOW_2);
                     ruleCast();
 
                     state._fsp--;
                     if (state.failed) return ;
+
+                    }
+
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3()); 
                     }
@@ -2542,25 +2548,19 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 6 :
-                    // InternalMiniJava.g:757:2: ( ( ruleParen ) )
+                    // InternalMiniJava.g:757:2: ( ruleParen )
                     {
-                    // InternalMiniJava.g:757:2: ( ( ruleParen ) )
-                    // InternalMiniJava.g:758:3: ( ruleParen )
+                    // InternalMiniJava.g:757:2: ( ruleParen )
+                    // InternalMiniJava.g:758:3: ruleParen
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5()); 
                     }
-                    // InternalMiniJava.g:759:3: ( ruleParen )
-                    // InternalMiniJava.g:759:4: ruleParen
-                    {
                     pushFollow(FOLLOW_2);
                     ruleParen();
 
                     state._fsp--;
                     if (state.failed) return ;
-
-                    }
-
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5()); 
                     }
@@ -7489,22 +7489,28 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Cast__Group__0__Impl"
-    // InternalMiniJava.g:2258:1: rule__Cast__Group__0__Impl : ( '(' ) ;
+    // InternalMiniJava.g:2258:1: rule__Cast__Group__0__Impl : ( ( '(' ) ) ;
     public final void rule__Cast__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMiniJava.g:2262:1: ( ( '(' ) )
-            // InternalMiniJava.g:2263:1: ( '(' )
+            // InternalMiniJava.g:2262:1: ( ( ( '(' ) ) )
+            // InternalMiniJava.g:2263:1: ( ( '(' ) )
             {
-            // InternalMiniJava.g:2263:1: ( '(' )
-            // InternalMiniJava.g:2264:2: '('
+            // InternalMiniJava.g:2263:1: ( ( '(' ) )
+            // InternalMiniJava.g:2264:2: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCastAccess().getLeftParenthesisKeyword_0()); 
             }
+            // InternalMiniJava.g:2265:2: ( '(' )
+            // InternalMiniJava.g:2265:3: '('
+            {
             match(input,21,FOLLOW_2); if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCastAccess().getLeftParenthesisKeyword_0()); 
             }
@@ -7820,28 +7826,22 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Paren__Group__0__Impl"
-    // InternalMiniJava.g:2366:1: rule__Paren__Group__0__Impl : ( ( '(' ) ) ;
+    // InternalMiniJava.g:2366:1: rule__Paren__Group__0__Impl : ( '(' ) ;
     public final void rule__Paren__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMiniJava.g:2370:1: ( ( ( '(' ) ) )
-            // InternalMiniJava.g:2371:1: ( ( '(' ) )
+            // InternalMiniJava.g:2370:1: ( ( '(' ) )
+            // InternalMiniJava.g:2371:1: ( '(' )
             {
-            // InternalMiniJava.g:2371:1: ( ( '(' ) )
-            // InternalMiniJava.g:2372:2: ( '(' )
+            // InternalMiniJava.g:2371:1: ( '(' )
+            // InternalMiniJava.g:2372:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParenAccess().getLeftParenthesisKeyword_0()); 
             }
-            // InternalMiniJava.g:2373:2: ( '(' )
-            // InternalMiniJava.g:2373:3: '('
-            {
             match(input,21,FOLLOW_2); if (state.failed) return ;
-
-            }
-
             if ( state.backtracking==0 ) {
                after(grammarAccess.getParenAccess().getLeftParenthesisKeyword_0()); 
             }
@@ -9545,20 +9545,26 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
 
     // $ANTLR start synpred8_InternalMiniJava
     public final void synpred8_InternalMiniJava_fragment() throws RecognitionException {   
+        // InternalMiniJava.g:745:2: ( ( ( ruleCast ) ) )
         // InternalMiniJava.g:745:2: ( ( ruleCast ) )
-        // InternalMiniJava.g:745:2: ( ruleCast )
         {
-        // InternalMiniJava.g:745:2: ( ruleCast )
-        // InternalMiniJava.g:746:3: ruleCast
+        // InternalMiniJava.g:745:2: ( ( ruleCast ) )
+        // InternalMiniJava.g:746:3: ( ruleCast )
         {
         if ( state.backtracking==0 ) {
            before(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3()); 
         }
+        // InternalMiniJava.g:747:3: ( ruleCast )
+        // InternalMiniJava.g:747:4: ruleCast
+        {
         pushFollow(FOLLOW_2);
         ruleCast();
 
         state._fsp--;
         if (state.failed) return ;
+
+        }
+
 
         }
 
@@ -9626,7 +9632,7 @@ public class InternalMiniJavaParser extends AbstractInternalContentAssistParser 
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "722:1: rule__TerminalExpression__Alternatives : ( ( ruleThis ) | ( ruleVariable ) | ( ruleNew ) | ( ruleCast ) | ( ruleConstant ) | ( ( ruleParen ) ) );";
+            return "722:1: rule__TerminalExpression__Alternatives : ( ( ruleThis ) | ( ruleVariable ) | ( ruleNew ) | ( ( ruleCast ) ) | ( ruleConstant ) | ( ruleParen ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;

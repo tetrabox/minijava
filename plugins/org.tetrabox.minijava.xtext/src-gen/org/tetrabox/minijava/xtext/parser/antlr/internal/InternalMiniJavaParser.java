@@ -2536,7 +2536,7 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTerminalExpression"
-    // InternalMiniJava.g:865:1: ruleTerminalExpression returns [EObject current=null] : (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | this_Cast_3= ruleCast | this_Constant_4= ruleConstant | ( ( '(' )=>this_Paren_5= ruleParen ) ) ;
+    // InternalMiniJava.g:865:1: ruleTerminalExpression returns [EObject current=null] : (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | ( ( '(' )=>this_Cast_3= ruleCast ) | this_Constant_4= ruleConstant | this_Paren_5= ruleParen ) ;
     public final EObject ruleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2557,10 +2557,10 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMiniJava.g:871:2: ( (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | this_Cast_3= ruleCast | this_Constant_4= ruleConstant | ( ( '(' )=>this_Paren_5= ruleParen ) ) )
-            // InternalMiniJava.g:872:2: (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | this_Cast_3= ruleCast | this_Constant_4= ruleConstant | ( ( '(' )=>this_Paren_5= ruleParen ) )
+            // InternalMiniJava.g:871:2: ( (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | ( ( '(' )=>this_Cast_3= ruleCast ) | this_Constant_4= ruleConstant | this_Paren_5= ruleParen ) )
+            // InternalMiniJava.g:872:2: (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | ( ( '(' )=>this_Cast_3= ruleCast ) | this_Constant_4= ruleConstant | this_Paren_5= ruleParen )
             {
-            // InternalMiniJava.g:872:2: (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | this_Cast_3= ruleCast | this_Constant_4= ruleConstant | ( ( '(' )=>this_Paren_5= ruleParen ) )
+            // InternalMiniJava.g:872:2: (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | ( ( '(' )=>this_Cast_3= ruleCast ) | this_Constant_4= ruleConstant | this_Paren_5= ruleParen )
             int alt14=6;
             alt14 = dfa14.predict(input);
             switch (alt14) {
@@ -2631,12 +2631,15 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMiniJava.g:900:3: this_Cast_3= ruleCast
+                    // InternalMiniJava.g:900:3: ( ( '(' )=>this_Cast_3= ruleCast )
+                    {
+                    // InternalMiniJava.g:900:3: ( ( '(' )=>this_Cast_3= ruleCast )
+                    // InternalMiniJava.g:901:4: ( '(' )=>this_Cast_3= ruleCast
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3());
-                      		
+                      				newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3());
+                      			
                     }
                     pushFollow(FOLLOW_2);
                     this_Cast_3=ruleCast();
@@ -2645,15 +2648,18 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_Cast_3;
-                      			afterParserOrEnumRuleCall();
-                      		
+                      				current = this_Cast_3;
+                      				afterParserOrEnumRuleCall();
+                      			
                     }
+
+                    }
+
 
                     }
                     break;
                 case 5 :
-                    // InternalMiniJava.g:909:3: this_Constant_4= ruleConstant
+                    // InternalMiniJava.g:912:3: this_Constant_4= ruleConstant
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2675,15 +2681,12 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMiniJava.g:918:3: ( ( '(' )=>this_Paren_5= ruleParen )
-                    {
-                    // InternalMiniJava.g:918:3: ( ( '(' )=>this_Paren_5= ruleParen )
-                    // InternalMiniJava.g:919:4: ( '(' )=>this_Paren_5= ruleParen
+                    // InternalMiniJava.g:921:3: this_Paren_5= ruleParen
                     {
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5());
-                      			
+                      			newCompositeNode(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5());
+                      		
                     }
                     pushFollow(FOLLOW_2);
                     this_Paren_5=ruleParen();
@@ -2692,13 +2695,10 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = this_Paren_5;
-                      				afterParserOrEnumRuleCall();
-                      			
+                      			current = this_Paren_5;
+                      			afterParserOrEnumRuleCall();
+                      		
                     }
-
-                    }
-
 
                     }
                     break;
@@ -3228,7 +3228,7 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCast"
-    // InternalMiniJava.g:1097:1: ruleCast returns [EObject current=null] : (otherlv_0= '(' ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) ) ;
+    // InternalMiniJava.g:1097:1: ruleCast returns [EObject current=null] : ( ( ( '(' )=>otherlv_0= '(' ) ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) ) ;
     public final EObject ruleCast() throws RecognitionException {
         EObject current = null;
 
@@ -3243,23 +3243,29 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMiniJava.g:1103:2: ( (otherlv_0= '(' ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) ) )
-            // InternalMiniJava.g:1104:2: (otherlv_0= '(' ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) )
+            // InternalMiniJava.g:1103:2: ( ( ( ( '(' )=>otherlv_0= '(' ) ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) ) )
+            // InternalMiniJava.g:1104:2: ( ( ( '(' )=>otherlv_0= '(' ) ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) )
             {
-            // InternalMiniJava.g:1104:2: (otherlv_0= '(' ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) )
-            // InternalMiniJava.g:1105:3: otherlv_0= '(' ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) )
+            // InternalMiniJava.g:1104:2: ( ( ( '(' )=>otherlv_0= '(' ) ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) ) )
+            // InternalMiniJava.g:1105:3: ( ( '(' )=>otherlv_0= '(' ) ( (lv_type_1_0= ruleClassType ) ) otherlv_2= ')' ( (lv_object_3_0= ruleTerminalExpression ) )
+            {
+            // InternalMiniJava.g:1105:3: ( ( '(' )=>otherlv_0= '(' )
+            // InternalMiniJava.g:1106:4: ( '(' )=>otherlv_0= '('
             {
             otherlv_0=(Token)match(input,19,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_0, grammarAccess.getCastAccess().getLeftParenthesisKeyword_0());
-              		
+              				newLeafNode(otherlv_0, grammarAccess.getCastAccess().getLeftParenthesisKeyword_0());
+              			
             }
-            // InternalMiniJava.g:1109:3: ( (lv_type_1_0= ruleClassType ) )
-            // InternalMiniJava.g:1110:4: (lv_type_1_0= ruleClassType )
+
+            }
+
+            // InternalMiniJava.g:1112:3: ( (lv_type_1_0= ruleClassType ) )
+            // InternalMiniJava.g:1113:4: (lv_type_1_0= ruleClassType )
             {
-            // InternalMiniJava.g:1110:4: (lv_type_1_0= ruleClassType )
-            // InternalMiniJava.g:1111:5: lv_type_1_0= ruleClassType
+            // InternalMiniJava.g:1113:4: (lv_type_1_0= ruleClassType )
+            // InternalMiniJava.g:1114:5: lv_type_1_0= ruleClassType
             {
             if ( state.backtracking==0 ) {
 
@@ -3296,11 +3302,11 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getCastAccess().getRightParenthesisKeyword_2());
               		
             }
-            // InternalMiniJava.g:1132:3: ( (lv_object_3_0= ruleTerminalExpression ) )
-            // InternalMiniJava.g:1133:4: (lv_object_3_0= ruleTerminalExpression )
+            // InternalMiniJava.g:1135:3: ( (lv_object_3_0= ruleTerminalExpression ) )
+            // InternalMiniJava.g:1136:4: (lv_object_3_0= ruleTerminalExpression )
             {
-            // InternalMiniJava.g:1133:4: (lv_object_3_0= ruleTerminalExpression )
-            // InternalMiniJava.g:1134:5: lv_object_3_0= ruleTerminalExpression
+            // InternalMiniJava.g:1136:4: (lv_object_3_0= ruleTerminalExpression )
+            // InternalMiniJava.g:1137:5: lv_object_3_0= ruleTerminalExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -3356,7 +3362,7 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParen"
-    // InternalMiniJava.g:1155:1: entryRuleParen returns [EObject current=null] : iv_ruleParen= ruleParen EOF ;
+    // InternalMiniJava.g:1158:1: entryRuleParen returns [EObject current=null] : iv_ruleParen= ruleParen EOF ;
     public final EObject entryRuleParen() throws RecognitionException {
         EObject current = null;
 
@@ -3364,8 +3370,8 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMiniJava.g:1155:46: (iv_ruleParen= ruleParen EOF )
-            // InternalMiniJava.g:1156:2: iv_ruleParen= ruleParen EOF
+            // InternalMiniJava.g:1158:46: (iv_ruleParen= ruleParen EOF )
+            // InternalMiniJava.g:1159:2: iv_ruleParen= ruleParen EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getParenRule()); 
@@ -3396,7 +3402,7 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParen"
-    // InternalMiniJava.g:1162:1: ruleParen returns [EObject current=null] : ( ( ( '(' )=>otherlv_0= '(' ) this_Expression_1= ruleExpression otherlv_2= ')' ) ;
+    // InternalMiniJava.g:1165:1: ruleParen returns [EObject current=null] : (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' ) ;
     public final EObject ruleParen() throws RecognitionException {
         EObject current = null;
 
@@ -3409,24 +3415,18 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMiniJava.g:1168:2: ( ( ( ( '(' )=>otherlv_0= '(' ) this_Expression_1= ruleExpression otherlv_2= ')' ) )
-            // InternalMiniJava.g:1169:2: ( ( ( '(' )=>otherlv_0= '(' ) this_Expression_1= ruleExpression otherlv_2= ')' )
+            // InternalMiniJava.g:1171:2: ( (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' ) )
+            // InternalMiniJava.g:1172:2: (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' )
             {
-            // InternalMiniJava.g:1169:2: ( ( ( '(' )=>otherlv_0= '(' ) this_Expression_1= ruleExpression otherlv_2= ')' )
-            // InternalMiniJava.g:1170:3: ( ( '(' )=>otherlv_0= '(' ) this_Expression_1= ruleExpression otherlv_2= ')'
-            {
-            // InternalMiniJava.g:1170:3: ( ( '(' )=>otherlv_0= '(' )
-            // InternalMiniJava.g:1171:4: ( '(' )=>otherlv_0= '('
+            // InternalMiniJava.g:1172:2: (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' )
+            // InternalMiniJava.g:1173:3: otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')'
             {
             otherlv_0=(Token)match(input,19,FOLLOW_15); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(otherlv_0, grammarAccess.getParenAccess().getLeftParenthesisKeyword_0());
-              			
+              			newLeafNode(otherlv_0, grammarAccess.getParenAccess().getLeftParenthesisKeyword_0());
+              		
             }
-
-            }
-
             if ( state.backtracking==0 ) {
 
               			newCompositeNode(grammarAccess.getParenAccess().getExpressionParserRuleCall_1());
@@ -4102,8 +4102,8 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalMiniJava
     public final void synpred1_InternalMiniJava_fragment() throws RecognitionException {   
-        // InternalMiniJava.g:919:4: ( '(' )
-        // InternalMiniJava.g:919:5: '('
+        // InternalMiniJava.g:901:4: ( '(' )
+        // InternalMiniJava.g:901:5: '('
         {
         match(input,19,FOLLOW_2); if (state.failed) return ;
 
@@ -4170,7 +4170,7 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "872:2: (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | this_Cast_3= ruleCast | this_Constant_4= ruleConstant | ( ( '(' )=>this_Paren_5= ruleParen ) )";
+            return "872:2: (this_This_0= ruleThis | this_Variable_1= ruleVariable | this_New_2= ruleNew | ( ( '(' )=>this_Cast_3= ruleCast ) | this_Constant_4= ruleConstant | this_Paren_5= ruleParen )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -4183,9 +4183,9 @@ public class InternalMiniJavaParser extends AbstractInternalAntlrParser {
                         int index14_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (true) ) {s = 9;}
+                        if ( (synpred1_InternalMiniJava()) ) {s = 9;}
 
-                        else if ( (synpred1_InternalMiniJava()) ) {s = 10;}
+                        else if ( (true) ) {s = 10;}
 
                          
                         input.seek(index14_4);

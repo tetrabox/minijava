@@ -897,14 +897,17 @@ ruleTerminalExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
-		{
-			newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3());
-		}
-		this_Cast_3=ruleCast
-		{
-			$current = $this_Cast_3.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			('(')=>
+			{
+				newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3());
+			}
+			this_Cast_3=ruleCast
+			{
+				$current = $this_Cast_3.current;
+				afterParserOrEnumRuleCall();
+			}
+		)
 		    |
 		{
 			newCompositeNode(grammarAccess.getTerminalExpressionAccess().getConstantParserRuleCall_4());
@@ -915,17 +918,14 @@ ruleTerminalExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
-		(
-			('(')=>
-			{
-				newCompositeNode(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5());
-			}
-			this_Paren_5=ruleParen
-			{
-				$current = $this_Paren_5.current;
-				afterParserOrEnumRuleCall();
-			}
-		)
+		{
+			newCompositeNode(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5());
+		}
+		this_Paren_5=ruleParen
+		{
+			$current = $this_Paren_5.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1102,10 +1102,13 @@ ruleCast returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='('
-		{
-			newLeafNode(otherlv_0, grammarAccess.getCastAccess().getLeftParenthesisKeyword_0());
-		}
+		(
+			('(')=>
+			otherlv_0='('
+			{
+				newLeafNode(otherlv_0, grammarAccess.getCastAccess().getLeftParenthesisKeyword_0());
+			}
+		)
 		(
 			(
 				{
@@ -1167,13 +1170,10 @@ ruleParen returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			('(')=>
-			otherlv_0='('
-			{
-				newLeafNode(otherlv_0, grammarAccess.getParenAccess().getLeftParenthesisKeyword_0());
-			}
-		)
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getParenAccess().getLeftParenthesisKeyword_0());
+		}
 		{
 			newCompositeNode(grammarAccess.getParenAccess().getExpressionParserRuleCall_1());
 		}

@@ -643,13 +643,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cObjectTerminalExpressionParserRuleCall_3_0 = (RuleCall)cObjectAssignment_3.eContents().get(0);
 		
 		//Cast:
-		//	'(' type=ClassType ')' object=TerminalExpression;
+		//	=> '(' type=ClassType ')' object=TerminalExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' type=ClassType ')' object=TerminalExpression
+		//=> '(' type=ClassType ')' object=TerminalExpression
 		public Group getGroup() { return cGroup; }
 		
-		//'('
+		//=> '('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
 		//type=ClassType
@@ -675,13 +675,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Paren Expression:
-		//	=> '(' Expression ')';
+		//	'(' Expression ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//=> '(' Expression ')'
+		//'(' Expression ')'
 		public Group getGroup() { return cGroup; }
 		
-		//=> '('
+		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
 		//Expression
@@ -1055,7 +1055,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Cast:
-	//	'(' type=ClassType ')' object=TerminalExpression;
+	//	=> '(' type=ClassType ')' object=TerminalExpression;
 	public CastElements getCastAccess() {
 		return pCast;
 	}
@@ -1065,7 +1065,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Paren Expression:
-	//	=> '(' Expression ')';
+	//	'(' Expression ')';
 	public ParenElements getParenAccess() {
 		return pParen;
 	}

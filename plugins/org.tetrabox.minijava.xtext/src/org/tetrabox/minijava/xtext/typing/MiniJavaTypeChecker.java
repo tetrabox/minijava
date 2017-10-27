@@ -167,17 +167,12 @@ public class MiniJavaTypeChecker extends MiniJavaSwitch<String> {
 	 */
 	@Override
 	public String caseCast(Cast cast) {
-		TypeResult objectType = typeSystem.getType(cast.getObject());
+		TypeResult objectType = typeSystem.getType(cast);
 
-		if (objectType.getDiagnostic() != null)
-			return objectType.getDiagnostic();
-
-		if (!subtyping.isSubtype(objectType.getType(), cast.getType())
-				&& !subtyping.isSubtype(cast.getType(), objectType.getType()))
-			return "expression type " + TypeUtils.typeToString(objectType.getType()) + " and "
-					+ TypeUtils.typeToString(cast.getType()) + " are unrelated";
-
-		return "";
+		if (objectType.diagnostic != null && !objectType.diagnostic.isEmpty())
+			return objectType.diagnostic;
+		else
+			return "";
 	}
 
 	/**

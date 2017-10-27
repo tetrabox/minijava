@@ -744,7 +744,7 @@ rule__TerminalExpression__Alternatives
 	|
 	(
 		{ before(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3()); }
-		ruleCast
+		(ruleCast)
 		{ after(grammarAccess.getTerminalExpressionAccess().getCastParserRuleCall_3()); }
 	)
 	|
@@ -756,7 +756,7 @@ rule__TerminalExpression__Alternatives
 	|
 	(
 		{ before(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5()); }
-		(ruleParen)
+		ruleParen
 		{ after(grammarAccess.getTerminalExpressionAccess().getParenParserRuleCall_5()); }
 	)
 ;
@@ -2262,7 +2262,7 @@ rule__Cast__Group__0__Impl
 :
 (
 	{ before(grammarAccess.getCastAccess().getLeftParenthesisKeyword_0()); }
-	'('
+	('(')
 	{ after(grammarAccess.getCastAccess().getLeftParenthesisKeyword_0()); }
 )
 ;
@@ -2370,7 +2370,7 @@ rule__Paren__Group__0__Impl
 :
 (
 	{ before(grammarAccess.getParenAccess().getLeftParenthesisKeyword_0()); }
-	('(')
+	'('
 	{ after(grammarAccess.getParenAccess().getLeftParenthesisKeyword_0()); }
 )
 ;

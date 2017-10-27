@@ -68,10 +68,10 @@ New:
 	'new' type=ClassType '(' (args+=Argument (',' args+=Argument)*)? ')';
 
 Cast:
-	'(' type=ClassType ')' object=TerminalExpression;
+	=>'(' type=ClassType ')' object=TerminalExpression;
 
 Paren returns Expression:
-	=>'(' Expression ')';
+	'(' Expression ')';
 
 Constant:
 	IntConstant | BoolConstant | StringConstant;

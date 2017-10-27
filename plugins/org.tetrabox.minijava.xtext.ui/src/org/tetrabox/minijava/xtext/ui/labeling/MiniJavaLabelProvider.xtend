@@ -4,8 +4,18 @@
 package org.tetrabox.minijava.xtext.ui.labeling
 
 import com.google.inject.Inject
+import java.util.ListIterator
+import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.Expression
+import org.tetrabox.minijava.xtext.miniJava.Field
+import org.tetrabox.minijava.xtext.miniJava.Method
+import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
+import org.tetrabox.minijava.xtext.miniJava.Parameter
+import org.tetrabox.minijava.xtext.miniJava.Type
+import org.tetrabox.minijava.xtext.util.TypeUtils
 
 /**
  * Provides labels for EObjects.
@@ -19,13 +29,85 @@ class MiniJavaLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
+/*
+	 * 
+	 * //Labels and icons can be computed like this:
+	 * 
+	 * String text(MyModel ele) { return "my "+ele.getName(); }
+	 * 
+	 * String image(MyModel ele) { return "MyModel.gif"; }
+	 */
+	def String image(Class ele) {
+		return "class_obj.gif";
+	}
+
+	def String image(Field f) {
+		return "field_public_obj.gif";
+	}
+
+	def String text(Field f) {
+		return f.getName() + " : " + text(f.getType());
+	}
+
+	def String text(Type type) {
+		return TypeUtils::typeToString(type);
+	}
+
+	def String image(Method m) {
+		return "methdef_obj.gif";
+	}
+
+	def String text(Method m) {
+		return m.getName() + "(" + listToText(m.getParams()) + ") : "
+				+ text(m.getReturntype());
+	}
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
+	def String text(Parameter param) {
+		return text(param.getType());
+	}
+
+	/*
+	String image(Expression e) {
+		if (e.eContainer().eClass().getClassifierID() == FjPackage.PROGRAM) {
+			return "methpub_obj.gif";
+		}
+
+		return super.image(e);
+	}
+
+	String text(Expression e) {
+		if (e.eContainer().eClass().getClassifierID() == FjPackage.PROGRAM) {
+			return "Main";
+		}
+
+		return super.text(e);
+	}
+	*/
+	
+	def String text(Expression e) {
+		if (e.eContainer().eClass().getClassifierID() == MiniJavaPackage.PROGRAM) {
+			return "Main";
+		}
+
+		return "expression";
+	}
+	
+	def String image(Expression e) {
+		if (e.eContainer().eClass().getClassifierID() == MiniJavaPackage.PROGRAM) {
+			return "methpub_obj.gif";
+		}
+
+		return null;
+	}
+	
+	def String listToText(EList<Parameter> list) {
+		val StringBuffer buffer = new StringBuffer();
+		val ListIterator<Parameter> x = list.listIterator();
+		while (x.hasNext()) {
+			buffer.append(text(x.next()));
+			if (x.hasNext())
+				buffer.append(", ");
+		}
+		return buffer.toString();
+	}
 }

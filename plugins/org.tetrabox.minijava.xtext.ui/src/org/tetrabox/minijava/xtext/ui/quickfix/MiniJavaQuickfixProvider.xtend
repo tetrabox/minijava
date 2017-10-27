@@ -3,7 +3,19 @@
  */
 package org.tetrabox.minijava.xtext.ui.quickfix
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.jface.text.BadLocationException
+import org.eclipse.xtext.ui.editor.model.IXtextDocument
+import org.eclipse.xtext.ui.editor.model.edit.IModification
+import org.eclipse.xtext.ui.editor.model.edit.IModificationContext
+import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
+import org.eclipse.xtext.ui.editor.quickfix.Fix
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import org.eclipse.xtext.validation.Issue
+import org.tetrabox.minijava.xtext.miniJava.Program
+import org.tetrabox.minijava.xtext.validation.MiniJavaValidator
+import org.tetrabox.minijava.xtext.miniJava.Class
 
 /**
  * Custom quickfixes.
@@ -21,4 +33,30 @@ class MiniJavaQuickfixProvider extends DefaultQuickfixProvider {
 //			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
 //		]
 //	}
+
+
+	@Fix(MiniJavaValidator.INVALID_CLASS_NAME)
+	def public void capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "Capitalize name", "Capitalize the name.", "upcase.png", new IModification() {
+			override apply(IModificationContext context) throws BadLocationException {
+				val IXtextDocument xtextDocument = context.getXtextDocument();
+				val String firstLetter = xtextDocument.get(issue.getOffset(), 1);
+				xtextDocument.replace(issue.getOffset(), 1, firstLetter.toUpperCase());
+			}
+		});
+	}
+
+	@Fix(MiniJavaValidator.DUPLICATE_CLASS_NAMES)
+	def public void removeDuplicateClass(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "Remove class", "Remove the duplicate class.", "class_obj.gif", 
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) {
+					val Class duplicateClass = element as Class;
+					val Program prog = duplicateClass.eContainer() as Program;
+					prog.getClasses().remove(duplicateClass);
+				}
+			}
+		);
+	}
+
 }

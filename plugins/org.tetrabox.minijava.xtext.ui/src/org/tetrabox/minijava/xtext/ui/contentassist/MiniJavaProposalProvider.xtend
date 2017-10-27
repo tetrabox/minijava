@@ -3,10 +3,26 @@
  */
 package org.tetrabox.minijava.xtext.ui.contentassist
 
+import org.eclipse.emf.ecore.EObject
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class MiniJavaProposalProvider extends AbstractMiniJavaProposalProvider {
+	
+	/**
+	 * Redefined so that it uses the label provider to show the text (display
+	 * string) of the content assist.
+	@Override
+	protected ICompletionProposal createCompletionProposal(EObject element,
+			String proposal, String displayString,
+			ContentAssistContext contentAssistContext) {
+		return createCompletionProposal(proposal, labelProvider
+				.getText(element), getImage(element), contentAssistContext);
+	}
+	 */
+	override getDisplayString(EObject element, String qualifiedName, String shortName) {
+		return getLabelProvider().getText(element);
+	}
 }

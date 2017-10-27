@@ -109,7 +109,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		val String errors = typeChecker.typeCheck(selection);
 
 		if (errors !== null && errors.length() > 0) {
-			error(errors, MiniJavaPackage.Literals.METHOD_CALL__ARGS);
+			error(errors, MiniJavaPackage.Literals.SELECTION__MESSAGE);
 			return;
 		}
 	}
