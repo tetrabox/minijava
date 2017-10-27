@@ -17,7 +17,6 @@ import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.util.MiniJavaSwitch
 import org.tetrabox.minijava.xtext.util.ClassSet
-import org.tetrabox.minijava.xtext.util.TypeUtils
 
 /** 
  * Type checker for fj programs

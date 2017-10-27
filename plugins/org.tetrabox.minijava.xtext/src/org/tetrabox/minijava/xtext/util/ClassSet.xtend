@@ -11,9 +11,6 @@ import org.tetrabox.minijava.xtext.miniJava.Class
  * @author bettini
  */
 class ClassSet extends TreeSet<Class> {
-	/** 
-	 */
-	static final long serialVersionUID = 1L
 
 	new() {
 		super(new ClassNameComparator())
