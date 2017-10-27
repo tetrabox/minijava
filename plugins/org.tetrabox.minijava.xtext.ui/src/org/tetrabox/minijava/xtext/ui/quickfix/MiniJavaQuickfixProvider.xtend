@@ -13,7 +13,6 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.validation.MiniJavaValidator
 import org.tetrabox.minijava.xtext.miniJava.Class
 
@@ -46,17 +45,5 @@ class MiniJavaQuickfixProvider extends DefaultQuickfixProvider {
 		});
 	}
 
-	@Fix(MiniJavaValidator.DUPLICATE_CLASS_NAMES)
-	def public void removeDuplicateClass(Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, "Remove class", "Remove the duplicate class.", "class_obj.gif", 
-			new ISemanticModification() {
-				override apply(EObject element, IModificationContext context) {
-					val Class duplicateClass = element as Class;
-					val Program prog = duplicateClass.eContainer() as Program;
-					prog.getClasses().remove(duplicateClass);
-				}
-			}
-		);
-	}
-
+	
 }

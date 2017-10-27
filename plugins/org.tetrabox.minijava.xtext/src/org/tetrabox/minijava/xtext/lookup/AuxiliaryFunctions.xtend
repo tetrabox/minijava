@@ -14,7 +14,6 @@ import org.tetrabox.minijava.xtext.miniJava.Class
 import org.tetrabox.minijava.xtext.miniJava.ClassType
 import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Type
 import org.tetrabox.minijava.xtext.util.ClassSet
 
@@ -27,7 +26,7 @@ class AuxiliaryFunctions {
 	/** 
 	 * The programs where we will perform lookups
 	 */
-	package Program program
+	//package Program program
 
 	/** 
 	 * Collects all the fields of a class (including the inherited ones)
@@ -226,13 +225,13 @@ class AuxiliaryFunctions {
 	 * @param className
 	 * @return null if such class does not exist in the program
 	 */
-	def Class findClassByName(Program program, String className) {
-		var EList<Class> classes = program.getClasses()
-		for (Class class1 : classes) {
-			if(class1.getName().equals(className)) return class1
-		}
-		return null
-	}
+//	def Class findClassByName(Program program, String className) {
+//		var EList<Class> classes = program.getClasses()
+//		for (Class class1 : classes) {
+//			if(class1.getName().equals(className)) return class1
+//		}
+//		return null
+//	}
 
 	/** 
 	 * Collects all the classes of a program where the specified element resides.
@@ -247,7 +246,7 @@ class AuxiliaryFunctions {
 			var Resource resource = iterator.next()
 			var EList<EObject> contents = resource.getContents()
 			if (contents.size() > 0) {
-				var Program program = (contents.get(0) as Program)
+			//	var Program program = (contents.get(0) as Program)
 				// TODO removed object here as well
 				// if (resource.getURI().equals(FJLinkingResource.implicitObjectUri)) {
 				// // the case for implicit resource containing only Object
@@ -255,7 +254,7 @@ class AuxiliaryFunctions {
 				// classes.add(0, program.getClasses().get(0));
 				// } else {
 				// }
-				classes.addAll(program.getClasses())
+				//classes.addAll(program.getClasses())
 			}
 		}
 		return classes

@@ -84,22 +84,18 @@ class MiniJavaLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	*/
 	
-	def String text(Expression e) {
-		if (e.eContainer().eClass().getClassifierID() == MiniJavaPackage.PROGRAM) {
-			return "Main";
-		}
-
-		return "expression";
-	}
-	
-	def String image(Expression e) {
-		if (e.eContainer().eClass().getClassifierID() == MiniJavaPackage.PROGRAM) {
-			return "methpub_obj.gif";
-		}
-
-		return null;
-	}
-	
+//	def String text(Expression e) {
+//		return "expression";
+//	}
+//	
+//	def String image(Expression e) {
+//		if (e.eContainer().eClass().getClassifierID() == MiniJavaPackage.PROGRAM) {
+//			return "methpub_obj.gif";
+//		}
+//
+//		return null;
+//	}
+//	
 	def String listToText(EList<Parameter> list) {
 		val StringBuffer buffer = new StringBuffer();
 		val ListIterator<Parameter> x = list.listIterator();

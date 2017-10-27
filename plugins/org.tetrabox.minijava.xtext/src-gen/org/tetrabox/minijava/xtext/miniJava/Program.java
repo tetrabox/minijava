@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Program#getClasses <em>Classes</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Program#getMain <em>Main</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram()
@@ -41,31 +40,5 @@ public interface Program extends EObject
    * @generated
    */
   EList<org.tetrabox.minijava.xtext.miniJava.Class> getClasses();
-
-  /**
-   * Returns the value of the '<em><b>Main</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Main</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Main</em>' containment reference.
-   * @see #setMain(Expression)
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Main()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getMain();
-
-  /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Program#getMain <em>Main</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Main</em>' containment reference.
-   * @see #getMain()
-   * @generated
-   */
-  void setMain(Expression value);
 
 } // Program

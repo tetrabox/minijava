@@ -11,7 +11,6 @@ import org.eclipse.xtext.scoping.Scopes
 import org.tetrabox.minijava.xtext.lookup.AuxiliaryFunctions
 import org.tetrabox.minijava.xtext.miniJava.Class
 import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeSystem
 import org.tetrabox.minijava.xtext.typing.TypeResult
@@ -82,17 +81,7 @@ class MiniJavaScopeProvider extends AbstractDeclarativeScopeProvider {
 		return Scopes.scopeFor(new LinkedList<EObject>());
 	}
 
-	/**
-	 * In each part of the program, the scope for classes is the list
-	 * of all the classes available in the program (including the implicit one)
-	 * 
-	 * @param p
-	 * @param type
-	 * @return
-	 */
-	def public IScope scope_Class(Program p, EReference type) {
-		return Scopes.scopeFor(auxiliaryFunctions.collectClasses(p));
-	}
+
 
 	override public IScope getScope(EObject context, EReference reference) {
 		val IScope scope = super.getScope(context, reference);

@@ -20,6 +20,7 @@ import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
 import org.tetrabox.minijava.xtext.miniJava.FieldSelection;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
+import org.tetrabox.minijava.xtext.miniJava.Main;
 import org.tetrabox.minijava.xtext.miniJava.Message;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MethodBody;
@@ -56,6 +57,20 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass classEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mainEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass typeEClass = null;
 
   /**
@@ -78,13 +93,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * @generated
    */
   private EClass typedElementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass classEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -300,9 +308,79 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Main()
+  public EClass getClass_()
   {
-    return (EReference)programEClass.getEStructuralFeatures().get(1);
+    return classEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClass_Name()
+  {
+    return (EAttribute)classEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClass_Extends()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClass_Fields()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClass_Methods()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClass_Main()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMain()
+  {
+    return mainEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMain_Body()
+  {
+    return (EReference)mainEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -383,56 +461,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
   public EAttribute getTypedElement_Name()
   {
     return (EAttribute)typedElementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getClass_()
-  {
-    return classEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getClass_Name()
-  {
-    return (EAttribute)classEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getClass_Extends()
-  {
-    return (EReference)classEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getClass_Fields()
-  {
-    return (EReference)classEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getClass_Methods()
-  {
-    return (EReference)classEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -837,7 +865,16 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     // Create classes and their features
     programEClass = createEClass(PROGRAM);
     createEReference(programEClass, PROGRAM__CLASSES);
-    createEReference(programEClass, PROGRAM__MAIN);
+
+    classEClass = createEClass(CLASS);
+    createEAttribute(classEClass, CLASS__NAME);
+    createEReference(classEClass, CLASS__EXTENDS);
+    createEReference(classEClass, CLASS__FIELDS);
+    createEReference(classEClass, CLASS__METHODS);
+    createEReference(classEClass, CLASS__MAIN);
+
+    mainEClass = createEClass(MAIN);
+    createEReference(mainEClass, MAIN__BODY);
 
     typeEClass = createEClass(TYPE);
 
@@ -850,12 +887,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     typedElementEClass = createEClass(TYPED_ELEMENT);
     createEReference(typedElementEClass, TYPED_ELEMENT__TYPE);
     createEAttribute(typedElementEClass, TYPED_ELEMENT__NAME);
-
-    classEClass = createEClass(CLASS);
-    createEAttribute(classEClass, CLASS__NAME);
-    createEReference(classEClass, CLASS__EXTENDS);
-    createEReference(classEClass, CLASS__FIELDS);
-    createEReference(classEClass, CLASS__METHODS);
 
     fieldEClass = createEClass(FIELD);
 
@@ -942,6 +973,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    classEClass.getESuperTypes().add(this.getProgram());
     basicTypeEClass.getESuperTypes().add(this.getType());
     classTypeEClass.getESuperTypes().add(this.getType());
     fieldEClass.getESuperTypes().add(this.getTypedElement());
@@ -962,7 +994,16 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProgram_Classes(), this.getClass_(), null, "classes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProgram_Main(), this.getExpression(), null, "main", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(classEClass, org.tetrabox.minijava.xtext.miniJava.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Extends(), this.getClass_(), null, "extends", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Fields(), this.getField(), null, "fields", null, 0, -1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Methods(), this.getMethod(), null, "methods", null, 0, -1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Main(), this.getMain(), null, "main", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mainEClass, Main.class, "Main", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMain_Body(), this.getMethodBody(), null, "body", null, 0, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -975,12 +1016,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEClass(typedElementEClass, TypedElement.class, "TypedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypedElement_Type(), this.getType(), null, "type", null, 0, 1, TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(classEClass, org.tetrabox.minijava.xtext.miniJava.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Extends(), this.getClass_(), null, "extends", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Fields(), this.getField(), null, "fields", null, 0, -1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Methods(), this.getMethod(), null, "methods", null, 0, -1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

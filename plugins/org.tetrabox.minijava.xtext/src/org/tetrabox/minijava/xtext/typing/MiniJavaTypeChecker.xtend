@@ -13,7 +13,6 @@ import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.Parameter
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.util.MiniJavaSwitch
 import org.tetrabox.minijava.xtext.util.ClassSet
@@ -140,15 +139,15 @@ class MiniJavaTypeChecker extends MiniJavaSwitch<String> {
 	 * Checks that all class names are distinct
 	 * @see org.eclipse.xtext.example.fj.util.FjSwitch#caseProgram(org.eclipse.xtext.example.fj.Program)
 	 */
-	override String caseProgram(Program program) {
-		var ClassSet classSet = new ClassSet()
-		var List<Class> classes = program.getClasses()
-		for (Class class1 : classes) {
-			if(classSet.contains(class1)) return '''class «class1.getName()» is already declared in the program'''
-			classSet.add(class1)
-		}
-		return ""
-	}
+//	override String caseProgram(Program program) {
+//		var ClassSet classSet = new ClassSet()
+//		var List<Class> classes = program.getClasses()
+//		for (Class class1 : classes) {
+//			if(classSet.contains(class1)) return '''class «class1.getName()» is already declared in the program'''
+//			classSet.add(class1)
+//		}
+//		return ""
+//	}
 
 	def String typeCheck(EObject object) {
 		var String errors = doSwitch(object)

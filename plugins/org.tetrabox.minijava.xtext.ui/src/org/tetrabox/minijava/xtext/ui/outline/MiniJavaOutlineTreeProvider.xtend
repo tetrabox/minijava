@@ -7,7 +7,6 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
 import org.tetrabox.minijava.xtext.miniJava.Expression
 import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.TypedElement
 import org.tetrabox.minijava.xtext.miniJava.Class
 
@@ -18,12 +17,9 @@ import org.tetrabox.minijava.xtext.miniJava.Class
  */
 class MiniJavaOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
-	def protected void _createChildren(DocumentRootNode parentNode, Program program) {
-		for (Class c : program.getClasses()) {
+	def protected void _createChildren(DocumentRootNode parentNode, Class c) {
 			createNode(parentNode, c);
-		}
-		if (program.getMain() !== null)
-			createNode(parentNode, program.getMain());
+		
 	}
 
 	/**

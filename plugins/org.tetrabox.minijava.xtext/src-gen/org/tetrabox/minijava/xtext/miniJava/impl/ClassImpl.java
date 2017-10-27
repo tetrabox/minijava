@@ -14,12 +14,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.Main;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 
@@ -35,11 +35,12 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getMethods <em>Methods</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getMain <em>Main</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetrabox.minijava.xtext.miniJava.Class
+public class ClassImpl extends ProgramImpl implements org.tetrabox.minijava.xtext.miniJava.Class
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -90,6 +91,16 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
    * @ordered
    */
   protected EList<Method> methods;
+
+  /**
+   * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMain()
+   * @generated
+   * @ordered
+   */
+  protected Main main;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,6 +222,54 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
    * <!-- end-user-doc -->
    * @generated
    */
+  public Main getMain()
+  {
+    return main;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMain(Main newMain, NotificationChain msgs)
+  {
+    Main oldMain = main;
+    main = newMain;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__MAIN, oldMain, newMain);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMain(Main newMain)
+  {
+    if (newMain != main)
+    {
+      NotificationChain msgs = null;
+      if (main != null)
+        msgs = ((InternalEObject)main).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.CLASS__MAIN, null, msgs);
+      if (newMain != null)
+        msgs = ((InternalEObject)newMain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.CLASS__MAIN, null, msgs);
+      msgs = basicSetMain(newMain, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__MAIN, newMain, newMain));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -220,6 +279,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
         return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
       case MiniJavaPackage.CLASS__METHODS:
         return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
+      case MiniJavaPackage.CLASS__MAIN:
+        return basicSetMain(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -243,6 +304,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
         return getFields();
       case MiniJavaPackage.CLASS__METHODS:
         return getMethods();
+      case MiniJavaPackage.CLASS__MAIN:
+        return getMain();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -272,6 +335,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
         getMethods().clear();
         getMethods().addAll((Collection<? extends Method>)newValue);
         return;
+      case MiniJavaPackage.CLASS__MAIN:
+        setMain((Main)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -298,6 +364,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
       case MiniJavaPackage.CLASS__METHODS:
         getMethods().clear();
         return;
+      case MiniJavaPackage.CLASS__MAIN:
+        setMain((Main)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -320,6 +389,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
         return fields != null && !fields.isEmpty();
       case MiniJavaPackage.CLASS__METHODS:
         return methods != null && !methods.isEmpty();
+      case MiniJavaPackage.CLASS__MAIN:
+        return main != null;
     }
     return super.eIsSet(featureID);
   }

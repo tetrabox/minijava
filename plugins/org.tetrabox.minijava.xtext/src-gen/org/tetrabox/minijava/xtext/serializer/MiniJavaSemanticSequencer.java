@@ -21,6 +21,7 @@ import org.tetrabox.minijava.xtext.miniJava.ClassType;
 import org.tetrabox.minijava.xtext.miniJava.Field;
 import org.tetrabox.minijava.xtext.miniJava.FieldSelection;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
+import org.tetrabox.minijava.xtext.miniJava.Main;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MethodBody;
 import org.tetrabox.minijava.xtext.miniJava.MethodCall;
@@ -70,6 +71,9 @@ public class MiniJavaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case MiniJavaPackage.INT_CONSTANT:
 				sequence_IntConstant(context, (IntConstant) semanticObject); 
+				return; 
+			case MiniJavaPackage.MAIN:
+				sequence_Main(context, (Main) semanticObject); 
 				return; 
 			case MiniJavaPackage.METHOD:
 				sequence_Method(context, (Method) semanticObject); 
@@ -184,10 +188,11 @@ public class MiniJavaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Program returns Class
 	 *     Class returns Class
 	 *
 	 * Constraint:
-	 *     (name=ID extends=[Class|ID]? fields+=Field* methods+=Method*)
+	 *     (name=ID extends=[Class|ID]? fields+=Field* methods+=Method* main=Main?)
 	 */
 	protected void sequence_Class(ISerializationContext context, org.tetrabox.minijava.xtext.miniJava.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -286,6 +291,24 @@ public class MiniJavaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Main returns Main
+	 *
+	 * Constraint:
+	 *     body=MethodBody
+	 */
+	protected void sequence_Main(ISerializationContext context, Main semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MiniJavaPackage.Literals.MAIN__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MiniJavaPackage.Literals.MAIN__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMainAccess().getBodyMethodBodyParserRuleCall_10_0(), semanticObject.getBody());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     MethodBody returns MethodBody
 	 *
 	 * Constraint:
@@ -371,7 +394,7 @@ public class MiniJavaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     ((classes+=Class+ main=Expression) | main=Expression)?
+	 *     classes+=Class+
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

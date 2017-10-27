@@ -31,6 +31,7 @@ public class MiniJavaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getProgramAccess().getAlternatives(), "rule__Program__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getBasicTypeAccess().getBasicAlternatives_0(), "rule__BasicType__BasicAlternatives_0");
 					put(grammarAccess.getTypedElementAccess().getAlternatives(), "rule__TypedElement__Alternatives");
@@ -38,9 +39,9 @@ public class MiniJavaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
 					put(grammarAccess.getConstantAccess().getAlternatives(), "rule__Constant__Alternatives");
 					put(grammarAccess.getBoolConstantAccess().getConstantAlternatives_0(), "rule__BoolConstant__ConstantAlternatives_0");
-					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
 					put(grammarAccess.getClassAccess().getGroup_2(), "rule__Class__Group_2__0");
+					put(grammarAccess.getMainAccess().getGroup(), "rule__Main__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getMethodAccess().getGroup(), "rule__Method__Group__0");
@@ -57,14 +58,15 @@ public class MiniJavaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNewAccess().getGroup_3_1(), "rule__New__Group_3_1__0");
 					put(grammarAccess.getCastAccess().getGroup(), "rule__Cast__Group__0");
 					put(grammarAccess.getParenAccess().getGroup(), "rule__Paren__Group__0");
-					put(grammarAccess.getProgramAccess().getClassesAssignment_0(), "rule__Program__ClassesAssignment_0");
-					put(grammarAccess.getProgramAccess().getMainAssignment_1(), "rule__Program__MainAssignment_1");
-					put(grammarAccess.getBasicTypeAccess().getBasicAssignment(), "rule__BasicType__BasicAssignment");
-					put(grammarAccess.getClassTypeAccess().getClassrefAssignment(), "rule__ClassType__ClassrefAssignment");
+					put(grammarAccess.getProgramAccess().getClassesAssignment_1(), "rule__Program__ClassesAssignment_1");
 					put(grammarAccess.getClassAccess().getNameAssignment_1(), "rule__Class__NameAssignment_1");
 					put(grammarAccess.getClassAccess().getExtendsAssignment_2_1(), "rule__Class__ExtendsAssignment_2_1");
 					put(grammarAccess.getClassAccess().getFieldsAssignment_4(), "rule__Class__FieldsAssignment_4");
 					put(grammarAccess.getClassAccess().getMethodsAssignment_5(), "rule__Class__MethodsAssignment_5");
+					put(grammarAccess.getClassAccess().getMainAssignment_6(), "rule__Class__MainAssignment_6");
+					put(grammarAccess.getMainAccess().getBodyAssignment_10(), "rule__Main__BodyAssignment_10");
+					put(grammarAccess.getBasicTypeAccess().getBasicAssignment(), "rule__BasicType__BasicAssignment");
+					put(grammarAccess.getClassTypeAccess().getClassrefAssignment(), "rule__ClassType__ClassrefAssignment");
 					put(grammarAccess.getFieldAccess().getTypeAssignment_0(), "rule__Field__TypeAssignment_0");
 					put(grammarAccess.getFieldAccess().getNameAssignment_1(), "rule__Field__NameAssignment_1");
 					put(grammarAccess.getParameterAccess().getTypeAssignment_0(), "rule__Parameter__TypeAssignment_0");
@@ -73,7 +75,7 @@ public class MiniJavaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getNameAssignment_1(), "rule__Method__NameAssignment_1");
 					put(grammarAccess.getMethodAccess().getParamsAssignment_3_0(), "rule__Method__ParamsAssignment_3_0");
 					put(grammarAccess.getMethodAccess().getParamsAssignment_3_1_1(), "rule__Method__ParamsAssignment_3_1_1");
-					put(grammarAccess.getMethodAccess().getBodyAssignment_6(), "rule__Method__BodyAssignment_6");
+					put(grammarAccess.getMethodAccess().getBodyAssignment_5(), "rule__Method__BodyAssignment_5");
 					put(grammarAccess.getMethodBodyAccess().getExpressionAssignment_1(), "rule__MethodBody__ExpressionAssignment_1");
 					put(grammarAccess.getExpressionAccess().getMessageAssignment_1_2(), "rule__Expression__MessageAssignment_1_2");
 					put(grammarAccess.getMethodCallAccess().getNameAssignment_0(), "rule__MethodCall__NameAssignment_0");

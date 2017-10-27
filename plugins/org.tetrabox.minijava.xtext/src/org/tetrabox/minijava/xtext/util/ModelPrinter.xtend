@@ -16,7 +16,6 @@ import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.FieldSelection
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.New
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.Type
 import org.tetrabox.minijava.xtext.miniJava.TypedElement
@@ -67,14 +66,14 @@ class ModelPrinter extends org.tetrabox.minijava.xtext.miniJava.util.MiniJavaSwi
 		return '''class «object.getName()»«(if (object.getExtends() !== null) ''' extends «object.getExtends().getName()»''' else "" )»'''
 	}
 
-	override String caseProgram(Program object) {
-		var String result = "program:\n"
-		for (Class cl : object.getClasses()) {
-			result += '''«doSwitch(cl)»
-'''
-		}
-		return result
-	}
+//	override String caseProgram(Program object) {
+//		var String result = "program:\n"
+//		for (Class cl : object.getClasses()) {
+//			result += '''«doSwitch(cl)»
+//'''
+//		}
+//		return result
+//	}
 
 	override String doSwitch(EObject theEObject) {
 		// TODO Auto-generated method stub

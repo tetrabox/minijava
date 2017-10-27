@@ -5,8 +5,6 @@ package org.tetrabox.minijava.xtext.miniJava;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Class</b></em>'.
@@ -20,13 +18,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getExtends <em>Extends</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getFields <em>Fields</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getMethods <em>Methods</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getMain <em>Main</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_()
  * @model
  * @generated
  */
-public interface Class extends EObject
+public interface Class extends Program
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -111,5 +110,31 @@ public interface Class extends EObject
    * @generated
    */
   EList<Method> getMethods();
+
+  /**
+   * Returns the value of the '<em><b>Main</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Main</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Main</em>' containment reference.
+   * @see #setMain(Main)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Main()
+   * @model containment="true"
+   * @generated
+   */
+  Main getMain();
+
+  /**
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getMain <em>Main</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Main</em>' containment reference.
+   * @see #getMain()
+   * @generated
+   */
+  void setMain(Main value);
 
 } // Class

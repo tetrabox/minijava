@@ -1,7 +1,6 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
@@ -18,31 +17,42 @@ import org.tetrabox.minijava.xtext.miniJava.IntConstant
 import org.tetrabox.minijava.xtext.miniJava.Message
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.New
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.StringConstant
 import org.tetrabox.minijava.xtext.miniJava.This
 import org.tetrabox.minijava.xtext.miniJava.Variable
+import org.tetrabox.minijava.xtext.miniJava.Main
+import org.tetrabox.minijava.xtext.miniJava.Class
 
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.MessageAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
+import static extension org.tetrabox.minijava.semantics.MainAspect.*
 
-@Aspect(className=Program)
-class ProgramAspect {
+@Aspect(className=Class)
+class ClassAspect {
 
-	@Main
+	@fr.inria.diverse.k3.al.annotationprocessor.Main
 	@Step
 	def void execute() {
-		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+		
 		if (_self.main !== null) {
-			val result = _self.main.evaluate(initialContext)
+			val result = _self.main.evaluate()
 			println(result.customToString)
 		} else
 			println("No main expression.")
 	}
 
 }
+
+@Aspect(className=Main)
+class MainAspect {
+	def Value evaluate() { 
+		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+		return _self.body.expression.evaluate(initialContext)
+	}
+}
+
 
 @Aspect(className=Expression)
 class ExpressionAspect {

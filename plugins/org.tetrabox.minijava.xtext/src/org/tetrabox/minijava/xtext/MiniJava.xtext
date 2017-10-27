@@ -3,8 +3,18 @@ grammar org.tetrabox.minijava.xtext.MiniJava with org.eclipse.xtext.common.Termi
 generate miniJava "http://www.tetrabox.org/minijava/xtext/MiniJava"
 
 Program:
-	(classes+=Class)*
-	(main=Expression)?;
+	Class | =>classes+=Class*
+;
+
+Class:
+	'class' name=ID ('extends' extends=[Class])? '{'
+	(fields+=Field)*
+	(methods+=Method)*
+	main=Main?
+	'}';
+
+Main:
+	"public" "static" "void" "main" "(" "String" "[" "]" ID ")" body=MethodBody;
 
 Type:
 	BasicType | ClassType;
@@ -18,12 +28,6 @@ ClassType:
 TypedElement:
 	Field | Parameter;
 
-Class:
-	'class' name=ID ('extends' extends=[Class])? '{'
-	(fields+=Field)*
-	(methods+=Method)*
-	'}';
-
 Field:
 	type=Type name=ID ';';
 
@@ -31,12 +35,11 @@ Parameter:
 	type=Type name=ID;
 
 Method:
-	returntype=Type name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' '{'
-	body=MethodBody
-	'}';
+	returntype=Type name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')'
+	body=MethodBody;
 
 MethodBody:
-	'return' expression=Expression ';';
+	'{' expression=Expression ';' '}';
 
 Expression:
 	TerminalExpression ({Selection.receiver=current} '.' message=Message)*;
@@ -68,7 +71,7 @@ New:
 	'new' type=ClassType '(' (args+=Argument (',' args+=Argument)*)? ')';
 
 Cast:
-	=>'(' type=ClassType ')' object=TerminalExpression;
+	=> '(' type=ClassType ')' object=TerminalExpression;
 
 Paren returns Expression:
 	'(' Expression ')';

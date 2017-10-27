@@ -18,6 +18,7 @@ import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
 import org.tetrabox.minijava.xtext.miniJava.FieldSelection;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
+import org.tetrabox.minijava.xtext.miniJava.Main;
 import org.tetrabox.minijava.xtext.miniJava.Message;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MethodBody;
@@ -103,6 +104,21 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniJavaPackage.CLASS:
+      {
+        org.tetrabox.minijava.xtext.miniJava.Class class_ = (org.tetrabox.minijava.xtext.miniJava.Class)theEObject;
+        T result = caseClass(class_);
+        if (result == null) result = caseProgram(class_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.MAIN:
+      {
+        Main main = (Main)theEObject;
+        T result = caseMain(main);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniJavaPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -130,13 +146,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         TypedElement typedElement = (TypedElement)theEObject;
         T result = caseTypedElement(typedElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.CLASS:
-      {
-        org.tetrabox.minijava.xtext.miniJava.Class class_ = (org.tetrabox.minijava.xtext.miniJava.Class)theEObject;
-        T result = caseClass(class_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -313,6 +322,38 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClass(org.tetrabox.minijava.xtext.miniJava.Class object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Main</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Main</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMain(Main object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -372,22 +413,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypedElement(TypedElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Class</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseClass(org.tetrabox.minijava.xtext.miniJava.Class object)
   {
     return null;
   }

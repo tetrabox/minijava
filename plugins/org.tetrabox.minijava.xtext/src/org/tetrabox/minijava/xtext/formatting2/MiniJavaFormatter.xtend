@@ -14,7 +14,6 @@ import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MethodBody
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
 import org.tetrabox.minijava.xtext.miniJava.New
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.TypedElement
 import org.tetrabox.minijava.xtext.services.MiniJavaGrammarAccess
@@ -23,21 +22,6 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 
 	@Inject extension MiniJavaGrammarAccess
 
-	def dispatch void format(Program program, extension IFormattableDocument document) {
-
-		// println(textRegionAccess)
-		// In field declarations, there is no space a semicolumn, and there is a newline after
-		program.allRegionsFor.keyword(";").prepend[noSpace]
-		program.allRegionsFor.keyword(";").append[newLine]
-
-		// Visit
-		for (Class _class : program.getClasses()) {
-			_class.format;
-		}
-
-		// Visit
-		program.getMain.format;
-	}
 
 	def dispatch void format(Class _class, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 

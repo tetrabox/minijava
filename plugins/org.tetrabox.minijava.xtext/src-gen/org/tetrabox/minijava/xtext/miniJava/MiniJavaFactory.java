@@ -33,6 +33,24 @@ public interface MiniJavaFactory extends EFactory
   Program createProgram();
 
   /**
+   * Returns a new object of class '<em>Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class</em>'.
+   * @generated
+   */
+  Class createClass();
+
+  /**
+   * Returns a new object of class '<em>Main</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Main</em>'.
+   * @generated
+   */
+  Main createMain();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -67,15 +85,6 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   TypedElement createTypedElement();
-
-  /**
-   * Returns a new object of class '<em>Class</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Class</em>'.
-   * @generated
-   */
-  Class createClass();
 
   /**
    * Returns a new object of class '<em>Field</em>'.

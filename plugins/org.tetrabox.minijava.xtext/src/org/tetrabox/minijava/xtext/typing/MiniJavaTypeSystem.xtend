@@ -14,7 +14,6 @@ import org.tetrabox.minijava.xtext.miniJava.Message
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.New
-import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.StringConstant
 import org.tetrabox.minijava.xtext.miniJava.This
@@ -145,10 +144,10 @@ class MiniJavaTypeSystem extends MiniJavaSwitch<TypeResult> {
 	 * The type of a program is the type of the main expression
 	 * @see org.eclipse.xtext.example.fj.util.FjSwitch#caseProgram(org.eclipse.xtext.example.fj.Program)
 	 */
-	override TypeResult caseProgram(Program object) {
-		var Expression mainExpression = object.getMain()
-		return getType(mainExpression)
-	}
+//	override TypeResult caseProgram(Program object) {
+//		var Expression mainExpression = object.getMain()
+//		return getType(mainExpression)
+//	}
 
 	override TypeResult caseCast(Cast cast) {
 		var TypeResult objectType = getType(cast.getObject())

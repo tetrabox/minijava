@@ -21,6 +21,7 @@ import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
 import org.tetrabox.minijava.xtext.miniJava.FieldSelection;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
+import org.tetrabox.minijava.xtext.miniJava.Main;
 import org.tetrabox.minijava.xtext.miniJava.Message;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MethodBody;
@@ -90,11 +91,12 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
     switch (eClass.getClassifierID())
     {
       case MiniJavaPackage.PROGRAM: return createProgram();
+      case MiniJavaPackage.CLASS: return createClass();
+      case MiniJavaPackage.MAIN: return createMain();
       case MiniJavaPackage.TYPE: return createType();
       case MiniJavaPackage.BASIC_TYPE: return createBasicType();
       case MiniJavaPackage.CLASS_TYPE: return createClassType();
       case MiniJavaPackage.TYPED_ELEMENT: return createTypedElement();
-      case MiniJavaPackage.CLASS: return createClass();
       case MiniJavaPackage.FIELD: return createField();
       case MiniJavaPackage.PARAMETER: return createParameter();
       case MiniJavaPackage.METHOD: return createMethod();
@@ -127,6 +129,28 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     ProgramImpl program = new ProgramImpl();
     return program;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.tetrabox.minijava.xtext.miniJava.Class createClass()
+  {
+    ClassImpl class_ = new ClassImpl();
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Main createMain()
+  {
+    MainImpl main = new MainImpl();
+    return main;
   }
 
   /**
@@ -171,17 +195,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     TypedElementImpl typedElement = new TypedElementImpl();
     return typedElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public org.tetrabox.minijava.xtext.miniJava.Class createClass()
-  {
-    ClassImpl class_ = new ClassImpl();
-    return class_;
   }
 
   /**
