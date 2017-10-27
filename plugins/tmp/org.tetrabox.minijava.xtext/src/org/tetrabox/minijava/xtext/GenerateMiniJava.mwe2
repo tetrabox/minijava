@@ -31,12 +31,7 @@ Workflow {
 				generateStub = false
 			}
 			validator = {
-				 composedCheck = "org.tetrabox.minijava.xtext.validation.MiniJavaValidator"
-				
-			}
-			
-			formatter = {
-				generateXtendStub = true
+				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 		}
 	}
