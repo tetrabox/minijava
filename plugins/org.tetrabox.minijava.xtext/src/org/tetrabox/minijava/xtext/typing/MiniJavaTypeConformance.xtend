@@ -2,7 +2,6 @@ package org.tetrabox.minijava.xtext.typing
 
 import com.google.inject.Inject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.tetrabox.minijava.xtext.MiniJavaLib
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
 import org.tetrabox.minijava.xtext.miniJava.Class
 
@@ -16,7 +15,6 @@ class MiniJavaTypeConformance {
 	def isConformant(Class c1, Class c2) {
 		c1 === NULL_TYPE || // null can be assigned to everything
 		c1 === c2 ||
-		c2.fullyQualifiedName.toString == MiniJavaLib.LIB_OBJECT ||
 		conformToLibraryTypes(c1, c2) ||
 		c1.isSubclassOf(c2)
 	}
@@ -28,15 +26,15 @@ class MiniJavaTypeConformance {
 	}
 
 	def conformsToString(Class c) {
-		c == STRING_TYPE || c.fullyQualifiedName.toString == MiniJavaLib.LIB_STRING
+		false //c == STRING_TYPE || c.fullyQualifiedName.toString == MiniJavaLib.LIB_STRING
 	}
 
 	def conformsToInt(Class c) {
-		c == INT_TYPE || c.fullyQualifiedName.toString == MiniJavaLib.LIB_INTEGER
+		false //c == INT_TYPE || c.fullyQualifiedName.toString == MiniJavaLib.LIB_INTEGER
 	}
 
 	def conformsToBoolean(Class c) {
-		c == BOOLEAN_TYPE || c.fullyQualifiedName.toString == MiniJavaLib.LIB_BOOLEAN
+		false //c == BOOLEAN_TYPE || c.fullyQualifiedName.toString == MiniJavaLib.LIB_BOOLEAN
 	}
 
 	def isSubclassOf(Class c1, Class c2) {

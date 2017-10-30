@@ -1,7 +1,6 @@
 package org.tetrabox.minijava.xtext.typing
 
 import com.google.inject.Inject
-import org.tetrabox.minijava.xtext.MiniJavaLib
 import org.tetrabox.minijava.xtext.miniJava.Assignment
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant
 import org.tetrabox.minijava.xtext.miniJava.Class
@@ -31,7 +30,6 @@ class MiniJavaTypeComputer {
 
 	static val ep = MiniJavaPackage.eINSTANCE
 
-	@Inject extension MiniJavaLib
 
 	def Class typeFor(Expression e) {
 		switch (e) {
@@ -59,7 +57,7 @@ class MiniJavaTypeComputer {
 	}
 
 	def getSuperclassOrObject(Class c) {
-		c.superclass ?: getMiniJavaObjectClass(c)
+		c.superclass 
 	}
 
 	def isPrimitive(Class c) {

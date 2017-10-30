@@ -10,7 +10,6 @@ import org.tetrabox.minijava.xtext.miniJava.Return
 
 class MiniJavaModelUtil {
 
-	@Inject extension MiniJavaLib
 
 	def fields(Class c) {
 		c.members.filter(Field)
@@ -37,9 +36,6 @@ class MiniJavaModelUtil {
 			current = current.superclass
 		}
 
-		val object = c.getMiniJavaObjectClass
-		if (object !== null)
-			visited.add(object)
 
 		visited
 	}
