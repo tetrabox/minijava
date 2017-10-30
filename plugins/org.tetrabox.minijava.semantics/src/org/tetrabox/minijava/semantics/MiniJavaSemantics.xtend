@@ -26,20 +26,18 @@ import org.tetrabox.minijava.xtext.miniJava.Variable
 
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.MessageAspect.*
-import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 
 @Aspect(className=Program)
 class ProgramAspect {
 
 	@Main
 	@Step
-	def void execute() {
+	def Value execute() {
 		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		if (_self.main !== null) {
-			val result = _self.main.evaluate(initialContext)
-			println(result.customToString)
+			return _self.main.evaluate(initialContext)
 		} else
-			println("No main expression.")
+			throw new RuntimeException("No main expression.")
 	}
 
 }

@@ -14,6 +14,8 @@ import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
@@ -21,7 +23,31 @@ class MiniJavaSemanticsTest {
 	@Inject
 	ParseHelper<Program> parseHelper
 
+	private def void genericTest(String program, Value expectedOutput) {
+		val Program result = parseHelper.parse(program)
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+		val output = result.execute
+		Assert.assertTrue(MiniJavaValueEquals::equals(expectedOutput, output))
+	}
 
+	@Test
+	def void testInteger() {
+		val expected = MinijavadynamicdataFactory.eINSTANCE.createIntegerValue => [value = 1]
+		genericTest("1", expected)
+	}
+	
+		@Test
+	def void testBoolean() {
+		val expected = MinijavadynamicdataFactory.eINSTANCE.createBooleanValue => [value = true]
+		genericTest("true", expected)
+	}
+	
+		@Test
+	def void testString() {
+		val expected = MinijavadynamicdataFactory.eINSTANCE.createStringValue => [value = "yay"]
+		genericTest('''"yay"''', expected)
+	}
 
 	@Test
 	def void longModel() {
@@ -69,12 +95,7 @@ class MiniJavaSemanticsTest {
 
 		result.execute
 	}
-	
-	
-	
-	
-	
-	
+
 	@Test
 	def void test3() {
 		val Program result = parseHelper.parse('''
