@@ -1,12 +1,16 @@
 package org.tetrabox.minijava.xtext
 
-import com.google.inject.Inject
 import org.tetrabox.minijava.xtext.miniJava.Block
+import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef
 import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.ClassRef
 import org.tetrabox.minijava.xtext.miniJava.Field
+import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
 import org.tetrabox.minijava.xtext.miniJava.Member
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.Return
+import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
+import org.tetrabox.minijava.xtext.miniJava.TypeRef
 
 class MiniJavaModelUtil {
 
@@ -56,11 +60,21 @@ class MiniJavaModelUtil {
 	def memberAsString(Member m) {
 		m.name +
 		if (m instanceof Method)
-			"(" + m.params.map[type.name].join(", ") + ")"
+			"(" + m.params.map[typeRef.name].join(", ") + ")"
 		else ""
 	}
 
 	def memberAsStringWithType(Member m) {
-		m.memberAsString + " : " + m.type.name
+		m.memberAsString + " : " + m.typeRef.name
+	}
+	
+	def String getName(TypeRef r) {
+		val test = switch r {
+			ClassRef:r.class_.name
+			IntegerTypeRef:"int"
+			StringTypeRef:"String"
+			BooleanTypeRef:"boolean"
+		}
+		return test
 	}
 }

@@ -13,7 +13,7 @@ package org.tetrabox.minijava.xtext.miniJava;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.New#getTypeRef <em>Type Ref</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew()
@@ -23,29 +23,29 @@ package org.tetrabox.minijava.xtext.miniJava;
 public interface New extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' reference isn't clear,
+   * If the meaning of the '<em>Type Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(org.tetrabox.minijava.xtext.miniJava.Class)
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew_Type()
+   * @return the value of the '<em>Type Ref</em>' reference.
+   * @see #setTypeRef(org.tetrabox.minijava.xtext.miniJava.Class)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew_TypeRef()
    * @model
    * @generated
    */
-  org.tetrabox.minijava.xtext.miniJava.Class getType();
+  org.tetrabox.minijava.xtext.miniJava.Class getTypeRef();
 
   /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.New#getTypeRef <em>Type Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Type Ref</em>' reference.
+   * @see #getTypeRef()
    * @generated
    */
-  void setType(org.tetrabox.minijava.xtext.miniJava.Class value);
+  void setTypeRef(org.tetrabox.minijava.xtext.miniJava.Class value);
 
 } // New

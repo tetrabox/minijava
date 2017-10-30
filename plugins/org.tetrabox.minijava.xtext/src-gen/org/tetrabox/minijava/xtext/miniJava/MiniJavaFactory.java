@@ -132,13 +132,22 @@ public interface MiniJavaFactory extends EFactory
   IfStatement createIfStatement();
 
   /**
-   * Returns a new object of class '<em>Symbol</em>'.
+   * Returns a new object of class '<em>Type Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol</em>'.
+   * @return a new object of class '<em>Type Ref</em>'.
    * @generated
    */
-  Symbol createSymbol();
+  TypeRef createTypeRef();
+
+  /**
+   * Returns a new object of class '<em>Class Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class Ref</em>'.
+   * @generated
+   */
+  ClassRef createClassRef();
 
   /**
    * Returns a new object of class '<em>Named Element</em>'.
@@ -166,6 +175,42 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Symbol Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Ref</em>'.
+   * @generated
+   */
+  SymbolRef createSymbolRef();
+
+  /**
+   * Returns a new object of class '<em>Integer Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Integer Type Ref</em>'.
+   * @generated
+   */
+  IntegerTypeRef createIntegerTypeRef();
+
+  /**
+   * Returns a new object of class '<em>Boolean Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Type Ref</em>'.
+   * @generated
+   */
+  BooleanTypeRef createBooleanTypeRef();
+
+  /**
+   * Returns a new object of class '<em>String Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Type Ref</em>'.
+   * @generated
+   */
+  StringTypeRef createStringTypeRef();
 
   /**
    * Returns a new object of class '<em>Member Selection</em>'.
@@ -240,13 +285,31 @@ public interface MiniJavaFactory extends EFactory
   New createNew();
 
   /**
-   * Returns a new object of class '<em>Symbol Ref</em>'.
+   * Returns a new object of class '<em>Variable Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol Ref</em>'.
+   * @return a new object of class '<em>Variable Ref</em>'.
    * @generated
    */
-  SymbolRef createSymbolRef();
+  VariableRef createVariableRef();
+
+  /**
+   * Returns a new object of class '<em>Parameter Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Ref</em>'.
+   * @generated
+   */
+  ParameterRef createParameterRef();
+
+  /**
+   * Returns a new object of class '<em>Field Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Ref</em>'.
+   * @generated
+   */
+  FieldRef createFieldRef();
 
   /**
    * Returns a new object of class '<em>Or</em>'.

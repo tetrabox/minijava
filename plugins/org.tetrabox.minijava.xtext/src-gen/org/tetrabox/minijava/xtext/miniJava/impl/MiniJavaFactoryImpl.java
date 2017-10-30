@@ -17,13 +17,17 @@ import org.tetrabox.minijava.xtext.miniJava.And;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
+import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.ClassRef;
 import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.FieldRef;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
+import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Member;
 import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 import org.tetrabox.minijava.xtext.miniJava.Method;
@@ -37,16 +41,19 @@ import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
+import org.tetrabox.minijava.xtext.miniJava.ParameterRef;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
 import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
+import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Super;
-import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
+import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
+import org.tetrabox.minijava.xtext.miniJava.VariableRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,10 +119,15 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case MiniJavaPackage.RETURN: return createReturn();
       case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
-      case MiniJavaPackage.SYMBOL: return createSymbol();
+      case MiniJavaPackage.TYPE_REF: return createTypeRef();
+      case MiniJavaPackage.CLASS_REF: return createClassRef();
       case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
       case MiniJavaPackage.EXPRESSION: return createExpression();
+      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+      case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
+      case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
+      case MiniJavaPackage.STRING_TYPE_REF: return createStringTypeRef();
       case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
       case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
       case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
@@ -124,7 +136,9 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.SUPER: return createSuper();
       case MiniJavaPackage.NULL: return createNull();
       case MiniJavaPackage.NEW: return createNew();
-      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+      case MiniJavaPackage.VARIABLE_REF: return createVariableRef();
+      case MiniJavaPackage.PARAMETER_REF: return createParameterRef();
+      case MiniJavaPackage.FIELD_REF: return createFieldRef();
       case MiniJavaPackage.OR: return createOr();
       case MiniJavaPackage.AND: return createAnd();
       case MiniJavaPackage.EQUALITY: return createEquality();
@@ -309,10 +323,21 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Symbol createSymbol()
+  public TypeRef createTypeRef()
   {
-    SymbolImpl symbol = new SymbolImpl();
-    return symbol;
+    TypeRefImpl typeRef = new TypeRefImpl();
+    return typeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClassRef createClassRef()
+  {
+    ClassRefImpl classRef = new ClassRefImpl();
+    return classRef;
   }
 
   /**
@@ -346,6 +371,50 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SymbolRef createSymbolRef()
+  {
+    SymbolRefImpl symbolRef = new SymbolRefImpl();
+    return symbolRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntegerTypeRef createIntegerTypeRef()
+  {
+    IntegerTypeRefImpl integerTypeRef = new IntegerTypeRefImpl();
+    return integerTypeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanTypeRef createBooleanTypeRef()
+  {
+    BooleanTypeRefImpl booleanTypeRef = new BooleanTypeRefImpl();
+    return booleanTypeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringTypeRef createStringTypeRef()
+  {
+    StringTypeRefImpl stringTypeRef = new StringTypeRefImpl();
+    return stringTypeRef;
   }
 
   /**
@@ -441,10 +510,32 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SymbolRef createSymbolRef()
+  public VariableRef createVariableRef()
   {
-    SymbolRefImpl symbolRef = new SymbolRefImpl();
-    return symbolRef;
+    VariableRefImpl variableRef = new VariableRefImpl();
+    return variableRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterRef createParameterRef()
+  {
+    ParameterRefImpl parameterRef = new ParameterRefImpl();
+    return parameterRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldRef createFieldRef()
+  {
+    FieldRefImpl fieldRef = new FieldRefImpl();
+    return fieldRef;
   }
 
   /**

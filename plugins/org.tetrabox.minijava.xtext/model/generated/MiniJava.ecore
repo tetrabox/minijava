@@ -18,7 +18,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeRef"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//Member"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Member">
@@ -32,13 +33,18 @@
     <eLiterals name="PROTECTED" value="1" literal="protected"/>
     <eLiterals name="PUBLIC" value="2" literal="public"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Symbol"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeRef"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//Statement #//Symbol">
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//Statement #//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeRef"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
@@ -54,8 +60,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elseBlock" eType="#//Block"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Symbol" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassRef" eSuperTypes="#//TypeRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -67,6 +74,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SymbolRef" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerTypeRef" eSuperTypes="#//TypeRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanTypeRef" eSuperTypes="#//TypeRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringTypeRef" eSuperTypes="#//TypeRef"/>
   <eClassifiers xsi:type="ecore:EClass" name="MemberSelection" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="#//Expression"
         containment="true"/>
@@ -88,10 +99,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Super" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Null" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="New" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//Class"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SymbolRef" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Symbol"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableRef" eSuperTypes="#//SymbolRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//VariableDeclaration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterRef" eSuperTypes="#//SymbolRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldRef" eSuperTypes="#//SymbolRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
