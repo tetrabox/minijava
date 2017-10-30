@@ -25,4 +25,4 @@ Export-Package: org.tetrabox.minijava.xtext.ui.contentassist,
  org.tetrabox.minijava.xtext.ui.internal,
  org.tetrabox.minijava.xtext.ui.quickfix,
  org.tetrabox.minijava.xtext.ui.wizard
-Bundle-Activator: org.tetrabox.minijava.xtext.ui.internal.SmalljavaActivator
+Bundle-Activator: org.tetrabox.minijava.xtext.ui.internal.XtextActivator

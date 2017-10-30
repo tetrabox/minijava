@@ -3,6 +3,7 @@
  */
 package org.tetrabox.minijava.xtext.miniJava;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package org.tetrabox.minijava.xtext.miniJava;
  * @model
  * @generated
  */
-public interface Expression extends Statement
+public interface Expression extends EObject
 {
 } // Expression

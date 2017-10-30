@@ -68,16 +68,14 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
-import org.eclipse.xtext.ui.wizard.IProjectCreator;
-import org.tetrabox.minijava.xtext.ide.contentassist.antlr.PartialMiniJavaContentAssistParser;
 import org.tetrabox.minijava.xtext.ide.contentassist.antlr.MiniJavaParser;
+import org.tetrabox.minijava.xtext.ide.contentassist.antlr.PartialMiniJavaContentAssistParser;
 import org.tetrabox.minijava.xtext.ide.contentassist.antlr.internal.InternalMiniJavaLexer;
 import org.tetrabox.minijava.xtext.ui.contentassist.MiniJavaProposalProvider;
 import org.tetrabox.minijava.xtext.ui.labeling.MiniJavaDescriptionLabelProvider;
 import org.tetrabox.minijava.xtext.ui.labeling.MiniJavaLabelProvider;
 import org.tetrabox.minijava.xtext.ui.outline.MiniJavaOutlineTreeProvider;
 import org.tetrabox.minijava.xtext.ui.quickfix.MiniJavaQuickfixProvider;
-import org.tetrabox.minijava.xtext.ui.wizard.MiniJavaProjectCreator;
 
 /**
  * Manual modifications go to {@link MiniJavaUiModule}.
@@ -283,11 +281,6 @@ public abstract class AbstractMiniJavaUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public void configureCompareViewerTitle(Binder binder) {
 		binder.bind(String.class).annotatedWith(Names.named(UIBindings.COMPARE_VIEWER_TITLE)).toInstance("MiniJava Compare");
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.ui.projectWizard.SimpleProjectWizardFragment2
-	public Class<? extends IProjectCreator> bindIProjectCreator() {
-		return MiniJavaProjectCreator.class;
 	}
 	
 }

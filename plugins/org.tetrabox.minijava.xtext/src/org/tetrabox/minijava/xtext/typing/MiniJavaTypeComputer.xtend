@@ -36,7 +36,7 @@ class MiniJavaTypeComputer {
 			New:
 				e.type
 			SymbolRef:
-				e.symbol.type
+				e.variable.type
 			MemberSelection:
 				e.member.type
 			Assignment:

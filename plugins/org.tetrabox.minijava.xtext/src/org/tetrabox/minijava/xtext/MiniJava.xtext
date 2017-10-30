@@ -42,7 +42,7 @@ Block:
 Statement:
 	VariableDeclaration |
 	Return |
-	Expression ';' |
+	Assignment ';'|
 	IfStatement;
 
 VariableDeclaration:
@@ -70,19 +70,19 @@ NamedElement:
 	Class | Member | Symbol
 ;
 
-Expression:
-	Assignment;
+Assignment:
+	left=SelectionExpression '=' right=Expression
+; 
 
-Assignment returns Expression:
-	SelectionExpression
-	({Assignment.left=current} '=' right=Expression)?; // Right associativity
+Expression:
+	TerminalExpression | =>Or;
 
 SelectionExpression returns Expression:
 	TerminalExpression
 	(
 		{MemberSelection.receiver=current} '.'
 		member=[Member]
-		(methodinvocation?='('
+		=>(methodinvocation?='('
 			(args+=Expression (',' args+=Expression)*)? ')'
 		)?
 	)*;
@@ -94,6 +94,53 @@ TerminalExpression returns Expression:
 	{This} 'this' |
 	{Super} 'super' |
 	{Null} 'null' |
-	{SymbolRef} symbol=[Symbol] |
-	{New} 'new' type=[Class|QualifiedName] '(' ')' |
-	'(' Expression ')';
+	{New} =>'new' type=[Class|QualifiedName] '(' ')' |
+	{SymbolRef} variable=[Symbol] 
+//	'(' Expression ')'
+;
+	
+	
+Or returns Expression:
+	And (
+		{Or.left=current} "||" right=And
+	)*;
+
+And returns Expression:
+	Equality (
+		{And.left=current} "&&" right=Equality
+	)*;
+
+Equality returns Expression:
+	Comparison (
+		{Equality.left=current} op=("==" | "!=")
+		right=Comparison
+	)*;
+
+Comparison returns Expression:
+	PlusOrMinus (
+		{Comparison.left=current} op=(">=" | "<=" | ">" | "<")
+		right=PlusOrMinus
+	)*;
+
+PlusOrMinus returns Expression:
+	MulOrDiv (
+		({Plus.left=current} '+' | {Minus.left=current} '-')
+		right=MulOrDiv
+	)*;
+
+MulOrDiv returns Expression:
+	Primary (
+		({MulOrDiv.left=current} op=('*' | '/'))
+		right=Primary
+	)*;
+
+Primary returns Expression:
+	'(' Expression ')' |
+	{Not} =>"!" expression=Primary |
+	TerminalExpression;
+
+//Atomic returns Expression:
+//	{IntConstant} value=INT |
+//	{StringConstant} value=STRING |
+//	{BoolConstant} value=('true' | 'false') |
+//	{SymbolRef} variable=[Symbol];

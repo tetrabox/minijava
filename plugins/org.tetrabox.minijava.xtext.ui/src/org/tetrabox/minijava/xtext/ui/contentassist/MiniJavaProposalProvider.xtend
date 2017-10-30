@@ -31,7 +31,7 @@ class MiniJavaProposalProvider extends AbstractMiniJavaProposalProvider {
 			super.getStyledDisplayString(element, qualifiedNameAsString, shortName)
 	}
 
-	override void completeSJSelectionExpression_Member(EObject model, Assignment a, ContentAssistContext context,
+	override void completeSelectionExpression_Member(EObject model, Assignment a, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(a.getTerminal() as CrossReference, context, acceptor) [ description |
 			(description.getEObjectOrProxy as Member).isAccessibleFrom(model)

@@ -5,8 +5,8 @@ package org.tetrabox.minijava.xtext.ui;
 
 import com.google.inject.Injector;
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
-import org.tetrabox.minijava.xtext.ui.internal.SmalljavaActivator;
 import org.osgi.framework.Bundle;
+import org.tetrabox.minijava.xtext.ui.internal.XtextActivator;
 
 /**
  * This class was generated. Customizations should only happen in a newly
@@ -16,12 +16,12 @@ public class MiniJavaExecutableExtensionFactory extends AbstractGuiceAwareExecut
 
 	@Override
 	protected Bundle getBundle() {
-		return SmalljavaActivator.getInstance().getBundle();
+		return XtextActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return SmalljavaActivator.getInstance().getInjector(SmalljavaActivator.ORG_EXAMPLE_SMALLJAVA_SMALLJAVA);
+		return XtextActivator.getInstance().getInjector(XtextActivator.ORG_TETRABOX_MINIJAVA_XTEXT_MINIJAVA);
 	}
 	
 }

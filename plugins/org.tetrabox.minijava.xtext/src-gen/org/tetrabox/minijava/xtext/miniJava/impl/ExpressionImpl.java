@@ -5,6 +5,8 @@ package org.tetrabox.minijava.xtext.miniJava.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 
@@ -15,7 +17,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  *
  * @generated
  */
-public class ExpressionImpl extends StatementImpl implements Expression
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
    * <!-- begin-user-doc -->

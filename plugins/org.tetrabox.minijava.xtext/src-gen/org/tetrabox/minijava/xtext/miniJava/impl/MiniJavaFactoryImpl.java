@@ -13,9 +13,12 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
+import org.tetrabox.minijava.xtext.miniJava.And;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
+import org.tetrabox.minijava.xtext.miniJava.Comparison;
+import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
@@ -26,10 +29,15 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
+import org.tetrabox.minijava.xtext.miniJava.Minus;
+import org.tetrabox.minijava.xtext.miniJava.MulOrDiv;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
+import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
+import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
 import org.tetrabox.minijava.xtext.miniJava.Statement;
@@ -106,8 +114,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
       case MiniJavaPackage.SYMBOL: return createSymbol();
       case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
-      case MiniJavaPackage.EXPRESSION: return createExpression();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
+      case MiniJavaPackage.EXPRESSION: return createExpression();
       case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
       case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
       case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
@@ -115,8 +123,16 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.THIS: return createThis();
       case MiniJavaPackage.SUPER: return createSuper();
       case MiniJavaPackage.NULL: return createNull();
-      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
       case MiniJavaPackage.NEW: return createNew();
+      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+      case MiniJavaPackage.OR: return createOr();
+      case MiniJavaPackage.AND: return createAnd();
+      case MiniJavaPackage.EQUALITY: return createEquality();
+      case MiniJavaPackage.COMPARISON: return createComparison();
+      case MiniJavaPackage.PLUS: return createPlus();
+      case MiniJavaPackage.MINUS: return createMinus();
+      case MiniJavaPackage.MUL_OR_DIV: return createMulOrDiv();
+      case MiniJavaPackage.NOT: return createNot();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -315,10 +331,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression createExpression()
+  public Assignment createAssignment()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
   }
 
   /**
@@ -326,10 +342,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignment createAssignment()
+  public Expression createExpression()
   {
-    AssignmentImpl assignment = new AssignmentImpl();
-    return assignment;
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**
@@ -414,6 +430,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public New createNew()
+  {
+    NewImpl new_ = new NewImpl();
+    return new_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SymbolRef createSymbolRef()
   {
     SymbolRefImpl symbolRef = new SymbolRefImpl();
@@ -425,10 +452,87 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public New createNew()
+  public Or createOr()
   {
-    NewImpl new_ = new NewImpl();
-    return new_;
+    OrImpl or = new OrImpl();
+    return or;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public And createAnd()
+  {
+    AndImpl and = new AndImpl();
+    return and;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Equality createEquality()
+  {
+    EqualityImpl equality = new EqualityImpl();
+    return equality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Comparison createComparison()
+  {
+    ComparisonImpl comparison = new ComparisonImpl();
+    return comparison;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Plus createPlus()
+  {
+    PlusImpl plus = new PlusImpl();
+    return plus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Minus createMinus()
+  {
+    MinusImpl minus = new MinusImpl();
+    return minus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MulOrDiv createMulOrDiv()
+  {
+    MulOrDivImpl mulOrDiv = new MulOrDivImpl();
+    return mulOrDiv;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Not createNot()
+  {
+    NotImpl not = new NotImpl();
+    return not;
   }
 
   /**
