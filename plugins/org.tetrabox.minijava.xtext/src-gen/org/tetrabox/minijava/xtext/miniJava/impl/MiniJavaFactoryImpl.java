@@ -4,6 +4,7 @@
 package org.tetrabox.minijava.xtext.miniJava.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -11,31 +12,33 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.tetrabox.minijava.xtext.miniJava.Argument;
-import org.tetrabox.minijava.xtext.miniJava.BasicType;
+import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
+import org.tetrabox.minijava.xtext.miniJava.Assignment;
+import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
-import org.tetrabox.minijava.xtext.miniJava.Cast;
-import org.tetrabox.minijava.xtext.miniJava.ClassType;
-import org.tetrabox.minijava.xtext.miniJava.Constant;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
-import org.tetrabox.minijava.xtext.miniJava.FieldSelection;
+import org.tetrabox.minijava.xtext.miniJava.IfStatement;
+import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
-import org.tetrabox.minijava.xtext.miniJava.Message;
+import org.tetrabox.minijava.xtext.miniJava.Member;
+import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 import org.tetrabox.minijava.xtext.miniJava.Method;
-import org.tetrabox.minijava.xtext.miniJava.MethodBody;
-import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
+import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Program;
-import org.tetrabox.minijava.xtext.miniJava.Selection;
+import org.tetrabox.minijava.xtext.miniJava.Return;
+import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
+import org.tetrabox.minijava.xtext.miniJava.Super;
+import org.tetrabox.minijava.xtext.miniJava.Symbol;
+import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
-import org.tetrabox.minijava.xtext.miniJava.Type;
-import org.tetrabox.minijava.xtext.miniJava.TypedElement;
-import org.tetrabox.minijava.xtext.miniJava.Variable;
+import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,31 +93,66 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
     switch (eClass.getClassifierID())
     {
       case MiniJavaPackage.PROGRAM: return createProgram();
-      case MiniJavaPackage.TYPE: return createType();
-      case MiniJavaPackage.BASIC_TYPE: return createBasicType();
-      case MiniJavaPackage.CLASS_TYPE: return createClassType();
-      case MiniJavaPackage.TYPED_ELEMENT: return createTypedElement();
+      case MiniJavaPackage.IMPORT: return createImport();
       case MiniJavaPackage.CLASS: return createClass();
+      case MiniJavaPackage.MEMBER: return createMember();
       case MiniJavaPackage.FIELD: return createField();
-      case MiniJavaPackage.PARAMETER: return createParameter();
       case MiniJavaPackage.METHOD: return createMethod();
-      case MiniJavaPackage.METHOD_BODY: return createMethodBody();
+      case MiniJavaPackage.PARAMETER: return createParameter();
+      case MiniJavaPackage.BLOCK: return createBlock();
+      case MiniJavaPackage.STATEMENT: return createStatement();
+      case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
+      case MiniJavaPackage.RETURN: return createReturn();
+      case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
+      case MiniJavaPackage.SYMBOL: return createSymbol();
+      case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
       case MiniJavaPackage.EXPRESSION: return createExpression();
-      case MiniJavaPackage.MESSAGE: return createMessage();
-      case MiniJavaPackage.METHOD_CALL: return createMethodCall();
-      case MiniJavaPackage.FIELD_SELECTION: return createFieldSelection();
-      case MiniJavaPackage.THIS: return createThis();
-      case MiniJavaPackage.VARIABLE: return createVariable();
-      case MiniJavaPackage.NEW: return createNew();
-      case MiniJavaPackage.CAST: return createCast();
-      case MiniJavaPackage.CONSTANT: return createConstant();
+      case MiniJavaPackage.ASSIGNMENT: return createAssignment();
+      case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
       case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
       case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
       case MiniJavaPackage.BOOL_CONSTANT: return createBoolConstant();
-      case MiniJavaPackage.ARGUMENT: return createArgument();
-      case MiniJavaPackage.SELECTION: return createSelection();
+      case MiniJavaPackage.THIS: return createThis();
+      case MiniJavaPackage.SUPER: return createSuper();
+      case MiniJavaPackage.NULL: return createNull();
+      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+      case MiniJavaPackage.NEW: return createNew();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case MiniJavaPackage.ACCESS_LEVEL:
+        return createAccessLevelFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case MiniJavaPackage.ACCESS_LEVEL:
+        return convertAccessLevelToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -134,43 +172,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
+  public Import createImport()
   {
-    TypeImpl type = new TypeImpl();
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BasicType createBasicType()
-  {
-    BasicTypeImpl basicType = new BasicTypeImpl();
-    return basicType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClassType createClassType()
-  {
-    ClassTypeImpl classType = new ClassTypeImpl();
-    return classType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypedElement createTypedElement()
-  {
-    TypedElementImpl typedElement = new TypedElementImpl();
-    return typedElement;
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**
@@ -189,10 +194,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field createField()
+  public Member createMember()
   {
-    FieldImpl field = new FieldImpl();
-    return field;
+    MemberImpl member = new MemberImpl();
+    return member;
   }
 
   /**
@@ -200,10 +205,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameter createParameter()
+  public Field createField()
   {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
+    FieldImpl field = new FieldImpl();
+    return field;
   }
 
   /**
@@ -222,10 +227,87 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MethodBody createMethodBody()
+  public Parameter createParameter()
   {
-    MethodBodyImpl methodBody = new MethodBodyImpl();
-    return methodBody;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableDeclaration createVariableDeclaration()
+  {
+    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+    return variableDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Return createReturn()
+  {
+    ReturnImpl return_ = new ReturnImpl();
+    return return_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Symbol createSymbol()
+  {
+    SymbolImpl symbol = new SymbolImpl();
+    return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NamedElement createNamedElement()
+  {
+    NamedElementImpl namedElement = new NamedElementImpl();
+    return namedElement;
   }
 
   /**
@@ -244,10 +326,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Message createMessage()
+  public Assignment createAssignment()
   {
-    MessageImpl message = new MessageImpl();
-    return message;
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
   }
 
   /**
@@ -255,76 +337,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MethodCall createMethodCall()
+  public MemberSelection createMemberSelection()
   {
-    MethodCallImpl methodCall = new MethodCallImpl();
-    return methodCall;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FieldSelection createFieldSelection()
-  {
-    FieldSelectionImpl fieldSelection = new FieldSelectionImpl();
-    return fieldSelection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public This createThis()
-  {
-    ThisImpl this_ = new ThisImpl();
-    return this_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Variable createVariable()
-  {
-    VariableImpl variable = new VariableImpl();
-    return variable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public New createNew()
-  {
-    NewImpl new_ = new NewImpl();
-    return new_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Cast createCast()
-  {
-    CastImpl cast = new CastImpl();
-    return cast;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Constant createConstant()
-  {
-    ConstantImpl constant = new ConstantImpl();
-    return constant;
+    MemberSelectionImpl memberSelection = new MemberSelectionImpl();
+    return memberSelection;
   }
 
   /**
@@ -365,10 +381,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Argument createArgument()
+  public This createThis()
   {
-    ArgumentImpl argument = new ArgumentImpl();
-    return argument;
+    ThisImpl this_ = new ThisImpl();
+    return this_;
   }
 
   /**
@@ -376,10 +392,65 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Selection createSelection()
+  public Super createSuper()
   {
-    SelectionImpl selection = new SelectionImpl();
-    return selection;
+    SuperImpl super_ = new SuperImpl();
+    return super_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Null createNull()
+  {
+    NullImpl null_ = new NullImpl();
+    return null_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SymbolRef createSymbolRef()
+  {
+    SymbolRefImpl symbolRef = new SymbolRefImpl();
+    return symbolRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public New createNew()
+  {
+    NewImpl new_ = new NewImpl();
+    return new_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AccessLevel createAccessLevelFromString(EDataType eDataType, String initialValue)
+  {
+    AccessLevel result = AccessLevel.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertAccessLevelToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

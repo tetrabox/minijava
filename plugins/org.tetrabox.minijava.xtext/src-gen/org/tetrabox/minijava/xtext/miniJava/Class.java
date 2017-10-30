@@ -5,8 +5,6 @@ package org.tetrabox.minijava.xtext.miniJava;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Class</b></em>'.
@@ -16,100 +14,56 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getName <em>Name</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getExtends <em>Extends</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getFields <em>Fields</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getMethods <em>Methods</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperclass <em>Superclass</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_()
  * @model
  * @generated
  */
-public interface Class extends EObject
+public interface Class extends NamedElement
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Superclass</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Superclass</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Name()
+   * @return the value of the '<em>Superclass</em>' reference.
+   * @see #setSuperclass(Class)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Superclass()
    * @model
    * @generated
    */
-  String getName();
+  Class getSuperclass();
 
   /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperclass <em>Superclass</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Superclass</em>' reference.
+   * @see #getSuperclass()
    * @generated
    */
-  void setName(String value);
+  void setSuperclass(Class value);
 
   /**
-   * Returns the value of the '<em><b>Extends</b></em>' reference.
+   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
+   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Member}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Extends</em>' reference isn't clear,
+   * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extends</em>' reference.
-   * @see #setExtends(Class)
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Extends()
-   * @model
-   * @generated
-   */
-  Class getExtends();
-
-  /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getExtends <em>Extends</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extends</em>' reference.
-   * @see #getExtends()
-   * @generated
-   */
-  void setExtends(Class value);
-
-  /**
-   * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
-   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Field}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fields</em>' containment reference list.
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Fields()
+   * @return the value of the '<em>Members</em>' containment reference list.
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Members()
    * @model containment="true"
    * @generated
    */
-  EList<Field> getFields();
-
-  /**
-   * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
-   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Method}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Methods</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Methods</em>' containment reference list.
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Methods()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Method> getMethods();
+  EList<Member> getMembers();
 
 } // Class

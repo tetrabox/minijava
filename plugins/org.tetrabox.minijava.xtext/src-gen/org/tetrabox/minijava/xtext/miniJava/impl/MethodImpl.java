@@ -14,16 +14,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.Method;
-import org.tetrabox.minijava.xtext.miniJava.MethodBody;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
-import org.tetrabox.minijava.xtext.miniJava.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,46 +31,14 @@ import org.tetrabox.minijava.xtext.miniJava.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getReturntype <em>Returntype</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MethodImpl extends MinimalEObjectImpl.Container implements Method
+public class MethodImpl extends MemberImpl implements Method
 {
-  /**
-   * The cached value of the '{@link #getReturntype() <em>Returntype</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReturntype()
-   * @generated
-   * @ordered
-   */
-  protected Type returntype;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -91,7 +57,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * @generated
    * @ordered
    */
-  protected MethodBody body;
+  protected Block body;
 
   /**
    * <!-- begin-user-doc -->
@@ -119,77 +85,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getReturntype()
-  {
-    return returntype;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetReturntype(Type newReturntype, NotificationChain msgs)
-  {
-    Type oldReturntype = returntype;
-    returntype = newReturntype;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__RETURNTYPE, oldReturntype, newReturntype);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setReturntype(Type newReturntype)
-  {
-    if (newReturntype != returntype)
-    {
-      NotificationChain msgs = null;
-      if (returntype != null)
-        msgs = ((InternalEObject)returntype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.METHOD__RETURNTYPE, null, msgs);
-      if (newReturntype != null)
-        msgs = ((InternalEObject)newReturntype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.METHOD__RETURNTYPE, null, msgs);
-      msgs = basicSetReturntype(newReturntype, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__RETURNTYPE, newReturntype, newReturntype));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Parameter> getParams()
   {
     if (params == null)
@@ -204,7 +99,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public MethodBody getBody()
+  public Block getBody()
   {
     return body;
   }
@@ -214,9 +109,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBody(MethodBody newBody, NotificationChain msgs)
+  public NotificationChain basicSetBody(Block newBody, NotificationChain msgs)
   {
-    MethodBody oldBody = body;
+    Block oldBody = body;
     body = newBody;
     if (eNotificationRequired())
     {
@@ -231,7 +126,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody(MethodBody newBody)
+  public void setBody(Block newBody)
   {
     if (newBody != body)
     {
@@ -257,8 +152,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case MiniJavaPackage.METHOD__RETURNTYPE:
-        return basicSetReturntype(null, msgs);
       case MiniJavaPackage.METHOD__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
       case MiniJavaPackage.METHOD__BODY:
@@ -277,10 +170,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case MiniJavaPackage.METHOD__RETURNTYPE:
-        return getReturntype();
-      case MiniJavaPackage.METHOD__NAME:
-        return getName();
       case MiniJavaPackage.METHOD__PARAMS:
         return getParams();
       case MiniJavaPackage.METHOD__BODY:
@@ -300,18 +189,12 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case MiniJavaPackage.METHOD__RETURNTYPE:
-        setReturntype((Type)newValue);
-        return;
-      case MiniJavaPackage.METHOD__NAME:
-        setName((String)newValue);
-        return;
       case MiniJavaPackage.METHOD__PARAMS:
         getParams().clear();
         getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
       case MiniJavaPackage.METHOD__BODY:
-        setBody((MethodBody)newValue);
+        setBody((Block)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -327,17 +210,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case MiniJavaPackage.METHOD__RETURNTYPE:
-        setReturntype((Type)null);
-        return;
-      case MiniJavaPackage.METHOD__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case MiniJavaPackage.METHOD__PARAMS:
         getParams().clear();
         return;
       case MiniJavaPackage.METHOD__BODY:
-        setBody((MethodBody)null);
+        setBody((Block)null);
         return;
     }
     super.eUnset(featureID);
@@ -353,33 +230,12 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case MiniJavaPackage.METHOD__RETURNTYPE:
-        return returntype != null;
-      case MiniJavaPackage.METHOD__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MiniJavaPackage.METHOD__PARAMS:
         return params != null && !params.isEmpty();
       case MiniJavaPackage.METHOD__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //MethodImpl

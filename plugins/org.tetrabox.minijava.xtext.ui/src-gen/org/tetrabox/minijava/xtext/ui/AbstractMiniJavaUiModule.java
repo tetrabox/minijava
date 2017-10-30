@@ -50,8 +50,6 @@ import org.eclipse.xtext.ui.editor.contentassist.IProposalConflictHelper;
 import org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.AntlrProposalConflictHelper;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.DelegatingContentAssistContextFactory;
-import org.eclipse.xtext.ui.editor.formatting.IContentFormatterFactory;
-import org.eclipse.xtext.ui.editor.formatting2.ContentFormatterFactory;
 import org.eclipse.xtext.ui.editor.outline.IOutlineTreeProvider;
 import org.eclipse.xtext.ui.editor.outline.impl.IOutlineTreeStructureProvider;
 import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreInitializer;
@@ -70,14 +68,16 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
-import org.tetrabox.minijava.xtext.ide.contentassist.antlr.MiniJavaParser;
+import org.eclipse.xtext.ui.wizard.IProjectCreator;
 import org.tetrabox.minijava.xtext.ide.contentassist.antlr.PartialMiniJavaContentAssistParser;
+import org.tetrabox.minijava.xtext.ide.contentassist.antlr.MiniJavaParser;
 import org.tetrabox.minijava.xtext.ide.contentassist.antlr.internal.InternalMiniJavaLexer;
 import org.tetrabox.minijava.xtext.ui.contentassist.MiniJavaProposalProvider;
 import org.tetrabox.minijava.xtext.ui.labeling.MiniJavaDescriptionLabelProvider;
 import org.tetrabox.minijava.xtext.ui.labeling.MiniJavaLabelProvider;
 import org.tetrabox.minijava.xtext.ui.outline.MiniJavaOutlineTreeProvider;
 import org.tetrabox.minijava.xtext.ui.quickfix.MiniJavaQuickfixProvider;
+import org.tetrabox.minijava.xtext.ui.wizard.MiniJavaProjectCreator;
 
 /**
  * Manual modifications go to {@link MiniJavaUiModule}.
@@ -187,11 +187,6 @@ public abstract class AbstractMiniJavaUiModule extends DefaultUiModule {
 			.to(BuilderPreferenceAccess.Initializer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.xtext.generator.formatting.Formatter2Fragment2
-	public Class<? extends IContentFormatterFactory> bindIContentFormatterFactory() {
-		return ContentFormatterFactory.class;
-	}
-	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
 	public Class<? extends ILabelProvider> bindILabelProvider() {
 		return MiniJavaLabelProvider.class;
@@ -288,6 +283,11 @@ public abstract class AbstractMiniJavaUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public void configureCompareViewerTitle(Binder binder) {
 		binder.bind(String.class).annotatedWith(Names.named(UIBindings.COMPARE_VIEWER_TITLE)).toInstance("MiniJava Compare");
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.projectWizard.SimpleProjectWizardFragment2
+	public Class<? extends IProjectCreator> bindIProjectCreator() {
+		return MiniJavaProjectCreator.class;
 	}
 	
 }

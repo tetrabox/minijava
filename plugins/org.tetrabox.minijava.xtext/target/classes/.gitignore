@@ -1,0 +1,16 @@
+/.MiniJavaAccessibility.xtendbin
+/.MiniJavaImportedNamespaceAwareLocalScopeProvider.xtendbin
+/.MiniJavaIndex.xtendbin
+/.MiniJavaLib.xtendbin
+/.MiniJavaModelUtil.xtendbin
+/.MiniJavaResourceDescriptionsStrategy.xtendbin
+/.MiniJavaRuntimeModule.xtendbin
+/.MiniJavaScopeProvider.xtendbin
+/.MiniJavaSemanticSequencer.xtendbin
+/.MiniJavaStandaloneSetup.xtendbin
+/.MiniJavaSyntacticSequencer.xtendbin
+/.MiniJavaTypeComputer.xtendbin
+/.MiniJavaTypeConformance.xtendbin
+/.MiniJavaValidator.xtendbin
+/minijava/
+/org/

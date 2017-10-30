@@ -16,18 +16,15 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.tetrabox.minijava.xtext,
- org.tetrabox.minijava.xtext.formatting2,
- org.tetrabox.minijava.xtext.generator,
- org.tetrabox.minijava.xtext.lookup,
- org.tetrabox.minijava.xtext.miniJava,
- org.tetrabox.minijava.xtext.miniJava.impl,
- org.tetrabox.minijava.xtext.miniJava.util,
- org.tetrabox.minijava.xtext.parser.antlr,
- org.tetrabox.minijava.xtext.parser.antlr.internal,
- org.tetrabox.minijava.xtext.scoping,
  org.tetrabox.minijava.xtext.serializer,
- org.tetrabox.minijava.xtext.services,
  org.tetrabox.minijava.xtext.typing,
- org.tetrabox.minijava.xtext.util,
- org.tetrabox.minijava.xtext.validation
+ org.tetrabox.minijava.xtext.validation,
+ minijava.lang,
+ org.tetrabox.minijava.xtext.parser.antlr.internal,
+ org.tetrabox.minijava.xtext.miniJava.impl,
+ org.tetrabox.minijava.xtext.scoping,
+ org.tetrabox.minijava.xtext.miniJava,
+ org.tetrabox.minijava.xtext.parser.antlr,
+ org.tetrabox.minijava.xtext.miniJava.util,
+ org.tetrabox.minijava.xtext.services
 Import-Package: org.apache.log4j

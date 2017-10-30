@@ -10,30 +10,31 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.tetrabox.minijava.xtext.miniJava.Argument;
-import org.tetrabox.minijava.xtext.miniJava.BasicType;
+import org.tetrabox.minijava.xtext.miniJava.Assignment;
+import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
-import org.tetrabox.minijava.xtext.miniJava.Cast;
-import org.tetrabox.minijava.xtext.miniJava.ClassType;
-import org.tetrabox.minijava.xtext.miniJava.Constant;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
-import org.tetrabox.minijava.xtext.miniJava.FieldSelection;
+import org.tetrabox.minijava.xtext.miniJava.IfStatement;
+import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
-import org.tetrabox.minijava.xtext.miniJava.Message;
+import org.tetrabox.minijava.xtext.miniJava.Member;
+import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 import org.tetrabox.minijava.xtext.miniJava.Method;
-import org.tetrabox.minijava.xtext.miniJava.MethodBody;
-import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
+import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Program;
-import org.tetrabox.minijava.xtext.miniJava.Selection;
+import org.tetrabox.minijava.xtext.miniJava.Return;
+import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
+import org.tetrabox.minijava.xtext.miniJava.Super;
+import org.tetrabox.minijava.xtext.miniJava.Symbol;
+import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
-import org.tetrabox.minijava.xtext.miniJava.Type;
-import org.tetrabox.minijava.xtext.miniJava.TypedElement;
-import org.tetrabox.minijava.xtext.miniJava.Variable;
+import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,24 +105,9 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createProgramAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
+      public Adapter caseImport(Import object)
       {
-        return createTypeAdapter();
-      }
-      @Override
-      public Adapter caseBasicType(BasicType object)
-      {
-        return createBasicTypeAdapter();
-      }
-      @Override
-      public Adapter caseClassType(ClassType object)
-      {
-        return createClassTypeAdapter();
-      }
-      @Override
-      public Adapter caseTypedElement(TypedElement object)
-      {
-        return createTypedElementAdapter();
+        return createImportAdapter();
       }
       @Override
       public Adapter caseClass(org.tetrabox.minijava.xtext.miniJava.Class object)
@@ -129,14 +115,14 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createClassAdapter();
       }
       @Override
+      public Adapter caseMember(Member object)
+      {
+        return createMemberAdapter();
+      }
+      @Override
       public Adapter caseField(Field object)
       {
         return createFieldAdapter();
-      }
-      @Override
-      public Adapter caseParameter(Parameter object)
-      {
-        return createParameterAdapter();
       }
       @Override
       public Adapter caseMethod(Method object)
@@ -144,9 +130,44 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createMethodAdapter();
       }
       @Override
-      public Adapter caseMethodBody(MethodBody object)
+      public Adapter caseParameter(Parameter object)
       {
-        return createMethodBodyAdapter();
+        return createParameterAdapter();
+      }
+      @Override
+      public Adapter caseBlock(Block object)
+      {
+        return createBlockAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseVariableDeclaration(VariableDeclaration object)
+      {
+        return createVariableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseReturn(Return object)
+      {
+        return createReturnAdapter();
+      }
+      @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseSymbol(Symbol object)
+      {
+        return createSymbolAdapter();
+      }
+      @Override
+      public Adapter caseNamedElement(NamedElement object)
+      {
+        return createNamedElementAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -154,44 +175,14 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseMessage(Message object)
+      public Adapter caseAssignment(Assignment object)
       {
-        return createMessageAdapter();
+        return createAssignmentAdapter();
       }
       @Override
-      public Adapter caseMethodCall(MethodCall object)
+      public Adapter caseMemberSelection(MemberSelection object)
       {
-        return createMethodCallAdapter();
-      }
-      @Override
-      public Adapter caseFieldSelection(FieldSelection object)
-      {
-        return createFieldSelectionAdapter();
-      }
-      @Override
-      public Adapter caseThis(This object)
-      {
-        return createThisAdapter();
-      }
-      @Override
-      public Adapter caseVariable(Variable object)
-      {
-        return createVariableAdapter();
-      }
-      @Override
-      public Adapter caseNew(New object)
-      {
-        return createNewAdapter();
-      }
-      @Override
-      public Adapter caseCast(Cast object)
-      {
-        return createCastAdapter();
-      }
-      @Override
-      public Adapter caseConstant(Constant object)
-      {
-        return createConstantAdapter();
+        return createMemberSelectionAdapter();
       }
       @Override
       public Adapter caseStringConstant(StringConstant object)
@@ -209,14 +200,29 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createBoolConstantAdapter();
       }
       @Override
-      public Adapter caseArgument(Argument object)
+      public Adapter caseThis(This object)
       {
-        return createArgumentAdapter();
+        return createThisAdapter();
       }
       @Override
-      public Adapter caseSelection(Selection object)
+      public Adapter caseSuper(Super object)
       {
-        return createSelectionAdapter();
+        return createSuperAdapter();
+      }
+      @Override
+      public Adapter caseNull(Null object)
+      {
+        return createNullAdapter();
+      }
+      @Override
+      public Adapter caseSymbolRef(SymbolRef object)
+      {
+        return createSymbolRefAdapter();
+      }
+      @Override
+      public Adapter caseNew(New object)
+      {
+        return createNewAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -256,61 +262,16 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Type <em>Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Type
+   * @see org.tetrabox.minijava.xtext.miniJava.Import
    * @generated
    */
-  public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.BasicType <em>Basic Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.BasicType
-   * @generated
-   */
-  public Adapter createBasicTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.ClassType <em>Class Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.ClassType
-   * @generated
-   */
-  public Adapter createClassTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.TypedElement <em>Typed Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.TypedElement
-   * @generated
-   */
-  public Adapter createTypedElementAdapter()
+  public Adapter createImportAdapter()
   {
     return null;
   }
@@ -331,6 +292,21 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Member <em>Member</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Member
+   * @generated
+   */
+  public Adapter createMemberAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Field <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -341,21 +317,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Parameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Parameter
-   * @generated
-   */
-  public Adapter createParameterAdapter()
   {
     return null;
   }
@@ -376,16 +337,121 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.MethodBody <em>Method Body</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.MethodBody
+   * @see org.tetrabox.minijava.xtext.miniJava.Parameter
    * @generated
    */
-  public Adapter createMethodBodyAdapter()
+  public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Block
+   * @generated
+   */
+  public Adapter createBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.VariableDeclaration <em>Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
+   * @generated
+   */
+  public Adapter createVariableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Return <em>Return</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Return
+   * @generated
+   */
+  public Adapter createReturnAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
+   * @generated
+   */
+  public Adapter createSymbolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.NamedElement
+   * @generated
+   */
+  public Adapter createNamedElementAdapter()
   {
     return null;
   }
@@ -406,121 +472,31 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Message <em>Message</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Assignment <em>Assignment</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Message
+   * @see org.tetrabox.minijava.xtext.miniJava.Assignment
    * @generated
    */
-  public Adapter createMessageAdapter()
+  public Adapter createAssignmentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.MethodCall <em>Method Call</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection <em>Member Selection</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.MethodCall
+   * @see org.tetrabox.minijava.xtext.miniJava.MemberSelection
    * @generated
    */
-  public Adapter createMethodCallAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.FieldSelection <em>Field Selection</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.FieldSelection
-   * @generated
-   */
-  public Adapter createFieldSelectionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.This <em>This</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.This
-   * @generated
-   */
-  public Adapter createThisAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Variable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Variable
-   * @generated
-   */
-  public Adapter createVariableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.New <em>New</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.New
-   * @generated
-   */
-  public Adapter createNewAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Cast <em>Cast</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Cast
-   * @generated
-   */
-  public Adapter createCastAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Constant <em>Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Constant
-   * @generated
-   */
-  public Adapter createConstantAdapter()
+  public Adapter createMemberSelectionAdapter()
   {
     return null;
   }
@@ -571,31 +547,76 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Argument <em>Argument</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.This <em>This</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Argument
+   * @see org.tetrabox.minijava.xtext.miniJava.This
    * @generated
    */
-  public Adapter createArgumentAdapter()
+  public Adapter createThisAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Selection <em>Selection</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Super <em>Super</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Selection
+   * @see org.tetrabox.minijava.xtext.miniJava.Super
    * @generated
    */
-  public Adapter createSelectionAdapter()
+  public Adapter createSuperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Null <em>Null</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Null
+   * @generated
+   */
+  public Adapter createNullAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.SymbolRef
+   * @generated
+   */
+  public Adapter createSymbolRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.New <em>New</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.New
+   * @generated
+   */
+  public Adapter createNewAdapter()
   {
     return null;
   }

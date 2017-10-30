@@ -1,3 +1,6 @@
 *._trace
 bin
 xtend-gen
+*.class
+*.xml_gen
+*.xtendbin

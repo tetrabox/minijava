@@ -15,7 +15,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
  *
  * @generated
  */
-public class ParameterImpl extends TypedElementImpl implements Parameter
+public class ParameterImpl extends SymbolImpl implements Parameter
 {
   /**
    * <!-- begin-user-doc -->

@@ -14,13 +14,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.tetrabox.minijava.xtext.miniJava.Field;
-import org.tetrabox.minijava.xtext.miniJava.Method;
+import org.tetrabox.minijava.xtext.miniJava.Member;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 
 /**
@@ -31,65 +29,33 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getExtends <em>Extends</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getFields <em>Fields</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getMethods <em>Methods</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getSuperclass <em>Superclass</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetrabox.minijava.xtext.miniJava.Class
+public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava.xtext.miniJava.Class
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getSuperclass() <em>Superclass</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getSuperclass()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected org.tetrabox.minijava.xtext.miniJava.Class superclass;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getMembers()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExtends()
-   * @generated
-   * @ordered
-   */
-  protected org.tetrabox.minijava.xtext.miniJava.Class extends_;
-
-  /**
-   * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFields()
-   * @generated
-   * @ordered
-   */
-  protected EList<Field> fields;
-
-  /**
-   * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethods()
-   * @generated
-   * @ordered
-   */
-  protected EList<Method> methods;
+  protected EList<Member> members;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,42 +83,19 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public org.tetrabox.minijava.xtext.miniJava.Class getSuperclass()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public org.tetrabox.minijava.xtext.miniJava.Class getExtends()
-  {
-    if (extends_ != null && extends_.eIsProxy())
+    if (superclass != null && superclass.eIsProxy())
     {
-      InternalEObject oldExtends = (InternalEObject)extends_;
-      extends_ = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldExtends);
-      if (extends_ != oldExtends)
+      InternalEObject oldSuperclass = (InternalEObject)superclass;
+      superclass = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldSuperclass);
+      if (superclass != oldSuperclass)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.CLASS__EXTENDS, oldExtends, extends_));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
       }
     }
-    return extends_;
+    return superclass;
   }
 
   /**
@@ -160,9 +103,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.tetrabox.minijava.xtext.miniJava.Class basicGetExtends()
+  public org.tetrabox.minijava.xtext.miniJava.Class basicGetSuperclass()
   {
-    return extends_;
+    return superclass;
   }
 
   /**
@@ -170,12 +113,12 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExtends(org.tetrabox.minijava.xtext.miniJava.Class newExtends)
+  public void setSuperclass(org.tetrabox.minijava.xtext.miniJava.Class newSuperclass)
   {
-    org.tetrabox.minijava.xtext.miniJava.Class oldExtends = extends_;
-    extends_ = newExtends;
+    org.tetrabox.minijava.xtext.miniJava.Class oldSuperclass = superclass;
+    superclass = newSuperclass;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__EXTENDS, oldExtends, extends_));
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
   }
 
   /**
@@ -183,27 +126,13 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Field> getFields()
+  public EList<Member> getMembers()
   {
-    if (fields == null)
+    if (members == null)
     {
-      fields = new EObjectContainmentEList<Field>(Field.class, this, MiniJavaPackage.CLASS__FIELDS);
+      members = new EObjectContainmentEList<Member>(Member.class, this, MiniJavaPackage.CLASS__MEMBERS);
     }
-    return fields;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Method> getMethods()
-  {
-    if (methods == null)
-    {
-      methods = new EObjectContainmentEList<Method>(Method.class, this, MiniJavaPackage.CLASS__METHODS);
-    }
-    return methods;
+    return members;
   }
 
   /**
@@ -216,10 +145,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__FIELDS:
-        return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
-      case MiniJavaPackage.CLASS__METHODS:
-        return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
+      case MiniJavaPackage.CLASS__MEMBERS:
+        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -234,15 +161,11 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__NAME:
-        return getName();
-      case MiniJavaPackage.CLASS__EXTENDS:
-        if (resolve) return getExtends();
-        return basicGetExtends();
-      case MiniJavaPackage.CLASS__FIELDS:
-        return getFields();
-      case MiniJavaPackage.CLASS__METHODS:
-        return getMethods();
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        if (resolve) return getSuperclass();
+        return basicGetSuperclass();
+      case MiniJavaPackage.CLASS__MEMBERS:
+        return getMembers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -258,19 +181,12 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__NAME:
-        setName((String)newValue);
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
         return;
-      case MiniJavaPackage.CLASS__EXTENDS:
-        setExtends((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
-        return;
-      case MiniJavaPackage.CLASS__FIELDS:
-        getFields().clear();
-        getFields().addAll((Collection<? extends Field>)newValue);
-        return;
-      case MiniJavaPackage.CLASS__METHODS:
-        getMethods().clear();
-        getMethods().addAll((Collection<? extends Method>)newValue);
+      case MiniJavaPackage.CLASS__MEMBERS:
+        getMembers().clear();
+        getMembers().addAll((Collection<? extends Member>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -286,17 +202,11 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__NAME:
-        setName(NAME_EDEFAULT);
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)null);
         return;
-      case MiniJavaPackage.CLASS__EXTENDS:
-        setExtends((org.tetrabox.minijava.xtext.miniJava.Class)null);
-        return;
-      case MiniJavaPackage.CLASS__FIELDS:
-        getFields().clear();
-        return;
-      case MiniJavaPackage.CLASS__METHODS:
-        getMethods().clear();
+      case MiniJavaPackage.CLASS__MEMBERS:
+        getMembers().clear();
         return;
     }
     super.eUnset(featureID);
@@ -312,33 +222,12 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements org.tetra
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MiniJavaPackage.CLASS__EXTENDS:
-        return extends_ != null;
-      case MiniJavaPackage.CLASS__FIELDS:
-        return fields != null && !fields.isEmpty();
-      case MiniJavaPackage.CLASS__METHODS:
-        return methods != null && !methods.isEmpty();
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        return superclass != null;
+      case MiniJavaPackage.CLASS__MEMBERS:
+        return members != null && !members.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ClassImpl

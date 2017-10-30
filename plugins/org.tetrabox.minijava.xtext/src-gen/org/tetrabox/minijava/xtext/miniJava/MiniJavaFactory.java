@@ -33,40 +33,13 @@ public interface MiniJavaFactory extends EFactory
   Program createProgram();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>Import</em>'.
    * @generated
    */
-  Type createType();
-
-  /**
-   * Returns a new object of class '<em>Basic Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Basic Type</em>'.
-   * @generated
-   */
-  BasicType createBasicType();
-
-  /**
-   * Returns a new object of class '<em>Class Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Class Type</em>'.
-   * @generated
-   */
-  ClassType createClassType();
-
-  /**
-   * Returns a new object of class '<em>Typed Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Element</em>'.
-   * @generated
-   */
-  TypedElement createTypedElement();
+  Import createImport();
 
   /**
    * Returns a new object of class '<em>Class</em>'.
@@ -78,6 +51,15 @@ public interface MiniJavaFactory extends EFactory
   Class createClass();
 
   /**
+   * Returns a new object of class '<em>Member</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member</em>'.
+   * @generated
+   */
+  Member createMember();
+
+  /**
    * Returns a new object of class '<em>Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,15 +67,6 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Field createField();
-
-  /**
-   * Returns a new object of class '<em>Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
-   * @generated
-   */
-  Parameter createParameter();
 
   /**
    * Returns a new object of class '<em>Method</em>'.
@@ -105,13 +78,76 @@ public interface MiniJavaFactory extends EFactory
   Method createMethod();
 
   /**
-   * Returns a new object of class '<em>Method Body</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method Body</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  MethodBody createMethodBody();
+  Parameter createParameter();
+
+  /**
+   * Returns a new object of class '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block</em>'.
+   * @generated
+   */
+  Block createBlock();
+
+  /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Declaration</em>'.
+   * @generated
+   */
+  VariableDeclaration createVariableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Return</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return</em>'.
+   * @generated
+   */
+  Return createReturn();
+
+  /**
+   * Returns a new object of class '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Statement</em>'.
+   * @generated
+   */
+  IfStatement createIfStatement();
+
+  /**
+   * Returns a new object of class '<em>Symbol</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol</em>'.
+   * @generated
+   */
+  Symbol createSymbol();
+
+  /**
+   * Returns a new object of class '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Element</em>'.
+   * @generated
+   */
+  NamedElement createNamedElement();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -123,76 +159,22 @@ public interface MiniJavaFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Message</em>'.
+   * Returns a new object of class '<em>Assignment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Message</em>'.
+   * @return a new object of class '<em>Assignment</em>'.
    * @generated
    */
-  Message createMessage();
+  Assignment createAssignment();
 
   /**
-   * Returns a new object of class '<em>Method Call</em>'.
+   * Returns a new object of class '<em>Member Selection</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method Call</em>'.
+   * @return a new object of class '<em>Member Selection</em>'.
    * @generated
    */
-  MethodCall createMethodCall();
-
-  /**
-   * Returns a new object of class '<em>Field Selection</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Selection</em>'.
-   * @generated
-   */
-  FieldSelection createFieldSelection();
-
-  /**
-   * Returns a new object of class '<em>This</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>This</em>'.
-   * @generated
-   */
-  This createThis();
-
-  /**
-   * Returns a new object of class '<em>Variable</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable</em>'.
-   * @generated
-   */
-  Variable createVariable();
-
-  /**
-   * Returns a new object of class '<em>New</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>New</em>'.
-   * @generated
-   */
-  New createNew();
-
-  /**
-   * Returns a new object of class '<em>Cast</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cast</em>'.
-   * @generated
-   */
-  Cast createCast();
-
-  /**
-   * Returns a new object of class '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant</em>'.
-   * @generated
-   */
-  Constant createConstant();
+  MemberSelection createMemberSelection();
 
   /**
    * Returns a new object of class '<em>String Constant</em>'.
@@ -222,22 +204,49 @@ public interface MiniJavaFactory extends EFactory
   BoolConstant createBoolConstant();
 
   /**
-   * Returns a new object of class '<em>Argument</em>'.
+   * Returns a new object of class '<em>This</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Argument</em>'.
+   * @return a new object of class '<em>This</em>'.
    * @generated
    */
-  Argument createArgument();
+  This createThis();
 
   /**
-   * Returns a new object of class '<em>Selection</em>'.
+   * Returns a new object of class '<em>Super</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selection</em>'.
+   * @return a new object of class '<em>Super</em>'.
    * @generated
    */
-  Selection createSelection();
+  Super createSuper();
+
+  /**
+   * Returns a new object of class '<em>Null</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null</em>'.
+   * @generated
+   */
+  Null createNull();
+
+  /**
+   * Returns a new object of class '<em>Symbol Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Ref</em>'.
+   * @generated
+   */
+  SymbolRef createSymbolRef();
+
+  /**
+   * Returns a new object of class '<em>New</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>New</em>'.
+   * @generated
+   */
+  New createNew();
 
   /**
    * Returns the package supported by this factory.

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.tetrabox.minijava.xtext.miniJava.Expression;
+import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 
@@ -31,14 +31,45 @@ import org.tetrabox.minijava.xtext.miniJava.Program;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ProgramImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ProgramImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ProgramImpl#getClasses <em>Classes</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ProgramImpl#getMain <em>Main</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
   /**
    * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -48,16 +79,6 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @ordered
    */
   protected EList<org.tetrabox.minijava.xtext.miniJava.Class> classes;
-
-  /**
-   * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMain()
-   * @generated
-   * @ordered
-   */
-  protected Expression main;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,6 +106,43 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, MiniJavaPackage.PROGRAM__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<org.tetrabox.minijava.xtext.miniJava.Class> getClasses()
   {
     if (classes == null)
@@ -99,63 +157,15 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getMain()
-  {
-    return main;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetMain(Expression newMain, NotificationChain msgs)
-  {
-    Expression oldMain = main;
-    main = newMain;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__MAIN, oldMain, newMain);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMain(Expression newMain)
-  {
-    if (newMain != main)
-    {
-      NotificationChain msgs = null;
-      if (main != null)
-        msgs = ((InternalEObject)main).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.PROGRAM__MAIN, null, msgs);
-      if (newMain != null)
-        msgs = ((InternalEObject)newMain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.PROGRAM__MAIN, null, msgs);
-      msgs = basicSetMain(newMain, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__MAIN, newMain, newMain));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case MiniJavaPackage.PROGRAM__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case MiniJavaPackage.PROGRAM__CLASSES:
         return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
-      case MiniJavaPackage.PROGRAM__MAIN:
-        return basicSetMain(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -170,10 +180,12 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case MiniJavaPackage.PROGRAM__NAME:
+        return getName();
+      case MiniJavaPackage.PROGRAM__IMPORTS:
+        return getImports();
       case MiniJavaPackage.PROGRAM__CLASSES:
         return getClasses();
-      case MiniJavaPackage.PROGRAM__MAIN:
-        return getMain();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -189,12 +201,16 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case MiniJavaPackage.PROGRAM__NAME:
+        setName((String)newValue);
+        return;
+      case MiniJavaPackage.PROGRAM__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case MiniJavaPackage.PROGRAM__CLASSES:
         getClasses().clear();
         getClasses().addAll((Collection<? extends org.tetrabox.minijava.xtext.miniJava.Class>)newValue);
-        return;
-      case MiniJavaPackage.PROGRAM__MAIN:
-        setMain((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -210,11 +226,14 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case MiniJavaPackage.PROGRAM__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case MiniJavaPackage.PROGRAM__IMPORTS:
+        getImports().clear();
+        return;
       case MiniJavaPackage.PROGRAM__CLASSES:
         getClasses().clear();
-        return;
-      case MiniJavaPackage.PROGRAM__MAIN:
-        setMain((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -230,12 +249,31 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case MiniJavaPackage.PROGRAM__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MiniJavaPackage.PROGRAM__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case MiniJavaPackage.PROGRAM__CLASSES:
         return classes != null && !classes.isEmpty();
-      case MiniJavaPackage.PROGRAM__MAIN:
-        return main != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ProgramImpl

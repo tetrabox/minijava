@@ -3,7 +3,6 @@
  */
 package org.tetrabox.minijava.xtext.miniJava;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.New#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew()
@@ -25,45 +23,29 @@ import org.eclipse.emf.common.util.EList;
 public interface New extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(ClassType)
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(org.tetrabox.minijava.xtext.miniJava.Class)
    * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew_Type()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  ClassType getType();
+  org.tetrabox.minijava.xtext.miniJava.Class getType();
 
   /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @param value the new value of the '<em>Type</em>' reference.
    * @see #getType()
    * @generated
    */
-  void setType(ClassType value);
-
-  /**
-   * Returns the value of the '<em><b>Args</b></em>' containment reference list.
-   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Argument}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Args</em>' containment reference list.
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew_Args()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Argument> getArgs();
+  void setType(org.tetrabox.minijava.xtext.miniJava.Class value);
 
 } // New

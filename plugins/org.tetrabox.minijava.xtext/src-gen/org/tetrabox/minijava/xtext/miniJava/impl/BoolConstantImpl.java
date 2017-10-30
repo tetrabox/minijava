@@ -20,32 +20,32 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.BoolConstantImpl#getConstant <em>Constant</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.BoolConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BoolConstantImpl extends ConstantImpl implements BoolConstant
+public class BoolConstantImpl extends ExpressionImpl implements BoolConstant
 {
   /**
-   * The default value of the '{@link #getConstant() <em>Constant</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstant()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String CONSTANT_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getConstant() <em>Constant</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstant()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String constant = CONSTANT_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getConstant()
+  public String getValue()
   {
-    return constant;
+    return value;
   }
 
   /**
@@ -83,12 +83,12 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConstant(String newConstant)
+  public void setValue(String newValue)
   {
-    String oldConstant = constant;
-    constant = newConstant;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.BOOL_CONSTANT__CONSTANT, oldConstant, constant));
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.BOOL_CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +101,8 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.BOOL_CONSTANT__CONSTANT:
-        return getConstant();
+      case MiniJavaPackage.BOOL_CONSTANT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.BOOL_CONSTANT__CONSTANT:
-        setConstant((String)newValue);
+      case MiniJavaPackage.BOOL_CONSTANT__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.BOOL_CONSTANT__CONSTANT:
-        setConstant(CONSTANT_EDEFAULT);
+      case MiniJavaPackage.BOOL_CONSTANT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.BOOL_CONSTANT__CONSTANT:
-        return CONSTANT_EDEFAULT == null ? constant != null : !CONSTANT_EDEFAULT.equals(constant);
+      case MiniJavaPackage.BOOL_CONSTANT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class BoolConstantImpl extends ConstantImpl implements BoolConstant
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (constant: ");
-    result.append(constant);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

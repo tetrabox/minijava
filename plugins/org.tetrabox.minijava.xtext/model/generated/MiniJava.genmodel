@@ -6,75 +6,82 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
   <genPackages prefix="MiniJava" basePackage="org.tetrabox.minijava.xtext" disposableProviderFactory="true"
       fileExtensions="minijava" ecorePackage="MiniJava.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MiniJava.ecore#//AccessLevel">
+      <genEnumLiterals ecoreEnumLiteral="MiniJava.ecore#//AccessLevel/PRIVATE"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniJava.ecore#//AccessLevel/PROTECTED"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniJava.ecore#//AccessLevel/PUBLIC"/>
+    </genEnums>
     <genClasses ecoreClass="MiniJava.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Program/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Program/classes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Program/main"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Type"/>
-    <genClasses ecoreClass="MiniJava.ecore#//BasicType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//BasicType/basic"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//ClassType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ClassType/classref"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//TypedElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//TypedElement/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//TypedElement/name"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Import/importedNamespace"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Class/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Class/extends"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Class/fields"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Class/methods"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Class/superclass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Class/members"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Member">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Member/access"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Member/type"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Field"/>
-    <genClasses ecoreClass="MiniJava.ecore#//Parameter"/>
     <genClasses ecoreClass="MiniJava.ecore#//Method">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/returntype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Method/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/body"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//MethodBody">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MethodBody/expression"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Parameter"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Block/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Statement"/>
+    <genClasses ecoreClass="MiniJava.ecore#//VariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//VariableDeclaration/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Return">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Return/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//IfStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//IfStatement/thenBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//IfStatement/elseBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Symbol">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Symbol/type"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
-    <genClasses ecoreClass="MiniJava.ecore#//Message"/>
-    <genClasses ecoreClass="MiniJava.ecore#//MethodCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MethodCall/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MethodCall/args"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Assignment/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Assignment/right"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//FieldSelection">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//FieldSelection/name"/>
+    <genClasses ecoreClass="MiniJava.ecore#//MemberSelection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MemberSelection/receiver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MemberSelection/member"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//MemberSelection/methodinvocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MemberSelection/args"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//This">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//This/variable"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Variable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Variable/paramref"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//New">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//New/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//New/args"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Cast">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Cast/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Cast/object"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Constant"/>
     <genClasses ecoreClass="MiniJava.ecore#//StringConstant">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//StringConstant/constant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//StringConstant/value"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//IntConstant">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//IntConstant/constant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//IntConstant/value"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//BoolConstant">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//BoolConstant/constant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//BoolConstant/value"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Argument"/>
-    <genClasses ecoreClass="MiniJava.ecore#//Selection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Selection/receiver"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Selection/message"/>
+    <genClasses ecoreClass="MiniJava.ecore#//This"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Super"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Null"/>
+    <genClasses ecoreClass="MiniJava.ecore#//SymbolRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//SymbolRef/symbol"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//New">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//New/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

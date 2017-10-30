@@ -1,89 +1,99 @@
 grammar org.tetrabox.minijava.xtext.MiniJava with org.eclipse.xtext.common.Terminals
 
-generate miniJava "http://www.tetrabox.org/minijava/xtext/MiniJava"
+generate miniJava "http://www.example.org/minijava/MiniJava"
 
 Program:
-	(classes+=Class)*
-	(main=Expression)?;
+	('package' name=QualifiedName ';')?
+	imports+=Import*
+	classes+=Class*;
 
-Type:
-	BasicType | ClassType;
+Import:
+	'import' importedNamespace=QualifiedNameWithWildcard ';';
 
-BasicType:
-	basic=('int' | 'boolean' | 'String');
+QualifiedName: ID ('.' ID)* ;
 
-ClassType:
-	classref=[Class];
-
-TypedElement:
-	Field | Parameter;
+QualifiedNameWithWildcard: QualifiedName '.*'? ;
 
 Class:
-	'class' name=ID ('extends' extends=[Class])? '{'
-	(fields+=Field)*
-	(methods+=Method)*
+	'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+		members+=Member*
 	'}';
+
+Member:
+	Field | Method;
 
 Field:
-	type=Type name=ID ';';
-
-Parameter:
-	type=Type name=ID;
+	access=AccessLevel? TypedDeclaration ';';
 
 Method:
-	returntype=Type name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' '{'
-	body=MethodBody
-	'}';
+	access=AccessLevel? TypedDeclaration
+	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
+	body=Block;
 
-MethodBody:
+enum AccessLevel:
+	PRIVATE='private' | PROTECTED='protected' | PUBLIC='public';
+
+Parameter:
+	TypedDeclaration;
+
+Block:
+	{Block} '{' statements+=Statement* '}';
+
+Statement:
+	VariableDeclaration |
+	Return |
+	Expression ';' |
+	IfStatement;
+
+VariableDeclaration:
+	TypedDeclaration '=' expression=Expression ';';
+
+Return:
 	'return' expression=Expression ';';
 
+IfStatement:
+	'if' '(' expression=Expression ')' thenBlock=IfBlock
+	(=>'else' elseBlock=IfBlock)?;
+
+IfBlock returns Block:
+	statements+=Statement
+	| Block;
+
+Symbol:
+	VariableDeclaration | Parameter;
+
+fragment TypedDeclaration *:
+	type=[Class|QualifiedName] name=ID
+;
+
+NamedElement:
+	Class | Member | Symbol
+;
+
 Expression:
-	TerminalExpression ({Selection.receiver=current} '.' message=Message)*;
+	Assignment;
 
-Message:
-	MethodCall | FieldSelection;
+Assignment returns Expression:
+	SelectionExpression
+	({Assignment.left=current} '=' right=Expression)?; // Right associativity
 
-MethodCall:
-	name=[Method] '(' (args+=Argument (',' args+=Argument)*)? ')';
-
-FieldSelection:
-	name=[Field];
+SelectionExpression returns Expression:
+	TerminalExpression
+	(
+		{MemberSelection.receiver=current} '.'
+		member=[Member]
+		(methodinvocation?='('
+			(args+=Expression (',' args+=Expression)*)? ')'
+		)?
+	)*;
 
 TerminalExpression returns Expression:
-	This |
-	Variable |
-	New |
-	Cast |
-	Constant |
-	Paren;
-
-This:
-	variable='this';
-
-Variable:
-	paramref=[Parameter];
-
-New:
-	'new' type=ClassType '(' (args+=Argument (',' args+=Argument)*)? ')';
-
-Cast:
-	=>'(' type=ClassType ')' object=TerminalExpression;
-
-Paren returns Expression:
+	{StringConstant} value=STRING |
+	{IntConstant} value=INT |
+	{BoolConstant} value=('true' | 'false') |
+	{This} 'this' |
+	{Super} 'super' |
+	{Null} 'null' |
+	{SymbolRef} symbol=[Symbol] |
+	{New} 'new' type=[Class|QualifiedName] '(' ')' |
 	'(' Expression ')';
-
-Constant:
-	IntConstant | BoolConstant | StringConstant;
-
-StringConstant:
-	constant=STRING;
-
-IntConstant:
-	constant=INT;
-
-BoolConstant:
-	constant=('true' | 'false');
-
-Argument:
-	Expression;

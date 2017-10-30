@@ -20,32 +20,32 @@ import org.tetrabox.minijava.xtext.miniJava.StringConstant;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.StringConstantImpl#getConstant <em>Constant</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.StringConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StringConstantImpl extends ConstantImpl implements StringConstant
+public class StringConstantImpl extends ExpressionImpl implements StringConstant
 {
   /**
-   * The default value of the '{@link #getConstant() <em>Constant</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstant()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String CONSTANT_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getConstant() <em>Constant</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstant()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String constant = CONSTANT_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getConstant()
+  public String getValue()
   {
-    return constant;
+    return value;
   }
 
   /**
@@ -83,12 +83,12 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConstant(String newConstant)
+  public void setValue(String newValue)
   {
-    String oldConstant = constant;
-    constant = newConstant;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.STRING_CONSTANT__CONSTANT, oldConstant, constant));
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.STRING_CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +101,8 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.STRING_CONSTANT__CONSTANT:
-        return getConstant();
+      case MiniJavaPackage.STRING_CONSTANT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.STRING_CONSTANT__CONSTANT:
-        setConstant((String)newValue);
+      case MiniJavaPackage.STRING_CONSTANT__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.STRING_CONSTANT__CONSTANT:
-        setConstant(CONSTANT_EDEFAULT);
+      case MiniJavaPackage.STRING_CONSTANT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.STRING_CONSTANT__CONSTANT:
-        return CONSTANT_EDEFAULT == null ? constant != null : !CONSTANT_EDEFAULT.equals(constant);
+      case MiniJavaPackage.STRING_CONSTANT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class StringConstantImpl extends ConstantImpl implements StringConstant
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (constant: ");
-    result.append(constant);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

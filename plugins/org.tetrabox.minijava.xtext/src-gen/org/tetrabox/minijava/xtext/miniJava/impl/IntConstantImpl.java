@@ -20,32 +20,32 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.IntConstantImpl#getConstant <em>Constant</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.IntConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntConstantImpl extends ConstantImpl implements IntConstant
+public class IntConstantImpl extends ExpressionImpl implements IntConstant
 {
   /**
-   * The default value of the '{@link #getConstant() <em>Constant</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstant()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final int CONSTANT_EDEFAULT = 0;
+  protected static final int VALUE_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getConstant() <em>Constant</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstant()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected int constant = CONSTANT_EDEFAULT;
+  protected int value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getConstant()
+  public int getValue()
   {
-    return constant;
+    return value;
   }
 
   /**
@@ -83,12 +83,12 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConstant(int newConstant)
+  public void setValue(int newValue)
   {
-    int oldConstant = constant;
-    constant = newConstant;
+    int oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.INT_CONSTANT__CONSTANT, oldConstant, constant));
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.INT_CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +101,8 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.INT_CONSTANT__CONSTANT:
-        return getConstant();
+      case MiniJavaPackage.INT_CONSTANT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.INT_CONSTANT__CONSTANT:
-        setConstant((Integer)newValue);
+      case MiniJavaPackage.INT_CONSTANT__VALUE:
+        setValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.INT_CONSTANT__CONSTANT:
-        setConstant(CONSTANT_EDEFAULT);
+      case MiniJavaPackage.INT_CONSTANT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
   {
     switch (featureID)
     {
-      case MiniJavaPackage.INT_CONSTANT__CONSTANT:
-        return constant != CONSTANT_EDEFAULT;
+      case MiniJavaPackage.INT_CONSTANT__VALUE:
+        return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class IntConstantImpl extends ConstantImpl implements IntConstant
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (constant: ");
-    result.append(constant);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

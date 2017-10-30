@@ -30,8 +30,8 @@ public class MiniJavaStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.tetrabox.org/minijava/xtext/MiniJava")) {
-			EPackage.Registry.INSTANCE.put("http://www.tetrabox.org/minijava/xtext/MiniJava", MiniJavaPackage.eINSTANCE);
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.example.org/minijava/MiniJava")) {
+			EPackage.Registry.INSTANCE.put("http://www.example.org/minijava/MiniJava", MiniJavaPackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);

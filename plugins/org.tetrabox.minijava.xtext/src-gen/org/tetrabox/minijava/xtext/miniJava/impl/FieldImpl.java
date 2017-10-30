@@ -15,7 +15,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  *
  * @generated
  */
-public class FieldImpl extends TypedElementImpl implements Field
+public class FieldImpl extends MemberImpl implements Field
 {
   /**
    * <!-- begin-user-doc -->

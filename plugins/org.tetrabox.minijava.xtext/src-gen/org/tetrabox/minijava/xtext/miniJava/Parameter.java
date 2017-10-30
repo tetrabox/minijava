@@ -14,6 +14,6 @@ package org.tetrabox.minijava.xtext.miniJava;
  * @model
  * @generated
  */
-public interface Parameter extends TypedElement
+public interface Parameter extends Symbol
 {
 } // Parameter
