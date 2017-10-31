@@ -20,7 +20,7 @@ package org.tetrabox.minijava.xtext.miniJava;
  * @model
  * @generated
  */
-public interface Parameter extends NamedElement
+public interface Parameter extends NamedElement, Symbol
 {
   /**
    * Returns the value of the '<em><b>Type Ref</b></em>' containment reference.

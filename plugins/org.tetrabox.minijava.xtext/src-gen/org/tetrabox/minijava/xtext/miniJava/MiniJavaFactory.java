@@ -177,13 +177,13 @@ public interface MiniJavaFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Symbol Ref</em>'.
+   * Returns a new object of class '<em>Symbol</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol Ref</em>'.
+   * @return a new object of class '<em>Symbol</em>'.
    * @generated
    */
-  SymbolRef createSymbolRef();
+  Symbol createSymbol();
 
   /**
    * Returns a new object of class '<em>Integer Type Ref</em>'.
@@ -285,31 +285,13 @@ public interface MiniJavaFactory extends EFactory
   New createNew();
 
   /**
-   * Returns a new object of class '<em>Variable Ref</em>'.
+   * Returns a new object of class '<em>Symbol Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Ref</em>'.
+   * @return a new object of class '<em>Symbol Ref</em>'.
    * @generated
    */
-  VariableRef createVariableRef();
-
-  /**
-   * Returns a new object of class '<em>Parameter Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter Ref</em>'.
-   * @generated
-   */
-  ParameterRef createParameterRef();
-
-  /**
-   * Returns a new object of class '<em>Field Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Ref</em>'.
-   * @generated
-   */
-  FieldRef createFieldRef();
+  SymbolRef createSymbolRef();
 
   /**
    * Returns a new object of class '<em>Or</em>'.

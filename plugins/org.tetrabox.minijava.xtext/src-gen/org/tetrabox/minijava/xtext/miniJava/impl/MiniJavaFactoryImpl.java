@@ -23,7 +23,6 @@ import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
-import org.tetrabox.minijava.xtext.miniJava.FieldRef;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
@@ -41,7 +40,6 @@ import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
-import org.tetrabox.minijava.xtext.miniJava.ParameterRef;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
@@ -49,11 +47,11 @@ import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Super;
+import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
-import org.tetrabox.minijava.xtext.miniJava.VariableRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,7 +122,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
       case MiniJavaPackage.EXPRESSION: return createExpression();
-      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+      case MiniJavaPackage.SYMBOL: return createSymbol();
       case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
       case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
       case MiniJavaPackage.STRING_TYPE_REF: return createStringTypeRef();
@@ -136,9 +134,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.SUPER: return createSuper();
       case MiniJavaPackage.NULL: return createNull();
       case MiniJavaPackage.NEW: return createNew();
-      case MiniJavaPackage.VARIABLE_REF: return createVariableRef();
-      case MiniJavaPackage.PARAMETER_REF: return createParameterRef();
-      case MiniJavaPackage.FIELD_REF: return createFieldRef();
+      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
       case MiniJavaPackage.OR: return createOr();
       case MiniJavaPackage.AND: return createAnd();
       case MiniJavaPackage.EQUALITY: return createEquality();
@@ -378,10 +374,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SymbolRef createSymbolRef()
+  public Symbol createSymbol()
   {
-    SymbolRefImpl symbolRef = new SymbolRefImpl();
-    return symbolRef;
+    SymbolImpl symbol = new SymbolImpl();
+    return symbol;
   }
 
   /**
@@ -510,32 +506,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableRef createVariableRef()
+  public SymbolRef createSymbolRef()
   {
-    VariableRefImpl variableRef = new VariableRefImpl();
-    return variableRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ParameterRef createParameterRef()
-  {
-    ParameterRefImpl parameterRef = new ParameterRefImpl();
-    return parameterRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FieldRef createFieldRef()
-  {
-    FieldRefImpl fieldRef = new FieldRefImpl();
-    return fieldRef;
+    SymbolRefImpl symbolRef = new SymbolRefImpl();
+    return symbolRef;
   }
 
   /**

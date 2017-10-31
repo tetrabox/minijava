@@ -63,7 +63,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Assignment/right"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
-    <genClasses ecoreClass="MiniJava.ecore#//SymbolRef"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Symbol"/>
     <genClasses ecoreClass="MiniJava.ecore#//IntegerTypeRef"/>
     <genClasses ecoreClass="MiniJava.ecore#//BooleanTypeRef"/>
     <genClasses ecoreClass="MiniJava.ecore#//StringTypeRef"/>
@@ -88,14 +88,8 @@
     <genClasses ecoreClass="MiniJava.ecore#//New">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//New/typeRef"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//VariableRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//VariableRef/variable"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//ParameterRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ParameterRef/param"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//FieldRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//FieldRef/field"/>
+    <genClasses ecoreClass="MiniJava.ecore#//SymbolRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//SymbolRef/symbol"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Or">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Or/left"/>

@@ -1547,159 +1547,26 @@ ruleTerminalExpression returns [EObject current=null]
 			}
 		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getTerminalExpressionAccess().getVariableRefParserRuleCall_7());
-		}
-		this_VariableRef_17=ruleVariableRef
-		{
-			$current = $this_VariableRef_17.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleVariableRef
-entryRuleVariableRef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getVariableRefRule()); }
-	iv_ruleVariableRef=ruleVariableRef
-	{ $current=$iv_ruleVariableRef.current; }
-	EOF;
-
-// Rule VariableRef
-ruleVariableRef returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		(
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getVariableRefAccess().getVariableRefAction_0_0(),
+						grammarAccess.getTerminalExpressionAccess().getSymbolRefAction_7_0(),
 						$current);
 				}
 			)
 			(
-				((
-					RULE_ID
-				)
-				)=>
 				(
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getVariableRefRule());
+							$current = createModelElement(grammarAccess.getTerminalExpressionRule());
 						}
 					}
-					otherlv_1=RULE_ID
+					otherlv_18=RULE_ID
 					{
-						newLeafNode(otherlv_1, grammarAccess.getVariableRefAccess().getVariableVariableDeclarationCrossReference_0_1_0());
+						newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getSymbolSymbolCrossReference_7_1_0());
 					}
 				)
-			)
-		)
-		    |
-		{
-			newCompositeNode(grammarAccess.getVariableRefAccess().getParameterRefParserRuleCall_1());
-		}
-		this_ParameterRef_2=ruleParameterRef
-		{
-			$current = $this_ParameterRef_2.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleParameterRef
-entryRuleParameterRef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getParameterRefRule()); }
-	iv_ruleParameterRef=ruleParameterRef
-	{ $current=$iv_ruleParameterRef.current; }
-	EOF;
-
-// Rule ParameterRef
-ruleParameterRef returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getParameterRefAccess().getParameterRefAction_0_0(),
-						$current);
-				}
-			)
-			(
-				((
-					RULE_ID
-				)
-				)=>
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getParameterRefRule());
-						}
-					}
-					otherlv_1=RULE_ID
-					{
-						newLeafNode(otherlv_1, grammarAccess.getParameterRefAccess().getParamParameterCrossReference_0_1_0());
-					}
-				)
-			)
-		)
-		    |
-		{
-			newCompositeNode(grammarAccess.getParameterRefAccess().getFieldRefParserRuleCall_1());
-		}
-		this_FieldRef_2=ruleFieldRef
-		{
-			$current = $this_FieldRef_2.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleFieldRef
-entryRuleFieldRef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFieldRefRule()); }
-	iv_ruleFieldRef=ruleFieldRef
-	{ $current=$iv_ruleFieldRef.current; }
-	EOF;
-
-// Rule FieldRef
-ruleFieldRef returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getFieldRefAccess().getFieldRefAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFieldRefRule());
-					}
-				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getFieldRefAccess().getFieldFieldCrossReference_1_0());
-				}
 			)
 		)
 	)

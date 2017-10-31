@@ -97,21 +97,12 @@ TerminalExpression returns Expression:
 	{Super} 'super' |
 	{Null} 'null' |
 	{New} => 'new' typeRef=[Class|QualifiedName] '(' ')' |
-	VariableRef;
+	{SymbolRef} symbol=[Symbol|ID]
+;
 
-SymbolRef:
-	VariableRef | ParameterRef | FieldRef;
-
-VariableRef returns SymbolRef:
-	{VariableRef} => variable=[VariableDeclaration|ID] |
-	ParameterRef;
-
-ParameterRef returns SymbolRef:
-	{ParameterRef} => param=[Parameter|ID] |
-	FieldRef;
-
-FieldRef returns SymbolRef:
-	{FieldRef} field=[Field|ID];
+Symbol:
+	Parameter| Field | VariableDeclaration
+;
 
 Or returns Expression:
 	And ({Or.left=current} "||" right=And)*;

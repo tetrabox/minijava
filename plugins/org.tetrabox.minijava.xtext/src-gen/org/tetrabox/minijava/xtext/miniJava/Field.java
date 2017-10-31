@@ -14,6 +14,6 @@ package org.tetrabox.minijava.xtext.miniJava;
  * @model
  * @generated
  */
-public interface Field extends Member
+public interface Field extends Member, Symbol
 {
 } // Field

@@ -29,7 +29,7 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 	@Inject extension MiniJavaTypeComputer
 
 	override getScope(EObject context, EReference reference) {
-		if (reference == epackage.symbolRef_Variable) {
+		if (reference == epackage.symbolRef_Symbol) {
 			return scopeForSymbolRef(context)
 		} else if (context instanceof MemberSelection) {
 			return scopeForMemberSelection(context)

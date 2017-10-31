@@ -670,23 +670,23 @@ public interface MiniJavaPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbol()
    * @generated
    */
-  int SYMBOL_REF = 17;
+  int SYMBOL = 17;
 
   /**
-   * The number of structural features of the '<em>Symbol Ref</em>' class.
+   * The number of structural features of the '<em>Symbol</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int SYMBOL_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.IntegerTypeRefImpl <em>Integer Type Ref</em>}' class.
@@ -970,88 +970,32 @@ public interface MiniJavaPackage extends EPackage
   int NEW_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.VariableRefImpl <em>Variable Ref</em>}' class.
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.VariableRefImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getVariableRef()
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
    * @generated
    */
-  int VARIABLE_REF = 29;
+  int SYMBOL_REF = 29;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * The feature id for the '<em><b>Symbol</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_REF__VARIABLE = SYMBOL_REF_FEATURE_COUNT + 0;
+  int SYMBOL_REF__SYMBOL = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Variable Ref</em>' class.
+   * The number of structural features of the '<em>Symbol Ref</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_REF_FEATURE_COUNT = SYMBOL_REF_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ParameterRefImpl <em>Parameter Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.ParameterRefImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getParameterRef()
-   * @generated
-   */
-  int PARAMETER_REF = 30;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_REF__PARAM = SYMBOL_REF_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Parameter Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_REF_FEATURE_COUNT = SYMBOL_REF_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.FieldRefImpl <em>Field Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.FieldRefImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getFieldRef()
-   * @generated
-   */
-  int FIELD_REF = 31;
-
-  /**
-   * The feature id for the '<em><b>Field</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD_REF__FIELD = SYMBOL_REF_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Field Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD_REF_FEATURE_COUNT = SYMBOL_REF_FEATURE_COUNT + 1;
+  int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.OrImpl <em>Or</em>}' class.
@@ -1061,7 +1005,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getOr()
    * @generated
    */
-  int OR = 32;
+  int OR = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1098,7 +1042,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAnd()
    * @generated
    */
-  int AND = 33;
+  int AND = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1135,7 +1079,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 34;
+  int EQUALITY = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1181,7 +1125,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 35;
+  int COMPARISON = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1227,7 +1171,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 36;
+  int PLUS = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1264,7 +1208,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 37;
+  int MINUS = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1301,7 +1245,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMulOrDiv()
    * @generated
    */
-  int MUL_OR_DIV = 38;
+  int MUL_OR_DIV = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1347,7 +1291,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 39;
+  int NOT = 37;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1375,7 +1319,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 40;
+  int ACCESS_LEVEL = 38;
 
 
   /**
@@ -1791,14 +1735,14 @@ public interface MiniJavaPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Symbol Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.SymbolRef
+   * @return the meta object for class '<em>Symbol</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
    * @generated
    */
-  EClass getSymbolRef();
+  EClass getSymbol();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef <em>Integer Type Ref</em>}'.
@@ -1999,67 +1943,25 @@ public interface MiniJavaPackage extends EPackage
   EReference getNew_TypeRef();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.VariableRef <em>Variable Ref</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.VariableRef
+   * @return the meta object for class '<em>Symbol Ref</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.SymbolRef
    * @generated
    */
-  EClass getVariableRef();
+  EClass getSymbolRef();
 
   /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.VariableRef#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef#getSymbol <em>Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.VariableRef#getVariable()
-   * @see #getVariableRef()
+   * @return the meta object for the reference '<em>Symbol</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.SymbolRef#getSymbol()
+   * @see #getSymbolRef()
    * @generated
    */
-  EReference getVariableRef_Variable();
-
-  /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.ParameterRef <em>Parameter Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.ParameterRef
-   * @generated
-   */
-  EClass getParameterRef();
-
-  /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.ParameterRef#getParam <em>Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Param</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.ParameterRef#getParam()
-   * @see #getParameterRef()
-   * @generated
-   */
-  EReference getParameterRef_Param();
-
-  /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.FieldRef <em>Field Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Field Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.FieldRef
-   * @generated
-   */
-  EClass getFieldRef();
-
-  /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.FieldRef#getField <em>Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Field</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.FieldRef#getField()
-   * @see #getFieldRef()
-   * @generated
-   */
-  EReference getFieldRef_Field();
+  EReference getSymbolRef_Symbol();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Or <em>Or</em>}'.
@@ -2719,14 +2621,14 @@ public interface MiniJavaPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbol()
      * @generated
      */
-    EClass SYMBOL_REF = eINSTANCE.getSymbolRef();
+    EClass SYMBOL = eINSTANCE.getSymbol();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.IntegerTypeRefImpl <em>Integer Type Ref</em>}' class.
@@ -2903,58 +2805,22 @@ public interface MiniJavaPackage extends EPackage
     EReference NEW__TYPE_REF = eINSTANCE.getNew_TypeRef();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.VariableRefImpl <em>Variable Ref</em>}' class.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.VariableRefImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getVariableRef()
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
      * @generated
      */
-    EClass VARIABLE_REF = eINSTANCE.getVariableRef();
+    EClass SYMBOL_REF = eINSTANCE.getSymbolRef();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Symbol</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE_REF__VARIABLE = eINSTANCE.getVariableRef_Variable();
-
-    /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ParameterRefImpl <em>Parameter Ref</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.ParameterRefImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getParameterRef()
-     * @generated
-     */
-    EClass PARAMETER_REF = eINSTANCE.getParameterRef();
-
-    /**
-     * The meta object literal for the '<em><b>Param</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETER_REF__PARAM = eINSTANCE.getParameterRef_Param();
-
-    /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.FieldRefImpl <em>Field Ref</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.FieldRefImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getFieldRef()
-     * @generated
-     */
-    EClass FIELD_REF = eINSTANCE.getFieldRef();
-
-    /**
-     * The meta object literal for the '<em><b>Field</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FIELD_REF__FIELD = eINSTANCE.getFieldRef_Field();
+    EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.OrImpl <em>Or</em>}' class.

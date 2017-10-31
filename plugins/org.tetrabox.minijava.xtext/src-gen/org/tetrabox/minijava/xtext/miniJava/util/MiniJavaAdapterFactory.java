@@ -20,7 +20,6 @@ import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
-import org.tetrabox.minijava.xtext.miniJava.FieldRef;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
@@ -37,7 +36,6 @@ import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
-import org.tetrabox.minijava.xtext.miniJava.ParameterRef;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
@@ -45,11 +43,11 @@ import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Super;
+import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
-import org.tetrabox.minijava.xtext.miniJava.VariableRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -200,9 +198,9 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseSymbolRef(SymbolRef object)
+      public Adapter caseSymbol(Symbol object)
       {
-        return createSymbolRefAdapter();
+        return createSymbolAdapter();
       }
       @Override
       public Adapter caseIntegerTypeRef(IntegerTypeRef object)
@@ -260,19 +258,9 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createNewAdapter();
       }
       @Override
-      public Adapter caseVariableRef(VariableRef object)
+      public Adapter caseSymbolRef(SymbolRef object)
       {
-        return createVariableRefAdapter();
-      }
-      @Override
-      public Adapter caseParameterRef(ParameterRef object)
-      {
-        return createParameterRefAdapter();
-      }
-      @Override
-      public Adapter caseFieldRef(FieldRef object)
-      {
-        return createFieldRefAdapter();
+        return createSymbolRefAdapter();
       }
       @Override
       public Adapter caseOr(Or object)
@@ -592,16 +580,16 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.SymbolRef
+   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
    * @generated
    */
-  public Adapter createSymbolRefAdapter()
+  public Adapter createSymbolAdapter()
   {
     return null;
   }
@@ -772,46 +760,16 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.VariableRef <em>Variable Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.VariableRef
+   * @see org.tetrabox.minijava.xtext.miniJava.SymbolRef
    * @generated
    */
-  public Adapter createVariableRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.ParameterRef <em>Parameter Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.ParameterRef
-   * @generated
-   */
-  public Adapter createParameterRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.FieldRef <em>Field Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.FieldRef
-   * @generated
-   */
-  public Adapter createFieldRefAdapter()
+  public Adapter createSymbolRefAdapter()
   {
     return null;
   }

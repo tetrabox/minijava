@@ -22,7 +22,6 @@ import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
-import org.tetrabox.minijava.xtext.miniJava.FieldRef;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
@@ -40,7 +39,6 @@ import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
-import org.tetrabox.minijava.xtext.miniJava.ParameterRef;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
@@ -48,11 +46,11 @@ import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Super;
+import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
-import org.tetrabox.minijava.xtext.miniJava.VariableRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -186,7 +184,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass symbolRefEClass = null;
+  private EClass symbolEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -270,21 +268,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableRefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass parameterRefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass fieldRefEClass = null;
+  private EClass symbolRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -807,9 +791,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSymbolRef()
+  public EClass getSymbol()
   {
-    return symbolRefEClass;
+    return symbolEClass;
   }
 
   /**
@@ -1007,9 +991,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVariableRef()
+  public EClass getSymbolRef()
   {
-    return variableRefEClass;
+    return symbolRefEClass;
   }
 
   /**
@@ -1017,49 +1001,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVariableRef_Variable()
+  public EReference getSymbolRef_Symbol()
   {
-    return (EReference)variableRefEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getParameterRef()
-  {
-    return parameterRefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getParameterRef_Param()
-  {
-    return (EReference)parameterRefEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getFieldRef()
-  {
-    return fieldRefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFieldRef_Field()
-  {
-    return (EReference)fieldRefEClass.getEStructuralFeatures().get(0);
+    return (EReference)symbolRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1418,7 +1362,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     expressionEClass = createEClass(EXPRESSION);
 
-    symbolRefEClass = createEClass(SYMBOL_REF);
+    symbolEClass = createEClass(SYMBOL);
 
     integerTypeRefEClass = createEClass(INTEGER_TYPE_REF);
 
@@ -1450,14 +1394,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     newEClass = createEClass(NEW);
     createEReference(newEClass, NEW__TYPE_REF);
 
-    variableRefEClass = createEClass(VARIABLE_REF);
-    createEReference(variableRefEClass, VARIABLE_REF__VARIABLE);
-
-    parameterRefEClass = createEClass(PARAMETER_REF);
-    createEReference(parameterRefEClass, PARAMETER_REF__PARAM);
-
-    fieldRefEClass = createEClass(FIELD_REF);
-    createEReference(fieldRefEClass, FIELD_REF__FIELD);
+    symbolRefEClass = createEClass(SYMBOL_REF);
+    createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
 
     orEClass = createEClass(OR);
     createEReference(orEClass, OR__LEFT);
@@ -1529,15 +1467,17 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     classEClass.getESuperTypes().add(this.getNamedElement());
     memberEClass.getESuperTypes().add(this.getNamedElement());
     fieldEClass.getESuperTypes().add(this.getMember());
+    fieldEClass.getESuperTypes().add(this.getSymbol());
     methodEClass.getESuperTypes().add(this.getMember());
     parameterEClass.getESuperTypes().add(this.getNamedElement());
+    parameterEClass.getESuperTypes().add(this.getSymbol());
     variableDeclarationEClass.getESuperTypes().add(this.getStatement());
     variableDeclarationEClass.getESuperTypes().add(this.getNamedElement());
+    variableDeclarationEClass.getESuperTypes().add(this.getSymbol());
     returnEClass.getESuperTypes().add(this.getStatement());
     ifStatementEClass.getESuperTypes().add(this.getStatement());
     classRefEClass.getESuperTypes().add(this.getTypeRef());
     assignmentEClass.getESuperTypes().add(this.getStatement());
-    symbolRefEClass.getESuperTypes().add(this.getExpression());
     integerTypeRefEClass.getESuperTypes().add(this.getTypeRef());
     booleanTypeRefEClass.getESuperTypes().add(this.getTypeRef());
     stringTypeRefEClass.getESuperTypes().add(this.getTypeRef());
@@ -1549,9 +1489,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     superEClass.getESuperTypes().add(this.getExpression());
     nullEClass.getESuperTypes().add(this.getExpression());
     newEClass.getESuperTypes().add(this.getExpression());
-    variableRefEClass.getESuperTypes().add(this.getSymbolRef());
-    parameterRefEClass.getESuperTypes().add(this.getSymbolRef());
-    fieldRefEClass.getESuperTypes().add(this.getSymbolRef());
+    symbolRefEClass.getESuperTypes().add(this.getExpression());
     orEClass.getESuperTypes().add(this.getExpression());
     andEClass.getESuperTypes().add(this.getExpression());
     equalityEClass.getESuperTypes().add(this.getExpression());
@@ -1618,7 +1556,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(integerTypeRefEClass, IntegerTypeRef.class, "IntegerTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1650,14 +1588,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEClass(newEClass, New.class, "New", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNew_TypeRef(), this.getClass_(), null, "typeRef", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariableRef_Variable(), this.getVariableDeclaration(), null, "variable", null, 0, 1, VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(parameterRefEClass, ParameterRef.class, "ParameterRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameterRef_Param(), this.getParameter(), null, "param", null, 0, 1, ParameterRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(fieldRefEClass, FieldRef.class, "FieldRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFieldRef_Field(), this.getField(), null, "field", null, 0, 1, FieldRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
