@@ -47,6 +47,7 @@ import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
+import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 
 /**
@@ -133,6 +134,11 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createMemberAdapter();
       }
       @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
+      }
+      @Override
       public Adapter caseField(Field object)
       {
         return createFieldAdapter();
@@ -141,11 +147,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethod(Method object)
       {
         return createMethodAdapter();
-      }
-      @Override
-      public Adapter caseParameter(Parameter object)
-      {
-        return createParameterAdapter();
       }
       @Override
       public Adapter caseBlock(Block object)
@@ -188,6 +189,16 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createNamedElementAdapter();
       }
       @Override
+      public Adapter caseTypedDeclaration(TypedDeclaration object)
+      {
+        return createTypedDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseSymbol(Symbol object)
+      {
+        return createSymbolAdapter();
+      }
+      @Override
       public Adapter caseAssignment(Assignment object)
       {
         return createAssignmentAdapter();
@@ -196,11 +207,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseSymbol(Symbol object)
-      {
-        return createSymbolAdapter();
       }
       @Override
       public Adapter caseIntegerTypeRef(IntegerTypeRef object)
@@ -385,6 +391,21 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Field <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -410,21 +431,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Parameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Parameter
-   * @generated
-   */
-  public Adapter createParameterAdapter()
   {
     return null;
   }
@@ -550,6 +556,36 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.TypedDeclaration <em>Typed Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
+   * @generated
+   */
+  public Adapter createTypedDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
+   * @generated
+   */
+  public Adapter createSymbolAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Assignment <em>Assignment</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -575,21 +611,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
-   * @generated
-   */
-  public Adapter createSymbolAdapter()
   {
     return null;
   }

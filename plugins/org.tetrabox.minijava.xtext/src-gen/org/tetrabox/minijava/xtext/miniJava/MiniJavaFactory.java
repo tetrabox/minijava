@@ -60,6 +60,15 @@ public interface MiniJavaFactory extends EFactory
   Member createMember();
 
   /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
+
+  /**
    * Returns a new object of class '<em>Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,15 +85,6 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Method createMethod();
-
-  /**
-   * Returns a new object of class '<em>Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
-   * @generated
-   */
-  Parameter createParameter();
 
   /**
    * Returns a new object of class '<em>Block</em>'.
@@ -159,6 +159,24 @@ public interface MiniJavaFactory extends EFactory
   NamedElement createNamedElement();
 
   /**
+   * Returns a new object of class '<em>Typed Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Declaration</em>'.
+   * @generated
+   */
+  TypedDeclaration createTypedDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Symbol</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol</em>'.
+   * @generated
+   */
+  Symbol createSymbol();
+
+  /**
    * Returns a new object of class '<em>Assignment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -175,15 +193,6 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Symbol</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol</em>'.
-   * @generated
-   */
-  Symbol createSymbol();
 
   /**
    * Returns a new object of class '<em>Integer Type Ref</em>'.

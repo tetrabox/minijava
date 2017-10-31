@@ -82,18 +82,18 @@ class MiniJavaTypeComputer {
 		val f = e.eContainingFeature
 		switch (c) {
 			VariableDeclaration:
-				c.type.type
+				c.typeRef.type
 			Assignment case f == ep.assignment_Right:
 				typeFor(c.left)
 			Return:
-				c.getContainerOfType(Method).type.type
+				c.getContainerOfType(Method).typeRef.type
 			case f == ep.ifStatement_Expression:
 				BOOLEAN_TYPE
 			MemberSelection case f == ep.memberSelection_Args: {
 				// assume that it refers to a method and that there
 				// is a parameter corresponding to the argument
 				try {
-					(c.member as Method).params.get(c.args.indexOf(e)).type.type
+					(c.member as Method).params.get(c.args.indexOf(e)).typeRef.type
 				} catch (Throwable t) {
 					null // otherwise there is no specific expected type
 				}

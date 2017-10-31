@@ -45,6 +45,7 @@ import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
+import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 
 /**
@@ -136,7 +137,18 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Member member = (Member)theEObject;
         T result = caseMember(member);
+        if (result == null) result = caseTypedDeclaration(member);
         if (result == null) result = caseNamedElement(member);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = caseSymbol(parameter);
+        if (result == null) result = caseTypedDeclaration(parameter);
+        if (result == null) result = caseNamedElement(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -146,6 +158,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         T result = caseField(field);
         if (result == null) result = caseMember(field);
         if (result == null) result = caseSymbol(field);
+        if (result == null) result = caseTypedDeclaration(field);
         if (result == null) result = caseNamedElement(field);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -155,16 +168,8 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Method method = (Method)theEObject;
         T result = caseMethod(method);
         if (result == null) result = caseMember(method);
+        if (result == null) result = caseTypedDeclaration(method);
         if (result == null) result = caseNamedElement(method);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.PARAMETER:
-      {
-        Parameter parameter = (Parameter)theEObject;
-        T result = caseParameter(parameter);
-        if (result == null) result = caseNamedElement(parameter);
-        if (result == null) result = caseSymbol(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -187,8 +192,9 @@ public class MiniJavaSwitch<T> extends Switch<T>
         VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
         T result = caseVariableDeclaration(variableDeclaration);
         if (result == null) result = caseStatement(variableDeclaration);
-        if (result == null) result = caseNamedElement(variableDeclaration);
         if (result == null) result = caseSymbol(variableDeclaration);
+        if (result == null) result = caseTypedDeclaration(variableDeclaration);
+        if (result == null) result = caseNamedElement(variableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -230,6 +236,23 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniJavaPackage.TYPED_DECLARATION:
+      {
+        TypedDeclaration typedDeclaration = (TypedDeclaration)theEObject;
+        T result = caseTypedDeclaration(typedDeclaration);
+        if (result == null) result = caseNamedElement(typedDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.SYMBOL:
+      {
+        Symbol symbol = (Symbol)theEObject;
+        T result = caseSymbol(symbol);
+        if (result == null) result = caseTypedDeclaration(symbol);
+        if (result == null) result = caseNamedElement(symbol);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniJavaPackage.ASSIGNMENT:
       {
         Assignment assignment = (Assignment)theEObject;
@@ -242,13 +265,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.SYMBOL:
-      {
-        Symbol symbol = (Symbol)theEObject;
-        T result = caseSymbol(symbol);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -481,6 +497,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -508,22 +540,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethod(Method object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParameter(Parameter object)
   {
     return null;
   }
@@ -657,6 +673,38 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Typed Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Typed Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypedDeclaration(TypedDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbol(Symbol object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -684,22 +732,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Symbol</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Symbol</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSymbol(Symbol object)
   {
     return null;
   }

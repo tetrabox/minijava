@@ -25,22 +25,18 @@
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Member">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Member/access"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Member/typeRef"/>
     </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Parameter"/>
     <genClasses ecoreClass="MiniJava.ecore#//Field"/>
     <genClasses ecoreClass="MiniJava.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/body"/>
-    </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Parameter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Parameter/typeRef"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Block/statements"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Statement"/>
     <genClasses ecoreClass="MiniJava.ecore#//VariableDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//VariableDeclaration/typeRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//VariableDeclaration/expression"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Return">
@@ -58,12 +54,15 @@
     <genClasses ecoreClass="MiniJava.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//NamedElement/name"/>
     </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//TypedDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//TypedDeclaration/typeRef"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Symbol"/>
     <genClasses ecoreClass="MiniJava.ecore#//Assignment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Assignment/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Assignment/right"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
-    <genClasses ecoreClass="MiniJava.ecore#//Symbol"/>
     <genClasses ecoreClass="MiniJava.ecore#//IntegerTypeRef"/>
     <genClasses ecoreClass="MiniJava.ecore#//BooleanTypeRef"/>
     <genClasses ecoreClass="MiniJava.ecore#//StringTypeRef"/>

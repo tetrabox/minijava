@@ -51,6 +51,7 @@ import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
+import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 
 /**
@@ -109,9 +110,9 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.IMPORT: return createImport();
       case MiniJavaPackage.CLASS: return createClass();
       case MiniJavaPackage.MEMBER: return createMember();
+      case MiniJavaPackage.PARAMETER: return createParameter();
       case MiniJavaPackage.FIELD: return createField();
       case MiniJavaPackage.METHOD: return createMethod();
-      case MiniJavaPackage.PARAMETER: return createParameter();
       case MiniJavaPackage.BLOCK: return createBlock();
       case MiniJavaPackage.STATEMENT: return createStatement();
       case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
@@ -120,9 +121,10 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.TYPE_REF: return createTypeRef();
       case MiniJavaPackage.CLASS_REF: return createClassRef();
       case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
+      case MiniJavaPackage.TYPED_DECLARATION: return createTypedDeclaration();
+      case MiniJavaPackage.SYMBOL: return createSymbol();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
       case MiniJavaPackage.EXPRESSION: return createExpression();
-      case MiniJavaPackage.SYMBOL: return createSymbol();
       case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
       case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
       case MiniJavaPackage.STRING_TYPE_REF: return createStringTypeRef();
@@ -231,6 +233,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Field createField()
   {
     FieldImpl field = new FieldImpl();
@@ -246,17 +259,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     MethodImpl method = new MethodImpl();
     return method;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parameter createParameter()
-  {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
   }
 
   /**
@@ -352,6 +354,28 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypedDeclaration createTypedDeclaration()
+  {
+    TypedDeclarationImpl typedDeclaration = new TypedDeclarationImpl();
+    return typedDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Symbol createSymbol()
+  {
+    SymbolImpl symbol = new SymbolImpl();
+    return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Assignment createAssignment()
   {
     AssignmentImpl assignment = new AssignmentImpl();
@@ -367,17 +391,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Symbol createSymbol()
-  {
-    SymbolImpl symbol = new SymbolImpl();
-    return symbol;
   }
 
   /**

@@ -207,6 +207,43 @@ public interface MiniJavaPackage extends EPackage
   int CLASS_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.TypedDeclarationImpl <em>Typed Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.TypedDeclarationImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getTypedDeclaration()
+   * @generated
+   */
+  int TYPED_DECLARATION = 15;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_DECLARATION__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_DECLARATION__TYPE_REF = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Typed Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_DECLARATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MemberImpl <em>Member</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -223,16 +260,7 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER__NAME = NAMED_ELEMENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Access</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER__ACCESS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+  int MEMBER__NAME = TYPED_DECLARATION__NAME;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
@@ -241,7 +269,16 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER__TYPE_REF = NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int MEMBER__TYPE_REF = TYPED_DECLARATION__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Access</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER__ACCESS = TYPED_DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Member</em>' class.
@@ -250,7 +287,81 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int MEMBER_FEATURE_COUNT = TYPED_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbol()
+   * @generated
+   */
+  int SYMBOL = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL__NAME = TYPED_DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL__TYPE_REF = TYPED_DECLARATION__TYPE_REF;
+
+  /**
+   * The number of structural features of the '<em>Symbol</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL_FEATURE_COUNT = TYPED_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = SYMBOL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE_REF = SYMBOL__TYPE_REF;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.FieldImpl <em>Field</em>}' class.
@@ -260,7 +371,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getField()
    * @generated
    */
-  int FIELD = 4;
+  int FIELD = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -272,15 +383,6 @@ public interface MiniJavaPackage extends EPackage
   int FIELD__NAME = MEMBER__NAME;
 
   /**
-   * The feature id for the '<em><b>Access</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD__ACCESS = MEMBER__ACCESS;
-
-  /**
    * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -288,6 +390,15 @@ public interface MiniJavaPackage extends EPackage
    * @ordered
    */
   int FIELD__TYPE_REF = MEMBER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Access</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__ACCESS = MEMBER__ACCESS;
 
   /**
    * The number of structural features of the '<em>Field</em>' class.
@@ -306,7 +417,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 5;
+  int METHOD = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -318,15 +429,6 @@ public interface MiniJavaPackage extends EPackage
   int METHOD__NAME = MEMBER__NAME;
 
   /**
-   * The feature id for the '<em><b>Access</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD__ACCESS = MEMBER__ACCESS;
-
-  /**
    * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -334,6 +436,15 @@ public interface MiniJavaPackage extends EPackage
    * @ordered
    */
   int METHOD__TYPE_REF = MEMBER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Access</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__ACCESS = MEMBER__ACCESS;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -361,43 +472,6 @@ public interface MiniJavaPackage extends EPackage
    * @ordered
    */
   int METHOD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl <em>Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getParameter()
-   * @generated
-   */
-  int PARAMETER = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__NAME = NAMED_ELEMENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__TYPE_REF = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.BlockImpl <em>Block</em>}' class.
@@ -621,7 +695,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 15;
+  int ASSIGNMENT = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -658,7 +732,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 16;
+  int EXPRESSION = 18;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -670,25 +744,6 @@ public interface MiniJavaPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbol()
-   * @generated
-   */
-  int SYMBOL = 17;
-
-  /**
-   * The number of structural features of the '<em>Symbol</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYMBOL_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.IntegerTypeRefImpl <em>Integer Type Ref</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -696,7 +751,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getIntegerTypeRef()
    * @generated
    */
-  int INTEGER_TYPE_REF = 18;
+  int INTEGER_TYPE_REF = 19;
 
   /**
    * The number of structural features of the '<em>Integer Type Ref</em>' class.
@@ -715,7 +770,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getBooleanTypeRef()
    * @generated
    */
-  int BOOLEAN_TYPE_REF = 19;
+  int BOOLEAN_TYPE_REF = 20;
 
   /**
    * The number of structural features of the '<em>Boolean Type Ref</em>' class.
@@ -734,7 +789,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getStringTypeRef()
    * @generated
    */
-  int STRING_TYPE_REF = 20;
+  int STRING_TYPE_REF = 21;
 
   /**
    * The number of structural features of the '<em>String Type Ref</em>' class.
@@ -753,7 +808,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMemberSelection()
    * @generated
    */
-  int MEMBER_SELECTION = 21;
+  int MEMBER_SELECTION = 22;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -808,7 +863,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 22;
+  int STRING_CONSTANT = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -836,7 +891,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 23;
+  int INT_CONSTANT = 24;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -864,7 +919,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 24;
+  int BOOL_CONSTANT = 25;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -892,7 +947,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getThis()
    * @generated
    */
-  int THIS = 25;
+  int THIS = 26;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -911,7 +966,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuper()
    * @generated
    */
-  int SUPER = 26;
+  int SUPER = 27;
 
   /**
    * The number of structural features of the '<em>Super</em>' class.
@@ -930,7 +985,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNull()
    * @generated
    */
-  int NULL = 27;
+  int NULL = 28;
 
   /**
    * The number of structural features of the '<em>Null</em>' class.
@@ -949,7 +1004,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNew()
    * @generated
    */
-  int NEW = 28;
+  int NEW = 29;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -977,7 +1032,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 29;
+  int SYMBOL_REF = 30;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -1005,7 +1060,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getOr()
    * @generated
    */
-  int OR = 30;
+  int OR = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1042,7 +1097,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAnd()
    * @generated
    */
-  int AND = 31;
+  int AND = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1079,7 +1134,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 32;
+  int EQUALITY = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1125,7 +1180,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 33;
+  int COMPARISON = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1171,7 +1226,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 34;
+  int PLUS = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1208,7 +1263,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 35;
+  int MINUS = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1245,7 +1300,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMulOrDiv()
    * @generated
    */
-  int MUL_OR_DIV = 36;
+  int MUL_OR_DIV = 37;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1291,7 +1346,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 37;
+  int NOT = 38;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1319,7 +1374,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 38;
+  int ACCESS_LEVEL = 39;
 
 
   /**
@@ -1440,15 +1495,14 @@ public interface MiniJavaPackage extends EPackage
   EAttribute getMember_Access();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Member#getTypeRef <em>Type Ref</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Member#getTypeRef()
-   * @see #getMember()
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Parameter
    * @generated
    */
-  EReference getMember_TypeRef();
+  EClass getParameter();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Field <em>Field</em>}'.
@@ -1493,27 +1547,6 @@ public interface MiniJavaPackage extends EPackage
   EReference getMethod_Body();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Parameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Parameter
-   * @generated
-   */
-  EClass getParameter();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Parameter#getTypeRef <em>Type Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Parameter#getTypeRef()
-   * @see #getParameter()
-   * @generated
-   */
-  EReference getParameter_TypeRef();
-
-  /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Block <em>Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1553,17 +1586,6 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    */
   EClass getVariableDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.VariableDeclaration#getTypeRef <em>Type Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.VariableDeclaration#getTypeRef()
-   * @see #getVariableDeclaration()
-   * @generated
-   */
-  EReference getVariableDeclaration_TypeRef();
 
   /**
    * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.VariableDeclaration#getExpression <em>Expression</em>}'.
@@ -1693,6 +1715,37 @@ public interface MiniJavaPackage extends EPackage
   EAttribute getNamedElement_Name();
 
   /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.TypedDeclaration <em>Typed Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Typed Declaration</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
+   * @generated
+   */
+  EClass getTypedDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.TypedDeclaration#getTypeRef <em>Type Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Ref</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.TypedDeclaration#getTypeRef()
+   * @see #getTypedDeclaration()
+   * @generated
+   */
+  EReference getTypedDeclaration_TypeRef();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbol</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
+   * @generated
+   */
+  EClass getSymbol();
+
+  /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Assignment <em>Assignment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1733,16 +1786,6 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    */
   EClass getExpression();
-
-  /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Symbol <em>Symbol</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Symbol</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Symbol
-   * @generated
-   */
-  EClass getSymbol();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef <em>Integer Type Ref</em>}'.
@@ -2371,12 +2414,14 @@ public interface MiniJavaPackage extends EPackage
     EAttribute MEMBER__ACCESS = eINSTANCE.getMember_Access();
 
     /**
-     * The meta object literal for the '<em><b>Type Ref</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl <em>Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getParameter()
      * @generated
      */
-    EReference MEMBER__TYPE_REF = eINSTANCE.getMember_TypeRef();
+    EClass PARAMETER = eINSTANCE.getParameter();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.FieldImpl <em>Field</em>}' class.
@@ -2415,24 +2460,6 @@ public interface MiniJavaPackage extends EPackage
     EReference METHOD__BODY = eINSTANCE.getMethod_Body();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl <em>Parameter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.ParameterImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getParameter()
-     * @generated
-     */
-    EClass PARAMETER = eINSTANCE.getParameter();
-
-    /**
-     * The meta object literal for the '<em><b>Type Ref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETER__TYPE_REF = eINSTANCE.getParameter_TypeRef();
-
-    /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.BlockImpl <em>Block</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2469,14 +2496,6 @@ public interface MiniJavaPackage extends EPackage
      * @generated
      */
     EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Type Ref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VARIABLE_DECLARATION__TYPE_REF = eINSTANCE.getVariableDeclaration_TypeRef();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -2585,6 +2604,34 @@ public interface MiniJavaPackage extends EPackage
     EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
     /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.TypedDeclarationImpl <em>Typed Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.TypedDeclarationImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getTypedDeclaration()
+     * @generated
+     */
+    EClass TYPED_DECLARATION = eINSTANCE.getTypedDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type Ref</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPED_DECLARATION__TYPE_REF = eINSTANCE.getTypedDeclaration_TypeRef();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbol()
+     * @generated
+     */
+    EClass SYMBOL = eINSTANCE.getSymbol();
+
+    /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.AssignmentImpl <em>Assignment</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2619,16 +2666,6 @@ public interface MiniJavaPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
-
-    /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.SymbolImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbol()
-     * @generated
-     */
-    EClass SYMBOL = eINSTANCE.getSymbol();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.IntegerTypeRefImpl <em>Integer Type Ref</em>}' class.
