@@ -84,8 +84,8 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 				return createInstanceAdapter();
 			}
 			@Override
-			public Adapter caseParameterBinding(ParameterBinding object) {
-				return createParameterBindingAdapter();
+			public Adapter caseSymbolBinding(SymbolBinding object) {
+				return createSymbolBindingAdapter();
 			}
 			@Override
 			public Adapter caseFieldBinding(FieldBinding object) {
@@ -98,6 +98,10 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBooleanValue(BooleanValue object) {
 				return createBooleanValueAdapter();
+			}
+			@Override
+			public Adapter caseNewEClass9(NewEClass9 object) {
+				return createNewEClass9Adapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -176,16 +180,16 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding <em>Parameter Binding</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding <em>Symbol Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
 	 * @generated
 	 */
-	public Adapter createParameterBindingAdapter() {
+	public Adapter createSymbolBindingAdapter() {
 		return null;
 	}
 
@@ -228,6 +232,20 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBooleanValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9 <em>New EClass9</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9
+	 * @generated
+	 */
+	public Adapter createNewEClass9Adapter() {
 		return null;
 	}
 

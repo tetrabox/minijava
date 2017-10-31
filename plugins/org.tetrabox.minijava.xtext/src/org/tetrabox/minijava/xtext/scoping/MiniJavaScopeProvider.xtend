@@ -15,6 +15,7 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection
 import com.google.inject.Inject
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
+import org.tetrabox.minijava.xtext.miniJava.ForStatement
 
 /**
  * This class contains custom scoping description.
@@ -37,6 +38,8 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 		return super.getScope(context, reference)
 	}
 
+	// TODO field access? (not required, we have 'this')
+	// TODO variable declaration atop for loop
 	def protected IScope scopeForSymbolRef(EObject context) {
 		val container = context.eContainer
 		return switch (container) {
@@ -45,6 +48,11 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 			Block:
 				Scopes.scopeFor(
 					container.statements.takeWhile[it != context].filter(VariableDeclaration),
+					scopeForSymbolRef(container) // outer scope
+				)
+			ForStatement:
+				Scopes.scopeFor(
+					#[container.declaration],
 					scopeForSymbolRef(container) // outer scope
 				)
 			default:
@@ -58,8 +66,7 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 		if (type === null || type.isPrimitive)
 			return IScope.NULLSCOPE
 
-		val grouped = type.
-			classHierarchyMembers.groupBy[it instanceof Method]
+		val grouped = type.classHierarchyMembers.groupBy[it instanceof Method]
 		val inheritedMethods = grouped.get(true) ?: emptyList
 		val inheritedFields = grouped.get(false) ?: emptyList
 

@@ -17,7 +17,7 @@ QualifiedNameWithWildcard:
 	QualifiedName '.*'?;
 
 Class:
-	'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+	accessLevel=AccessLevel? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
 	members+=Member*
 	'}';
 
@@ -31,7 +31,7 @@ Field:
 	access=AccessLevel? typeRef=TypeRef name=ID ';';
 
 Method:
-	access=AccessLevel? typeRef=TypeRef name=ID
+	access=AccessLevel? static?='static'? typeRef=TypeRef name=ID
 	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
 	body=Block;
 
@@ -42,33 +42,48 @@ Block:
 	{Block} '{' statements+=Statement* '}';
 
 Statement:
-	VariableDeclaration |
-	Return |
-	Assignment ';' |
-	IfStatement;
-	
-	// TODO for loop
-	// TODO while loop
+	VariableDeclaration ';' |
+	Return ';' |
+	=> Assignment ';' |
+	IfStatement |
+	WhileStatement |
+	ForStatement |
+	Block | 
+	SelectionExpression ';';
 
 VariableDeclaration:
-	typeRef=TypeRef name=ID '=' expression=Expression ';';
+	typeRef=TypeRef name=ID '=' expression=Expression;
 
 Return:
-	'return' expression=Expression ';';
+	'return' expression=Expression;
 
 IfStatement:
-	'if' '(' expression=Expression ')' thenBlock=IfBlock
-	(=> 'else' elseBlock=IfBlock)?;
+	'if' '(' expression=Expression ')' thenBlock=Block
+	(=> 'else' elseBlock=Block)?;
 
-IfBlock returns Block:
-	statements+=Statement
-	| Block;
+//IfBlock returns Block:
+//	statements+=Statement
+//	| Block;
+
+WhileStatement:
+	'while' '(' condition=Expression ')' block=Block;
+	
+ForStatement:
+	'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block
+;
 
 TypeRef:
+	SingleTypeRef ({ArrayTypeRef.typeRef=current}'[' ']')?
+;
+
+SingleTypeRef:
 	ClassRef |
 	{IntegerTypeRef} "int" |
 	{BooleanTypeRef} "boolean" |
-	{StringTypeRef} "String";
+	{StringTypeRef} "String" |
+	{VoidTypeRef} "void";
+	
+
 
 ClassRef:
 	class=[Class|QualifiedName];
@@ -80,30 +95,13 @@ TypedDeclaration:
 	Symbol | Member;
 
 Symbol:
-	Parameter | Field | VariableDeclaration;
+	Parameter | VariableDeclaration;
 
 Assignment:
 	left=SelectionExpression '=' right=Expression;
 
 Expression:
-	SelectionExpression | => Or;
-
-SelectionExpression returns Expression:
-	TerminalExpression
-	({MemberSelection.receiver=current} '.'
-	member=[Member]
-	(methodinvocation?='('
-	(args+=Expression (',' args+=Expression)*)? ')')?)*;
-
-TerminalExpression returns Expression:
-	{StringConstant} value=STRING |
-	{IntConstant} value=INT |
-	{BoolConstant} value=('true' | 'false') |
-	{This} 'this' |
-	{Super} 'super' |
-	{Null} 'null' |
-	{New} 'new' typeRef=[Class|QualifiedName] '(' ')' | //TODO constructor param list
-	{SymbolRef} symbol=[Symbol|ID];
+	Or;
 
 Or returns Expression:
 	And ({Or.left=current} "||" right=And)*;
@@ -130,4 +128,22 @@ MulOrDiv returns Expression:
 Primary returns Expression:
 	'(' Expression ')' |
 	{Not} => "!" expression=Primary |
-	TerminalExpression;
+	SelectionExpression;
+
+SelectionExpression returns Expression:
+	TerminalExpression
+	({MemberSelection.receiver=current} '.'
+	member=[Member]
+	(methodinvocation?='('
+	(args+=Expression (',' args+=Expression)*)? ')')?)*;
+
+TerminalExpression returns Expression:
+	{StringConstant} value=STRING |
+	{IntConstant} value=INT |
+	{BoolConstant} value=('true' | 'false') |
+	{This} 'this' |
+	{Super} 'super' |
+	{Null} 'null' |
+	{New} 'new' type=[Class|QualifiedName] '(' ')' | //TODO possibility for non default constructors
+	{SymbolRef} symbol=[Symbol|ID];
+	

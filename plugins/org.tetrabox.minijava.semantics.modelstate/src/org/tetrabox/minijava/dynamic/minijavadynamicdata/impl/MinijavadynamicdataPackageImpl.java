@@ -16,8 +16,9 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
@@ -62,7 +63,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterBindingEClass = null;
+	private EClass symbolBindingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,6 +85,13 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * @generated
 	 */
 	private EClass booleanValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass newEClass9EClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -190,6 +198,15 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getContext_ReturnValue() {
+		return (EReference)contextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getValue() {
 		return valueEClass;
 	}
@@ -244,8 +261,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterBinding() {
-		return parameterBindingEClass;
+	public EClass getSymbolBinding() {
+		return symbolBindingEClass;
 	}
 
 	/**
@@ -253,8 +270,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterBinding_Value() {
-		return (EReference)parameterBindingEClass.getEStructuralFeatures().get(0);
+	public EReference getSymbolBinding_Value() {
+		return (EReference)symbolBindingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -262,8 +279,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterBinding_Parameter() {
-		return (EReference)parameterBindingEClass.getEStructuralFeatures().get(1);
+	public EReference getSymbolBinding_Symbol() {
+		return (EReference)symbolBindingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -334,6 +351,15 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNewEClass9() {
+		return newEClass9EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MinijavadynamicdataFactory getMinijavadynamicdataFactory() {
 		return (MinijavadynamicdataFactory)getEFactoryInstance();
 	}
@@ -361,6 +387,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(contextEClass, CONTEXT__METHODCALL);
 		createEReference(contextEClass, CONTEXT__INSTANCE);
 		createEReference(contextEClass, CONTEXT__BINDINGS);
+		createEReference(contextEClass, CONTEXT__RETURN_VALUE);
 
 		valueEClass = createEClass(VALUE);
 
@@ -371,9 +398,9 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(instanceEClass, INSTANCE__FIELDBINDINGS);
 		createEReference(instanceEClass, INSTANCE__TYPE);
 
-		parameterBindingEClass = createEClass(PARAMETER_BINDING);
-		createEReference(parameterBindingEClass, PARAMETER_BINDING__VALUE);
-		createEReference(parameterBindingEClass, PARAMETER_BINDING__PARAMETER);
+		symbolBindingEClass = createEClass(SYMBOL_BINDING);
+		createEReference(symbolBindingEClass, SYMBOL_BINDING__VALUE);
+		createEReference(symbolBindingEClass, SYMBOL_BINDING__SYMBOL);
 
 		fieldBindingEClass = createEClass(FIELD_BINDING);
 		createEReference(fieldBindingEClass, FIELD_BINDING__FIELD);
@@ -384,6 +411,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		booleanValueEClass = createEClass(BOOLEAN_VALUE);
 		createEAttribute(booleanValueEClass, BOOLEAN_VALUE__VALUE);
+
+		newEClass9EClass = createEClass(NEW_ECLASS9);
 	}
 
 	/**
@@ -424,9 +453,10 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContext_Methodcall(), theMiniJavaPackage.getMethodCall(), null, "methodcall", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_Methodcall(), theMiniJavaPackage.getMemberSelection(), null, "methodcall", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Instance(), this.getInstance(), null, "instance", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_Bindings(), this.getParameterBinding(), null, "bindings", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_Bindings(), this.getSymbolBinding(), null, "bindings", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -437,9 +467,9 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getInstance_Fieldbindings(), this.getFieldBinding(), null, "fieldbindings", null, 0, -1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInstance_Type(), theMiniJavaPackage.getClass_(), null, "type", null, 1, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterBindingEClass, ParameterBinding.class, "ParameterBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterBinding_Value(), this.getValue(), null, "value", null, 0, 1, ParameterBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterBinding_Parameter(), theMiniJavaPackage.getParameter(), null, "parameter", null, 0, 1, ParameterBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(symbolBindingEClass, SymbolBinding.class, "SymbolBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSymbolBinding_Value(), this.getValue(), null, "value", null, 0, 1, SymbolBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbolBinding_Symbol(), theMiniJavaPackage.getSymbol(), null, "symbol", null, 0, 1, SymbolBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldBindingEClass, FieldBinding.class, "FieldBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFieldBinding_Field(), theMiniJavaPackage.getField(), null, "field", null, 1, 1, FieldBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -450,6 +480,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		initEClass(booleanValueEClass, BooleanValue.class, "BooleanValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(newEClass9EClass, NewEClass9.class, "NewEClass9", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

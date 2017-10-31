@@ -59,10 +59,11 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 			case MinijavadynamicdataPackage.CONTEXT: return createContext();
 			case MinijavadynamicdataPackage.INTEGER_VALUE: return createIntegerValue();
 			case MinijavadynamicdataPackage.INSTANCE: return createInstance();
-			case MinijavadynamicdataPackage.PARAMETER_BINDING: return createParameterBinding();
+			case MinijavadynamicdataPackage.SYMBOL_BINDING: return createSymbolBinding();
 			case MinijavadynamicdataPackage.FIELD_BINDING: return createFieldBinding();
 			case MinijavadynamicdataPackage.STRING_VALUE: return createStringValue();
 			case MinijavadynamicdataPackage.BOOLEAN_VALUE: return createBooleanValue();
+			case MinijavadynamicdataPackage.NEW_ECLASS9: return createNewEClass9();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,9 +104,9 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterBinding createParameterBinding() {
-		ParameterBindingImpl parameterBinding = new ParameterBindingImpl();
-		return parameterBinding;
+	public SymbolBinding createSymbolBinding() {
+		SymbolBindingImpl symbolBinding = new SymbolBindingImpl();
+		return symbolBinding;
 	}
 
 	/**
@@ -136,6 +137,16 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public BooleanValue createBooleanValue() {
 		BooleanValueImpl booleanValue = new BooleanValueImpl();
 		return booleanValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NewEClass9 createNewEClass9() {
+		NewEClass9Impl newEClass9 = new NewEClass9Impl();
+		return newEClass9;
 	}
 
 	/**

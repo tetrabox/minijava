@@ -47,7 +47,7 @@ class MiniJavaTypeComputer {
 	def Class typeFor(Expression e) {
 		switch (e) {
 			New:
-				e.typeRef
+				e.type
 			SymbolRef:
 				e.symbol.typeRef.type
 			MemberSelection:

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
@@ -18,6 +19,7 @@ import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.ForStatement;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
@@ -37,6 +39,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
+import org.tetrabox.minijava.xtext.miniJava.SingleTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
@@ -47,6 +50,8 @@ import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
+import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.WhileStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,7 +162,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Field field = (Field)theEObject;
         T result = caseField(field);
         if (result == null) result = caseMember(field);
-        if (result == null) result = caseSymbol(field);
         if (result == null) result = caseTypedDeclaration(field);
         if (result == null) result = caseNamedElement(field);
         if (result == null) result = defaultCase(theEObject);
@@ -177,6 +181,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Block block = (Block)theEObject;
         T result = caseBlock(block);
+        if (result == null) result = caseStatement(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -214,6 +219,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniJavaPackage.WHILE_STATEMENT:
+      {
+        WhileStatement whileStatement = (WhileStatement)theEObject;
+        T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseStatement(whileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.FOR_STATEMENT:
+      {
+        ForStatement forStatement = (ForStatement)theEObject;
+        T result = caseForStatement(forStatement);
+        if (result == null) result = caseStatement(forStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniJavaPackage.TYPE_REF:
       {
         TypeRef typeRef = (TypeRef)theEObject;
@@ -221,10 +242,19 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniJavaPackage.SINGLE_TYPE_REF:
+      {
+        SingleTypeRef singleTypeRef = (SingleTypeRef)theEObject;
+        T result = caseSingleTypeRef(singleTypeRef);
+        if (result == null) result = caseTypeRef(singleTypeRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniJavaPackage.CLASS_REF:
       {
         ClassRef classRef = (ClassRef)theEObject;
         T result = caseClassRef(classRef);
+        if (result == null) result = caseSingleTypeRef(classRef);
         if (result == null) result = caseTypeRef(classRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -265,6 +295,15 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = caseStatement(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.ARRAY_TYPE_REF:
+      {
+        ArrayTypeRef arrayTypeRef = (ArrayTypeRef)theEObject;
+        T result = caseArrayTypeRef(arrayTypeRef);
+        if (result == null) result = caseTypeRef(arrayTypeRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,6 +311,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         IntegerTypeRef integerTypeRef = (IntegerTypeRef)theEObject;
         T result = caseIntegerTypeRef(integerTypeRef);
+        if (result == null) result = caseSingleTypeRef(integerTypeRef);
         if (result == null) result = caseTypeRef(integerTypeRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -280,6 +320,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         BooleanTypeRef booleanTypeRef = (BooleanTypeRef)theEObject;
         T result = caseBooleanTypeRef(booleanTypeRef);
+        if (result == null) result = caseSingleTypeRef(booleanTypeRef);
         if (result == null) result = caseTypeRef(booleanTypeRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -288,79 +329,17 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         StringTypeRef stringTypeRef = (StringTypeRef)theEObject;
         T result = caseStringTypeRef(stringTypeRef);
+        if (result == null) result = caseSingleTypeRef(stringTypeRef);
         if (result == null) result = caseTypeRef(stringTypeRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.MEMBER_SELECTION:
+      case MiniJavaPackage.VOID_TYPE_REF:
       {
-        MemberSelection memberSelection = (MemberSelection)theEObject;
-        T result = caseMemberSelection(memberSelection);
-        if (result == null) result = caseExpression(memberSelection);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.STRING_CONSTANT:
-      {
-        StringConstant stringConstant = (StringConstant)theEObject;
-        T result = caseStringConstant(stringConstant);
-        if (result == null) result = caseExpression(stringConstant);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.INT_CONSTANT:
-      {
-        IntConstant intConstant = (IntConstant)theEObject;
-        T result = caseIntConstant(intConstant);
-        if (result == null) result = caseExpression(intConstant);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.BOOL_CONSTANT:
-      {
-        BoolConstant boolConstant = (BoolConstant)theEObject;
-        T result = caseBoolConstant(boolConstant);
-        if (result == null) result = caseExpression(boolConstant);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.THIS:
-      {
-        This this_ = (This)theEObject;
-        T result = caseThis(this_);
-        if (result == null) result = caseExpression(this_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.SUPER:
-      {
-        Super super_ = (Super)theEObject;
-        T result = caseSuper(super_);
-        if (result == null) result = caseExpression(super_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.NULL:
-      {
-        Null null_ = (Null)theEObject;
-        T result = caseNull(null_);
-        if (result == null) result = caseExpression(null_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.NEW:
-      {
-        New new_ = (New)theEObject;
-        T result = caseNew(new_);
-        if (result == null) result = caseExpression(new_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.SYMBOL_REF:
-      {
-        SymbolRef symbolRef = (SymbolRef)theEObject;
-        T result = caseSymbolRef(symbolRef);
-        if (result == null) result = caseExpression(symbolRef);
+        VoidTypeRef voidTypeRef = (VoidTypeRef)theEObject;
+        T result = caseVoidTypeRef(voidTypeRef);
+        if (result == null) result = caseSingleTypeRef(voidTypeRef);
+        if (result == null) result = caseTypeRef(voidTypeRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -369,6 +348,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Or or = (Or)theEObject;
         T result = caseOr(or);
         if (result == null) result = caseExpression(or);
+        if (result == null) result = caseStatement(or);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -377,6 +357,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         And and = (And)theEObject;
         T result = caseAnd(and);
         if (result == null) result = caseExpression(and);
+        if (result == null) result = caseStatement(and);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -385,6 +366,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Equality equality = (Equality)theEObject;
         T result = caseEquality(equality);
         if (result == null) result = caseExpression(equality);
+        if (result == null) result = caseStatement(equality);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -393,6 +375,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Comparison comparison = (Comparison)theEObject;
         T result = caseComparison(comparison);
         if (result == null) result = caseExpression(comparison);
+        if (result == null) result = caseStatement(comparison);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -401,6 +384,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Plus plus = (Plus)theEObject;
         T result = casePlus(plus);
         if (result == null) result = caseExpression(plus);
+        if (result == null) result = caseStatement(plus);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -409,6 +393,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Minus minus = (Minus)theEObject;
         T result = caseMinus(minus);
         if (result == null) result = caseExpression(minus);
+        if (result == null) result = caseStatement(minus);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -417,6 +402,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         MulOrDiv mulOrDiv = (MulOrDiv)theEObject;
         T result = caseMulOrDiv(mulOrDiv);
         if (result == null) result = caseExpression(mulOrDiv);
+        if (result == null) result = caseStatement(mulOrDiv);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -425,6 +411,88 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Not not = (Not)theEObject;
         T result = caseNot(not);
         if (result == null) result = caseExpression(not);
+        if (result == null) result = caseStatement(not);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.MEMBER_SELECTION:
+      {
+        MemberSelection memberSelection = (MemberSelection)theEObject;
+        T result = caseMemberSelection(memberSelection);
+        if (result == null) result = caseExpression(memberSelection);
+        if (result == null) result = caseStatement(memberSelection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.STRING_CONSTANT:
+      {
+        StringConstant stringConstant = (StringConstant)theEObject;
+        T result = caseStringConstant(stringConstant);
+        if (result == null) result = caseExpression(stringConstant);
+        if (result == null) result = caseStatement(stringConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.INT_CONSTANT:
+      {
+        IntConstant intConstant = (IntConstant)theEObject;
+        T result = caseIntConstant(intConstant);
+        if (result == null) result = caseExpression(intConstant);
+        if (result == null) result = caseStatement(intConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.BOOL_CONSTANT:
+      {
+        BoolConstant boolConstant = (BoolConstant)theEObject;
+        T result = caseBoolConstant(boolConstant);
+        if (result == null) result = caseExpression(boolConstant);
+        if (result == null) result = caseStatement(boolConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.THIS:
+      {
+        This this_ = (This)theEObject;
+        T result = caseThis(this_);
+        if (result == null) result = caseExpression(this_);
+        if (result == null) result = caseStatement(this_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.SUPER:
+      {
+        Super super_ = (Super)theEObject;
+        T result = caseSuper(super_);
+        if (result == null) result = caseExpression(super_);
+        if (result == null) result = caseStatement(super_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.NULL:
+      {
+        Null null_ = (Null)theEObject;
+        T result = caseNull(null_);
+        if (result == null) result = caseExpression(null_);
+        if (result == null) result = caseStatement(null_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.NEW:
+      {
+        New new_ = (New)theEObject;
+        T result = caseNew(new_);
+        if (result == null) result = caseExpression(new_);
+        if (result == null) result = caseStatement(new_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.SYMBOL_REF:
+      {
+        SymbolRef symbolRef = (SymbolRef)theEObject;
+        T result = caseSymbolRef(symbolRef);
+        if (result == null) result = caseExpression(symbolRef);
+        if (result == null) result = caseStatement(symbolRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -625,6 +693,38 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhileStatement(WhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForStatement(ForStatement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -636,6 +736,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypeRef(TypeRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Single Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Single Type Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSingleTypeRef(SingleTypeRef object)
   {
     return null;
   }
@@ -737,6 +853,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Type Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayTypeRef(ArrayTypeRef object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Integer Type Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -780,6 +912,150 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStringTypeRef(StringTypeRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Void Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Void Type Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVoidTypeRef(VoidTypeRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOr(Or object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnd(And object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEquality(Equality object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Comparison</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Comparison</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComparison(Comparison object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlus(Plus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMinus(Minus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mul Or Div</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mul Or Div</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMulOrDiv(MulOrDiv object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNot(Not object)
   {
     return null;
   }
@@ -924,134 +1200,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSymbolRef(SymbolRef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOr(Or object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>And</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAnd(And object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEquality(Equality object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Comparison</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Comparison</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseComparison(Comparison object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePlus(Plus object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMinus(Minus object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mul Or Div</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mul Or Div</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMulOrDiv(MulOrDiv object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Not</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNot(Not object)
   {
     return null;
   }

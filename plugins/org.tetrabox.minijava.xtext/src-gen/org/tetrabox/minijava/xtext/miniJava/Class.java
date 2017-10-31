@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getAccessLevel <em>Access Level</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getMembers <em>Members</em>}</li>
  * </ul>
@@ -24,6 +25,35 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Class extends NamedElement
 {
+  /**
+   * Returns the value of the '<em><b>Access Level</b></em>' attribute.
+   * The literals are from the enumeration {@link org.tetrabox.minijava.xtext.miniJava.AccessLevel}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Access Level</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Access Level</em>' attribute.
+   * @see org.tetrabox.minijava.xtext.miniJava.AccessLevel
+   * @see #setAccessLevel(AccessLevel)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_AccessLevel()
+   * @model
+   * @generated
+   */
+  AccessLevel getAccessLevel();
+
+  /**
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getAccessLevel <em>Access Level</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Access Level</em>' attribute.
+   * @see org.tetrabox.minijava.xtext.miniJava.AccessLevel
+   * @see #getAccessLevel()
+   * @generated
+   */
+  void setAccessLevel(AccessLevel value);
+
   /**
    * Returns the value of the '<em><b>Superclass</b></em>' reference.
    * <!-- begin-user-doc -->

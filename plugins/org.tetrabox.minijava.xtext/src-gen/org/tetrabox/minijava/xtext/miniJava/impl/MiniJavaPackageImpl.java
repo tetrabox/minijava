@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
@@ -22,6 +23,7 @@ import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.ForStatement;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
@@ -42,6 +44,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
+import org.tetrabox.minijava.xtext.miniJava.SingleTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
@@ -52,6 +55,8 @@ import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
+import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.WhileStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -150,7 +155,28 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass whileStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass forStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass typeRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass singleTypeRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -199,6 +225,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass arrayTypeRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass integerTypeRefEClass = null;
 
   /**
@@ -214,6 +247,69 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * @generated
    */
   private EClass stringTypeRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass voidTypeRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass orEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass andEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass equalityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass comparisonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass plusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass minusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mulOrDivEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass notEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -277,62 +373,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * @generated
    */
   private EClass symbolRefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass orEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass andEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass equalityEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass comparisonEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass plusEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass minusEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass mulOrDivEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass notEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -479,9 +519,19 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getClass_AccessLevel()
+  {
+    return (EAttribute)classEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getClass_Superclass()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(0);
+    return (EReference)classEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -491,7 +541,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    */
   public EReference getClass_Members()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(1);
+    return (EReference)classEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -549,9 +599,19 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMethod_Static()
+  {
+    return (EAttribute)methodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMethod_Params()
   {
-    return (EReference)methodEClass.getEStructuralFeatures().get(0);
+    return (EReference)methodEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -561,7 +621,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    */
   public EReference getMethod_Body()
   {
-    return (EReference)methodEClass.getEStructuralFeatures().get(1);
+    return (EReference)methodEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -679,9 +739,99 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getWhileStatement()
+  {
+    return whileStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhileStatement_Condition()
+  {
+    return (EReference)whileStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhileStatement_Block()
+  {
+    return (EReference)whileStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getForStatement()
+  {
+    return forStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStatement_Declaration()
+  {
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStatement_Condition()
+  {
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStatement_Progression()
+  {
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStatement_Block()
+  {
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypeRef()
   {
     return typeRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSingleTypeRef()
+  {
+    return singleTypeRefEClass;
   }
 
   /**
@@ -799,6 +949,26 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getArrayTypeRef()
+  {
+    return arrayTypeRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayTypeRef_TypeRef()
+  {
+    return (EReference)arrayTypeRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIntegerTypeRef()
   {
     return integerTypeRefEClass;
@@ -829,179 +999,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMemberSelection()
+  public EClass getVoidTypeRef()
   {
-    return memberSelectionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMemberSelection_Receiver()
-  {
-    return (EReference)memberSelectionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMemberSelection_Member()
-  {
-    return (EReference)memberSelectionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMemberSelection_Methodinvocation()
-  {
-    return (EAttribute)memberSelectionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMemberSelection_Args()
-  {
-    return (EReference)memberSelectionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getStringConstant()
-  {
-    return stringConstantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStringConstant_Value()
-  {
-    return (EAttribute)stringConstantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getIntConstant()
-  {
-    return intConstantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getIntConstant_Value()
-  {
-    return (EAttribute)intConstantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBoolConstant()
-  {
-    return boolConstantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBoolConstant_Value()
-  {
-    return (EAttribute)boolConstantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getThis()
-  {
-    return thisEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSuper()
-  {
-    return superEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNull()
-  {
-    return nullEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNew()
-  {
-    return newEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getNew_TypeRef()
-  {
-    return (EReference)newEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSymbolRef()
-  {
-    return symbolRefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSymbolRef_Symbol()
-  {
-    return (EReference)symbolRefEClass.getEStructuralFeatures().get(0);
+    return voidTypeRefEClass;
   }
 
   /**
@@ -1269,6 +1269,186 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getMemberSelection()
+  {
+    return memberSelectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberSelection_Receiver()
+  {
+    return (EReference)memberSelectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberSelection_Member()
+  {
+    return (EReference)memberSelectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMemberSelection_Methodinvocation()
+  {
+    return (EAttribute)memberSelectionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberSelection_Args()
+  {
+    return (EReference)memberSelectionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStringConstant()
+  {
+    return stringConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringConstant_Value()
+  {
+    return (EAttribute)stringConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIntConstant()
+  {
+    return intConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIntConstant_Value()
+  {
+    return (EAttribute)intConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBoolConstant()
+  {
+    return boolConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoolConstant_Value()
+  {
+    return (EAttribute)boolConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getThis()
+  {
+    return thisEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSuper()
+  {
+    return superEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNull()
+  {
+    return nullEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNew()
+  {
+    return newEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNew_Type()
+  {
+    return (EReference)newEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSymbolRef()
+  {
+    return symbolRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSymbolRef_Symbol()
+  {
+    return (EReference)symbolRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getAccessLevel()
   {
     return accessLevelEEnum;
@@ -1313,6 +1493,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
 
     classEClass = createEClass(CLASS);
+    createEAttribute(classEClass, CLASS__ACCESS_LEVEL);
     createEReference(classEClass, CLASS__SUPERCLASS);
     createEReference(classEClass, CLASS__MEMBERS);
 
@@ -1324,6 +1505,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     fieldEClass = createEClass(FIELD);
 
     methodEClass = createEClass(METHOD);
+    createEAttribute(methodEClass, METHOD__STATIC);
     createEReference(methodEClass, METHOD__PARAMS);
     createEReference(methodEClass, METHOD__BODY);
 
@@ -1343,7 +1525,19 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     createEReference(ifStatementEClass, IF_STATEMENT__THEN_BLOCK);
     createEReference(ifStatementEClass, IF_STATEMENT__ELSE_BLOCK);
 
+    whileStatementEClass = createEClass(WHILE_STATEMENT);
+    createEReference(whileStatementEClass, WHILE_STATEMENT__CONDITION);
+    createEReference(whileStatementEClass, WHILE_STATEMENT__BLOCK);
+
+    forStatementEClass = createEClass(FOR_STATEMENT);
+    createEReference(forStatementEClass, FOR_STATEMENT__DECLARATION);
+    createEReference(forStatementEClass, FOR_STATEMENT__CONDITION);
+    createEReference(forStatementEClass, FOR_STATEMENT__PROGRESSION);
+    createEReference(forStatementEClass, FOR_STATEMENT__BLOCK);
+
     typeRefEClass = createEClass(TYPE_REF);
+
+    singleTypeRefEClass = createEClass(SINGLE_TYPE_REF);
 
     classRefEClass = createEClass(CLASS_REF);
     createEReference(classRefEClass, CLASS_REF__CLASS);
@@ -1362,38 +1556,16 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     expressionEClass = createEClass(EXPRESSION);
 
+    arrayTypeRefEClass = createEClass(ARRAY_TYPE_REF);
+    createEReference(arrayTypeRefEClass, ARRAY_TYPE_REF__TYPE_REF);
+
     integerTypeRefEClass = createEClass(INTEGER_TYPE_REF);
 
     booleanTypeRefEClass = createEClass(BOOLEAN_TYPE_REF);
 
     stringTypeRefEClass = createEClass(STRING_TYPE_REF);
 
-    memberSelectionEClass = createEClass(MEMBER_SELECTION);
-    createEReference(memberSelectionEClass, MEMBER_SELECTION__RECEIVER);
-    createEReference(memberSelectionEClass, MEMBER_SELECTION__MEMBER);
-    createEAttribute(memberSelectionEClass, MEMBER_SELECTION__METHODINVOCATION);
-    createEReference(memberSelectionEClass, MEMBER_SELECTION__ARGS);
-
-    stringConstantEClass = createEClass(STRING_CONSTANT);
-    createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
-
-    intConstantEClass = createEClass(INT_CONSTANT);
-    createEAttribute(intConstantEClass, INT_CONSTANT__VALUE);
-
-    boolConstantEClass = createEClass(BOOL_CONSTANT);
-    createEAttribute(boolConstantEClass, BOOL_CONSTANT__VALUE);
-
-    thisEClass = createEClass(THIS);
-
-    superEClass = createEClass(SUPER);
-
-    nullEClass = createEClass(NULL);
-
-    newEClass = createEClass(NEW);
-    createEReference(newEClass, NEW__TYPE_REF);
-
-    symbolRefEClass = createEClass(SYMBOL_REF);
-    createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
+    voidTypeRefEClass = createEClass(VOID_TYPE_REF);
 
     orEClass = createEClass(OR);
     createEReference(orEClass, OR__LEFT);
@@ -1428,6 +1600,33 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
+
+    memberSelectionEClass = createEClass(MEMBER_SELECTION);
+    createEReference(memberSelectionEClass, MEMBER_SELECTION__RECEIVER);
+    createEReference(memberSelectionEClass, MEMBER_SELECTION__MEMBER);
+    createEAttribute(memberSelectionEClass, MEMBER_SELECTION__METHODINVOCATION);
+    createEReference(memberSelectionEClass, MEMBER_SELECTION__ARGS);
+
+    stringConstantEClass = createEClass(STRING_CONSTANT);
+    createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
+
+    intConstantEClass = createEClass(INT_CONSTANT);
+    createEAttribute(intConstantEClass, INT_CONSTANT__VALUE);
+
+    boolConstantEClass = createEClass(BOOL_CONSTANT);
+    createEAttribute(boolConstantEClass, BOOL_CONSTANT__VALUE);
+
+    thisEClass = createEClass(THIS);
+
+    superEClass = createEClass(SUPER);
+
+    nullEClass = createEClass(NULL);
+
+    newEClass = createEClass(NEW);
+    createEReference(newEClass, NEW__TYPE);
+
+    symbolRefEClass = createEClass(SYMBOL_REF);
+    createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
 
     // Create enums
     accessLevelEEnum = createEEnum(ACCESS_LEVEL);
@@ -1466,19 +1665,33 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     memberEClass.getESuperTypes().add(this.getTypedDeclaration());
     parameterEClass.getESuperTypes().add(this.getSymbol());
     fieldEClass.getESuperTypes().add(this.getMember());
-    fieldEClass.getESuperTypes().add(this.getSymbol());
     methodEClass.getESuperTypes().add(this.getMember());
+    blockEClass.getESuperTypes().add(this.getStatement());
     variableDeclarationEClass.getESuperTypes().add(this.getStatement());
     variableDeclarationEClass.getESuperTypes().add(this.getSymbol());
     returnEClass.getESuperTypes().add(this.getStatement());
     ifStatementEClass.getESuperTypes().add(this.getStatement());
-    classRefEClass.getESuperTypes().add(this.getTypeRef());
+    whileStatementEClass.getESuperTypes().add(this.getStatement());
+    forStatementEClass.getESuperTypes().add(this.getStatement());
+    singleTypeRefEClass.getESuperTypes().add(this.getTypeRef());
+    classRefEClass.getESuperTypes().add(this.getSingleTypeRef());
     typedDeclarationEClass.getESuperTypes().add(this.getNamedElement());
     symbolEClass.getESuperTypes().add(this.getTypedDeclaration());
     assignmentEClass.getESuperTypes().add(this.getStatement());
-    integerTypeRefEClass.getESuperTypes().add(this.getTypeRef());
-    booleanTypeRefEClass.getESuperTypes().add(this.getTypeRef());
-    stringTypeRefEClass.getESuperTypes().add(this.getTypeRef());
+    expressionEClass.getESuperTypes().add(this.getStatement());
+    arrayTypeRefEClass.getESuperTypes().add(this.getTypeRef());
+    integerTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());
+    booleanTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());
+    stringTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());
+    voidTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());
+    orEClass.getESuperTypes().add(this.getExpression());
+    andEClass.getESuperTypes().add(this.getExpression());
+    equalityEClass.getESuperTypes().add(this.getExpression());
+    comparisonEClass.getESuperTypes().add(this.getExpression());
+    plusEClass.getESuperTypes().add(this.getExpression());
+    minusEClass.getESuperTypes().add(this.getExpression());
+    mulOrDivEClass.getESuperTypes().add(this.getExpression());
+    notEClass.getESuperTypes().add(this.getExpression());
     memberSelectionEClass.getESuperTypes().add(this.getExpression());
     stringConstantEClass.getESuperTypes().add(this.getExpression());
     intConstantEClass.getESuperTypes().add(this.getExpression());
@@ -1488,14 +1701,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     nullEClass.getESuperTypes().add(this.getExpression());
     newEClass.getESuperTypes().add(this.getExpression());
     symbolRefEClass.getESuperTypes().add(this.getExpression());
-    orEClass.getESuperTypes().add(this.getExpression());
-    andEClass.getESuperTypes().add(this.getExpression());
-    equalityEClass.getESuperTypes().add(this.getExpression());
-    comparisonEClass.getESuperTypes().add(this.getExpression());
-    plusEClass.getESuperTypes().add(this.getExpression());
-    minusEClass.getESuperTypes().add(this.getExpression());
-    mulOrDivEClass.getESuperTypes().add(this.getExpression());
-    notEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1507,6 +1712,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(classEClass, org.tetrabox.minijava.xtext.miniJava.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClass_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Superclass(), this.getClass_(), null, "superclass", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Members(), this.getMember(), null, "members", null, 0, -1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1518,6 +1724,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMethod_Static(), ecorePackage.getEBoolean(), "static", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Params(), this.getParameter(), null, "params", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Body(), this.getBlock(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1537,7 +1744,19 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEReference(getIfStatement_ThenBlock(), this.getBlock(), null, "thenBlock", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfStatement_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(whileStatementEClass, WhileStatement.class, "WhileStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhileStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhileStatement_Block(), this.getBlock(), null, "block", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forStatementEClass, ForStatement.class, "ForStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForStatement_Declaration(), this.getVariableDeclaration(), null, "declaration", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStatement_Progression(), this.getAssignment(), null, "progression", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStatement_Block(), this.getBlock(), null, "block", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(typeRefEClass, TypeRef.class, "TypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(singleTypeRefEClass, SingleTypeRef.class, "SingleTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(classRefEClass, ClassRef.class, "ClassRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getClassRef_Class(), this.getClass_(), null, "class", null, 0, 1, ClassRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1556,38 +1775,16 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(arrayTypeRefEClass, ArrayTypeRef.class, "ArrayTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayTypeRef_TypeRef(), this.getSingleTypeRef(), null, "typeRef", null, 0, 1, ArrayTypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(integerTypeRefEClass, IntegerTypeRef.class, "IntegerTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(booleanTypeRefEClass, BooleanTypeRef.class, "BooleanTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(stringTypeRefEClass, StringTypeRef.class, "StringTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(memberSelectionEClass, MemberSelection.class, "MemberSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMemberSelection_Receiver(), this.getExpression(), null, "receiver", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMemberSelection_Member(), this.getMember(), null, "member", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMemberSelection_Methodinvocation(), ecorePackage.getEBoolean(), "methodinvocation", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMemberSelection_Args(), this.getExpression(), null, "args", null, 0, -1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(boolConstantEClass, BoolConstant.class, "BoolConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBoolConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(thisEClass, This.class, "This", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(superEClass, Super.class, "Super", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(nullEClass, Null.class, "Null", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(newEClass, New.class, "New", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNew_TypeRef(), this.getClass_(), null, "typeRef", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(voidTypeRefEClass, VoidTypeRef.class, "VoidTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1622,6 +1819,33 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(memberSelectionEClass, MemberSelection.class, "MemberSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMemberSelection_Receiver(), this.getExpression(), null, "receiver", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberSelection_Member(), this.getMember(), null, "member", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMemberSelection_Methodinvocation(), ecorePackage.getEBoolean(), "methodinvocation", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberSelection_Args(), this.getExpression(), null, "args", null, 0, -1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(boolConstantEClass, BoolConstant.class, "BoolConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(thisEClass, This.class, "This", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(superEClass, Super.class, "Super", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(nullEClass, Null.class, "Null", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(newEClass, New.class, "New", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNew_Type(), this.getClass_(), null, "type", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(accessLevelEEnum, AccessLevel.class, "AccessLevel");

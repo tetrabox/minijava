@@ -31,6 +31,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#isStatic <em>Static</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getBody <em>Body</em>}</li>
  * </ul>
@@ -39,6 +40,26 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
  */
 public class MethodImpl extends MemberImpl implements Method
 {
+  /**
+   * The default value of the '{@link #isStatic() <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStatic()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean STATIC_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isStatic() <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStatic()
+   * @generated
+   * @ordered
+   */
+  protected boolean static_ = STATIC_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -78,6 +99,29 @@ public class MethodImpl extends MemberImpl implements Method
   protected EClass eStaticClass()
   {
     return MiniJavaPackage.Literals.METHOD;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isStatic()
+  {
+    return static_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatic(boolean newStatic)
+  {
+    boolean oldStatic = static_;
+    static_ = newStatic;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__STATIC, oldStatic, static_));
   }
 
   /**
@@ -170,6 +214,8 @@ public class MethodImpl extends MemberImpl implements Method
   {
     switch (featureID)
     {
+      case MiniJavaPackage.METHOD__STATIC:
+        return isStatic();
       case MiniJavaPackage.METHOD__PARAMS:
         return getParams();
       case MiniJavaPackage.METHOD__BODY:
@@ -189,6 +235,9 @@ public class MethodImpl extends MemberImpl implements Method
   {
     switch (featureID)
     {
+      case MiniJavaPackage.METHOD__STATIC:
+        setStatic((Boolean)newValue);
+        return;
       case MiniJavaPackage.METHOD__PARAMS:
         getParams().clear();
         getParams().addAll((Collection<? extends Parameter>)newValue);
@@ -210,6 +259,9 @@ public class MethodImpl extends MemberImpl implements Method
   {
     switch (featureID)
     {
+      case MiniJavaPackage.METHOD__STATIC:
+        setStatic(STATIC_EDEFAULT);
+        return;
       case MiniJavaPackage.METHOD__PARAMS:
         getParams().clear();
         return;
@@ -230,12 +282,31 @@ public class MethodImpl extends MemberImpl implements Method
   {
     switch (featureID)
     {
+      case MiniJavaPackage.METHOD__STATIC:
+        return static_ != STATIC_EDEFAULT;
       case MiniJavaPackage.METHOD__PARAMS:
         return params != null && !params.isEmpty();
       case MiniJavaPackage.METHOD__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (static: ");
+    result.append(static_);
+    result.append(')');
+    return result.toString();
   }
 
 } //MethodImpl

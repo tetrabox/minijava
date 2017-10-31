@@ -12,26 +12,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
-import org.tetrabox.minijava.xtext.miniJava.Parameter;
+import org.tetrabox.minijava.xtext.miniJava.Symbol;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter Binding</b></em>'.
+ * An implementation of the model object '<em><b>Symbol Binding</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl#getSymbol <em>Symbol</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterBindingImpl extends MinimalEObjectImpl.Container implements ParameterBinding {
+public class SymbolBindingImpl extends MinimalEObjectImpl.Container implements SymbolBinding {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -43,21 +43,21 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	protected Value value;
 
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+	 * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameter()
+	 * @see #getSymbol()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameter;
+	protected Symbol symbol;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterBindingImpl() {
+	protected SymbolBindingImpl() {
 		super();
 	}
 
@@ -68,7 +68,7 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.PARAMETER_BINDING;
+		return MinijavadynamicdataPackage.Literals.SYMBOL_BINDING;
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 		Value oldValue = value;
 		value = newValue;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE, oldValue, newValue);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE, oldValue, newValue);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -104,14 +104,14 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 		if (newValue != value) {
 			NotificationChain msgs = null;
 			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE, null, msgs);
+				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE, null, msgs);
 			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE, null, msgs);
+				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE, null, msgs);
 			msgs = basicSetValue(newValue, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE, newValue, newValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE, newValue, newValue));
 	}
 
 	/**
@@ -119,16 +119,16 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter getParameter() {
-		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject)parameter;
-			parameter = (Parameter)eResolveProxy(oldParameter);
-			if (parameter != oldParameter) {
+	public Symbol getSymbol() {
+		if (symbol != null && symbol.eIsProxy()) {
+			InternalEObject oldSymbol = (InternalEObject)symbol;
+			symbol = (Symbol)eResolveProxy(oldSymbol);
+			if (symbol != oldSymbol) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.PARAMETER_BINDING__PARAMETER, oldParameter, parameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.SYMBOL_BINDING__SYMBOL, oldSymbol, symbol));
 			}
 		}
-		return parameter;
+		return symbol;
 	}
 
 	/**
@@ -136,8 +136,8 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter basicGetParameter() {
-		return parameter;
+	public Symbol basicGetSymbol() {
+		return symbol;
 	}
 
 	/**
@@ -145,11 +145,11 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParameter(Parameter newParameter) {
-		Parameter oldParameter = parameter;
-		parameter = newParameter;
+	public void setSymbol(Symbol newSymbol) {
+		Symbol oldSymbol = symbol;
+		symbol = newSymbol;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.PARAMETER_BINDING__PARAMETER, oldParameter, parameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.SYMBOL_BINDING__SYMBOL, oldSymbol, symbol));
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE:
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE:
 				return basicSetValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -174,11 +174,11 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE:
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE:
 				return getValue();
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__PARAMETER:
-				if (resolve) return getParameter();
-				return basicGetParameter();
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__SYMBOL:
+				if (resolve) return getSymbol();
+				return basicGetSymbol();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -191,11 +191,11 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE:
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE:
 				setValue((Value)newValue);
 				return;
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__PARAMETER:
-				setParameter((Parameter)newValue);
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__SYMBOL:
+				setSymbol((Symbol)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -209,11 +209,11 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE:
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE:
 				setValue((Value)null);
 				return;
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__PARAMETER:
-				setParameter((Parameter)null);
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__SYMBOL:
+				setSymbol((Symbol)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,12 +227,12 @@ public class ParameterBindingImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__VALUE:
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__VALUE:
 				return value != null;
-			case MinijavadynamicdataPackage.PARAMETER_BINDING__PARAMETER:
-				return parameter != null;
+			case MinijavadynamicdataPackage.SYMBOL_BINDING__SYMBOL:
+				return symbol != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ParameterBindingImpl
+} //SymbolBindingImpl

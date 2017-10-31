@@ -21,7 +21,7 @@ import org.tetrabox.minijava.xtext.miniJava.New;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.NewImpl#getTypeRef <em>Type Ref</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.NewImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,14 +29,14 @@ import org.tetrabox.minijava.xtext.miniJava.New;
 public class NewImpl extends ExpressionImpl implements New
 {
   /**
-   * The cached value of the '{@link #getTypeRef() <em>Type Ref</em>}' reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypeRef()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected org.tetrabox.minijava.xtext.miniJava.Class typeRef;
+  protected org.tetrabox.minijava.xtext.miniJava.Class type;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,19 +64,19 @@ public class NewImpl extends ExpressionImpl implements New
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.tetrabox.minijava.xtext.miniJava.Class getTypeRef()
+  public org.tetrabox.minijava.xtext.miniJava.Class getType()
   {
-    if (typeRef != null && typeRef.eIsProxy())
+    if (type != null && type.eIsProxy())
     {
-      InternalEObject oldTypeRef = (InternalEObject)typeRef;
-      typeRef = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldTypeRef);
-      if (typeRef != oldTypeRef)
+      InternalEObject oldType = (InternalEObject)type;
+      type = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldType);
+      if (type != oldType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.NEW__TYPE_REF, oldTypeRef, typeRef));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.NEW__TYPE, oldType, type));
       }
     }
-    return typeRef;
+    return type;
   }
 
   /**
@@ -84,9 +84,9 @@ public class NewImpl extends ExpressionImpl implements New
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.tetrabox.minijava.xtext.miniJava.Class basicGetTypeRef()
+  public org.tetrabox.minijava.xtext.miniJava.Class basicGetType()
   {
-    return typeRef;
+    return type;
   }
 
   /**
@@ -94,12 +94,12 @@ public class NewImpl extends ExpressionImpl implements New
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeRef(org.tetrabox.minijava.xtext.miniJava.Class newTypeRef)
+  public void setType(org.tetrabox.minijava.xtext.miniJava.Class newType)
   {
-    org.tetrabox.minijava.xtext.miniJava.Class oldTypeRef = typeRef;
-    typeRef = newTypeRef;
+    org.tetrabox.minijava.xtext.miniJava.Class oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.NEW__TYPE_REF, oldTypeRef, typeRef));
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.NEW__TYPE, oldType, type));
   }
 
   /**
@@ -112,9 +112,9 @@ public class NewImpl extends ExpressionImpl implements New
   {
     switch (featureID)
     {
-      case MiniJavaPackage.NEW__TYPE_REF:
-        if (resolve) return getTypeRef();
-        return basicGetTypeRef();
+      case MiniJavaPackage.NEW__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +129,8 @@ public class NewImpl extends ExpressionImpl implements New
   {
     switch (featureID)
     {
-      case MiniJavaPackage.NEW__TYPE_REF:
-        setTypeRef((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
+      case MiniJavaPackage.NEW__TYPE:
+        setType((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +146,8 @@ public class NewImpl extends ExpressionImpl implements New
   {
     switch (featureID)
     {
-      case MiniJavaPackage.NEW__TYPE_REF:
-        setTypeRef((org.tetrabox.minijava.xtext.miniJava.Class)null);
+      case MiniJavaPackage.NEW__TYPE:
+        setType((org.tetrabox.minijava.xtext.miniJava.Class)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,8 +163,8 @@ public class NewImpl extends ExpressionImpl implements New
   {
     switch (featureID)
     {
-      case MiniJavaPackage.NEW__TYPE_REF:
-        return typeRef != null;
+      case MiniJavaPackage.NEW__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }

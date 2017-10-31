@@ -21,9 +21,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
-import org.tetrabox.minijava.xtext.miniJava.MethodCall;
+import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getMethodcall <em>Methodcall</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getInstance <em>Instance</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,7 +51,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 * @ordered
 	 */
-	protected MethodCall methodcall;
+	protected MemberSelection methodcall;
 
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference.
@@ -69,7 +71,17 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParameterBinding> bindings;
+	protected EList<SymbolBinding> bindings;
+
+	/**
+	 * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReturnValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Value returnValue;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,10 +107,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodCall getMethodcall() {
+	public MemberSelection getMethodcall() {
 		if (methodcall != null && methodcall.eIsProxy()) {
 			InternalEObject oldMethodcall = (InternalEObject)methodcall;
-			methodcall = (MethodCall)eResolveProxy(oldMethodcall);
+			methodcall = (MemberSelection)eResolveProxy(oldMethodcall);
 			if (methodcall != oldMethodcall) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.CONTEXT__METHODCALL, oldMethodcall, methodcall));
@@ -112,7 +124,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodCall basicGetMethodcall() {
+	public MemberSelection basicGetMethodcall() {
 		return methodcall;
 	}
 
@@ -121,8 +133,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMethodcall(MethodCall newMethodcall) {
-		MethodCall oldMethodcall = methodcall;
+	public void setMethodcall(MemberSelection newMethodcall) {
+		MemberSelection oldMethodcall = methodcall;
 		methodcall = newMethodcall;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__METHODCALL, oldMethodcall, methodcall));
@@ -171,11 +183,49 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ParameterBinding> getBindings() {
+	public EList<SymbolBinding> getBindings() {
 		if (bindings == null) {
-			bindings = new EObjectContainmentEList<ParameterBinding>(ParameterBinding.class, this, MinijavadynamicdataPackage.CONTEXT__BINDINGS);
+			bindings = new EObjectContainmentEList<SymbolBinding>(SymbolBinding.class, this, MinijavadynamicdataPackage.CONTEXT__BINDINGS);
 		}
 		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value getReturnValue() {
+		if (returnValue != null && returnValue.eIsProxy()) {
+			InternalEObject oldReturnValue = (InternalEObject)returnValue;
+			returnValue = (Value)eResolveProxy(oldReturnValue);
+			if (returnValue != oldReturnValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.CONTEXT__RETURN_VALUE, oldReturnValue, returnValue));
+			}
+		}
+		return returnValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value basicGetReturnValue() {
+		return returnValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReturnValue(Value newReturnValue) {
+		Value oldReturnValue = returnValue;
+		returnValue = newReturnValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__RETURN_VALUE, oldReturnValue, returnValue));
 	}
 
 	/**
@@ -208,6 +258,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return basicGetInstance();
 			case MinijavadynamicdataPackage.CONTEXT__BINDINGS:
 				return getBindings();
+			case MinijavadynamicdataPackage.CONTEXT__RETURN_VALUE:
+				if (resolve) return getReturnValue();
+				return basicGetReturnValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,14 +275,17 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.CONTEXT__METHODCALL:
-				setMethodcall((MethodCall)newValue);
+				setMethodcall((MemberSelection)newValue);
 				return;
 			case MinijavadynamicdataPackage.CONTEXT__INSTANCE:
 				setInstance((Instance)newValue);
 				return;
 			case MinijavadynamicdataPackage.CONTEXT__BINDINGS:
 				getBindings().clear();
-				getBindings().addAll((Collection<? extends ParameterBinding>)newValue);
+				getBindings().addAll((Collection<? extends SymbolBinding>)newValue);
+				return;
+			case MinijavadynamicdataPackage.CONTEXT__RETURN_VALUE:
+				setReturnValue((Value)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,13 +300,16 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.CONTEXT__METHODCALL:
-				setMethodcall((MethodCall)null);
+				setMethodcall((MemberSelection)null);
 				return;
 			case MinijavadynamicdataPackage.CONTEXT__INSTANCE:
 				setInstance((Instance)null);
 				return;
 			case MinijavadynamicdataPackage.CONTEXT__BINDINGS:
 				getBindings().clear();
+				return;
+			case MinijavadynamicdataPackage.CONTEXT__RETURN_VALUE:
+				setReturnValue((Value)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -270,6 +329,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return instance != null;
 			case MinijavadynamicdataPackage.CONTEXT__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
+			case MinijavadynamicdataPackage.CONTEXT__RETURN_VALUE:
+				return returnValue != null;
 		}
 		return super.eIsSet(featureID);
 	}

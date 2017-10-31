@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.tetrabox.minijava.xtext.miniJava.MethodCall;
+import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +20,7 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getMethodcall <em>Methodcall</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getInstance <em>Instance</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue <em>Return Value</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext()
@@ -36,12 +37,12 @@ public interface Context extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Methodcall</em>' reference.
-	 * @see #setMethodcall(MethodCall)
+	 * @see #setMethodcall(MemberSelection)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_Methodcall()
 	 * @model
 	 * @generated
 	 */
-	MethodCall getMethodcall();
+	MemberSelection getMethodcall();
 
 	/**
 	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getMethodcall <em>Methodcall</em>}' reference.
@@ -51,7 +52,7 @@ public interface Context extends EObject {
 	 * @see #getMethodcall()
 	 * @generated
 	 */
-	void setMethodcall(MethodCall value);
+	void setMethodcall(MemberSelection value);
 
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' reference.
@@ -81,7 +82,7 @@ public interface Context extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding}.
+	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
@@ -93,6 +94,32 @@ public interface Context extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ParameterBinding> getBindings();
+	EList<SymbolBinding> getBindings();
+
+	/**
+	 * Returns the value of the '<em><b>Return Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Return Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Value</em>' reference.
+	 * @see #setReturnValue(Value)
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_ReturnValue()
+	 * @model
+	 * @generated
+	 */
+	Value getReturnValue();
+
+	/**
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue <em>Return Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Value</em>' reference.
+	 * @see #getReturnValue()
+	 * @generated
+	 */
+	void setReturnValue(Value value);
 
 } // Context

@@ -49,13 +49,13 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	Instance createInstance();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Binding</em>'.
+	 * Returns a new object of class '<em>Symbol Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Binding</em>'.
+	 * @return a new object of class '<em>Symbol Binding</em>'.
 	 * @generated
 	 */
-	ParameterBinding createParameterBinding();
+	SymbolBinding createSymbolBinding();
 
 	/**
 	 * Returns a new object of class '<em>Field Binding</em>'.
@@ -83,6 +83,15 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	 * @generated
 	 */
 	BooleanValue createBooleanValue();
+
+	/**
+	 * Returns a new object of class '<em>New EClass9</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>New EClass9</em>'.
+	 * @generated
+	 */
+	NewEClass9 createNewEClass9();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -92,9 +92,9 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MinijavadynamicdataPackage.PARAMETER_BINDING: {
-				ParameterBinding parameterBinding = (ParameterBinding)theEObject;
-				T result = caseParameterBinding(parameterBinding);
+			case MinijavadynamicdataPackage.SYMBOL_BINDING: {
+				SymbolBinding symbolBinding = (SymbolBinding)theEObject;
+				T result = caseSymbolBinding(symbolBinding);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,6 +115,12 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 				BooleanValue booleanValue = (BooleanValue)theEObject;
 				T result = caseBooleanValue(booleanValue);
 				if (result == null) result = caseValue(booleanValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.NEW_ECLASS9: {
+				NewEClass9 newEClass9 = (NewEClass9)theEObject;
+				T result = caseNewEClass9(newEClass9);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -183,17 +189,17 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Binding</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Symbol Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Binding</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Symbol Binding</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterBinding(ParameterBinding object) {
+	public T caseSymbolBinding(SymbolBinding object) {
 		return null;
 	}
 
@@ -239,6 +245,21 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBooleanValue(BooleanValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>New EClass9</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>New EClass9</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNewEClass9(NewEClass9 object) {
 		return null;
 	}
 

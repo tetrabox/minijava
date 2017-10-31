@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
@@ -23,6 +24,7 @@ import org.tetrabox.minijava.xtext.miniJava.Comparison;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.ForStatement;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
@@ -43,6 +45,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
+import org.tetrabox.minijava.xtext.miniJava.SingleTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
@@ -53,6 +56,8 @@ import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
+import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.WhileStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,16 +123,29 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case MiniJavaPackage.RETURN: return createReturn();
       case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
+      case MiniJavaPackage.WHILE_STATEMENT: return createWhileStatement();
+      case MiniJavaPackage.FOR_STATEMENT: return createForStatement();
       case MiniJavaPackage.TYPE_REF: return createTypeRef();
+      case MiniJavaPackage.SINGLE_TYPE_REF: return createSingleTypeRef();
       case MiniJavaPackage.CLASS_REF: return createClassRef();
       case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
       case MiniJavaPackage.TYPED_DECLARATION: return createTypedDeclaration();
       case MiniJavaPackage.SYMBOL: return createSymbol();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
       case MiniJavaPackage.EXPRESSION: return createExpression();
+      case MiniJavaPackage.ARRAY_TYPE_REF: return createArrayTypeRef();
       case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
       case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
       case MiniJavaPackage.STRING_TYPE_REF: return createStringTypeRef();
+      case MiniJavaPackage.VOID_TYPE_REF: return createVoidTypeRef();
+      case MiniJavaPackage.OR: return createOr();
+      case MiniJavaPackage.AND: return createAnd();
+      case MiniJavaPackage.EQUALITY: return createEquality();
+      case MiniJavaPackage.COMPARISON: return createComparison();
+      case MiniJavaPackage.PLUS: return createPlus();
+      case MiniJavaPackage.MINUS: return createMinus();
+      case MiniJavaPackage.MUL_OR_DIV: return createMulOrDiv();
+      case MiniJavaPackage.NOT: return createNot();
       case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
       case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
       case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
@@ -137,14 +155,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.NULL: return createNull();
       case MiniJavaPackage.NEW: return createNew();
       case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
-      case MiniJavaPackage.OR: return createOr();
-      case MiniJavaPackage.AND: return createAnd();
-      case MiniJavaPackage.EQUALITY: return createEquality();
-      case MiniJavaPackage.COMPARISON: return createComparison();
-      case MiniJavaPackage.PLUS: return createPlus();
-      case MiniJavaPackage.MINUS: return createMinus();
-      case MiniJavaPackage.MUL_OR_DIV: return createMulOrDiv();
-      case MiniJavaPackage.NOT: return createNot();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -321,10 +331,43 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public WhileStatement createWhileStatement()
+  {
+    WhileStatementImpl whileStatement = new WhileStatementImpl();
+    return whileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForStatement createForStatement()
+  {
+    ForStatementImpl forStatement = new ForStatementImpl();
+    return forStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypeRef createTypeRef()
   {
     TypeRefImpl typeRef = new TypeRefImpl();
     return typeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SingleTypeRef createSingleTypeRef()
+  {
+    SingleTypeRefImpl singleTypeRef = new SingleTypeRefImpl();
+    return singleTypeRef;
   }
 
   /**
@@ -398,6 +441,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ArrayTypeRef createArrayTypeRef()
+  {
+    ArrayTypeRefImpl arrayTypeRef = new ArrayTypeRefImpl();
+    return arrayTypeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public IntegerTypeRef createIntegerTypeRef()
   {
     IntegerTypeRefImpl integerTypeRef = new IntegerTypeRefImpl();
@@ -424,6 +478,105 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     StringTypeRefImpl stringTypeRef = new StringTypeRefImpl();
     return stringTypeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VoidTypeRef createVoidTypeRef()
+  {
+    VoidTypeRefImpl voidTypeRef = new VoidTypeRefImpl();
+    return voidTypeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Or createOr()
+  {
+    OrImpl or = new OrImpl();
+    return or;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public And createAnd()
+  {
+    AndImpl and = new AndImpl();
+    return and;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Equality createEquality()
+  {
+    EqualityImpl equality = new EqualityImpl();
+    return equality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Comparison createComparison()
+  {
+    ComparisonImpl comparison = new ComparisonImpl();
+    return comparison;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Plus createPlus()
+  {
+    PlusImpl plus = new PlusImpl();
+    return plus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Minus createMinus()
+  {
+    MinusImpl minus = new MinusImpl();
+    return minus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MulOrDiv createMulOrDiv()
+  {
+    MulOrDivImpl mulOrDiv = new MulOrDivImpl();
+    return mulOrDiv;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Not createNot()
+  {
+    NotImpl not = new NotImpl();
+    return not;
   }
 
   /**
@@ -523,94 +676,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     SymbolRefImpl symbolRef = new SymbolRefImpl();
     return symbolRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Or createOr()
-  {
-    OrImpl or = new OrImpl();
-    return or;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public And createAnd()
-  {
-    AndImpl and = new AndImpl();
-    return and;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Equality createEquality()
-  {
-    EqualityImpl equality = new EqualityImpl();
-    return equality;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Comparison createComparison()
-  {
-    ComparisonImpl comparison = new ComparisonImpl();
-    return comparison;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Plus createPlus()
-  {
-    PlusImpl plus = new PlusImpl();
-    return plus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Minus createMinus()
-  {
-    MinusImpl minus = new MinusImpl();
-    return minus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MulOrDiv createMulOrDiv()
-  {
-    MulOrDivImpl mulOrDiv = new MulOrDivImpl();
-    return mulOrDiv;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Not createNot()
-  {
-    NotImpl not = new NotImpl();
-    return not;
   }
 
   /**

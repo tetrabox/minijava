@@ -40,6 +40,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	public static val METHOD_INVOCATION_ON_FIELD = ISSUE_CODE_PREFIX + "MethodInvocationOnField"
 	public static val UNREACHABLE_CODE = ISSUE_CODE_PREFIX + "UnreachableCode"
 	public static val MISSING_FINAL_RETURN = ISSUE_CODE_PREFIX + "MissingFinalReturn"
+	public static val EXTRA_FINAL_RETURN = ISSUE_CODE_PREFIX + "ExtraFinalReturn"
 	public static val DUPLICATE_ELEMENT = ISSUE_CODE_PREFIX + "DuplicateElement"
 	public static val INCOMPATIBLE_TYPES = ISSUE_CODE_PREFIX + "IncompatibleTypes"
 	public static val INVALID_ARGS = ISSUE_CODE_PREFIX + "InvalidArgs"
@@ -59,8 +60,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	@Check
 	def checkClassHierarchy(Class c) {
 		if (c.classHierarchy.contains(c)) {
-			error("cycle in hierarchy of class '" + c.name + "'",
-				MiniJavaPackage.eINSTANCE.class_Superclass,
+			error("cycle in hierarchy of class '" + c.name + "'", MiniJavaPackage.eINSTANCE.class_Superclass,
 				HIERARCHY_CYCLE, c.superclass.name)
 		}
 	}
@@ -71,8 +71,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 		if (member instanceof Field && sel.methodinvocation)
 			error(
-				'''Method invocation on a field''',
-				MiniJavaPackage.eINSTANCE.memberSelection_Methodinvocation,
+				'''Method invocation on a field''', MiniJavaPackage.eINSTANCE.memberSelection_Methodinvocation,
 				METHOD_INVOCATION_ON_FIELD)
 		else if (member instanceof Method && !sel.methodinvocation)
 			error(
@@ -85,25 +84,34 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	@Check
 	def void checkUnreachableCode(Block block) {
 		val statements = block.statements
-		for (var i = 0; i < statements.length-1; i++) {
+		for (var i = 0; i < statements.length - 1; i++) {
 			if (statements.get(i) instanceof Return) {
 				// put the error on the statement after the return
-				error("Unreachable code",
-					statements.get(i+1),
-					null, // EStructuralFeature
-					UNREACHABLE_CODE)
+				error("Unreachable code", statements.get(i + 1), null, // EStructuralFeature
+				UNREACHABLE_CODE)
 				return // no need to report further errors
 			}
 		}
 	}
 
 	@Check
-	def void checkMethodEndsWithReturn(Method method) {
-		if (method.returnStatement === null) {
-			error("Method must end with a return statement",
-				MiniJavaPackage.eINSTANCE.method_Body,
-				MISSING_FINAL_RETURN
-			)
+	def void checkReturn(Method method) {
+		if (method.typeRef.eClass !== MiniJavaPackage::eINSTANCE.voidTypeRef) {
+			if (method.returnStatement === null) {
+				error(
+					"Method must end with a return statement",
+					MiniJavaPackage.eINSTANCE.method_Body,
+					MISSING_FINAL_RETURN
+				)
+			}
+		} else {
+			if (method.returnStatement !== null) {
+				error(
+					"Void method must not end with a return statement",
+					MiniJavaPackage.eINSTANCE.method_Body,
+					EXTRA_FINAL_RETURN
+				)
+			}
 		}
 	}
 
@@ -127,8 +135,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		if (expectedType === null || actualType === null)
 			return; // nothing to check
 		if (!actualType.isConformant(expectedType)) {
-			error("Incompatible types. Expected '" + expectedType.name + "' but was '" + actualType.name + "'",
-				null, INCOMPATIBLE_TYPES);
+			error("Incompatible types. Expected '" + expectedType.name + "' but was '" + actualType.name + "'", null,
+				INCOMPATIBLE_TYPES);
 		}
 	}
 
@@ -149,15 +157,12 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			val overridden = hierarchyMethods.get(m.name)
 			if (overridden !== null &&
 				(!m.typeRef.type.isConformant(overridden.typeRef.type) ||
-				!m.params.map[typeRef].elementsEqual(overridden.params.map[typeRef]))) {
-				error("The method '" + m.name + "' must override a superclass method",
-					m, MiniJavaPackage.eINSTANCE.namedElement_Name,
-					WRONG_METHOD_OVERRIDE)
+					!m.params.map[typeRef].elementsEqual(overridden.params.map[typeRef]))) {
+				error("The method '" + m.name + "' must override a superclass method", m,
+					MiniJavaPackage.eINSTANCE.namedElement_Name, WRONG_METHOD_OVERRIDE)
 			} else if (m.access < overridden.access) {
-				error("Cannot reduce access from " + overridden.access +
-					" to " + m.access,
-					m, MiniJavaPackage.eINSTANCE.member_Access,
-					REDUCED_ACCESSIBILITY)
+				error("Cannot reduce access from " + overridden.access + " to " + m.access, m,
+					MiniJavaPackage.eINSTANCE.member_Access, REDUCED_ACCESSIBILITY)
 			}
 		}
 	}
@@ -179,9 +184,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		for (c : p.classes) {
 			val className = c.fullyQualifiedName
 			if (externalClasses.containsKey(className)) {
-				error("The type " + c.name + " is already defined",
-					c,
-					MiniJavaPackage.eINSTANCE.namedElement_Name,
+				error("The type " + c.name + " is already defined", c, MiniJavaPackage.eINSTANCE.namedElement_Name,
 					DUPLICATE_CLASS)
 			}
 		}
@@ -203,10 +206,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			val duplicates = entry.value
 			if (duplicates.size > 1) {
 				for (d : duplicates)
-					error(
-						"Duplicate " + desc + " '" + d.name + "'",
-						d,
-						MiniJavaPackage.eINSTANCE.namedElement_Name, 
+					error("Duplicate " + desc + " '" + d.name + "'", d, MiniJavaPackage.eINSTANCE.namedElement_Name,
 						DUPLICATE_ELEMENT)
 			}
 		}

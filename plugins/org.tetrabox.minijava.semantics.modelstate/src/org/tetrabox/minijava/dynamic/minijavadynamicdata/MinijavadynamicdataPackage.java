@@ -94,13 +94,22 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int CONTEXT__BINDINGS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__RETURN_VALUE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 3;
+	int CONTEXT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Context</em>' class.
@@ -223,14 +232,14 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int INSTANCE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl <em>Parameter Binding</em>}' class.
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getParameterBinding()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getSymbolBinding()
 	 * @generated
 	 */
-	int PARAMETER_BINDING = 4;
+	int SYMBOL_BINDING = 4;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -239,34 +248,34 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_BINDING__VALUE = 0;
+	int SYMBOL_BINDING__VALUE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Symbol</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_BINDING__PARAMETER = 1;
+	int SYMBOL_BINDING__SYMBOL = 1;
 
 	/**
-	 * The number of structural features of the '<em>Parameter Binding</em>' class.
+	 * The number of structural features of the '<em>Symbol Binding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_BINDING_FEATURE_COUNT = 2;
+	int SYMBOL_BINDING_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Parameter Binding</em>' class.
+	 * The number of operations of the '<em>Symbol Binding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_BINDING_OPERATION_COUNT = 0;
+	int SYMBOL_BINDING_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FieldBindingImpl <em>Field Binding</em>}' class.
@@ -388,6 +397,34 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 */
 	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl <em>New EClass9</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewEClass9()
+	 * @generated
+	 */
+	int NEW_ECLASS9 = 8;
+
+	/**
+	 * The number of structural features of the '<em>New EClass9</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEW_ECLASS9_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>New EClass9</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEW_ECLASS9_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context <em>Context</em>}'.
@@ -431,6 +468,17 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContext_Bindings();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Return Value</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_ReturnValue();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Value <em>Value</em>}'.
@@ -496,36 +544,36 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EReference getInstance_Type();
 
 	/**
-	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding <em>Parameter Binding</em>}'.
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding <em>Symbol Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Binding</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding
+	 * @return the meta object for class '<em>Symbol Binding</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
 	 * @generated
 	 */
-	EClass getParameterBinding();
+	EClass getSymbolBinding();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Value</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding#getValue()
-	 * @see #getParameterBinding()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding#getValue()
+	 * @see #getSymbolBinding()
 	 * @generated
 	 */
-	EReference getParameterBinding_Value();
+	EReference getSymbolBinding_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding#getParameter <em>Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding#getSymbol <em>Symbol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ParameterBinding#getParameter()
-	 * @see #getParameterBinding()
+	 * @return the meta object for the reference '<em>Symbol</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding#getSymbol()
+	 * @see #getSymbolBinding()
 	 * @generated
 	 */
-	EReference getParameterBinding_Parameter();
+	EReference getSymbolBinding_Symbol();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding <em>Field Binding</em>}'.
@@ -602,6 +650,16 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EAttribute getBooleanValue_Value();
 
 	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9 <em>New EClass9</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>New EClass9</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9
+	 * @generated
+	 */
+	EClass getNewEClass9();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +717,14 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		EReference CONTEXT__BINDINGS = eINSTANCE.getContext_Bindings();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__RETURN_VALUE = eINSTANCE.getContext_ReturnValue();
+
+		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -713,14 +779,14 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		EReference INSTANCE__TYPE = eINSTANCE.getInstance_Type();
 
 		/**
-		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl <em>Parameter Binding</em>}' class.
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ParameterBindingImpl
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getParameterBinding()
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getSymbolBinding()
 		 * @generated
 		 */
-		EClass PARAMETER_BINDING = eINSTANCE.getParameterBinding();
+		EClass SYMBOL_BINDING = eINSTANCE.getSymbolBinding();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -728,15 +794,15 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_BINDING__VALUE = eINSTANCE.getParameterBinding_Value();
+		EReference SYMBOL_BINDING__VALUE = eINSTANCE.getSymbolBinding_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Symbol</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_BINDING__PARAMETER = eINSTANCE.getParameterBinding_Parameter();
+		EReference SYMBOL_BINDING__SYMBOL = eINSTANCE.getSymbolBinding_Symbol();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FieldBindingImpl <em>Field Binding</em>}' class.
@@ -799,6 +865,16 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOLEAN_VALUE__VALUE = eINSTANCE.getBooleanValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl <em>New EClass9</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewEClass9()
+		 * @generated
+		 */
+		EClass NEW_ECLASS9 = eINSTANCE.getNewEClass9();
 
 	}
 

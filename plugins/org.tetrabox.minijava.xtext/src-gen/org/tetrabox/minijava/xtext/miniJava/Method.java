@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Method#isStatic <em>Static</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Method#getParams <em>Params</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Method#getBody <em>Body</em>}</li>
  * </ul>
@@ -24,6 +25,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Method extends Member
 {
+  /**
+   * Returns the value of the '<em><b>Static</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Static</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Static</em>' attribute.
+   * @see #setStatic(boolean)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getMethod_Static()
+   * @model
+   * @generated
+   */
+  boolean isStatic();
+
+  /**
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Method#isStatic <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Static</em>' attribute.
+   * @see #isStatic()
+   * @generated
+   */
+  void setStatic(boolean value);
+
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference list.
    * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Parameter}.

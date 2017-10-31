@@ -132,6 +132,24 @@ public interface MiniJavaFactory extends EFactory
   IfStatement createIfStatement();
 
   /**
+   * Returns a new object of class '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While Statement</em>'.
+   * @generated
+   */
+  WhileStatement createWhileStatement();
+
+  /**
+   * Returns a new object of class '<em>For Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Statement</em>'.
+   * @generated
+   */
+  ForStatement createForStatement();
+
+  /**
    * Returns a new object of class '<em>Type Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,6 +157,15 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   TypeRef createTypeRef();
+
+  /**
+   * Returns a new object of class '<em>Single Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Single Type Ref</em>'.
+   * @generated
+   */
+  SingleTypeRef createSingleTypeRef();
 
   /**
    * Returns a new object of class '<em>Class Ref</em>'.
@@ -195,6 +222,15 @@ public interface MiniJavaFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Array Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Type Ref</em>'.
+   * @generated
+   */
+  ArrayTypeRef createArrayTypeRef();
+
+  /**
    * Returns a new object of class '<em>Integer Type Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,6 +256,87 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   StringTypeRef createStringTypeRef();
+
+  /**
+   * Returns a new object of class '<em>Void Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Void Type Ref</em>'.
+   * @generated
+   */
+  VoidTypeRef createVoidTypeRef();
+
+  /**
+   * Returns a new object of class '<em>Or</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or</em>'.
+   * @generated
+   */
+  Or createOr();
+
+  /**
+   * Returns a new object of class '<em>And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And</em>'.
+   * @generated
+   */
+  And createAnd();
+
+  /**
+   * Returns a new object of class '<em>Equality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equality</em>'.
+   * @generated
+   */
+  Equality createEquality();
+
+  /**
+   * Returns a new object of class '<em>Comparison</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comparison</em>'.
+   * @generated
+   */
+  Comparison createComparison();
+
+  /**
+   * Returns a new object of class '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plus</em>'.
+   * @generated
+   */
+  Plus createPlus();
+
+  /**
+   * Returns a new object of class '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Minus</em>'.
+   * @generated
+   */
+  Minus createMinus();
+
+  /**
+   * Returns a new object of class '<em>Mul Or Div</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mul Or Div</em>'.
+   * @generated
+   */
+  MulOrDiv createMulOrDiv();
+
+  /**
+   * Returns a new object of class '<em>Not</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not</em>'.
+   * @generated
+   */
+  Not createNot();
 
   /**
    * Returns a new object of class '<em>Member Selection</em>'.
@@ -301,78 +418,6 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   SymbolRef createSymbolRef();
-
-  /**
-   * Returns a new object of class '<em>Or</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Or</em>'.
-   * @generated
-   */
-  Or createOr();
-
-  /**
-   * Returns a new object of class '<em>And</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>And</em>'.
-   * @generated
-   */
-  And createAnd();
-
-  /**
-   * Returns a new object of class '<em>Equality</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Equality</em>'.
-   * @generated
-   */
-  Equality createEquality();
-
-  /**
-   * Returns a new object of class '<em>Comparison</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comparison</em>'.
-   * @generated
-   */
-  Comparison createComparison();
-
-  /**
-   * Returns a new object of class '<em>Plus</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Plus</em>'.
-   * @generated
-   */
-  Plus createPlus();
-
-  /**
-   * Returns a new object of class '<em>Minus</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Minus</em>'.
-   * @generated
-   */
-  Minus createMinus();
-
-  /**
-   * Returns a new object of class '<em>Mul Or Div</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mul Or Div</em>'.
-   * @generated
-   */
-  MulOrDiv createMulOrDiv();
-
-  /**
-   * Returns a new object of class '<em>Not</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not</em>'.
-   * @generated
-   */
-  Not createNot();
 
   /**
    * Returns the package supported by this factory.

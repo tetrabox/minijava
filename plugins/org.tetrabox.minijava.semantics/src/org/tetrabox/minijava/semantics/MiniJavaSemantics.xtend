@@ -9,37 +9,55 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant
-import org.tetrabox.minijava.xtext.miniJava.Cast
-import org.tetrabox.minijava.xtext.miniJava.ClassType
 import org.tetrabox.minijava.xtext.miniJava.Expression
 import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.FieldSelection
 import org.tetrabox.minijava.xtext.miniJava.IntConstant
-import org.tetrabox.minijava.xtext.miniJava.Message
-import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.Program
-import org.tetrabox.minijava.xtext.miniJava.Selection
 import org.tetrabox.minijava.xtext.miniJava.StringConstant
 import org.tetrabox.minijava.xtext.miniJava.This
-import org.tetrabox.minijava.xtext.miniJava.Variable
 
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
-import static extension org.tetrabox.minijava.semantics.MessageAspect.*
+import static extension org.tetrabox.minijava.semantics.StatementAspect.*
+import static extension org.tetrabox.minijava.semantics.BlockAspect.*
+import org.tetrabox.minijava.xtext.miniJava.Method
+import org.tetrabox.minijava.xtext.miniJava.Block
+import org.tetrabox.minijava.xtext.miniJava.Statement
+import org.tetrabox.minijava.xtext.miniJava.MemberSelection
+import org.tetrabox.minijava.xtext.miniJava.SymbolRef
+import org.tetrabox.minijava.xtext.miniJava.Parameter
+import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 
 @Aspect(className=Program)
 class ProgramAspect {
 
 	@Main
 	@Step
-	def Value execute() {
+	def void execute() {
 		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
-		if (_self.main !== null) {
-			return _self.main.evaluate(initialContext)
+		val main = _self.classes.map[members].filter(Method).findFirst[it.name == "main" && it.static]
+		if (main !== null) {
+			main.body.evaluate(initialContext)
 		} else
 			throw new RuntimeException("No main expression.")
 	}
 
+}
+
+@Aspect(className=Block)
+class BlockAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(Context context) {
+		var i = _self.statements.iterator
+		for (var s = i.next; i.hasNext && context.returnValue == null; s = i.next) {
+			s.evaluate(context)
+		}
+	}
+}
+
+@Aspect(className=Statement)
+class StatementAspect {
+	def void evaluate(Context context) { throw new RuntimeException("evaluate should be overriden") }
 }
 
 @Aspect(className=Expression)
@@ -47,41 +65,30 @@ class ExpressionAspect {
 	def Value evaluate(Context context) { throw new RuntimeException("evaluate should be overriden") }
 }
 
-@Aspect(className=Message)
-class MessageAspect {
-	def Value evaluate(Context context, Instance receiver) {
-		throw new RuntimeException("evaluate should be overriden")
-	}
-}
-
-@Aspect(className=MethodCall)
-class MethodCallAspect extends MessageAspect {
+@Aspect(className=MemberSelection)
+class MemberSelectionAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(Context context, Instance receiver) {
-
-		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext => [
-			instance = receiver
-			methodcall = _self
-		]
-		for (arg : _self.args) {
-			val param = _self.name.params.get(_self.args.indexOf(arg))
-			val binding = MinijavadynamicdataFactory::eINSTANCE.createParameterBinding => [
-				parameter = param
-				value = (arg as Expression).evaluate(context)
+	def Value evaluate(Context context) {
+		val realReceiver = _self.receiver.evaluate(context) as Instance
+		if (_self.methodinvocation) {
+			val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext => [
+				instance = realReceiver
+				methodcall = _self
 			]
-			newContext.bindings.add(binding)
+			for (arg : _self.args) {
+				val param = (_self.member as Method).params.get(_self.args.indexOf(arg))
+				val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
+					symbol = param
+					value = (arg as Expression).evaluate(context)
+				]
+				newContext.bindings.add(binding)
+			}
+			(_self.member as Method).body.evaluate(newContext)
+			return newContext.returnValue
+
+		} else {
+			return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
 		}
-
-		return _self.name.body.expression.evaluate(newContext)
-
-	}
-}
-
-@Aspect(className=FieldSelection)
-class FieldSelectionAspect extends MessageAspect {
-	@OverrideAspectMethod
-	def Value evaluate(Context context, Instance receiver) {
-		return receiver.fieldbindings.findFirst[it.field === _self.name].value
 	}
 }
 
@@ -97,11 +104,11 @@ class ThisAspect extends ExpressionAspect {
 	}
 }
 
-@Aspect(className=Variable)
-class VariableAspect extends ExpressionAspect {
+@Aspect(className=SymbolRef)
+class SymbolRefAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
-		return context.bindings.findFirst[it.parameter === _self.paramref].value
+		return context.bindings.findFirst[it.symbol === _self.symbol].value
 	}
 }
 
@@ -110,35 +117,33 @@ class NewAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
 		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance => [
-			type = _self.type.classref
+			type = _self.type
 		]
 
-		for (arg : _self.args) {
-			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))
-			val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding
-			binding.field = field
-			binding.value = (arg as Expression).evaluate(context)
-			result.fieldbindings.add(binding)
-		}
-
+//		for (arg : _self.args) {
+//			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))
+//			val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding
+//			binding.field = field
+//			binding.value = (arg as Expression).evaluate(context)
+//			result.fieldbindings.add(binding)
+//		}
 		return result
 	}
 }
 
-@Aspect(className=Cast)
-class CastAspect extends ExpressionAspect {
-	@OverrideAspectMethod
-	def Value evaluate(Context context) {
-		return _self.object.evaluate(context)
-	}
-}
-
+//@Aspect(className=Cast)
+//class CastAspect extends ExpressionAspect {
+//	@OverrideAspectMethod
+//	def Value evaluate(Context context) {
+//		return _self.object.evaluate(context)
+//	}
+//}
 @Aspect(className=StringConstant)
 class StringConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
 		return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [
-			value = _self.constant
+			value = _self.value
 		]
 	}
 }
@@ -148,7 +153,7 @@ class IntConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
 		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [
-			value = _self.constant
+			value = _self.value
 		]
 	}
 }
@@ -158,16 +163,7 @@ class BoolConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
-			value = _self.constant.equalsIgnoreCase("true")
+			value = _self.value.equalsIgnoreCase("true")
 		]
-	}
-}
-
-@Aspect(className=Selection)
-class SelectionAspect extends ExpressionAspect {
-	@OverrideAspectMethod
-	def Value evaluate(Context context) {
-		val Instance instance = _self.receiver.evaluate(context) as Instance
-		return _self.message.evaluate(context, instance)
 	}
 }

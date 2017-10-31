@@ -152,63 +152,71 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	public class ClassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Class");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSuperclassAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSuperclassClassCrossReference_2_1_0 = (CrossReference)cSuperclassAssignment_2_1.eContents().get(0);
-		private final RuleCall cSuperclassClassQualifiedNameParserRuleCall_2_1_0_1 = (RuleCall)cSuperclassClassCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cMembersAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cMembersMemberParserRuleCall_4_0 = (RuleCall)cMembersAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cAccessLevelAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cAccessLevelAccessLevelEnumRuleCall_0_0 = (RuleCall)cAccessLevelAssignment_0.eContents().get(0);
+		private final Keyword cClassKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cSuperclassAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cSuperclassClassCrossReference_3_1_0 = (CrossReference)cSuperclassAssignment_3_1.eContents().get(0);
+		private final RuleCall cSuperclassClassQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSuperclassClassCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cMembersAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMembersMemberParserRuleCall_5_0 = (RuleCall)cMembersAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Class:
-		//	'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+		//	accessLevel=AccessLevel? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
 		//	members+=Member*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{' members+=Member* '}'
+		//accessLevel=AccessLevel? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{' members+=Member* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//accessLevel=AccessLevel?
+		public Assignment getAccessLevelAssignment_0() { return cAccessLevelAssignment_0; }
+		
+		//AccessLevel
+		public RuleCall getAccessLevelAccessLevelEnumRuleCall_0_0() { return cAccessLevelAccessLevelEnumRuleCall_0_0; }
+		
 		//'class'
-		public Keyword getClassKeyword_0() { return cClassKeyword_0; }
+		public Keyword getClassKeyword_1() { return cClassKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//('extends' superclass=[Class|QualifiedName])?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'extends'
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
 		
 		//superclass=[Class|QualifiedName]
-		public Assignment getSuperclassAssignment_2_1() { return cSuperclassAssignment_2_1; }
+		public Assignment getSuperclassAssignment_3_1() { return cSuperclassAssignment_3_1; }
 		
 		//[Class|QualifiedName]
-		public CrossReference getSuperclassClassCrossReference_2_1_0() { return cSuperclassClassCrossReference_2_1_0; }
+		public CrossReference getSuperclassClassCrossReference_3_1_0() { return cSuperclassClassCrossReference_3_1_0; }
 		
 		//QualifiedName
-		public RuleCall getSuperclassClassQualifiedNameParserRuleCall_2_1_0_1() { return cSuperclassClassQualifiedNameParserRuleCall_2_1_0_1; }
+		public RuleCall getSuperclassClassQualifiedNameParserRuleCall_3_1_0_1() { return cSuperclassClassQualifiedNameParserRuleCall_3_1_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
 		//members+=Member*
-		public Assignment getMembersAssignment_4() { return cMembersAssignment_4; }
+		public Assignment getMembersAssignment_5() { return cMembersAssignment_5; }
 		
 		//Member
-		public RuleCall getMembersMemberParserRuleCall_4_0() { return cMembersMemberParserRuleCall_4_0; }
+		public RuleCall getMembersMemberParserRuleCall_5_0() { return cMembersMemberParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class MemberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Member");
@@ -300,29 +308,32 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAccessAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAccessAccessLevelEnumRuleCall_0_0 = (RuleCall)cAccessAssignment_0.eContents().get(0);
-		private final Assignment cTypeRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeRefTypeRefParserRuleCall_1_0 = (RuleCall)cTypeRefAssignment_1.eContents().get(0);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cParamsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cParamsParameterParserRuleCall_4_0_0 = (RuleCall)cParamsAssignment_4_0.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
-		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cParamsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cParamsParameterParserRuleCall_4_1_1_0 = (RuleCall)cParamsAssignment_4_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBodyAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBodyBlockParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
+		private final Assignment cStaticAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cStaticStaticKeyword_1_0 = (Keyword)cStaticAssignment_1.eContents().get(0);
+		private final Assignment cTypeRefAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeRefTypeRefParserRuleCall_2_0 = (RuleCall)cTypeRefAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cParamsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cParamsParameterParserRuleCall_5_0_0 = (RuleCall)cParamsAssignment_5_0.eContents().get(0);
+		private final Group cGroup_5_1 = (Group)cGroup_5.eContents().get(1);
+		private final Keyword cCommaKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Assignment cParamsAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
+		private final RuleCall cParamsParameterParserRuleCall_5_1_1_0 = (RuleCall)cParamsAssignment_5_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cBodyAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cBodyBlockParserRuleCall_7_0 = (RuleCall)cBodyAssignment_7.eContents().get(0);
 		
 		//Method:
-		//	access=AccessLevel? typeRef=TypeRef name=ID
+		//	access=AccessLevel? static?='static'? typeRef=TypeRef name=ID
 		//	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
 		//	body=Block;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//access=AccessLevel? typeRef=TypeRef name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
+		//access=AccessLevel? static?='static'? typeRef=TypeRef name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')'
+		//body=Block
 		public Group getGroup() { return cGroup; }
 		
 		//access=AccessLevel?
@@ -331,50 +342,56 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//AccessLevel
 		public RuleCall getAccessAccessLevelEnumRuleCall_0_0() { return cAccessAccessLevelEnumRuleCall_0_0; }
 		
+		//static?='static'?
+		public Assignment getStaticAssignment_1() { return cStaticAssignment_1; }
+		
+		//'static'
+		public Keyword getStaticStaticKeyword_1_0() { return cStaticStaticKeyword_1_0; }
+		
 		//typeRef=TypeRef
-		public Assignment getTypeRefAssignment_1() { return cTypeRefAssignment_1; }
+		public Assignment getTypeRefAssignment_2() { return cTypeRefAssignment_2; }
 		
 		//TypeRef
-		public RuleCall getTypeRefTypeRefParserRuleCall_1_0() { return cTypeRefTypeRefParserRuleCall_1_0; }
+		public RuleCall getTypeRefTypeRefParserRuleCall_2_0() { return cTypeRefTypeRefParserRuleCall_2_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
 		
 		//(params+=Parameter (',' params+=Parameter)*)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//params+=Parameter
-		public Assignment getParamsAssignment_4_0() { return cParamsAssignment_4_0; }
+		public Assignment getParamsAssignment_5_0() { return cParamsAssignment_5_0; }
 		
 		//Parameter
-		public RuleCall getParamsParameterParserRuleCall_4_0_0() { return cParamsParameterParserRuleCall_4_0_0; }
+		public RuleCall getParamsParameterParserRuleCall_5_0_0() { return cParamsParameterParserRuleCall_5_0_0; }
 		
 		//(',' params+=Parameter)*
-		public Group getGroup_4_1() { return cGroup_4_1; }
+		public Group getGroup_5_1() { return cGroup_5_1; }
 		
 		//','
-		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+		public Keyword getCommaKeyword_5_1_0() { return cCommaKeyword_5_1_0; }
 		
 		//params+=Parameter
-		public Assignment getParamsAssignment_4_1_1() { return cParamsAssignment_4_1_1; }
+		public Assignment getParamsAssignment_5_1_1() { return cParamsAssignment_5_1_1; }
 		
 		//Parameter
-		public RuleCall getParamsParameterParserRuleCall_4_1_1_0() { return cParamsParameterParserRuleCall_4_1_1_0; }
+		public RuleCall getParamsParameterParserRuleCall_5_1_1_0() { return cParamsParameterParserRuleCall_5_1_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 		
 		//body=Block
-		public Assignment getBodyAssignment_6() { return cBodyAssignment_6; }
+		public Assignment getBodyAssignment_7() { return cBodyAssignment_7; }
 		
 		//Block
-		public RuleCall getBodyBlockParserRuleCall_6_0() { return cBodyBlockParserRuleCall_6_0; }
+		public RuleCall getBodyBlockParserRuleCall_7_0() { return cBodyBlockParserRuleCall_7_0; }
 	}
 	public class BlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Block");
@@ -410,26 +427,49 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Statement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVariableDeclarationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cReturnParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final RuleCall cVariableDeclarationParserRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cReturnParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final RuleCall cAssignmentParserRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final RuleCall cIfStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cWhileStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cForStatementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cBlockParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final RuleCall cSelectionExpressionParserRuleCall_7_0 = (RuleCall)cGroup_7.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		
 		//Statement:
-		//	VariableDeclaration | Return |
-		//	=> Assignment ';' | IfStatement;
+		//	VariableDeclaration ';' | Return ';' |
+		//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | Block | SelectionExpression ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//VariableDeclaration | Return | => Assignment ';' | IfStatement
+		//VariableDeclaration ';' | Return ';' | => Assignment ';' | IfStatement | WhileStatement | ForStatement | Block |
+		//SelectionExpression ';'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//VariableDeclaration ';'
+		public Group getGroup_0() { return cGroup_0; }
+		
 		//VariableDeclaration
-		public RuleCall getVariableDeclarationParserRuleCall_0() { return cVariableDeclarationParserRuleCall_0; }
+		public RuleCall getVariableDeclarationParserRuleCall_0_0() { return cVariableDeclarationParserRuleCall_0_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_0_1() { return cSemicolonKeyword_0_1; }
+		
+		//Return ';'
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//Return
-		public RuleCall getReturnParserRuleCall_1() { return cReturnParserRuleCall_1; }
+		public RuleCall getReturnParserRuleCall_1_0() { return cReturnParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
 		
 		//=> Assignment ';'
 		public Group getGroup_2() { return cGroup_2; }
@@ -442,6 +482,24 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//IfStatement
 		public RuleCall getIfStatementParserRuleCall_3() { return cIfStatementParserRuleCall_3; }
+		
+		//WhileStatement
+		public RuleCall getWhileStatementParserRuleCall_4() { return cWhileStatementParserRuleCall_4; }
+		
+		//ForStatement
+		public RuleCall getForStatementParserRuleCall_5() { return cForStatementParserRuleCall_5; }
+		
+		//Block
+		public RuleCall getBlockParserRuleCall_6() { return cBlockParserRuleCall_6; }
+		
+		//SelectionExpression ';'
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//SelectionExpression
+		public RuleCall getSelectionExpressionParserRuleCall_7_0() { return cSelectionExpressionParserRuleCall_7_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_7_1() { return cSemicolonKeyword_7_1; }
 	}
 	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.VariableDeclaration");
@@ -453,15 +511,12 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExpressionExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//// TODO for loop
-		//// TODO while loop
 		//VariableDeclaration:
-		//	typeRef=TypeRef name=ID '=' expression=Expression ';';
+		//	typeRef=TypeRef name=ID '=' expression=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//typeRef=TypeRef name=ID '=' expression=Expression ';'
+		//typeRef=TypeRef name=ID '=' expression=Expression
 		public Group getGroup() { return cGroup; }
 		
 		//typeRef=TypeRef
@@ -484,9 +539,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class ReturnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Return");
@@ -494,13 +546,12 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReturnKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Return:
-		//	'return' expression=Expression ';';
+		//	'return' expression=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'return' expression=Expression ';'
+		//'return' expression=Expression
 		public Group getGroup() { return cGroup; }
 		
 		//'return'
@@ -511,9 +562,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class IfStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.IfStatement");
@@ -524,17 +572,17 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cThenBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cThenBlockIfBlockParserRuleCall_4_0 = (RuleCall)cThenBlockAssignment_4.eContents().get(0);
+		private final RuleCall cThenBlockBlockParserRuleCall_4_0 = (RuleCall)cThenBlockAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cElseKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cElseBlockAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cElseBlockIfBlockParserRuleCall_5_1_0 = (RuleCall)cElseBlockAssignment_5_1.eContents().get(0);
+		private final RuleCall cElseBlockBlockParserRuleCall_5_1_0 = (RuleCall)cElseBlockAssignment_5_1.eContents().get(0);
 		
 		//IfStatement:
-		//	'if' '(' expression=Expression ')' thenBlock=IfBlock (=> 'else' elseBlock=IfBlock)?;
+		//	'if' '(' expression=Expression ')' thenBlock=Block (=> 'else' elseBlock=Block)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' '(' expression=Expression ')' thenBlock=IfBlock (=> 'else' elseBlock=IfBlock)?
+		//'if' '(' expression=Expression ')' thenBlock=Block (=> 'else' elseBlock=Block)?
 		public Group getGroup() { return cGroup; }
 		
 		//'if'
@@ -552,50 +600,162 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 		
-		//thenBlock=IfBlock
+		//thenBlock=Block
 		public Assignment getThenBlockAssignment_4() { return cThenBlockAssignment_4; }
 		
-		//IfBlock
-		public RuleCall getThenBlockIfBlockParserRuleCall_4_0() { return cThenBlockIfBlockParserRuleCall_4_0; }
+		//Block
+		public RuleCall getThenBlockBlockParserRuleCall_4_0() { return cThenBlockBlockParserRuleCall_4_0; }
 		
-		//(=> 'else' elseBlock=IfBlock)?
+		//(=> 'else' elseBlock=Block)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//=> 'else'
 		public Keyword getElseKeyword_5_0() { return cElseKeyword_5_0; }
 		
-		//elseBlock=IfBlock
+		//elseBlock=Block
 		public Assignment getElseBlockAssignment_5_1() { return cElseBlockAssignment_5_1; }
 		
-		//IfBlock
-		public RuleCall getElseBlockIfBlockParserRuleCall_5_1_0() { return cElseBlockIfBlockParserRuleCall_5_1_0; }
+		//Block
+		public RuleCall getElseBlockBlockParserRuleCall_5_1_0() { return cElseBlockBlockParserRuleCall_5_1_0; }
 	}
-	public class IfBlockElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.IfBlock");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cStatementsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cStatementsStatementParserRuleCall_0_0 = (RuleCall)cStatementsAssignment_0.eContents().get(0);
-		private final RuleCall cBlockParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+	public class WhileStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.WhileStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWhileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConditionExpressionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBlockBlockParserRuleCall_4_0 = (RuleCall)cBlockAssignment_4.eContents().get(0);
 		
-		//IfBlock Block:
-		//	statements+=Statement
-		//	| Block;
+		////IfBlock returns Block:
+		////	statements+=Statement
+		////	| Block;
+		//WhileStatement:
+		//	'while' '(' condition=Expression ')' block=Block;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//statements+=Statement | Block
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//'while' '(' condition=Expression ')' block=Block
+		public Group getGroup() { return cGroup; }
 		
-		//statements+=Statement
-		public Assignment getStatementsAssignment_0() { return cStatementsAssignment_0; }
+		//'while'
+		public Keyword getWhileKeyword_0() { return cWhileKeyword_0; }
 		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_0_0() { return cStatementsStatementParserRuleCall_0_0; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//condition=Expression
+		public Assignment getConditionAssignment_2() { return cConditionAssignment_2; }
+		
+		//Expression
+		public RuleCall getConditionExpressionParserRuleCall_2_0() { return cConditionExpressionParserRuleCall_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		
+		//block=Block
+		public Assignment getBlockAssignment_4() { return cBlockAssignment_4; }
 		
 		//Block
-		public RuleCall getBlockParserRuleCall_1() { return cBlockParserRuleCall_1; }
+		public RuleCall getBlockBlockParserRuleCall_4_0() { return cBlockBlockParserRuleCall_4_0; }
+	}
+	public class ForStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.ForStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cForKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDeclarationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeclarationVariableDeclarationParserRuleCall_2_0 = (RuleCall)cDeclarationAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cConditionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConditionExpressionParserRuleCall_4_0 = (RuleCall)cConditionAssignment_4.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cProgressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cProgressionAssignmentParserRuleCall_6_0 = (RuleCall)cProgressionAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cBlockAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cBlockBlockParserRuleCall_8_0 = (RuleCall)cBlockAssignment_8.eContents().get(0);
+		
+		//ForStatement:
+		//	'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block
+		public Group getGroup() { return cGroup; }
+		
+		//'for'
+		public Keyword getForKeyword_0() { return cForKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//declaration=VariableDeclaration
+		public Assignment getDeclarationAssignment_2() { return cDeclarationAssignment_2; }
+		
+		//VariableDeclaration
+		public RuleCall getDeclarationVariableDeclarationParserRuleCall_2_0() { return cDeclarationVariableDeclarationParserRuleCall_2_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		
+		//condition=Expression
+		public Assignment getConditionAssignment_4() { return cConditionAssignment_4; }
+		
+		//Expression
+		public RuleCall getConditionExpressionParserRuleCall_4_0() { return cConditionExpressionParserRuleCall_4_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		
+		//progression=Assignment
+		public Assignment getProgressionAssignment_6() { return cProgressionAssignment_6; }
+		
+		//Assignment
+		public RuleCall getProgressionAssignmentParserRuleCall_6_0() { return cProgressionAssignmentParserRuleCall_6_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		
+		//block=Block
+		public Assignment getBlockAssignment_8() { return cBlockAssignment_8; }
+		
+		//Block
+		public RuleCall getBlockBlockParserRuleCall_8_0() { return cBlockBlockParserRuleCall_8_0; }
 	}
 	public class TypeRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.TypeRef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cSingleTypeRefParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cArrayTypeRefTypeRefAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		
+		//TypeRef:
+		//	SingleTypeRef ({ArrayTypeRef.typeRef=current} '[' ']')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SingleTypeRef ({ArrayTypeRef.typeRef=current} '[' ']')?
+		public Group getGroup() { return cGroup; }
+		
+		//SingleTypeRef
+		public RuleCall getSingleTypeRefParserRuleCall_0() { return cSingleTypeRefParserRuleCall_0; }
+		
+		//({ArrayTypeRef.typeRef=current} '[' ']')?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{ArrayTypeRef.typeRef=current}
+		public Action getArrayTypeRefTypeRefAction_1_0() { return cArrayTypeRefTypeRefAction_1_0; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1_1() { return cLeftSquareBracketKeyword_1_1; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
+	}
+	public class SingleTypeRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.SingleTypeRef");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cClassRefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
@@ -607,12 +767,15 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Action cStringTypeRefAction_3_0 = (Action)cGroup_3.eContents().get(0);
 		private final Keyword cStringKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cVoidTypeRefAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cVoidKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		
-		//TypeRef:
-		//	ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String";
+		//SingleTypeRef:
+		//	ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String" | {VoidTypeRef} "void";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String"
+		//ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String" | {VoidTypeRef} "void"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ClassRef
@@ -644,6 +807,15 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"String"
 		public Keyword getStringKeyword_3_1() { return cStringKeyword_3_1; }
+		
+		//{VoidTypeRef} "void"
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{VoidTypeRef}
+		public Action getVoidTypeRefAction_4_0() { return cVoidTypeRefAction_4_0; }
+		
+		//"void"
+		public Keyword getVoidKeyword_4_1() { return cVoidKeyword_4_1; }
 	}
 	public class ClassRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.ClassRef");
@@ -706,24 +878,20 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Symbol");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cParameterParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFieldParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cVariableDeclarationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cVariableDeclarationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Symbol:
-		//	Parameter | Field | VariableDeclaration;
+		//	Parameter | VariableDeclaration;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Parameter | Field | VariableDeclaration
+		//Parameter | VariableDeclaration
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Parameter
 		public RuleCall getParameterParserRuleCall_0() { return cParameterParserRuleCall_0; }
 		
-		//Field
-		public RuleCall getFieldParserRuleCall_1() { return cFieldParserRuleCall_1; }
-		
 		//VariableDeclaration
-		public RuleCall getVariableDeclarationParserRuleCall_2() { return cVariableDeclarationParserRuleCall_2; }
+		public RuleCall getVariableDeclarationParserRuleCall_1() { return cVariableDeclarationParserRuleCall_1; }
 	}
 	public class AssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Assignment");
@@ -758,266 +926,14 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Expression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSelectionExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOrParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cOrParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//Expression:
-		//	SelectionExpression | => Or;
+		//	Or;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SelectionExpression | => Or
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//SelectionExpression
-		public RuleCall getSelectionExpressionParserRuleCall_0() { return cSelectionExpressionParserRuleCall_0; }
-		
-		//=> Or
-		public RuleCall getOrParserRuleCall_1() { return cOrParserRuleCall_1; }
-	}
-	public class SelectionExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.SelectionExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cTerminalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cMemberSelectionReceiverAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cMemberAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final CrossReference cMemberMemberCrossReference_1_2_0 = (CrossReference)cMemberAssignment_1_2.eContents().get(0);
-		private final RuleCall cMemberMemberIDTerminalRuleCall_1_2_0_1 = (RuleCall)cMemberMemberCrossReference_1_2_0.eContents().get(1);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Assignment cMethodinvocationAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
-		private final Keyword cMethodinvocationLeftParenthesisKeyword_1_3_0_0 = (Keyword)cMethodinvocationAssignment_1_3_0.eContents().get(0);
-		private final Group cGroup_1_3_1 = (Group)cGroup_1_3.eContents().get(1);
-		private final Assignment cArgsAssignment_1_3_1_0 = (Assignment)cGroup_1_3_1.eContents().get(0);
-		private final RuleCall cArgsExpressionParserRuleCall_1_3_1_0_0 = (RuleCall)cArgsAssignment_1_3_1_0.eContents().get(0);
-		private final Group cGroup_1_3_1_1 = (Group)cGroup_1_3_1.eContents().get(1);
-		private final Keyword cCommaKeyword_1_3_1_1_0 = (Keyword)cGroup_1_3_1_1.eContents().get(0);
-		private final Assignment cArgsAssignment_1_3_1_1_1 = (Assignment)cGroup_1_3_1_1.eContents().get(1);
-		private final RuleCall cArgsExpressionParserRuleCall_1_3_1_1_1_0 = (RuleCall)cArgsAssignment_1_3_1_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_3_2 = (Keyword)cGroup_1_3.eContents().get(2);
-		
-		//// TODO try to have method call concept? 
-		//SelectionExpression Expression:
-		//	TerminalExpression ({MemberSelection.receiver=current} '.'
-		//	member=[Member] (methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?)*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//TerminalExpression ({MemberSelection.receiver=current} '.' member=[Member] (methodinvocation?='(' (args+=Expression (','
-		//args+=Expression)*)? ')')?)*
-		public Group getGroup() { return cGroup; }
-		
-		//TerminalExpression
-		public RuleCall getTerminalExpressionParserRuleCall_0() { return cTerminalExpressionParserRuleCall_0; }
-		
-		//({MemberSelection.receiver=current} '.' member=[Member] (methodinvocation?='(' (args+=Expression (','
-		//args+=Expression)*)? ')')?)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{MemberSelection.receiver=current}
-		public Action getMemberSelectionReceiverAction_1_0() { return cMemberSelectionReceiverAction_1_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
-		
-		//member=[Member]
-		public Assignment getMemberAssignment_1_2() { return cMemberAssignment_1_2; }
-		
-		//[Member]
-		public CrossReference getMemberMemberCrossReference_1_2_0() { return cMemberMemberCrossReference_1_2_0; }
-		
-		//ID
-		public RuleCall getMemberMemberIDTerminalRuleCall_1_2_0_1() { return cMemberMemberIDTerminalRuleCall_1_2_0_1; }
-		
-		//(methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?
-		public Group getGroup_1_3() { return cGroup_1_3; }
-		
-		//methodinvocation?='('
-		public Assignment getMethodinvocationAssignment_1_3_0() { return cMethodinvocationAssignment_1_3_0; }
-		
-		//'('
-		public Keyword getMethodinvocationLeftParenthesisKeyword_1_3_0_0() { return cMethodinvocationLeftParenthesisKeyword_1_3_0_0; }
-		
-		//(args+=Expression (',' args+=Expression)*)?
-		public Group getGroup_1_3_1() { return cGroup_1_3_1; }
-		
-		//args+=Expression
-		public Assignment getArgsAssignment_1_3_1_0() { return cArgsAssignment_1_3_1_0; }
-		
-		//Expression
-		public RuleCall getArgsExpressionParserRuleCall_1_3_1_0_0() { return cArgsExpressionParserRuleCall_1_3_1_0_0; }
-		
-		//(',' args+=Expression)*
-		public Group getGroup_1_3_1_1() { return cGroup_1_3_1_1; }
-		
-		//','
-		public Keyword getCommaKeyword_1_3_1_1_0() { return cCommaKeyword_1_3_1_1_0; }
-		
-		//args+=Expression
-		public Assignment getArgsAssignment_1_3_1_1_1() { return cArgsAssignment_1_3_1_1_1; }
-		
-		//Expression
-		public RuleCall getArgsExpressionParserRuleCall_1_3_1_1_1_0() { return cArgsExpressionParserRuleCall_1_3_1_1_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_1_3_2() { return cRightParenthesisKeyword_1_3_2; }
-	}
-	public class TerminalExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.TerminalExpression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cStringConstantAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_0_1_0 = (RuleCall)cValueAssignment_0_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cIntConstantAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cValueINTTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cBoolConstantAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final Alternatives cValueAlternatives_2_1_0 = (Alternatives)cValueAssignment_2_1.eContents().get(0);
-		private final Keyword cValueTrueKeyword_2_1_0_0 = (Keyword)cValueAlternatives_2_1_0.eContents().get(0);
-		private final Keyword cValueFalseKeyword_2_1_0_1 = (Keyword)cValueAlternatives_2_1_0.eContents().get(1);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cThisAction_3_0 = (Action)cGroup_3.eContents().get(0);
-		private final Keyword cThisKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cSuperAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Keyword cSuperKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cNullAction_5_0 = (Action)cGroup_5.eContents().get(0);
-		private final Keyword cNullKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cNewAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final Keyword cNewKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cTypeRefAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final CrossReference cTypeRefClassCrossReference_6_2_0 = (CrossReference)cTypeRefAssignment_6_2.eContents().get(0);
-		private final RuleCall cTypeRefClassQualifiedNameParserRuleCall_6_2_0_1 = (RuleCall)cTypeRefClassCrossReference_6_2_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
-		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Action cSymbolRefAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Assignment cSymbolAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cSymbolSymbolCrossReference_7_1_0 = (CrossReference)cSymbolAssignment_7_1.eContents().get(0);
-		private final RuleCall cSymbolSymbolIDTerminalRuleCall_7_1_0_1 = (RuleCall)cSymbolSymbolCrossReference_7_1_0.eContents().get(1);
-		
-		//TerminalExpression Expression:
-		//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
-		//	{Super} 'super' | {Null} 'null' | {New} 'new' typeRef=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
-		//{Super} 'super' | {Null} 'null' | {New} 'new' typeRef=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol]
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//{StringConstant} value=STRING
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//{StringConstant}
-		public Action getStringConstantAction_0_0() { return cStringConstantAction_0_0; }
-		
-		//value=STRING
-		public Assignment getValueAssignment_0_1() { return cValueAssignment_0_1; }
-		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_0_1_0() { return cValueSTRINGTerminalRuleCall_0_1_0; }
-		
-		//{IntConstant} value=INT
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{IntConstant}
-		public Action getIntConstantAction_1_0() { return cIntConstantAction_1_0; }
-		
-		//value=INT
-		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
-		
-		//INT
-		public RuleCall getValueINTTerminalRuleCall_1_1_0() { return cValueINTTerminalRuleCall_1_1_0; }
-		
-		//{BoolConstant} value=('true' | 'false')
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//{BoolConstant}
-		public Action getBoolConstantAction_2_0() { return cBoolConstantAction_2_0; }
-		
-		//value=('true' | 'false')
-		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
-		
-		//('true' | 'false')
-		public Alternatives getValueAlternatives_2_1_0() { return cValueAlternatives_2_1_0; }
-		
-		//'true'
-		public Keyword getValueTrueKeyword_2_1_0_0() { return cValueTrueKeyword_2_1_0_0; }
-		
-		//'false'
-		public Keyword getValueFalseKeyword_2_1_0_1() { return cValueFalseKeyword_2_1_0_1; }
-		
-		//{This} 'this'
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//{This}
-		public Action getThisAction_3_0() { return cThisAction_3_0; }
-		
-		//'this'
-		public Keyword getThisKeyword_3_1() { return cThisKeyword_3_1; }
-		
-		//{Super} 'super'
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//{Super}
-		public Action getSuperAction_4_0() { return cSuperAction_4_0; }
-		
-		//'super'
-		public Keyword getSuperKeyword_4_1() { return cSuperKeyword_4_1; }
-		
-		//{Null} 'null'
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//{Null}
-		public Action getNullAction_5_0() { return cNullAction_5_0; }
-		
-		//'null'
-		public Keyword getNullKeyword_5_1() { return cNullKeyword_5_1; }
-		
-		//{New} 'new' typeRef=[Class|QualifiedName] '(' ')'
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//{New}
-		public Action getNewAction_6_0() { return cNewAction_6_0; }
-		
-		//'new'
-		public Keyword getNewKeyword_6_1() { return cNewKeyword_6_1; }
-		
-		//typeRef=[Class|QualifiedName]
-		public Assignment getTypeRefAssignment_6_2() { return cTypeRefAssignment_6_2; }
-		
-		//[Class|QualifiedName]
-		public CrossReference getTypeRefClassCrossReference_6_2_0() { return cTypeRefClassCrossReference_6_2_0; }
-		
-		//QualifiedName
-		public RuleCall getTypeRefClassQualifiedNameParserRuleCall_6_2_0_1() { return cTypeRefClassQualifiedNameParserRuleCall_6_2_0_1; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_6_3() { return cLeftParenthesisKeyword_6_3; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
-		
-		//{SymbolRef} symbol=[Symbol]
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//{SymbolRef}
-		public Action getSymbolRefAction_7_0() { return cSymbolRefAction_7_0; }
-		
-		//symbol=[Symbol]
-		public Assignment getSymbolAssignment_7_1() { return cSymbolAssignment_7_1; }
-		
-		//[Symbol]
-		public CrossReference getSymbolSymbolCrossReference_7_1_0() { return cSymbolSymbolCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getSymbolSymbolIDTerminalRuleCall_7_1_0_1() { return cSymbolSymbolIDTerminalRuleCall_7_1_0_1; }
+		//Or
+		public RuleCall getOrParserRuleCall() { return cOrParserRuleCall; }
 	}
 	public class OrElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Or");
@@ -1309,13 +1225,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cExclamationMarkKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cExpressionAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cExpressionPrimaryParserRuleCall_1_2_0 = (RuleCall)cExpressionAssignment_1_2.eContents().get(0);
-		private final RuleCall cTerminalExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSelectionExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Primary Expression:
-		//	'(' Expression ')' | {Not} => "!" expression=Primary | TerminalExpression;
+		//	'(' Expression ')' | {Not} => "!" expression=Primary | SelectionExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' | {Not} => "!" expression=Primary | TerminalExpression
+		//'(' Expression ')' | {Not} => "!" expression=Primary | SelectionExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' Expression ')'
@@ -1345,8 +1261,251 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//Primary
 		public RuleCall getExpressionPrimaryParserRuleCall_1_2_0() { return cExpressionPrimaryParserRuleCall_1_2_0; }
 		
+		//SelectionExpression
+		public RuleCall getSelectionExpressionParserRuleCall_2() { return cSelectionExpressionParserRuleCall_2; }
+	}
+	public class SelectionExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.SelectionExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cTerminalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cMemberSelectionReceiverAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cMemberAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final CrossReference cMemberMemberCrossReference_1_2_0 = (CrossReference)cMemberAssignment_1_2.eContents().get(0);
+		private final RuleCall cMemberMemberIDTerminalRuleCall_1_2_0_1 = (RuleCall)cMemberMemberCrossReference_1_2_0.eContents().get(1);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Assignment cMethodinvocationAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
+		private final Keyword cMethodinvocationLeftParenthesisKeyword_1_3_0_0 = (Keyword)cMethodinvocationAssignment_1_3_0.eContents().get(0);
+		private final Group cGroup_1_3_1 = (Group)cGroup_1_3.eContents().get(1);
+		private final Assignment cArgsAssignment_1_3_1_0 = (Assignment)cGroup_1_3_1.eContents().get(0);
+		private final RuleCall cArgsExpressionParserRuleCall_1_3_1_0_0 = (RuleCall)cArgsAssignment_1_3_1_0.eContents().get(0);
+		private final Group cGroup_1_3_1_1 = (Group)cGroup_1_3_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_3_1_1_0 = (Keyword)cGroup_1_3_1_1.eContents().get(0);
+		private final Assignment cArgsAssignment_1_3_1_1_1 = (Assignment)cGroup_1_3_1_1.eContents().get(1);
+		private final RuleCall cArgsExpressionParserRuleCall_1_3_1_1_1_0 = (RuleCall)cArgsAssignment_1_3_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_3_2 = (Keyword)cGroup_1_3.eContents().get(2);
+		
+		//SelectionExpression Expression:
+		//	TerminalExpression ({MemberSelection.receiver=current} '.'
+		//	member=[Member] (methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//TerminalExpression ({MemberSelection.receiver=current} '.' member=[Member] (methodinvocation?='(' (args+=Expression (','
+		//args+=Expression)*)? ')')?)*
+		public Group getGroup() { return cGroup; }
+		
 		//TerminalExpression
-		public RuleCall getTerminalExpressionParserRuleCall_2() { return cTerminalExpressionParserRuleCall_2; }
+		public RuleCall getTerminalExpressionParserRuleCall_0() { return cTerminalExpressionParserRuleCall_0; }
+		
+		//({MemberSelection.receiver=current} '.' member=[Member] (methodinvocation?='(' (args+=Expression (','
+		//args+=Expression)*)? ')')?)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{MemberSelection.receiver=current}
+		public Action getMemberSelectionReceiverAction_1_0() { return cMemberSelectionReceiverAction_1_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+		
+		//member=[Member]
+		public Assignment getMemberAssignment_1_2() { return cMemberAssignment_1_2; }
+		
+		//[Member]
+		public CrossReference getMemberMemberCrossReference_1_2_0() { return cMemberMemberCrossReference_1_2_0; }
+		
+		//ID
+		public RuleCall getMemberMemberIDTerminalRuleCall_1_2_0_1() { return cMemberMemberIDTerminalRuleCall_1_2_0_1; }
+		
+		//(methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//methodinvocation?='('
+		public Assignment getMethodinvocationAssignment_1_3_0() { return cMethodinvocationAssignment_1_3_0; }
+		
+		//'('
+		public Keyword getMethodinvocationLeftParenthesisKeyword_1_3_0_0() { return cMethodinvocationLeftParenthesisKeyword_1_3_0_0; }
+		
+		//(args+=Expression (',' args+=Expression)*)?
+		public Group getGroup_1_3_1() { return cGroup_1_3_1; }
+		
+		//args+=Expression
+		public Assignment getArgsAssignment_1_3_1_0() { return cArgsAssignment_1_3_1_0; }
+		
+		//Expression
+		public RuleCall getArgsExpressionParserRuleCall_1_3_1_0_0() { return cArgsExpressionParserRuleCall_1_3_1_0_0; }
+		
+		//(',' args+=Expression)*
+		public Group getGroup_1_3_1_1() { return cGroup_1_3_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_3_1_1_0() { return cCommaKeyword_1_3_1_1_0; }
+		
+		//args+=Expression
+		public Assignment getArgsAssignment_1_3_1_1_1() { return cArgsAssignment_1_3_1_1_1; }
+		
+		//Expression
+		public RuleCall getArgsExpressionParserRuleCall_1_3_1_1_1_0() { return cArgsExpressionParserRuleCall_1_3_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_3_2() { return cRightParenthesisKeyword_1_3_2; }
+	}
+	public class TerminalExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.TerminalExpression");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cStringConstantAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0_1_0 = (RuleCall)cValueAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cIntConstantAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cBoolConstantAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final Alternatives cValueAlternatives_2_1_0 = (Alternatives)cValueAssignment_2_1.eContents().get(0);
+		private final Keyword cValueTrueKeyword_2_1_0_0 = (Keyword)cValueAlternatives_2_1_0.eContents().get(0);
+		private final Keyword cValueFalseKeyword_2_1_0_1 = (Keyword)cValueAlternatives_2_1_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cThisAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Keyword cThisKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cSuperAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cSuperKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Action cNullAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Keyword cNullKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Action cNewAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Keyword cNewKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cTypeAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final CrossReference cTypeClassCrossReference_6_2_0 = (CrossReference)cTypeAssignment_6_2.eContents().get(0);
+		private final RuleCall cTypeClassQualifiedNameParserRuleCall_6_2_0_1 = (RuleCall)cTypeClassCrossReference_6_2_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Action cSymbolRefAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Assignment cSymbolAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cSymbolSymbolCrossReference_7_1_0 = (CrossReference)cSymbolAssignment_7_1.eContents().get(0);
+		private final RuleCall cSymbolSymbolIDTerminalRuleCall_7_1_0_1 = (RuleCall)cSymbolSymbolCrossReference_7_1_0.eContents().get(1);
+		
+		//TerminalExpression Expression:
+		//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
+		//	{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
+		//{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol]
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{StringConstant} value=STRING
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{StringConstant}
+		public Action getStringConstantAction_0_0() { return cStringConstantAction_0_0; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_0_1() { return cValueAssignment_0_1; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0_1_0() { return cValueSTRINGTerminalRuleCall_0_1_0; }
+		
+		//{IntConstant} value=INT
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{IntConstant}
+		public Action getIntConstantAction_1_0() { return cIntConstantAction_1_0; }
+		
+		//value=INT
+		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
+		
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_1_1_0() { return cValueINTTerminalRuleCall_1_1_0; }
+		
+		//{BoolConstant} value=('true' | 'false')
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{BoolConstant}
+		public Action getBoolConstantAction_2_0() { return cBoolConstantAction_2_0; }
+		
+		//value=('true' | 'false')
+		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
+		
+		//('true' | 'false')
+		public Alternatives getValueAlternatives_2_1_0() { return cValueAlternatives_2_1_0; }
+		
+		//'true'
+		public Keyword getValueTrueKeyword_2_1_0_0() { return cValueTrueKeyword_2_1_0_0; }
+		
+		//'false'
+		public Keyword getValueFalseKeyword_2_1_0_1() { return cValueFalseKeyword_2_1_0_1; }
+		
+		//{This} 'this'
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//{This}
+		public Action getThisAction_3_0() { return cThisAction_3_0; }
+		
+		//'this'
+		public Keyword getThisKeyword_3_1() { return cThisKeyword_3_1; }
+		
+		//{Super} 'super'
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{Super}
+		public Action getSuperAction_4_0() { return cSuperAction_4_0; }
+		
+		//'super'
+		public Keyword getSuperKeyword_4_1() { return cSuperKeyword_4_1; }
+		
+		//{Null} 'null'
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//{Null}
+		public Action getNullAction_5_0() { return cNullAction_5_0; }
+		
+		//'null'
+		public Keyword getNullKeyword_5_1() { return cNullKeyword_5_1; }
+		
+		//{New} 'new' type=[Class|QualifiedName] '(' ')'
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//{New}
+		public Action getNewAction_6_0() { return cNewAction_6_0; }
+		
+		//'new'
+		public Keyword getNewKeyword_6_1() { return cNewKeyword_6_1; }
+		
+		//type=[Class|QualifiedName]
+		public Assignment getTypeAssignment_6_2() { return cTypeAssignment_6_2; }
+		
+		//[Class|QualifiedName]
+		public CrossReference getTypeClassCrossReference_6_2_0() { return cTypeClassCrossReference_6_2_0; }
+		
+		//QualifiedName
+		public RuleCall getTypeClassQualifiedNameParserRuleCall_6_2_0_1() { return cTypeClassQualifiedNameParserRuleCall_6_2_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_6_3() { return cLeftParenthesisKeyword_6_3; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
+		
+		//{SymbolRef} symbol=[Symbol]
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//{SymbolRef}
+		public Action getSymbolRefAction_7_0() { return cSymbolRefAction_7_0; }
+		
+		//symbol=[Symbol]
+		public Assignment getSymbolAssignment_7_1() { return cSymbolAssignment_7_1; }
+		
+		//[Symbol]
+		public CrossReference getSymbolSymbolCrossReference_7_1_0() { return cSymbolSymbolCrossReference_7_1_0; }
+		
+		//ID
+		public RuleCall getSymbolSymbolIDTerminalRuleCall_7_1_0_1() { return cSymbolSymbolIDTerminalRuleCall_7_1_0_1; }
 	}
 	
 	public class AccessLevelElements extends AbstractEnumRuleElementFinder {
@@ -1400,16 +1559,16 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	private final VariableDeclarationElements pVariableDeclaration;
 	private final ReturnElements pReturn;
 	private final IfStatementElements pIfStatement;
-	private final IfBlockElements pIfBlock;
+	private final WhileStatementElements pWhileStatement;
+	private final ForStatementElements pForStatement;
 	private final TypeRefElements pTypeRef;
+	private final SingleTypeRefElements pSingleTypeRef;
 	private final ClassRefElements pClassRef;
 	private final NamedElementElements pNamedElement;
 	private final TypedDeclarationElements pTypedDeclaration;
 	private final SymbolElements pSymbol;
 	private final AssignmentElements pAssignment;
 	private final ExpressionElements pExpression;
-	private final SelectionExpressionElements pSelectionExpression;
-	private final TerminalExpressionElements pTerminalExpression;
 	private final OrElements pOr;
 	private final AndElements pAnd;
 	private final EqualityElements pEquality;
@@ -1417,6 +1576,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	private final PlusOrMinusElements pPlusOrMinus;
 	private final MulOrDivElements pMulOrDiv;
 	private final PrimaryElements pPrimary;
+	private final SelectionExpressionElements pSelectionExpression;
+	private final TerminalExpressionElements pTerminalExpression;
 	
 	private final Grammar grammar;
 	
@@ -1442,16 +1603,16 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pVariableDeclaration = new VariableDeclarationElements();
 		this.pReturn = new ReturnElements();
 		this.pIfStatement = new IfStatementElements();
-		this.pIfBlock = new IfBlockElements();
+		this.pWhileStatement = new WhileStatementElements();
+		this.pForStatement = new ForStatementElements();
 		this.pTypeRef = new TypeRefElements();
+		this.pSingleTypeRef = new SingleTypeRefElements();
 		this.pClassRef = new ClassRefElements();
 		this.pNamedElement = new NamedElementElements();
 		this.pTypedDeclaration = new TypedDeclarationElements();
 		this.pSymbol = new SymbolElements();
 		this.pAssignment = new AssignmentElements();
 		this.pExpression = new ExpressionElements();
-		this.pSelectionExpression = new SelectionExpressionElements();
-		this.pTerminalExpression = new TerminalExpressionElements();
 		this.pOr = new OrElements();
 		this.pAnd = new AndElements();
 		this.pEquality = new EqualityElements();
@@ -1459,6 +1620,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPlusOrMinus = new PlusOrMinusElements();
 		this.pMulOrDiv = new MulOrDivElements();
 		this.pPrimary = new PrimaryElements();
+		this.pSelectionExpression = new SelectionExpressionElements();
+		this.pTerminalExpression = new TerminalExpressionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1531,7 +1694,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Class:
-	//	'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+	//	accessLevel=AccessLevel? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
 	//	members+=Member*
 	//	'}';
 	public ClassElements getClassAccess() {
@@ -1573,7 +1736,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Method:
-	//	access=AccessLevel? typeRef=TypeRef name=ID
+	//	access=AccessLevel? static?='static'? typeRef=TypeRef name=ID
 	//	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
 	//	body=Block;
 	public MethodElements getMethodAccess() {
@@ -1605,8 +1768,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Statement:
-	//	VariableDeclaration | Return |
-	//	=> Assignment ';' | IfStatement;
+	//	VariableDeclaration ';' | Return ';' |
+	//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | Block | SelectionExpression ';';
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -1615,10 +1778,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		return getStatementAccess().getRule();
 	}
 	
-	//// TODO for loop
-	//// TODO while loop
 	//VariableDeclaration:
-	//	typeRef=TypeRef name=ID '=' expression=Expression ';';
+	//	typeRef=TypeRef name=ID '=' expression=Expression;
 	public VariableDeclarationElements getVariableDeclarationAccess() {
 		return pVariableDeclaration;
 	}
@@ -1628,7 +1789,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Return:
-	//	'return' expression=Expression ';';
+	//	'return' expression=Expression;
 	public ReturnElements getReturnAccess() {
 		return pReturn;
 	}
@@ -1638,7 +1799,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfStatement:
-	//	'if' '(' expression=Expression ')' thenBlock=IfBlock (=> 'else' elseBlock=IfBlock)?;
+	//	'if' '(' expression=Expression ')' thenBlock=Block (=> 'else' elseBlock=Block)?;
 	public IfStatementElements getIfStatementAccess() {
 		return pIfStatement;
 	}
@@ -1647,25 +1808,47 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		return getIfStatementAccess().getRule();
 	}
 	
-	//IfBlock Block:
-	//	statements+=Statement
-	//	| Block;
-	public IfBlockElements getIfBlockAccess() {
-		return pIfBlock;
+	////IfBlock returns Block:
+	////	statements+=Statement
+	////	| Block;
+	//WhileStatement:
+	//	'while' '(' condition=Expression ')' block=Block;
+	public WhileStatementElements getWhileStatementAccess() {
+		return pWhileStatement;
 	}
 	
-	public ParserRule getIfBlockRule() {
-		return getIfBlockAccess().getRule();
+	public ParserRule getWhileStatementRule() {
+		return getWhileStatementAccess().getRule();
+	}
+	
+	//ForStatement:
+	//	'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block;
+	public ForStatementElements getForStatementAccess() {
+		return pForStatement;
+	}
+	
+	public ParserRule getForStatementRule() {
+		return getForStatementAccess().getRule();
 	}
 	
 	//TypeRef:
-	//	ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String";
+	//	SingleTypeRef ({ArrayTypeRef.typeRef=current} '[' ']')?;
 	public TypeRefElements getTypeRefAccess() {
 		return pTypeRef;
 	}
 	
 	public ParserRule getTypeRefRule() {
 		return getTypeRefAccess().getRule();
+	}
+	
+	//SingleTypeRef:
+	//	ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String" | {VoidTypeRef} "void";
+	public SingleTypeRefElements getSingleTypeRefAccess() {
+		return pSingleTypeRef;
+	}
+	
+	public ParserRule getSingleTypeRefRule() {
+		return getSingleTypeRefAccess().getRule();
 	}
 	
 	//ClassRef:
@@ -1699,7 +1882,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Symbol:
-	//	Parameter | Field | VariableDeclaration;
+	//	Parameter | VariableDeclaration;
 	public SymbolElements getSymbolAccess() {
 		return pSymbol;
 	}
@@ -1719,36 +1902,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression:
-	//	SelectionExpression | => Or;
+	//	Or;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
 	
 	public ParserRule getExpressionRule() {
 		return getExpressionAccess().getRule();
-	}
-	
-	//// TODO try to have method call concept? 
-	//SelectionExpression Expression:
-	//	TerminalExpression ({MemberSelection.receiver=current} '.'
-	//	member=[Member] (methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?)*;
-	public SelectionExpressionElements getSelectionExpressionAccess() {
-		return pSelectionExpression;
-	}
-	
-	public ParserRule getSelectionExpressionRule() {
-		return getSelectionExpressionAccess().getRule();
-	}
-	
-	//TerminalExpression Expression:
-	//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
-	//	{Super} 'super' | {Null} 'null' | {New} 'new' typeRef=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol];
-	public TerminalExpressionElements getTerminalExpressionAccess() {
-		return pTerminalExpression;
-	}
-	
-	public ParserRule getTerminalExpressionRule() {
-		return getTerminalExpressionAccess().getRule();
 	}
 	
 	//Or Expression:
@@ -1812,13 +1972,35 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Primary Expression:
-	//	'(' Expression ')' | {Not} => "!" expression=Primary | TerminalExpression;
+	//	'(' Expression ')' | {Not} => "!" expression=Primary | SelectionExpression;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
 	
 	public ParserRule getPrimaryRule() {
 		return getPrimaryAccess().getRule();
+	}
+	
+	//SelectionExpression Expression:
+	//	TerminalExpression ({MemberSelection.receiver=current} '.'
+	//	member=[Member] (methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?)*;
+	public SelectionExpressionElements getSelectionExpressionAccess() {
+		return pSelectionExpression;
+	}
+	
+	public ParserRule getSelectionExpressionRule() {
+		return getSelectionExpressionAccess().getRule();
+	}
+	
+	//TerminalExpression Expression:
+	//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
+	//	{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol];
+	public TerminalExpressionElements getTerminalExpressionAccess() {
+		return pTerminalExpression;
+	}
+	
+	public ParserRule getTerminalExpressionRule() {
+		return getTerminalExpressionAccess().getRule();
 	}
 	
 	//terminal ID:

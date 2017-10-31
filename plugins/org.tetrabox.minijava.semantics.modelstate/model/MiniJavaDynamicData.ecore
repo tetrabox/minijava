@@ -2,10 +2,11 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minijavadynamicdata" nsURI="minijavadynamicdata" nsPrefix="minijavadynamicdata">
   <eClassifiers xsi:type="ecore:EClass" name="Context">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall">
-      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//MethodCall"/>
+      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//MemberSelection"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="//Instance"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="//ParameterBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="//SymbolBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="//Value"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="//Value">
@@ -19,10 +20,10 @@
       <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Class"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterBinding">
+  <eClassifiers xsi:type="ecore:EClass" name="SymbolBinding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="//Value" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter">
-      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="symbol">
+      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Symbol"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FieldBinding">
@@ -41,4 +42,5 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass9"/>
 </ecore:EPackage>
