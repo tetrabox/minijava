@@ -811,17 +811,14 @@ ruleStatement returns [EObject current=null]
 		)
 		    |
 		(
-			(
-				(ruleAssignment)=>
-				{
-					newCompositeNode(grammarAccess.getStatementAccess().getAssignmentParserRuleCall_2_0());
-				}
-				this_Assignment_4=ruleAssignment
-				{
-					$current = $this_Assignment_4.current;
-					afterParserOrEnumRuleCall();
-				}
-			)
+			{
+				newCompositeNode(grammarAccess.getStatementAccess().getAssignmentParserRuleCall_2_0());
+			}
+			this_Assignment_4=ruleAssignment
+			{
+				$current = $this_Assignment_4.current;
+				afterParserOrEnumRuleCall();
+			}
 			otherlv_5=';'
 			{
 				newLeafNode(otherlv_5, grammarAccess.getStatementAccess().getSemicolonKeyword_2_1());
@@ -877,85 +874,6 @@ ruleStatement returns [EObject current=null]
 			{
 				newLeafNode(otherlv_11, grammarAccess.getStatementAccess().getSemicolonKeyword_7_1());
 			}
-		)
-	)
-;
-
-// Entry rule entryRuleVariableDeclaration
-entryRuleVariableDeclaration returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getVariableDeclarationRule()); }
-	iv_ruleVariableDeclaration=ruleVariableDeclaration
-	{ $current=$iv_ruleVariableDeclaration.current; }
-	EOF;
-
-// Rule VariableDeclaration
-ruleVariableDeclaration returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getVariableDeclarationAccess().getTypeRefTypeRefParserRuleCall_0_0());
-				}
-				lv_typeRef_0_0=ruleTypeRef
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getVariableDeclarationRule());
-					}
-					set(
-						$current,
-						"typeRef",
-						lv_typeRef_0_0,
-						"org.tetrabox.minijava.xtext.MiniJava.TypeRef");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getVariableDeclarationRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_2='='
-		{
-			newLeafNode(otherlv_2, grammarAccess.getVariableDeclarationAccess().getEqualsSignKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getVariableDeclarationAccess().getExpressionExpressionParserRuleCall_3_0());
-				}
-				lv_expression_3_0=ruleExpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getVariableDeclarationRule());
-					}
-					set(
-						$current,
-						"expression",
-						lv_expression_3_0,
-						"org.tetrabox.minijava.xtext.MiniJava.Expression");
-					afterParserOrEnumRuleCall();
-				}
-			)
 		)
 	)
 ;
@@ -1515,6 +1433,62 @@ ruleSymbol returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleVariableDeclaration
+entryRuleVariableDeclaration returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getVariableDeclarationRule()); }
+	iv_ruleVariableDeclaration=ruleVariableDeclaration
+	{ $current=$iv_ruleVariableDeclaration.current; }
+	EOF;
+
+// Rule VariableDeclaration
+ruleVariableDeclaration returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getVariableDeclarationAccess().getTypeRefTypeRefParserRuleCall_0_0());
+				}
+				lv_typeRef_0_0=ruleTypeRef
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getVariableDeclarationRule());
+					}
+					set(
+						$current,
+						"typeRef",
+						lv_typeRef_0_0,
+						"org.tetrabox.minijava.xtext.MiniJava.TypeRef");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVariableDeclarationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleAssignment
 entryRuleAssignment returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getAssignmentRule()); }
@@ -1533,21 +1507,39 @@ ruleAssignment returns [EObject current=null]
 	(
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getAssignmentAccess().getLeftSelectionExpressionParserRuleCall_0_0());
-				}
-				lv_left_0_0=ruleSelectionExpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAssignmentRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getAssignmentAccess().getLeftSelectionExpressionParserRuleCall_0_0_0());
 					}
-					set(
-						$current,
-						"left",
-						lv_left_0_0,
-						"org.tetrabox.minijava.xtext.MiniJava.SelectionExpression");
-					afterParserOrEnumRuleCall();
-				}
+					lv_left_0_1=ruleSelectionExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAssignmentRule());
+						}
+						set(
+							$current,
+							"left",
+							lv_left_0_1,
+							"org.tetrabox.minijava.xtext.MiniJava.SelectionExpression");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getAssignmentAccess().getLeftVariableDeclarationParserRuleCall_0_0_1());
+					}
+					lv_left_0_2=ruleVariableDeclaration
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAssignmentRule());
+						}
+						set(
+							$current,
+							"left",
+							lv_left_0_2,
+							"org.tetrabox.minijava.xtext.MiniJava.VariableDeclaration");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 		otherlv_1='='

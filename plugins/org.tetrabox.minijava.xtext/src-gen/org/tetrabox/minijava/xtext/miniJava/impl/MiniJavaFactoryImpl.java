@@ -120,7 +120,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.METHOD: return createMethod();
       case MiniJavaPackage.BLOCK: return createBlock();
       case MiniJavaPackage.STATEMENT: return createStatement();
-      case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case MiniJavaPackage.RETURN: return createReturn();
       case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
       case MiniJavaPackage.WHILE_STATEMENT: return createWhileStatement();
@@ -131,6 +130,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
       case MiniJavaPackage.TYPED_DECLARATION: return createTypedDeclaration();
       case MiniJavaPackage.SYMBOL: return createSymbol();
+      case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
       case MiniJavaPackage.EXPRESSION: return createExpression();
       case MiniJavaPackage.ARRAY_TYPE_REF: return createArrayTypeRef();
@@ -298,17 +298,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDeclaration createVariableDeclaration()
-  {
-    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
-    return variableDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Return createReturn()
   {
     ReturnImpl return_ = new ReturnImpl();
@@ -412,6 +401,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     SymbolImpl symbol = new SymbolImpl();
     return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableDeclaration createVariableDeclaration()
+  {
+    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+    return variableDeclaration;
   }
 
   /**

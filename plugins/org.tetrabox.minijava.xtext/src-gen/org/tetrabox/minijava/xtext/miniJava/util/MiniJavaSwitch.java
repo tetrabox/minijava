@@ -192,17 +192,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.VARIABLE_DECLARATION:
-      {
-        VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
-        T result = caseVariableDeclaration(variableDeclaration);
-        if (result == null) result = caseStatement(variableDeclaration);
-        if (result == null) result = caseSymbol(variableDeclaration);
-        if (result == null) result = caseTypedDeclaration(variableDeclaration);
-        if (result == null) result = caseNamedElement(variableDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MiniJavaPackage.RETURN:
       {
         Return return_ = (Return)theEObject;
@@ -280,6 +269,17 @@ public class MiniJavaSwitch<T> extends Switch<T>
         T result = caseSymbol(symbol);
         if (result == null) result = caseTypedDeclaration(symbol);
         if (result == null) result = caseNamedElement(symbol);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.VARIABLE_DECLARATION:
+      {
+        VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
+        T result = caseVariableDeclaration(variableDeclaration);
+        if (result == null) result = caseStatement(variableDeclaration);
+        if (result == null) result = caseSymbol(variableDeclaration);
+        if (result == null) result = caseTypedDeclaration(variableDeclaration);
+        if (result == null) result = caseNamedElement(variableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -645,22 +645,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableDeclaration(VariableDeclaration object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -816,6 +800,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSymbol(Symbol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableDeclaration(VariableDeclaration object)
   {
     return null;
   }

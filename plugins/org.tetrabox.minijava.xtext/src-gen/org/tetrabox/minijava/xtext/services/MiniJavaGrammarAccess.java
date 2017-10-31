@@ -445,11 +445,11 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		
 		//Statement:
-		//	VariableDeclaration ';' | Return ';' |
-		//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | Block | SelectionExpression ';';
+		//	VariableDeclaration ';' | Return ';' | Assignment ';' | IfStatement | WhileStatement | ForStatement | Block |
+		//	SelectionExpression ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//VariableDeclaration ';' | Return ';' | => Assignment ';' | IfStatement | WhileStatement | ForStatement | Block |
+		//VariableDeclaration ';' | Return ';' | Assignment ';' | IfStatement | WhileStatement | ForStatement | Block |
 		//SelectionExpression ';'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -471,10 +471,10 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
 		
-		//=> Assignment ';'
+		//Assignment ';'
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//=> Assignment
+		//Assignment
 		public RuleCall getAssignmentParserRuleCall_2_0() { return cAssignmentParserRuleCall_2_0; }
 		
 		//';'
@@ -500,45 +500,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//';'
 		public Keyword getSemicolonKeyword_7_1() { return cSemicolonKeyword_7_1; }
-	}
-	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.VariableDeclaration");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTypeRefAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeRefTypeRefParserRuleCall_0_0 = (RuleCall)cTypeRefAssignment_0.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExpressionExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
-		
-		//VariableDeclaration:
-		//	typeRef=TypeRef name=ID '=' expression=Expression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//typeRef=TypeRef name=ID '=' expression=Expression
-		public Group getGroup() { return cGroup; }
-		
-		//typeRef=TypeRef
-		public Assignment getTypeRefAssignment_0() { return cTypeRefAssignment_0; }
-		
-		//TypeRef
-		public RuleCall getTypeRefTypeRefParserRuleCall_0_0() { return cTypeRefTypeRefParserRuleCall_0_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
-		
-		//expression=Expression
-		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
-		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
 	}
 	public class ReturnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Return");
@@ -893,27 +854,62 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//VariableDeclaration
 		public RuleCall getVariableDeclarationParserRuleCall_1() { return cVariableDeclarationParserRuleCall_1; }
 	}
+	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.VariableDeclaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeRefAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypeRefTypeRefParserRuleCall_0_0 = (RuleCall)cTypeRefAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//VariableDeclaration:
+		//	typeRef=TypeRef name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//typeRef=TypeRef name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//typeRef=TypeRef
+		public Assignment getTypeRefAssignment_0() { return cTypeRefAssignment_0; }
+		
+		//TypeRef
+		public RuleCall getTypeRefTypeRefParserRuleCall_0_0() { return cTypeRefTypeRefParserRuleCall_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
 	public class AssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Assignment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cLeftSelectionExpressionParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
+		private final Alternatives cLeftAlternatives_0_0 = (Alternatives)cLeftAssignment_0.eContents().get(0);
+		private final RuleCall cLeftSelectionExpressionParserRuleCall_0_0_0 = (RuleCall)cLeftAlternatives_0_0.eContents().get(0);
+		private final RuleCall cLeftVariableDeclarationParserRuleCall_0_0_1 = (RuleCall)cLeftAlternatives_0_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cRightExpressionParserRuleCall_2_0 = (RuleCall)cRightAssignment_2.eContents().get(0);
 		
 		//Assignment:
-		//	left=SelectionExpression '=' right=Expression;
+		//	left=(SelectionExpression | VariableDeclaration) '=' right=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//left=SelectionExpression '=' right=Expression
+		//left=(SelectionExpression | VariableDeclaration) '=' right=Expression
 		public Group getGroup() { return cGroup; }
 		
-		//left=SelectionExpression
+		//left=(SelectionExpression | VariableDeclaration)
 		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
+		//(SelectionExpression | VariableDeclaration)
+		public Alternatives getLeftAlternatives_0_0() { return cLeftAlternatives_0_0; }
+		
 		//SelectionExpression
-		public RuleCall getLeftSelectionExpressionParserRuleCall_0_0() { return cLeftSelectionExpressionParserRuleCall_0_0; }
+		public RuleCall getLeftSelectionExpressionParserRuleCall_0_0_0() { return cLeftSelectionExpressionParserRuleCall_0_0_0; }
+		
+		//VariableDeclaration
+		public RuleCall getLeftVariableDeclarationParserRuleCall_0_0_1() { return cLeftVariableDeclarationParserRuleCall_0_0_1; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -1556,7 +1552,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	private final AccessLevelElements eAccessLevel;
 	private final BlockElements pBlock;
 	private final StatementElements pStatement;
-	private final VariableDeclarationElements pVariableDeclaration;
 	private final ReturnElements pReturn;
 	private final IfStatementElements pIfStatement;
 	private final WhileStatementElements pWhileStatement;
@@ -1567,6 +1562,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	private final NamedElementElements pNamedElement;
 	private final TypedDeclarationElements pTypedDeclaration;
 	private final SymbolElements pSymbol;
+	private final VariableDeclarationElements pVariableDeclaration;
 	private final AssignmentElements pAssignment;
 	private final ExpressionElements pExpression;
 	private final OrElements pOr;
@@ -1600,7 +1596,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		this.eAccessLevel = new AccessLevelElements();
 		this.pBlock = new BlockElements();
 		this.pStatement = new StatementElements();
-		this.pVariableDeclaration = new VariableDeclarationElements();
 		this.pReturn = new ReturnElements();
 		this.pIfStatement = new IfStatementElements();
 		this.pWhileStatement = new WhileStatementElements();
@@ -1611,6 +1606,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNamedElement = new NamedElementElements();
 		this.pTypedDeclaration = new TypedDeclarationElements();
 		this.pSymbol = new SymbolElements();
+		this.pVariableDeclaration = new VariableDeclarationElements();
 		this.pAssignment = new AssignmentElements();
 		this.pExpression = new ExpressionElements();
 		this.pOr = new OrElements();
@@ -1768,24 +1764,14 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Statement:
-	//	VariableDeclaration ';' | Return ';' |
-	//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | Block | SelectionExpression ';';
+	//	VariableDeclaration ';' | Return ';' | Assignment ';' | IfStatement | WhileStatement | ForStatement | Block |
+	//	SelectionExpression ';';
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
 	
 	public ParserRule getStatementRule() {
 		return getStatementAccess().getRule();
-	}
-	
-	//VariableDeclaration:
-	//	typeRef=TypeRef name=ID '=' expression=Expression;
-	public VariableDeclarationElements getVariableDeclarationAccess() {
-		return pVariableDeclaration;
-	}
-	
-	public ParserRule getVariableDeclarationRule() {
-		return getVariableDeclarationAccess().getRule();
 	}
 	
 	//Return:
@@ -1891,8 +1877,18 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		return getSymbolAccess().getRule();
 	}
 	
+	//VariableDeclaration:
+	//	typeRef=TypeRef name=ID;
+	public VariableDeclarationElements getVariableDeclarationAccess() {
+		return pVariableDeclaration;
+	}
+	
+	public ParserRule getVariableDeclarationRule() {
+		return getVariableDeclarationAccess().getRule();
+	}
+	
 	//Assignment:
-	//	left=SelectionExpression '=' right=Expression;
+	//	left=(SelectionExpression | VariableDeclaration) '=' right=Expression;
 	public AssignmentElements getAssignmentAccess() {
 		return pAssignment;
 	}

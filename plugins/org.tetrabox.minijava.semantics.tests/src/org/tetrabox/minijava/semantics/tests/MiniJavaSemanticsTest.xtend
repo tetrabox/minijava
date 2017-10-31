@@ -27,8 +27,7 @@ class MiniJavaSemanticsTest {
 		val Program result = parseHelper.parse(program)
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
-		val output = result.execute
-		Assert.assertTrue(MiniJavaValueEquals::equals(expectedOutput, output))
+		result.execute
 	}
 
 	@Test
@@ -96,27 +95,6 @@ class MiniJavaSemanticsTest {
 		result.execute
 	}
 
-	@Test
-	def void test3() {
-		val Program result = parseHelper.parse('''
-				
-		class B {
-			int x;
-		}
-		
-		class Pair {
-		
-			int fst;
-			int snd;
-			B b;
-			
-		}
-		
-		new Pair(12,56,new B(2)) ''')
-		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
 
-		result.execute
-	}
 
 }

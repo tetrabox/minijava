@@ -44,15 +44,12 @@ Block:
 Statement:
 	VariableDeclaration ';' |
 	Return ';' |
-	=> Assignment ';' |
+	Assignment ';' |
 	IfStatement |
 	WhileStatement |
 	ForStatement |
-	Block | 
+	Block |
 	SelectionExpression ';';
-
-VariableDeclaration:
-	typeRef=TypeRef name=ID '=' expression=Expression;
 
 Return:
 	'return' expression=Expression;
@@ -61,20 +58,17 @@ IfStatement:
 	'if' '(' expression=Expression ')' thenBlock=Block
 	(=> 'else' elseBlock=Block)?;
 
-//IfBlock returns Block:
+	//IfBlock returns Block:
 //	statements+=Statement
 //	| Block;
-
 WhileStatement:
 	'while' '(' condition=Expression ')' block=Block;
-	
+
 ForStatement:
-	'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block
-;
+	'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block;
 
 TypeRef:
-	SingleTypeRef ({ArrayTypeRef.typeRef=current}'[' ']')?
-;
+	SingleTypeRef ({ArrayTypeRef.typeRef=current} '[' ']')?;
 
 SingleTypeRef:
 	ClassRef |
@@ -82,8 +76,6 @@ SingleTypeRef:
 	{BooleanTypeRef} "boolean" |
 	{StringTypeRef} "String" |
 	{VoidTypeRef} "void";
-	
-
 
 ClassRef:
 	class=[Class|QualifiedName];
@@ -97,8 +89,11 @@ TypedDeclaration:
 Symbol:
 	Parameter | VariableDeclaration;
 
+VariableDeclaration:
+	typeRef=TypeRef name=ID;
+
 Assignment:
-	left=SelectionExpression '=' right=Expression;
+	left=(SelectionExpression | VariableDeclaration) '=' right=Expression;
 
 Expression:
 	Or;
