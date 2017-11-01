@@ -923,9 +923,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LrqNIL8MEeegvIkk-v6aQA" sourceNode="_baqWYLsLEee8-opYSTThSQ" targetNode="_baqWYLsLEee8-opYSTThSQ" beginLabel="[0..1] childrenContexts" endLabel="[0..1] parentContext">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LrqNIL8MEeegvIkk-v6aQA" sourceNode="_baqWYLsLEee8-opYSTThSQ" targetNode="_baqWYLsLEee8-opYSTThSQ" beginLabel="[0..1] childrenContext" endLabel="[0..1] parentContext">
       <target xmi:type="ecore:EReference" href="MiniJavaDynamicData.ecore#//Context/parentContext"/>
-      <semanticElements xmi:type="ecore:EReference" href="MiniJavaDynamicData.ecore#//Context/childrenContexts"/>
+      <semanticElements xmi:type="ecore:EReference" href="MiniJavaDynamicData.ecore#//Context/childrenContext"/>
       <semanticElements xmi:type="ecore:EReference" href="MiniJavaDynamicData.ecore#//Context/parentContext"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TmNo4L8MEeegvIkk-v6aQA" description="_TmNB0L8MEeegvIkk-v6aQA" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_TmNo4b8MEeegvIkk-v6aQA" showIcon="false"/>

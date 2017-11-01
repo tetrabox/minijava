@@ -43,6 +43,9 @@ import static extension org.tetrabox.minijava.semantics.Util.*
 import org.tetrabox.minijava.xtext.miniJava.Plus
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream
+import org.tetrabox.minijava.xtext.miniJava.Neg
+import org.tetrabox.minijava.xtext.miniJava.IfStatement
+import org.tetrabox.minijava.xtext.miniJava.WhileStatement
 
 class Util {
 
@@ -54,7 +57,7 @@ class Util {
 		]
 	}
 
-	static def SymbolBinding get(Context context, Symbol symbol) {
+	public static def SymbolBinding get(Context context, Symbol symbol) {
 		val binding = context.bindings.findFirst[it.symbol === symbol]
 		if (binding !== null) {
 			return binding
@@ -64,7 +67,7 @@ class Util {
 			return null
 		}
 	}
-	
+
 	static def OutputStream findOutputStream(Context context) {
 		if (context.outputStream !== null) {
 			return context.outputStream
@@ -72,7 +75,7 @@ class Util {
 			return context.parentContext.findOutputStream
 		}
 	}
-	
+
 	static def void println(Context context, String string) {
 		println(string)
 		context.findOutputStream.stream.add(string)
@@ -175,10 +178,41 @@ class ForStatementAspect extends StatementAspect {
 	}
 }
 
+@Aspect(className=IfStatement)
+class IfStatementAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(Context context) {
+		if ((_self.expression.evaluate(context) as BooleanValue).value) {
+			_self.thenBlock.evaluate(context)
+		} else if (_self.elseBlock !== null) {
+			_self.elseBlock.evaluate(context)
+		}
+	}
+}
+
+@Aspect(className=WhileStatement)
+class WhileStatementAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(Context context) {
+		while((_self.condition.evaluate(context) as BooleanValue).value) {
+			_self.block.evaluate(context)
+		}
+	}
+}
+
 @Aspect(className=Expression)
 class ExpressionAspect {
 	def Value evaluate(Context context) {
 		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
+	}
+}
+
+@Aspect(className=Neg)
+class NegAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(Context context) {
+		val intabsvalue = (_self.expression.evaluate(context) as IntegerValue).value
+		return factory.createIntegerValue => [value = -intabsvalue]
 	}
 }
 

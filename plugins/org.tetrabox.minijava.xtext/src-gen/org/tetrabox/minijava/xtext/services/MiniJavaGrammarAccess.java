@@ -767,49 +767,49 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cVoidKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		
 		//SingleTypeRef:
-		//	ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String" | {VoidTypeRef} "void";
+		//	ClassRef | {IntegerTypeRef} 'int' | {BooleanTypeRef} 'boolean' | {StringTypeRef} 'String' | {VoidTypeRef} 'void';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String" | {VoidTypeRef} "void"
+		//ClassRef | {IntegerTypeRef} 'int' | {BooleanTypeRef} 'boolean' | {StringTypeRef} 'String' | {VoidTypeRef} 'void'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ClassRef
 		public RuleCall getClassRefParserRuleCall_0() { return cClassRefParserRuleCall_0; }
 		
-		//{IntegerTypeRef} "int"
+		//{IntegerTypeRef} 'int'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{IntegerTypeRef}
 		public Action getIntegerTypeRefAction_1_0() { return cIntegerTypeRefAction_1_0; }
 		
-		//"int"
+		//'int'
 		public Keyword getIntKeyword_1_1() { return cIntKeyword_1_1; }
 		
-		//{BooleanTypeRef} "boolean"
+		//{BooleanTypeRef} 'boolean'
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//{BooleanTypeRef}
 		public Action getBooleanTypeRefAction_2_0() { return cBooleanTypeRefAction_2_0; }
 		
-		//"boolean"
+		//'boolean'
 		public Keyword getBooleanKeyword_2_1() { return cBooleanKeyword_2_1; }
 		
-		//{StringTypeRef} "String"
+		//{StringTypeRef} 'String'
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//{StringTypeRef}
 		public Action getStringTypeRefAction_3_0() { return cStringTypeRefAction_3_0; }
 		
-		//"String"
+		//'String'
 		public Keyword getStringKeyword_3_1() { return cStringKeyword_3_1; }
 		
-		//{VoidTypeRef} "void"
+		//{VoidTypeRef} 'void'
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//{VoidTypeRef}
 		public Action getVoidTypeRefAction_4_0() { return cVoidTypeRefAction_4_0; }
 		
-		//"void"
+		//'void'
 		public Keyword getVoidKeyword_4_1() { return cVoidKeyword_4_1; }
 	}
 	public class ClassRefElements extends AbstractParserRuleElementFinder {
@@ -954,7 +954,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariableDeclarationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Assignee:
-		//	=> SelectionExpression | VariableDeclaration;
+		//	=> SelectionExpression | VariableDeclaration //|
+		//	//{SymbolRef}symbol=[Symbol|ID]
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//=> SelectionExpression | VariableDeclaration
@@ -1267,13 +1269,18 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cExclamationMarkKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cExpressionAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cExpressionPrimaryParserRuleCall_1_2_0 = (RuleCall)cExpressionAssignment_1_2.eContents().get(0);
-		private final RuleCall cSelectionExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cNegAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cExpressionAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cExpressionPrimaryParserRuleCall_2_2_0 = (RuleCall)cExpressionAssignment_2_2.eContents().get(0);
+		private final RuleCall cSelectionExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Primary Expression:
-		//	'(' Expression ')' | {Not} => "!" expression=Primary | SelectionExpression;
+		//	'(' Expression ')' | {Not} => "!" expression=Primary | {Neg} => "-" expression=Primary | SelectionExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' | {Not} => "!" expression=Primary | SelectionExpression
+		//'(' Expression ')' | {Not} => "!" expression=Primary | {Neg} => "-" expression=Primary | SelectionExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' Expression ')'
@@ -1303,8 +1310,23 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//Primary
 		public RuleCall getExpressionPrimaryParserRuleCall_1_2_0() { return cExpressionPrimaryParserRuleCall_1_2_0; }
 		
+		//{Neg} => "-" expression=Primary
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{Neg}
+		public Action getNegAction_2_0() { return cNegAction_2_0; }
+		
+		//=> "-"
+		public Keyword getHyphenMinusKeyword_2_1() { return cHyphenMinusKeyword_2_1; }
+		
+		//expression=Primary
+		public Assignment getExpressionAssignment_2_2() { return cExpressionAssignment_2_2; }
+		
+		//Primary
+		public RuleCall getExpressionPrimaryParserRuleCall_2_2_0() { return cExpressionPrimaryParserRuleCall_2_2_0; }
+		
 		//SelectionExpression
-		public RuleCall getSelectionExpressionParserRuleCall_2() { return cSelectionExpressionParserRuleCall_2; }
+		public RuleCall getSelectionExpressionParserRuleCall_3() { return cSelectionExpressionParserRuleCall_3; }
 	}
 	public class SelectionExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.SelectionExpression");
@@ -1888,7 +1910,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SingleTypeRef:
-	//	ClassRef | {IntegerTypeRef} "int" | {BooleanTypeRef} "boolean" | {StringTypeRef} "String" | {VoidTypeRef} "void";
+	//	ClassRef | {IntegerTypeRef} 'int' | {BooleanTypeRef} 'boolean' | {StringTypeRef} 'String' | {VoidTypeRef} 'void';
 	public SingleTypeRefElements getSingleTypeRefAccess() {
 		return pSingleTypeRef;
 	}
@@ -1959,7 +1981,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Assignee:
-	//	=> SelectionExpression | VariableDeclaration;
+	//	=> SelectionExpression | VariableDeclaration //|
+	//	//{SymbolRef}symbol=[Symbol|ID]
+	//;
 	public AssigneeElements getAssigneeAccess() {
 		return pAssignee;
 	}
@@ -2039,7 +2063,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Primary Expression:
-	//	'(' Expression ')' | {Not} => "!" expression=Primary | SelectionExpression;
+	//	'(' Expression ')' | {Not} => "!" expression=Primary | {Neg} => "-" expression=Primary | SelectionExpression;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}

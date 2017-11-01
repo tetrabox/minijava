@@ -22,7 +22,7 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContext <em>Children Context</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getOutputStream <em>Output Stream</em>}</li>
  * </ul>
  *
@@ -127,7 +127,7 @@ public interface Context extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Parent Context</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContext <em>Children Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent Context</em>' container reference isn't clear,
@@ -137,8 +137,8 @@ public interface Context extends EObject {
 	 * @return the value of the '<em>Parent Context</em>' container reference.
 	 * @see #setParentContext(Context)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_ParentContext()
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts
-	 * @model opposite="childrenContexts" transient="false"
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContext
+	 * @model opposite="childrenContext" transient="false"
 	 * @generated
 	 */
 	Context getParentContext();
@@ -154,32 +154,32 @@ public interface Context extends EObject {
 	void setParentContext(Context value);
 
 	/**
-	 * Returns the value of the '<em><b>Children Contexts</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Children Context</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children Contexts</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Children Context</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children Contexts</em>' containment reference.
-	 * @see #setChildrenContexts(Context)
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_ChildrenContexts()
+	 * @return the value of the '<em>Children Context</em>' containment reference.
+	 * @see #setChildrenContext(Context)
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_ChildrenContext()
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext
 	 * @model opposite="parentContext" containment="true"
 	 * @generated
 	 */
-	Context getChildrenContexts();
+	Context getChildrenContext();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}' containment reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContext <em>Children Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Children Contexts</em>' containment reference.
-	 * @see #getChildrenContexts()
+	 * @param value the new value of the '<em>Children Context</em>' containment reference.
+	 * @see #getChildrenContext()
 	 * @generated
 	 */
-	void setChildrenContexts(Context value);
+	void setChildrenContext(Context value);
 
 	/**
 	 * Returns the value of the '<em><b>Output Stream</b></em>' containment reference.

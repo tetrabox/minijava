@@ -10,8 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
 
@@ -65,7 +64,7 @@ public class OutputStreamImpl extends MinimalEObjectImpl.Container implements Ou
 	 */
 	public EList<String> getStream() {
 		if (stream == null) {
-			stream = new EDataTypeUniqueEList<String>(String.class, this, MinijavadynamicdataPackage.OUTPUT_STREAM__STREAM);
+			stream = new EDataTypeEList<String>(String.class, this, MinijavadynamicdataPackage.OUTPUT_STREAM__STREAM);
 		}
 		return stream;
 	}

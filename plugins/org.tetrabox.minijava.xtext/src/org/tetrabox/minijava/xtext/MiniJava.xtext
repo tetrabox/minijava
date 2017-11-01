@@ -75,10 +75,10 @@ TypeRef:
 
 SingleTypeRef:
 	ClassRef |
-	{IntegerTypeRef} "int" |
-	{BooleanTypeRef} "boolean" |
-	{StringTypeRef} "String" |
-	{VoidTypeRef} "void";
+	{IntegerTypeRef} 'int' |
+	{BooleanTypeRef} 'boolean' |
+	{StringTypeRef} 'String' |
+	{VoidTypeRef} 'void';
 
 ClassRef:
 	class=[Class|QualifiedName];
@@ -134,6 +134,7 @@ MulOrDiv returns Expression:
 Primary returns Expression:
 	'(' Expression ')' |
 	{Not} => "!" expression=Primary |
+	{Neg} => "-" expression=Primary |
 	SelectionExpression;
 
 SelectionExpression returns Expression:

@@ -112,13 +112,13 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int CONTEXT__PARENT_CONTEXT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Children Contexts</b></em>' containment reference.
+	 * The feature id for the '<em><b>Children Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT__CHILDREN_CONTEXTS = 5;
+	int CONTEXT__CHILDREN_CONTEXT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Output Stream</b></em>' containment reference.
@@ -557,15 +557,15 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EReference getContext_ParentContext();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContext <em>Children Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Children Contexts</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts()
+	 * @return the meta object for the containment reference '<em>Children Context</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContext()
 	 * @see #getContext()
 	 * @generated
 	 */
-	EReference getContext_ChildrenContexts();
+	EReference getContext_ChildrenContext();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getOutputStream <em>Output Stream</em>}'.
@@ -852,12 +852,12 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		EReference CONTEXT__PARENT_CONTEXT = eINSTANCE.getContext_ParentContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Children Contexts</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Children Context</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT__CHILDREN_CONTEXTS = eINSTANCE.getContext_ChildrenContexts();
+		EReference CONTEXT__CHILDREN_CONTEXT = eINSTANCE.getContext_ChildrenContext();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Stream</b></em>' containment reference feature.

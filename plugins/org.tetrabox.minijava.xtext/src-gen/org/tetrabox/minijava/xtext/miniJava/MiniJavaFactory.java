@@ -357,6 +357,15 @@ public interface MiniJavaFactory extends EFactory
   Not createNot();
 
   /**
+   * Returns a new object of class '<em>Neg</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Neg</em>'.
+   * @generated
+   */
+  Neg createNeg();
+
+  /**
    * Returns a new object of class '<em>Member Selection</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -34,7 +34,7 @@ public interface OutputStream extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Stream</em>' attribute list.
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getOutputStream_Stream()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	EList<String> getStream();

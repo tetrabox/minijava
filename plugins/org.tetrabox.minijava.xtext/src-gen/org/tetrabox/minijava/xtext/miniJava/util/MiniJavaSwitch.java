@@ -32,6 +32,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.MulOrDiv;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
+import org.tetrabox.minijava.xtext.miniJava.Neg;
 import org.tetrabox.minijava.xtext.miniJava.New;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
@@ -429,6 +430,15 @@ public class MiniJavaSwitch<T> extends Switch<T>
         T result = caseNot(not);
         if (result == null) result = caseExpression(not);
         if (result == null) result = caseAssignee(not);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.NEG:
+      {
+        Neg neg = (Neg)theEObject;
+        T result = caseNeg(neg);
+        if (result == null) result = caseExpression(neg);
+        if (result == null) result = caseAssignee(neg);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1105,6 +1115,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNot(Not object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Neg</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Neg</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNeg(Neg object)
   {
     return null;
   }

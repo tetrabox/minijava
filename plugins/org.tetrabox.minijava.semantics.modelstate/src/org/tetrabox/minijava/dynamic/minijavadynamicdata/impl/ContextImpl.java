@@ -41,7 +41,7 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getChildrenContexts <em>Children Contexts</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getChildrenContext <em>Children Context</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getOutputStream <em>Output Stream</em>}</li>
  * </ul>
  *
@@ -89,14 +89,14 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	protected Value returnValue;
 
 	/**
-	 * The cached value of the '{@link #getChildrenContexts() <em>Children Contexts</em>}' containment reference.
+	 * The cached value of the '{@link #getChildrenContext() <em>Children Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildrenContexts()
+	 * @see #getChildrenContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected Context childrenContexts;
+	protected Context childrenContext;
 
 	/**
 	 * The cached value of the '{@link #getOutputStream() <em>Output Stream</em>}' containment reference.
@@ -286,7 +286,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParentContext != null)
-				msgs = ((InternalEObject)newParentContext).eInverseAdd(this, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS, Context.class, msgs);
+				msgs = ((InternalEObject)newParentContext).eInverseAdd(this, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT, Context.class, msgs);
 			msgs = basicSetParentContext(newParentContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -299,8 +299,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Context getChildrenContexts() {
-		return childrenContexts;
+	public Context getChildrenContext() {
+		return childrenContext;
 	}
 
 	/**
@@ -308,11 +308,11 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetChildrenContexts(Context newChildrenContexts, NotificationChain msgs) {
-		Context oldChildrenContexts = childrenContexts;
-		childrenContexts = newChildrenContexts;
+	public NotificationChain basicSetChildrenContext(Context newChildrenContext, NotificationChain msgs) {
+		Context oldChildrenContext = childrenContext;
+		childrenContext = newChildrenContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS, oldChildrenContexts, newChildrenContexts);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT, oldChildrenContext, newChildrenContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -323,18 +323,18 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setChildrenContexts(Context newChildrenContexts) {
-		if (newChildrenContexts != childrenContexts) {
+	public void setChildrenContext(Context newChildrenContext) {
+		if (newChildrenContext != childrenContext) {
 			NotificationChain msgs = null;
-			if (childrenContexts != null)
-				msgs = ((InternalEObject)childrenContexts).eInverseRemove(this, MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT, Context.class, msgs);
-			if (newChildrenContexts != null)
-				msgs = ((InternalEObject)newChildrenContexts).eInverseAdd(this, MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT, Context.class, msgs);
-			msgs = basicSetChildrenContexts(newChildrenContexts, msgs);
+			if (childrenContext != null)
+				msgs = ((InternalEObject)childrenContext).eInverseRemove(this, MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT, Context.class, msgs);
+			if (newChildrenContext != null)
+				msgs = ((InternalEObject)newChildrenContext).eInverseAdd(this, MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT, Context.class, msgs);
+			msgs = basicSetChildrenContext(newChildrenContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS, newChildrenContexts, newChildrenContexts));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT, newChildrenContext, newChildrenContext));
 	}
 
 	/**
@@ -392,10 +392,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParentContext((Context)otherEnd, msgs);
-			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
-				if (childrenContexts != null)
-					msgs = ((InternalEObject)childrenContexts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS, null, msgs);
-				return basicSetChildrenContexts((Context)otherEnd, msgs);
+			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT:
+				if (childrenContext != null)
+					msgs = ((InternalEObject)childrenContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT, null, msgs);
+				return basicSetChildrenContext((Context)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -412,8 +412,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT:
 				return basicSetParentContext(null, msgs);
-			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
-				return basicSetChildrenContexts(null, msgs);
+			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT:
+				return basicSetChildrenContext(null, msgs);
 			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
 				return basicSetOutputStream(null, msgs);
 		}
@@ -429,7 +429,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT:
-				return eInternalContainer().eInverseRemove(this, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS, Context.class, msgs);
+				return eInternalContainer().eInverseRemove(this, MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT, Context.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -455,8 +455,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return basicGetReturnValue();
 			case MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT:
 				return getParentContext();
-			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
-				return getChildrenContexts();
+			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT:
+				return getChildrenContext();
 			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
 				return getOutputStream();
 		}
@@ -488,8 +488,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT:
 				setParentContext((Context)newValue);
 				return;
-			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
-				setChildrenContexts((Context)newValue);
+			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT:
+				setChildrenContext((Context)newValue);
 				return;
 			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
 				setOutputStream((OutputStream)newValue);
@@ -521,8 +521,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT:
 				setParentContext((Context)null);
 				return;
-			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
-				setChildrenContexts((Context)null);
+			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT:
+				setChildrenContext((Context)null);
 				return;
 			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
 				setOutputStream((OutputStream)null);
@@ -549,8 +549,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return returnValue != null;
 			case MinijavadynamicdataPackage.CONTEXT__PARENT_CONTEXT:
 				return getParentContext() != null;
-			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
-				return childrenContexts != null;
+			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXT:
+				return childrenContext != null;
 			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
 				return outputStream != null;
 		}

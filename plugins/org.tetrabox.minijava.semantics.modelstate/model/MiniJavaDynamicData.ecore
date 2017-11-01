@@ -8,8 +8,8 @@
         eType="#//SymbolBinding" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//Context"
-        eOpposite="#//Context/childrenContexts"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childrenContexts" eType="#//Context"
+        eOpposite="#//Context/childrenContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childrenContext" eType="#//Context"
         containment="true" eOpposite="#//Context/parentContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="#//OutputStream"
         containment="true"/>
@@ -41,7 +41,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NewEClass9"/>
   <eClassifiers xsi:type="ecore:EClass" name="OutputStream">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

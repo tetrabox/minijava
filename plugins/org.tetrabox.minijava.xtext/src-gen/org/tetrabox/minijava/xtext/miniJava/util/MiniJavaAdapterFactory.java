@@ -34,6 +34,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.MulOrDiv;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
+import org.tetrabox.minijava.xtext.miniJava.Neg;
 import org.tetrabox.minijava.xtext.miniJava.New;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
@@ -304,6 +305,11 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNot(Not object)
       {
         return createNotAdapter();
+      }
+      @Override
+      public Adapter caseNeg(Neg object)
+      {
+        return createNegAdapter();
       }
       @Override
       public Adapter caseMemberSelection(MemberSelection object)
@@ -923,6 +929,21 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Neg <em>Neg</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Neg
+   * @generated
+   */
+  public Adapter createNegAdapter()
   {
     return null;
   }

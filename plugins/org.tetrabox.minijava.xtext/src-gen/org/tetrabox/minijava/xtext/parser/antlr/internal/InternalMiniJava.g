@@ -2207,12 +2207,48 @@ rulePrimary returns [EObject current=null]
 			)
 		)
 		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryAccess().getNegAction_2_0(),
+						$current);
+				}
+			)
+			(
+				('-')=>
+				otherlv_7='-'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getPrimaryAccess().getHyphenMinusKeyword_2_1());
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPrimaryAccess().getExpressionPrimaryParserRuleCall_2_2_0());
+					}
+					lv_expression_8_0=rulePrimary
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPrimaryRule());
+						}
+						set(
+							$current,
+							"expression",
+							lv_expression_8_0,
+							"org.tetrabox.minijava.xtext.MiniJava.Primary");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
 		{
-			newCompositeNode(grammarAccess.getPrimaryAccess().getSelectionExpressionParserRuleCall_2());
+			newCompositeNode(grammarAccess.getPrimaryAccess().getSelectionExpressionParserRuleCall_3());
 		}
-		this_SelectionExpression_6=ruleSelectionExpression
+		this_SelectionExpression_9=ruleSelectionExpression
 		{
-			$current = $this_SelectionExpression_6.current;
+			$current = $this_SelectionExpression_9.current;
 			afterParserOrEnumRuleCall();
 		}
 	)

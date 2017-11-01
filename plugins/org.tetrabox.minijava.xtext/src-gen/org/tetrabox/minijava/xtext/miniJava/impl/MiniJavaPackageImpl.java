@@ -37,6 +37,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.MulOrDiv;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
+import org.tetrabox.minijava.xtext.miniJava.Neg;
 import org.tetrabox.minijava.xtext.miniJava.New;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
@@ -326,6 +327,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * @generated
    */
   private EClass notEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass negEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1305,6 +1313,26 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getNeg()
+  {
+    return negEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNeg_Expression()
+  {
+    return (EReference)negEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMemberSelection()
   {
     return memberSelectionEClass;
@@ -1641,6 +1669,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
 
+    negEClass = createEClass(NEG);
+    createEReference(negEClass, NEG__EXPRESSION);
+
     memberSelectionEClass = createEClass(MEMBER_SELECTION);
     createEReference(memberSelectionEClass, MEMBER_SELECTION__RECEIVER);
     createEReference(memberSelectionEClass, MEMBER_SELECTION__MEMBER);
@@ -1733,6 +1764,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     minusEClass.getESuperTypes().add(this.getExpression());
     mulOrDivEClass.getESuperTypes().add(this.getExpression());
     notEClass.getESuperTypes().add(this.getExpression());
+    negEClass.getESuperTypes().add(this.getExpression());
     memberSelectionEClass.getESuperTypes().add(this.getExpression());
     stringConstantEClass.getESuperTypes().add(this.getExpression());
     intConstantEClass.getESuperTypes().add(this.getExpression());
@@ -1864,6 +1896,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(negEClass, Neg.class, "Neg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNeg_Expression(), this.getExpression(), null, "expression", null, 0, 1, Neg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberSelectionEClass, MemberSelection.class, "MemberSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMemberSelection_Receiver(), this.getExpression(), null, "receiver", null, 0, 1, MemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

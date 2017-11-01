@@ -38,6 +38,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.MulOrDiv;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
+import org.tetrabox.minijava.xtext.miniJava.Neg;
 import org.tetrabox.minijava.xtext.miniJava.New;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
@@ -150,6 +151,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.MINUS: return createMinus();
       case MiniJavaPackage.MUL_OR_DIV: return createMulOrDiv();
       case MiniJavaPackage.NOT: return createNot();
+      case MiniJavaPackage.NEG: return createNeg();
       case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
       case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
       case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
@@ -603,6 +605,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     NotImpl not = new NotImpl();
     return not;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Neg createNeg()
+  {
+    NegImpl neg = new NegImpl();
+    return neg;
   }
 
   /**

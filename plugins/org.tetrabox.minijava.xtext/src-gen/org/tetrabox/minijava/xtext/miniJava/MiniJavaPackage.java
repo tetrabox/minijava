@@ -1329,6 +1329,34 @@ public interface MiniJavaPackage extends EPackage
   int NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NegImpl <em>Neg</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.NegImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNeg()
+   * @generated
+   */
+  int NEG = 37;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG__EXPRESSION = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Neg</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MemberSelectionImpl <em>Member Selection</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1336,7 +1364,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMemberSelection()
    * @generated
    */
-  int MEMBER_SELECTION = 37;
+  int MEMBER_SELECTION = 38;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1391,7 +1419,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 38;
+  int STRING_CONSTANT = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1419,7 +1447,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 39;
+  int INT_CONSTANT = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1447,7 +1475,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 40;
+  int BOOL_CONSTANT = 41;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1475,7 +1503,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getThis()
    * @generated
    */
-  int THIS = 41;
+  int THIS = 42;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -1494,7 +1522,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuper()
    * @generated
    */
-  int SUPER = 42;
+  int SUPER = 43;
 
   /**
    * The number of structural features of the '<em>Super</em>' class.
@@ -1513,7 +1541,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNull()
    * @generated
    */
-  int NULL = 43;
+  int NULL = 44;
 
   /**
    * The number of structural features of the '<em>Null</em>' class.
@@ -1532,7 +1560,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNew()
    * @generated
    */
-  int NEW = 44;
+  int NEW = 45;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1560,7 +1588,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 45;
+  int SYMBOL_REF = 46;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -1588,7 +1616,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 46;
+  int ACCESS_LEVEL = 47;
 
 
   /**
@@ -2477,6 +2505,27 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    */
   EReference getNot_Expression();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Neg <em>Neg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Neg</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Neg
+   * @generated
+   */
+  EClass getNeg();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Neg#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Neg#getExpression()
+   * @see #getNeg()
+   * @generated
+   */
+  EReference getNeg_Expression();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection <em>Member Selection</em>}'.
@@ -3445,6 +3494,24 @@ public interface MiniJavaPackage extends EPackage
      * @generated
      */
     EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NegImpl <em>Neg</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.NegImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNeg()
+     * @generated
+     */
+    EClass NEG = eINSTANCE.getNeg();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEG__EXPRESSION = eINSTANCE.getNeg_Expression();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MemberSelectionImpl <em>Member Selection</em>}' class.
