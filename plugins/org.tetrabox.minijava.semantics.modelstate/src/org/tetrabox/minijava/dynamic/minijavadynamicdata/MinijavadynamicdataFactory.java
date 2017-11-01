@@ -94,6 +94,15 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	NewEClass9 createNewEClass9();
 
 	/**
+	 * Returns a new object of class '<em>Output Stream</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Output Stream</em>'.
+	 * @generated
+	 */
+	OutputStream createOutputStream();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

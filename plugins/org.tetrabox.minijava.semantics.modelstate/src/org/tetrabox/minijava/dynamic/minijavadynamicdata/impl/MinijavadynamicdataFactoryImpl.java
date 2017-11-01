@@ -64,6 +64,7 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 			case MinijavadynamicdataPackage.STRING_VALUE: return createStringValue();
 			case MinijavadynamicdataPackage.BOOLEAN_VALUE: return createBooleanValue();
 			case MinijavadynamicdataPackage.NEW_ECLASS9: return createNewEClass9();
+			case MinijavadynamicdataPackage.OUTPUT_STREAM: return createOutputStream();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -147,6 +148,16 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public NewEClass9 createNewEClass9() {
 		NewEClass9Impl newEClass9 = new NewEClass9Impl();
 		return newEClass9;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutputStream createOutputStream() {
+		OutputStreamImpl outputStream = new OutputStreamImpl();
+		return outputStream;
 	}
 
 	/**

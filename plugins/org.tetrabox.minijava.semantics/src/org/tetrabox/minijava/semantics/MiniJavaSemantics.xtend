@@ -42,6 +42,7 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
 import static extension org.tetrabox.minijava.semantics.Util.*
 import org.tetrabox.minijava.xtext.miniJava.Plus
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream
 
 class Util {
 
@@ -63,6 +64,19 @@ class Util {
 			return null
 		}
 	}
+	
+	static def OutputStream findOutputStream(Context context) {
+		if (context.outputStream !== null) {
+			return context.outputStream
+		} else {
+			return context.parentContext.findOutputStream
+		}
+	}
+	
+	static def void println(Context context, String string) {
+		println(string)
+		context.findOutputStream.stream.add(string)
+	}
 }
 
 @Aspect(className=Program)
@@ -71,7 +85,9 @@ class ProgramAspect {
 	@Main
 	@Step
 	def Context execute() {
-		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext => [
+			outputStream = factory.createOutputStream
+		]
 		val main = _self.classes.map[members].flatten.filter(Method).findFirst[it.name == "main" && it.static]
 		if (main !== null) {
 			main.body.evaluate(initialContext)
@@ -106,8 +122,8 @@ class StatementAspect {
 class PrintStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluate(Context context) {
-		val value = _self.expression.evaluate(context)
-		println(value.customToString)
+		val string = _self.expression.evaluate(context).customToString
+		context.println(string)
 	}
 }
 

@@ -16,12 +16,24 @@ import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaSemanticsTest {
 	@Inject
 	ParseHelper<Program> parseHelper
+
+	def static void assertPrint(Context context, String... expecteds) {
+		val stream = context.outputStream.stream
+		Assert::assertEquals(stream.size, expecteds.size)
+		var int index = 0
+		for (expected : expecteds) {
+			val s = stream.get(index)
+			Assert::assertEquals("List of printed strings should be of same size.",expected, s)
+			index++
+		}
+	}
 
 //	private def void genericTest(String program, Value expectedOutput) {
 //		val Program result = parseHelper.parse(program)
@@ -47,13 +59,10 @@ class MiniJavaSemanticsTest {
 //		val expected = MinijavadynamicdataFactory.eINSTANCE.createStringValue => [value = "yay"]
 //		genericTest('''"yay"''', expected)
 //	}
-
 	@Test
 	def void longModel() {
 		val Program result = parseHelper.parse('''
-		
-class C  {
-	
+class Main  {
 	public static void main(String[] args) {
 		System.out.println("start");
 		int j = 12;
@@ -68,9 +77,9 @@ class C  {
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 
-		result.execute
+		val Context context = result.execute
+		val expected = #["start"] + (0 .. 9).map[it.toString]
+		assertPrint(context, expected)
 	}
-
-
 
 }

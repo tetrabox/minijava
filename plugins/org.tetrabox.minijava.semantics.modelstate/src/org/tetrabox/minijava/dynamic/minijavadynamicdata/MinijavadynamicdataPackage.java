@@ -121,13 +121,22 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int CONTEXT__CHILDREN_CONTEXTS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Output Stream</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__OUTPUT_STREAM = 6;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 6;
+	int CONTEXT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Context</em>' class.
@@ -445,6 +454,44 @@ public interface MinijavadynamicdataPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.OutputStreamImpl <em>Output Stream</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.OutputStreamImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getOutputStream()
+	 * @generated
+	 */
+	int OUTPUT_STREAM = 9;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_STREAM__STREAM = 0;
+
+	/**
+	 * The number of structural features of the '<em>Output Stream</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_STREAM_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Output Stream</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_STREAM_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -519,6 +566,17 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContext_ChildrenContexts();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getOutputStream <em>Output Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output Stream</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getOutputStream()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_OutputStream();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Value <em>Value</em>}'.
@@ -700,6 +758,27 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EClass getNewEClass9();
 
 	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream <em>Output Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Stream</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream
+	 * @generated
+	 */
+	EClass getOutputStream();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream#getStream <em>Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Stream</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream#getStream()
+	 * @see #getOutputStream()
+	 * @generated
+	 */
+	EAttribute getOutputStream_Stream();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,6 +858,14 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTEXT__CHILDREN_CONTEXTS = eINSTANCE.getContext_ChildrenContexts();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Stream</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__OUTPUT_STREAM = eINSTANCE.getContext_OutputStream();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ValueImpl <em>Value</em>}' class.
@@ -931,6 +1018,24 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEW_ECLASS9 = eINSTANCE.getNewEClass9();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.OutputStreamImpl <em>Output Stream</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.OutputStreamImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getOutputStream()
+		 * @generated
+		 */
+		EClass OUTPUT_STREAM = eINSTANCE.getOutputStream();
+
+		/**
+		 * The meta object literal for the '<em><b>Stream</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_STREAM__STREAM = eINSTANCE.getOutputStream_Stream();
 
 	}
 

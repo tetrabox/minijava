@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
@@ -41,6 +42,7 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getParentContext <em>Parent Context</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getChildrenContexts <em>Children Contexts</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ContextImpl#getOutputStream <em>Output Stream</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,6 +97,16 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @ordered
 	 */
 	protected Context childrenContexts;
+
+	/**
+	 * The cached value of the '{@link #getOutputStream() <em>Output Stream</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputStream()
+	 * @generated
+	 * @ordered
+	 */
+	protected OutputStream outputStream;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,6 +342,49 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OutputStream getOutputStream() {
+		return outputStream;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOutputStream(OutputStream newOutputStream, NotificationChain msgs) {
+		OutputStream oldOutputStream = outputStream;
+		outputStream = newOutputStream;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM, oldOutputStream, newOutputStream);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputStream(OutputStream newOutputStream) {
+		if (newOutputStream != outputStream) {
+			NotificationChain msgs = null;
+			if (outputStream != null)
+				msgs = ((InternalEObject)outputStream).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM, null, msgs);
+			if (newOutputStream != null)
+				msgs = ((InternalEObject)newOutputStream).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM, null, msgs);
+			msgs = basicSetOutputStream(newOutputStream, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM, newOutputStream, newOutputStream));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -359,6 +414,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return basicSetParentContext(null, msgs);
 			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
 				return basicSetChildrenContexts(null, msgs);
+			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
+				return basicSetOutputStream(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -400,6 +457,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getParentContext();
 			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
 				return getChildrenContexts();
+			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
+				return getOutputStream();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -432,6 +491,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
 				setChildrenContexts((Context)newValue);
 				return;
+			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
+				setOutputStream((OutputStream)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -462,6 +524,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
 				setChildrenContexts((Context)null);
 				return;
+			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
+				setOutputStream((OutputStream)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -486,6 +551,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getParentContext() != null;
 			case MinijavadynamicdataPackage.CONTEXT__CHILDREN_CONTEXTS:
 				return childrenContexts != null;
+			case MinijavadynamicdataPackage.CONTEXT__OUTPUT_STREAM:
+				return outputStream != null;
 		}
 		return super.eIsSet(featureID);
 	}

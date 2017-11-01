@@ -11,6 +11,8 @@
         eOpposite="#//Context/childrenContexts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childrenContexts" eType="#//Context"
         containment="true" eOpposite="#//Context/parentContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="#//OutputStream"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="#//Value">
@@ -38,4 +40,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NewEClass9"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputStream">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

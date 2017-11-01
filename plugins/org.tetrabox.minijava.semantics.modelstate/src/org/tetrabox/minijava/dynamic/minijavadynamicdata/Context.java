@@ -23,6 +23,7 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getOutputStream <em>Output Stream</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext()
@@ -179,5 +180,31 @@ public interface Context extends EObject {
 	 * @generated
 	 */
 	void setChildrenContexts(Context value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Stream</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Stream</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Stream</em>' containment reference.
+	 * @see #setOutputStream(OutputStream)
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_OutputStream()
+	 * @model containment="true"
+	 * @generated
+	 */
+	OutputStream getOutputStream();
+
+	/**
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getOutputStream <em>Output Stream</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Stream</em>' containment reference.
+	 * @see #getOutputStream()
+	 * @generated
+	 */
+	void setOutputStream(OutputStream value);
 
 } // Context

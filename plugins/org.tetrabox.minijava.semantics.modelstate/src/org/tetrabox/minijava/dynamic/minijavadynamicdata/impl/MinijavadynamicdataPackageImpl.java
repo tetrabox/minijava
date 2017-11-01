@@ -17,6 +17,7 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
@@ -92,6 +93,13 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * @generated
 	 */
 	private EClass newEClass9EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outputStreamEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -218,6 +226,15 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 */
 	public EReference getContext_ChildrenContexts() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContext_OutputStream() {
+		return (EReference)contextEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -378,6 +395,24 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOutputStream() {
+		return outputStreamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputStream_Stream() {
+		return (EAttribute)outputStreamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MinijavadynamicdataFactory getMinijavadynamicdataFactory() {
 		return (MinijavadynamicdataFactory)getEFactoryInstance();
 	}
@@ -408,6 +443,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(contextEClass, CONTEXT__RETURN_VALUE);
 		createEReference(contextEClass, CONTEXT__PARENT_CONTEXT);
 		createEReference(contextEClass, CONTEXT__CHILDREN_CONTEXTS);
+		createEReference(contextEClass, CONTEXT__OUTPUT_STREAM);
 
 		valueEClass = createEClass(VALUE);
 
@@ -433,6 +469,9 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEAttribute(booleanValueEClass, BOOLEAN_VALUE__VALUE);
 
 		newEClass9EClass = createEClass(NEW_ECLASS9);
+
+		outputStreamEClass = createEClass(OUTPUT_STREAM);
+		createEAttribute(outputStreamEClass, OUTPUT_STREAM__STREAM);
 	}
 
 	/**
@@ -479,6 +518,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getContext_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildrenContexts(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ChildrenContexts(), this.getContext(), this.getContext_ParentContext(), "childrenContexts", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -504,6 +544,9 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEAttribute(getBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(newEClass9EClass, NewEClass9.class, "NewEClass9", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(outputStreamEClass, OutputStream.class, "OutputStream", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOutputStream_Stream(), ecorePackage.getEString(), "stream", null, 0, -1, OutputStream.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
