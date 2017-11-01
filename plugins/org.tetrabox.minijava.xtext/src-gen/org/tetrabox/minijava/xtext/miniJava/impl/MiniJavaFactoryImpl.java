@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
 import org.tetrabox.minijava.xtext.miniJava.And;
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.Assignee;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
@@ -43,6 +44,7 @@ import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
+import org.tetrabox.minijava.xtext.miniJava.PrintStatement;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
 import org.tetrabox.minijava.xtext.miniJava.SingleTypeRef;
@@ -120,6 +122,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.METHOD: return createMethod();
       case MiniJavaPackage.BLOCK: return createBlock();
       case MiniJavaPackage.STATEMENT: return createStatement();
+      case MiniJavaPackage.PRINT_STATEMENT: return createPrintStatement();
       case MiniJavaPackage.RETURN: return createReturn();
       case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
       case MiniJavaPackage.WHILE_STATEMENT: return createWhileStatement();
@@ -132,6 +135,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.SYMBOL: return createSymbol();
       case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
+      case MiniJavaPackage.ASSIGNEE: return createAssignee();
       case MiniJavaPackage.EXPRESSION: return createExpression();
       case MiniJavaPackage.ARRAY_TYPE_REF: return createArrayTypeRef();
       case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
@@ -298,6 +302,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public PrintStatement createPrintStatement()
+  {
+    PrintStatementImpl printStatement = new PrintStatementImpl();
+    return printStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Return createReturn()
   {
     ReturnImpl return_ = new ReturnImpl();
@@ -423,6 +438,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     AssignmentImpl assignment = new AssignmentImpl();
     return assignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assignee createAssignee()
+  {
+    AssigneeImpl assignee = new AssigneeImpl();
+    return assignee;
   }
 
   /**

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.tetrabox.minijava.xtext.miniJava.And;
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.Assignee;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
 import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
@@ -39,6 +40,7 @@ import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
 import org.tetrabox.minijava.xtext.miniJava.Parameter;
 import org.tetrabox.minijava.xtext.miniJava.Plus;
+import org.tetrabox.minijava.xtext.miniJava.PrintStatement;
 import org.tetrabox.minijava.xtext.miniJava.Program;
 import org.tetrabox.minijava.xtext.miniJava.Return;
 import org.tetrabox.minijava.xtext.miniJava.SingleTypeRef;
@@ -164,6 +166,11 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter casePrintStatement(PrintStatement object)
+      {
+        return createPrintStatementAdapter();
+      }
+      @Override
       public Adapter caseReturn(Return object)
       {
         return createReturnAdapter();
@@ -222,6 +229,11 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAssignment(Assignment object)
       {
         return createAssignmentAdapter();
+      }
+      @Override
+      public Adapter caseAssignee(Assignee object)
+      {
+        return createAssigneeAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -496,6 +508,21 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.PrintStatement <em>Print Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.PrintStatement
+   * @generated
+   */
+  public Adapter createPrintStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Return <em>Return</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -671,6 +698,21 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Assignee <em>Assignee</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.Assignee
+   * @generated
+   */
+  public Adapter createAssigneeAdapter()
   {
     return null;
   }

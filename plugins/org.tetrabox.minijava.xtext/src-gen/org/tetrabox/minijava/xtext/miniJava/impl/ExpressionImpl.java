@@ -15,7 +15,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  *
  * @generated
  */
-public class ExpressionImpl extends StatementImpl implements Expression
+public class ExpressionImpl extends AssigneeImpl implements Expression
 {
   /**
    * <!-- begin-user-doc -->

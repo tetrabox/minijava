@@ -23,72 +23,48 @@ class MiniJavaSemanticsTest {
 	@Inject
 	ParseHelper<Program> parseHelper
 
-	private def void genericTest(String program, Value expectedOutput) {
-		val Program result = parseHelper.parse(program)
-		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
-		result.execute
-	}
-
-	@Test
-	def void testInteger() {
-		val expected = MinijavadynamicdataFactory.eINSTANCE.createIntegerValue => [value = 1]
-		genericTest("1", expected)
-	}
-	
-		@Test
-	def void testBoolean() {
-		val expected = MinijavadynamicdataFactory.eINSTANCE.createBooleanValue => [value = true]
-		genericTest("true", expected)
-	}
-	
-		@Test
-	def void testString() {
-		val expected = MinijavadynamicdataFactory.eINSTANCE.createStringValue => [value = "yay"]
-		genericTest('''"yay"''', expected)
-	}
+//	private def void genericTest(String program, Value expectedOutput) {
+//		val Program result = parseHelper.parse(program)
+//		Assert.assertNotNull(result)
+//		Assert.assertTrue(result.eResource.errors.isEmpty)
+//		result.execute
+//	}
+//
+//	@Test
+//	def void testInteger() {
+//		val expected = MinijavadynamicdataFactory.eINSTANCE.createIntegerValue => [value = 1]
+//		genericTest("1", expected)
+//	}
+//	
+//		@Test
+//	def void testBoolean() {
+//		val expected = MinijavadynamicdataFactory.eINSTANCE.createBooleanValue => [value = true]
+//		genericTest("true", expected)
+//	}
+//	
+//		@Test
+//	def void testString() {
+//		val expected = MinijavadynamicdataFactory.eINSTANCE.createStringValue => [value = "yay"]
+//		genericTest('''"yay"''', expected)
+//	}
 
 	@Test
 	def void longModel() {
-		val Program result = parseHelper.parse('''class A {
+		val Program result = parseHelper.parse('''
 		
+class C  {
+	
+	public static void main(String[] args) {
+		System.out.println("start");
+		int j = 12;
+		boolean b = j > 24;
+		for (int i = 0; i<10; i = i+1) {
+			int x = j;
+			System.out.println(i);
 		}
-		
-		class B extends A{
-		
-			int x;
-		}
-		
-		class Pair {
-		
-			int fst;
-			int snd;  
-			
-			int other() {
-				return 1;
-			}
-			
-			Pair do() {
-				return this;
-			}
-			
-			A test(B i) {
-				return (A)i;
-			// return new B(1);
-			}
-		
-		    Pair setfst(int newfst, String s)  {
-				return new Pair(newfst, this.snd);
-			}
-			
-		    Pair setsnd(int newscd){
-				return new Pair(this.fst, newscd);
-			}
-		}
-		
-		//Test
-		//new Pair(1, 2).setfst(1,"")
-		new Pair(1,2).test(   (B) new A() )      ''')
+	} 
+}
+''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 

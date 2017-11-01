@@ -41,15 +41,21 @@ enum AccessLevel:
 Block:
 	{Block} '{' statements+=Statement* '}';
 
+// TODO enable method calls as statements
 Statement:
-	VariableDeclaration ';' |
 	Return ';' |
-	Assignment ';' |
+	=> Assignment ';' |
 	IfStatement |
 	WhileStatement |
 	ForStatement |
-	Block |
-	SelectionExpression ';';
+	PrintStatement ";" |
+	Block// |
+	//SelectionExpression ';'
+	;
+	
+PrintStatement:
+	"System" "." "out" "." "println" "(" expression = Expression ")"
+;
 
 Return:
 	'return' expression=Expression;
@@ -58,14 +64,11 @@ IfStatement:
 	'if' '(' expression=Expression ')' thenBlock=Block
 	(=> 'else' elseBlock=Block)?;
 
-	//IfBlock returns Block:
-//	statements+=Statement
-//	| Block;
 WhileStatement:
 	'while' '(' condition=Expression ')' block=Block;
 
 ForStatement:
-	'for' '(' declaration=VariableDeclaration ';' condition=Expression ';' progression=Assignment ')' block=Block;
+	'for' '(' declaration=Assignment ';' condition=Expression ';' progression=Assignment ')' block=Block;
 
 TypeRef:
 	SingleTypeRef ({ArrayTypeRef.typeRef=current} '[' ']')?;
@@ -81,19 +84,27 @@ ClassRef:
 	class=[Class|QualifiedName];
 
 NamedElement:
-	TypedDeclaration | Class;
+	TypedDeclaration |
+	Class;
 
 TypedDeclaration:
 	Symbol | Member;
 
+// here we need to set up an artificial priority with =>
 Symbol:
-	Parameter | VariableDeclaration;
+	=> Parameter |  VariableDeclaration;
 
 VariableDeclaration:
 	typeRef=TypeRef name=ID;
 
 Assignment:
-	left=(SelectionExpression | VariableDeclaration) '=' right=Expression;
+	assignee=Assignee '=' value=Expression;
+
+Assignee:
+	=> SelectionExpression |
+	VariableDeclaration //|
+	//{SymbolRef}symbol=[Symbol|ID]
+	;
 
 Expression:
 	Or;
@@ -140,5 +151,6 @@ TerminalExpression returns Expression:
 	{Super} 'super' |
 	{Null} 'null' |
 	{New} 'new' type=[Class|QualifiedName] '(' ')' | //TODO possibility for non default constructors
-	{SymbolRef} symbol=[Symbol|ID];
+	{SymbolRef} symbol=[Symbol|ID]
+	;
 	

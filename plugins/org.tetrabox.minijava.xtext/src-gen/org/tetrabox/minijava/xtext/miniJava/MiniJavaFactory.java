@@ -105,6 +105,15 @@ public interface MiniJavaFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Print Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Print Statement</em>'.
+   * @generated
+   */
+  PrintStatement createPrintStatement();
+
+  /**
    * Returns a new object of class '<em>Return</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -211,6 +220,15 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Assignment createAssignment();
+
+  /**
+   * Returns a new object of class '<em>Assignee</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assignee</em>'.
+   * @generated
+   */
+  Assignee createAssignee();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.

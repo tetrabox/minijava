@@ -103,13 +103,31 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int CONTEXT__RETURN_VALUE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__PARENT_CONTEXT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Children Contexts</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__CHILDREN_CONTEXTS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 4;
+	int CONTEXT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Context</em>' class.
@@ -481,6 +499,28 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EReference getContext_ReturnValue();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Context</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_ParentContext();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Children Contexts</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_ChildrenContexts();
+
+	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +763,22 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTEXT__RETURN_VALUE = eINSTANCE.getContext_ReturnValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Context</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__PARENT_CONTEXT = eINSTANCE.getContext_ParentContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Children Contexts</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__CHILDREN_CONTEXTS = eINSTANCE.getContext_ChildrenContexts();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ValueImpl <em>Value</em>}' class.

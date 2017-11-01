@@ -52,8 +52,6 @@ class MiniJavaTypeComputer {
 				e.symbol.typeRef.type
 			MemberSelection:
 				e.member.typeRef.type
-			Assignment:
-				e.left.typeFor
 			This:
 				e.getContainerOfType(Class)
 			Super:
@@ -83,8 +81,13 @@ class MiniJavaTypeComputer {
 		switch (c) {
 			VariableDeclaration:
 				c.typeRef.type
-			Assignment case f == ep.assignment_Right:
-				typeFor(c.left)
+			Assignment case f == ep.assignment_Value: {
+				val assignee = c.assignee
+				switch(assignee) {
+					VariableDeclaration: assignee.typeRef.type
+					MemberSelection: assignee.typeFor
+				}
+			}
 			Return:
 				c.getContainerOfType(Method).typeRef.type
 			case f == ep.ifStatement_Expression:

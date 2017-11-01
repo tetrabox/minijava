@@ -16,6 +16,7 @@ import com.google.inject.Inject
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 import org.tetrabox.minijava.xtext.miniJava.ForStatement
+import org.tetrabox.minijava.xtext.miniJava.Assignment
 
 /**
  * This class contains custom scoping description.
@@ -47,12 +48,12 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 				Scopes.scopeFor(container.params)
 			Block:
 				Scopes.scopeFor(
-					container.statements.takeWhile[it != context].filter(VariableDeclaration),
+					container.statements.takeWhile[it != context].filter(Assignment).map[it.assignee].filter(VariableDeclaration),
 					scopeForSymbolRef(container) // outer scope
 				)
 			ForStatement:
 				Scopes.scopeFor(
-					#[container.declaration],
+					#[container.declaration.assignee],
 					scopeForSymbolRef(container) // outer scope
 				)
 			default:

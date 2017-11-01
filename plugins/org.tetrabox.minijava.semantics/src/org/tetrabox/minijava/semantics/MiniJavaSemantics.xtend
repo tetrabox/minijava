@@ -20,24 +20,62 @@ import org.tetrabox.minijava.xtext.miniJava.This
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.StatementAspect.*
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
+import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.Block
+import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.Statement
+import org.tetrabox.minijava.xtext.miniJava.PrintStatement
 import org.tetrabox.minijava.xtext.miniJava.MemberSelection
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef
 import org.tetrabox.minijava.xtext.miniJava.Parameter
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
+import org.tetrabox.minijava.xtext.miniJava.Assignment
+import org.tetrabox.minijava.xtext.miniJava.Symbol
+import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
+import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory
+import org.tetrabox.minijava.xtext.miniJava.Comparison
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
+import org.tetrabox.minijava.xtext.miniJava.ForStatement
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
+import static extension org.tetrabox.minijava.semantics.Util.*
+import org.tetrabox.minijava.xtext.miniJava.Plus
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
+
+class Util {
+
+	public static val factory = MinijavadynamicdataFactory::eINSTANCE
+
+	static def Context createChildContext(Context parent) {
+		return MinijavadynamicdataFactory::eINSTANCE.createContext => [
+			parentContext = parent
+		]
+	}
+
+	static def SymbolBinding get(Context context, Symbol symbol) {
+		val binding = context.bindings.findFirst[it.symbol === symbol]
+		if (binding !== null) {
+			return binding
+		} else if (context.parentContext !== null) {
+			return context.parentContext.get(symbol)
+		} else {
+			return null
+		}
+	}
+}
 
 @Aspect(className=Program)
 class ProgramAspect {
 
 	@Main
 	@Step
-	def void execute() {
+	def Context execute() {
 		val initialContext = MinijavadynamicdataFactory::eINSTANCE.createContext
-		val main = _self.classes.map[members].filter(Method).findFirst[it.name == "main" && it.static]
+		val main = _self.classes.map[members].flatten.filter(Method).findFirst[it.name == "main" && it.static]
 		if (main !== null) {
 			main.body.evaluate(initialContext)
+			return initialContext
 		} else
 			throw new RuntimeException("No main expression.")
 	}
@@ -48,21 +86,129 @@ class ProgramAspect {
 class BlockAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluate(Context context) {
+
+		val newContext = context.createChildContext
 		var i = _self.statements.iterator
-		for (var s = i.next; i.hasNext && context.returnValue == null; s = i.next) {
-			s.evaluate(context)
+		while (i.hasNext && context.returnValue === null) {
+			i.next.evaluate(newContext)
 		}
 	}
 }
 
 @Aspect(className=Statement)
 class StatementAspect {
-	def void evaluate(Context context) { throw new RuntimeException("evaluate should be overriden") }
+	def void evaluate(Context context) {
+		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
+	}
+}
+
+@Aspect(className=PrintStatement)
+class PrintStatementAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(Context context) {
+		val value = _self.expression.evaluate(context)
+		println(value.customToString)
+	}
+}
+
+@Aspect(className=Assignment)
+class AssigmentAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(Context context) {
+		// _self.get
+		val right = _self.value.evaluate(context)
+		val assignee = _self.assignee
+		switch (assignee) {
+			SymbolRef: {
+				val existingBinding = context.get(assignee.symbol)
+				existingBinding.value = right
+			}
+			VariableDeclaration: {
+				val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
+					symbol = assignee
+					value = right
+				]
+				context.bindings.add(binding)
+			}
+			MemberSelection: {
+				val f = assignee.member as Field
+				val existingBinding = context.instance.fieldbindings.findFirst[it.field === f]
+				if (existingBinding !== null) {
+					existingBinding.value = right
+				} else {
+					val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding => [
+						field = assignee.member as Field
+						value = right
+					]
+					context.instance.fieldbindings.add(binding)
+				}
+			}
+		}
+	}
+}
+
+@Aspect(className=ForStatement)
+class ForStatementAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(Context context) {
+		val newContext = context.createChildContext
+		for (_self.declaration.evaluate(newContext); (_self.condition.evaluate(newContext) as BooleanValue).
+			value; _self.progression.evaluate(newContext)) {
+			_self.block.evaluate(newContext)
+		}
+	}
 }
 
 @Aspect(className=Expression)
 class ExpressionAspect {
-	def Value evaluate(Context context) { throw new RuntimeException("evaluate should be overriden") }
+	def Value evaluate(Context context) {
+		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
+	}
+}
+
+@Aspect(className=Plus)
+class PlusAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(Context context) {
+		val left = _self.left.evaluate(context)
+		val right = _self.right.evaluate(context)
+		if (left instanceof StringValue) {
+			if (right instanceof StringValue) {
+				return factory.createStringValue => [
+					value = left.value + right.value
+				]
+			}
+
+		} else if (left instanceof IntegerValue) {
+			if (right instanceof IntegerValue) {
+				return factory.createIntegerValue => [
+					value = left.value + right.value
+				]
+			}
+		}
+		throw new RuntimeException('''Unsupported plus operands: «left» + «right».''')
+	}
+}
+
+@Aspect(className=Comparison)
+class ComparisonAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(Context context) {
+		val left = (_self.left.evaluate(context) as IntegerValue).value
+		val right = (_self.right.evaluate(context) as IntegerValue).value
+		val op = _self.op;
+		val boolean result = switch (op) {
+			case "<": left < right
+			case "<=": left <= right
+			case ">": left > right
+			case ">=": left >= right
+			case "==": left === right
+			default: throw new RuntimeException('''Comparison operator «op» is not supported.''')
+		}
+		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
+			value = result
+		]
+	}
 }
 
 @Aspect(className=MemberSelection)
@@ -108,7 +254,7 @@ class ThisAspect extends ExpressionAspect {
 class SymbolRefAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(Context context) {
-		return context.bindings.findFirst[it.symbol === _self.symbol].value
+		return context.get(_self.symbol).value
 	}
 }
 

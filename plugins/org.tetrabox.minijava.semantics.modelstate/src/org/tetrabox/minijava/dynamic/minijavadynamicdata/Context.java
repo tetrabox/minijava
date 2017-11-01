@@ -21,6 +21,8 @@ import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getInstance <em>Instance</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getReturnValue <em>Return Value</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext()
@@ -121,5 +123,61 @@ public interface Context extends EObject {
 	 * @generated
 	 */
 	void setReturnValue(Value value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent Context</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Context</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Context</em>' container reference.
+	 * @see #setParentContext(Context)
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_ParentContext()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts
+	 * @model opposite="childrenContexts" transient="false"
+	 * @generated
+	 */
+	Context getParentContext();
+
+	/**
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Context</em>' container reference.
+	 * @see #getParentContext()
+	 * @generated
+	 */
+	void setParentContext(Context value);
+
+	/**
+	 * Returns the value of the '<em><b>Children Contexts</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext <em>Parent Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Children Contexts</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Children Contexts</em>' containment reference.
+	 * @see #setChildrenContexts(Context)
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getContext_ChildrenContexts()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getParentContext
+	 * @model opposite="parentContext" containment="true"
+	 * @generated
+	 */
+	Context getChildrenContexts();
+
+	/**
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Context#getChildrenContexts <em>Children Contexts</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Children Contexts</em>' containment reference.
+	 * @see #getChildrenContexts()
+	 * @generated
+	 */
+	void setChildrenContexts(Context value);
 
 } // Context
