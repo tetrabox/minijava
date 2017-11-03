@@ -18,6 +18,9 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 import java.util.function.Consumer
+import java.util.Map
+import java.util.Set
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
@@ -40,8 +43,23 @@ class MiniJavaSemanticsTests {
 		}
 	}
 
-	def static Value get(Context initialContext, String symbol) {
-		return initialContext.childrenContext.bindings.findFirst[it.symbol.name == symbol].value
+	def static Value get(Context context, String symbol) {
+		val result = context.bindings.findFirst[it.symbol.name == symbol]
+		if (result !== null) {
+			return result.value
+		} else if (context.childrenContext !== null) {
+			return context.childrenContext.get(symbol)
+		} else {
+			return null;
+		}
+	}
+
+	def static Set<SymbolBinding> getAllSymbolBindings(Context context) {
+		if (context.childrenContext !== null) {
+			return (context.bindings + context.childrenContext.allSymbolBindings).toSet
+		} else {
+			return context.bindings.toSet
+		}
 	}
 
 	public static val factory = MinijavadynamicdataFactory::eINSTANCE
@@ -49,7 +67,8 @@ class MiniJavaSemanticsTests {
 	private def void genericTest(String program, Consumer<Context> oracle) {
 		val Program result = parseHelper.parse(program)
 		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
+		val errors = result.eResource.errors
+		Assert.assertTrue(errors.isEmpty)
 		val context = result.execute
 		oracle.accept(context)
 	}
@@ -81,6 +100,17 @@ class MiniJavaSemanticsTests {
 
 	private def void genericStatementPrintTest(String statement, String... expected) {
 		genericStatementTest(statement, [Context c|Assert::assertEquals(expected.toList, c.outputStream.stream)])
+	}
+
+	private def void genericStatementBindingsTest(String statement, Map<String, Value> expectedBindings) {
+		genericStatementTest(statement, [ Context c |
+			Assert::assertEquals(expectedBindings.size, c.allSymbolBindings.size)
+			for (symbol : expectedBindings.keySet) {
+				val expectedValue = expectedBindings.get(symbol)
+				val value = c.get(symbol)
+				Assert::assertTrue(MiniJavaValueEquals::equals(expectedValue, value))
+			}
+		])
 	}
 
 	@Test
@@ -199,12 +229,104 @@ class MiniJavaSemanticsTests {
 	@Test
 	def void unit_ForStatement_fewstep() {
 		genericStatementPrintTest('''
-			for (int i = 0; i < 10; i = i+1) {
-				
+			for (int i = 0; i < 5; i = i+1) {
+				System.out.println("x");
+			}
+		''', "x", "x", "x", "x", "x")
+	}
+
+	@Test
+	def void unit_ForStatement_conditionfalse() {
+		genericStatementPrintTest('''
+			for (int i = 0; i > 5; i = i+1) {
+				System.out.println("x");
 			}
 		''', #[])
 	}
 
+	@Test
+	def void unit_Assignment_declaration_int() {
+		genericStatementBindingsTest('''
+			int x = 12;
+		''', #{"x" -> (factory.createIntegerValue => [value = 12])})
+	}
+
+	@Test
+	def void unit_Assignment_declaration_int_sum() {
+		genericStatementBindingsTest('''
+			int x = 12+6;
+		''', #{"x" -> (factory.createIntegerValue => [value = 18])})
+	}
+
+	@Test
+	def void unit_Assignment_reassignment_int() {
+		genericStatementBindingsTest('''
+			int x = 12+6;
+			x = -9;
+		''', #{"x" -> (factory.createIntegerValue => [value = -9])})
+	}
+
+	@Test
+	def void unit_Or_true_true() {
+		genericExpressionTest("boolean", "true || true", factory.createBooleanValue => [value = true])
+	}
+
+	@Test
+	def void unit_Or_true_false() {
+		genericExpressionTest("boolean", "true || false", factory.createBooleanValue => [value = true])
+	}
+
+	@Test
+	def void unit_Or_false_false() {
+		genericExpressionTest("boolean", "false || false", factory.createBooleanValue => [value = false])
+	}
+
+	@Test
+	def void unit_And_true_true() {
+		genericExpressionTest("boolean", "true && true", factory.createBooleanValue => [value = true])
+	}
+
+	@Test
+	def void unit_And_true_false() {
+		genericExpressionTest("boolean", "true && false", factory.createBooleanValue => [value = false])
+	}
+
+	@Test
+	def void unit_And_false_false() {
+		genericExpressionTest("boolean", "false && false", factory.createBooleanValue => [value = false])
+	}
+	
+	@Test
+	def void unit_Equality_equal_integers_true() {
+		genericExpressionTest("boolean", "1 == 1 ", factory.createBooleanValue => [value = true])
+	}
+	
+	@Test
+	def void unit_Equality_equal__integers_false() {
+		genericExpressionTest("boolean", "1 == 0 ", factory.createBooleanValue => [value = false])
+	}
+	
+		@Test
+	def void unit_Equality_equal_booleans_true() {
+		genericExpressionTest("boolean", "false == false ", factory.createBooleanValue => [value = true])
+	}
+	
+	@Test
+	def void unit_Equality_equal__booleans_false() {
+		genericExpressionTest("boolean", "true == false ", factory.createBooleanValue => [value = false])
+	}
+	
+			@Test
+	def void unit_Equality_equal_strings_true() {
+		genericExpressionTest("boolean", ''' "yay" == "yay" ''' , factory.createBooleanValue => [value = true])	}
+	
+	@Test
+	def void unit_Equality_equal__strings_false() {
+		genericExpressionTest("boolean", ''' "yay" == "" ''', factory.createBooleanValue => [value = false])
+	}
+	
+	
+	
 	@Test
 	def void model1() {
 		val expected = #["start"] + (0 .. 9).map[it.toString]

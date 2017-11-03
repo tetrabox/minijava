@@ -46,6 +46,11 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream
 import org.tetrabox.minijava.xtext.miniJava.Neg
 import org.tetrabox.minijava.xtext.miniJava.IfStatement
 import org.tetrabox.minijava.xtext.miniJava.WhileStatement
+import org.tetrabox.minijava.xtext.miniJava.Or
+import org.tetrabox.minijava.xtext.miniJava.And
+import org.tetrabox.minijava.xtext.miniJava.Equality
+import java.util.function.Function
+import java.util.function.BiFunction
 
 class Util {
 
@@ -79,6 +84,21 @@ class Util {
 	static def void println(Context context, String string) {
 		println(string)
 		context.findOutputStream.stream.add(string)
+	}
+
+	static def <T> boolean genericEqualityTest(T left, Object right, String op, BiFunction<T, T, Boolean> equality,
+		BiFunction<T, T, Boolean> inequality) {
+
+		return if (left.class == right.class) {
+			switch (op) {
+				case "==": equality.apply(left, right as T)
+				case "!=": inequality.apply(left, right as T)
+				default: throw new RuntimeException('''Equality operator «op» is not supported.''')
+			}
+		} else {
+			throw new RuntimeException('''Equality operands must be of the same type: «left.class» is not «right.class»''')
+		}
+
 	}
 }
 
@@ -134,7 +154,6 @@ class PrintStatementAspect extends StatementAspect {
 class AssigmentAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluate(Context context) {
-		// _self.get
 		val right = _self.value.evaluate(context)
 		val assignee = _self.assignee
 		switch (assignee) {
@@ -194,7 +213,7 @@ class IfStatementAspect extends StatementAspect {
 class WhileStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluate(Context context) {
-		while((_self.condition.evaluate(context) as BooleanValue).value) {
+		while ((_self.condition.evaluate(context) as BooleanValue).value) {
 			_self.block.evaluate(context)
 		}
 	}
@@ -240,6 +259,42 @@ class PlusAspect extends ExpressionAspect {
 	}
 }
 
+@Aspect(className=Or)
+class OrAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(Context context) {
+		val left = _self.left.evaluate(context)
+		val right = _self.right.evaluate(context)
+		if (left instanceof BooleanValue) {
+			if (right instanceof BooleanValue) {
+				return factory.createBooleanValue => [
+					value = left.value || right.value
+				]
+			}
+
+		}
+		throw new RuntimeException('''Unsupported or operands: «left» || «right».''')
+	}
+}
+
+@Aspect(className=And)
+class AndAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(Context context) {
+		val left = _self.left.evaluate(context)
+		val right = _self.right.evaluate(context)
+		if (left instanceof BooleanValue) {
+			if (right instanceof BooleanValue) {
+				return factory.createBooleanValue => [
+					value = left.value && right.value
+				]
+			}
+
+		}
+		throw new RuntimeException('''Unsupported or operands: «left» && «right».''')
+	}
+}
+
 @Aspect(className=Comparison)
 class ComparisonAspect extends ExpressionAspect {
 	@OverrideAspectMethod
@@ -252,9 +307,35 @@ class ComparisonAspect extends ExpressionAspect {
 			case "<=": left <= right
 			case ">": left > right
 			case ">=": left >= right
-			case "==": left === right
 			default: throw new RuntimeException('''Comparison operator «op» is not supported.''')
 		}
+		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
+			value = result
+		]
+	}
+}
+
+@Aspect(className=Equality)
+class EqualityAspect extends ExpressionAspect {
+
+	@OverrideAspectMethod
+	def Value evaluate(Context context) {
+		val left = _self.left.evaluate(context)
+		val right = _self.right.evaluate(context)
+		val op = _self.op;
+
+		val boolean result = if (left instanceof IntegerValue) {
+				genericEqualityTest(left, right, op, [l, r| l.value === r.value], [l, r|l.value !== r.value])
+			} else if (left instanceof StringValue) {
+				genericEqualityTest(left, right, op, [l, r| l.value == r.value], [l, r|l.value != r.value])
+			} else if (left instanceof BooleanValue) {
+				genericEqualityTest(left, right, op, [l, r| l.value === r.value], [l, r|l.value !== r.value])
+			} else if (left instanceof Instance) {
+				genericEqualityTest(left, right, op, [l, r| l === r], [l, r|l !== r])
+			} else {
+				throw new RuntimeException('''Type unsupported for equality operator: «left.class»''')
+			}
+
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = result
 		]
