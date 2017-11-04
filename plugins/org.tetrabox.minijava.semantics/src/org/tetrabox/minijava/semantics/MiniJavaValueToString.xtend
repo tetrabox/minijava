@@ -7,17 +7,18 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
 
 @Aspect(className=Value)
 class ValueToStringAspect {
 	def String customToString() {}
 }
 
-@Aspect(className=Instance)
-class InstanceToStringAspect extends ValueToStringAspect {
+@Aspect(className=RefValue)
+class RefValueToStringAspect extends ValueToStringAspect {
 	@OverrideAspectMethod
 	def String customToString() {
-		return '''«_self.type.name» {«FOR b : _self.fieldbindings SEPARATOR "\n\t"»«b.field.name»: «b.value.customToString »«ENDFOR»}''';
+		return '''«_self.instance.type.name» {«FOR b : _self.instance.fieldbindings SEPARATOR "\n\t"»«b.field.name»: «b.value.customToString »«ENDFOR»}''';
 	}
 }
 

@@ -108,6 +108,18 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 				return createOutputStreamAdapter();
 			}
 			@Override
+			public Adapter caseRefValue(RefValue object) {
+				return createRefValueAdapter();
+			}
+			@Override
+			public Adapter caseState(State object) {
+				return createStateAdapter();
+			}
+			@Override
+			public Adapter caseFrame(Frame object) {
+				return createFrameAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -264,6 +276,48 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputStreamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue <em>Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
+	 * @generated
+	 */
+	public Adapter createRefValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.State
+	 * @generated
+	 */
+	public Adapter createStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame <em>Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame
+	 * @generated
+	 */
+	public Adapter createFrameAdapter() {
 		return null;
 	}
 

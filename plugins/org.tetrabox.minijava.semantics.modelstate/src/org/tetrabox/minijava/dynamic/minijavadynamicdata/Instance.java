@@ -3,6 +3,7 @@
 package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Instance extends Value {
+public interface Instance extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Fieldbindings</b></em>' containment reference list.
 	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding}.

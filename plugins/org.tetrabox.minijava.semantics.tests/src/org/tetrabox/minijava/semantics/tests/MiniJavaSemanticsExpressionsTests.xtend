@@ -109,7 +109,47 @@ class MiniJavaSemanticsExpressionsTests {
 		genericExpressionTest("boolean", "false && false", factory.createBooleanValue => [value = false])
 	}
 
+
+
+
 	@Test
+	def void unit_Equality_inequal_integers_false() {
+		genericExpressionTest("boolean", "1 != 1 ", factory.createBooleanValue => [value = false])
+	}
+
+	@Test
+	def void unit_Equality_inequal__integers_true() {
+		genericExpressionTest("boolean", "1 != 0 ", factory.createBooleanValue => [value = true])
+	}
+
+	@Test
+	def void unit_Equality_inequal_booleans_false() {
+		genericExpressionTest("boolean", "false != false ", factory.createBooleanValue => [value = false])
+	}
+
+	@Test
+	def void unit_Equality_inequal__booleans_true() {
+		genericExpressionTest("boolean", "true != false ", factory.createBooleanValue => [value = true])
+	}
+
+	@Test
+	def void unit_Equality_inequal_strings_false() {
+		genericExpressionTest("boolean", ''' "yay" != "yay" ''', factory.createBooleanValue => [value = false])
+	}
+
+	@Test
+	def void unit_Equality_inequal_instances_true() {
+		genericExpressionTest("boolean", ''' new Main() != new Main() ''', factory.createBooleanValue => [value = true])
+	}
+	
+	@Test
+	def void unit_Equality_inequal_instances_false() {
+		genericExpressionTest('''Main i1 = new Main(); Main i2 = i1;''',"boolean", ''' i1 != i2 ''', factory.createBooleanValue => [value = false])
+	}
+
+
+
+@Test
 	def void unit_Equality_equal_integers_true() {
 		genericExpressionTest("boolean", "1 == 1 ", factory.createBooleanValue => [value = true])
 	}
@@ -135,8 +175,14 @@ class MiniJavaSemanticsExpressionsTests {
 	}
 
 	@Test
-	def void unit_Equality_equal__strings_false() {
-		genericExpressionTest("boolean", ''' "yay" == "" ''', factory.createBooleanValue => [value = false])
+	def void unit_Equality_equal_instances_false() {
+		genericExpressionTest("boolean", ''' new Main() == new Main() ''', factory.createBooleanValue => [value = false])
+	}
+	
+	@Test
+	def void unit_Equality_equal_instances_true() {
+		genericExpressionTest('''Main i1 = new Main(); Main i2 = i1;''',"boolean", ''' i1 == i2 ''', factory.createBooleanValue => [value = true])
 	}
 
+	
 }

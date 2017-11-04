@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,7 +36,7 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPack
  *
  * @generated
  */
-public class InstanceImpl extends ValueImpl implements Instance {
+public class InstanceImpl extends MinimalEObjectImpl.Container implements Instance {
 	/**
 	 * The cached value of the '{@link #getFieldbindings() <em>Fieldbindings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

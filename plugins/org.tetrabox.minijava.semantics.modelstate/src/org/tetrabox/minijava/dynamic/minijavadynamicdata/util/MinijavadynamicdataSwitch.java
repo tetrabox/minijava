@@ -88,7 +88,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 			case MinijavadynamicdataPackage.INSTANCE: {
 				Instance instance = (Instance)theEObject;
 				T result = caseInstance(instance);
-				if (result == null) result = caseValue(instance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,6 +126,25 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 			case MinijavadynamicdataPackage.OUTPUT_STREAM: {
 				OutputStream outputStream = (OutputStream)theEObject;
 				T result = caseOutputStream(outputStream);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.REF_VALUE: {
+				RefValue refValue = (RefValue)theEObject;
+				T result = caseRefValue(refValue);
+				if (result == null) result = caseValue(refValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.STATE: {
+				State state = (State)theEObject;
+				T result = caseState(state);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.FRAME: {
+				Frame frame = (Frame)theEObject;
+				T result = caseFrame(frame);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -281,6 +299,51 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOutputStream(OutputStream object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ref Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ref Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRefValue(RefValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>State</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseState(State object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Frame</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Frame</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFrame(Frame object) {
 		return null;
 	}
 

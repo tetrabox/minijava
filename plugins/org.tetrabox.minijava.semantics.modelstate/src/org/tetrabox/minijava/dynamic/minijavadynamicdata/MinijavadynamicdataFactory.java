@@ -103,6 +103,33 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	OutputStream createOutputStream();
 
 	/**
+	 * Returns a new object of class '<em>Ref Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ref Value</em>'.
+	 * @generated
+	 */
+	RefValue createRefValue();
+
+	/**
+	 * Returns a new object of class '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>State</em>'.
+	 * @generated
+	 */
+	State createState();
+
+	/**
+	 * Returns a new object of class '<em>Frame</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Frame</em>'.
+	 * @generated
+	 */
+	Frame createFrame();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

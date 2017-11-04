@@ -12,12 +12,15 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.State;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
@@ -102,6 +105,27 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	private EClass outputStreamEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass refValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass frameEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -179,7 +203,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContext_Methodcall() {
+	public EReference getContext_Bindings() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -188,7 +212,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContext_Instance() {
+	public EReference getContext_ParentContext() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -197,44 +221,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContext_Bindings() {
+	public EReference getContext_ChildContext() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContext_ReturnValue() {
-		return (EReference)contextEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContext_ParentContext() {
-		return (EReference)contextEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContext_ChildrenContext() {
-		return (EReference)contextEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContext_OutputStream() {
-		return (EReference)contextEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -413,6 +401,123 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRefValue() {
+		return refValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRefValue_Instance() {
+		return (EReference)refValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getState() {
+		return stateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getState_RootFrame() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getState_Heap() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getState_OutputStream() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFrame() {
+		return frameEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFrame_Methodcall() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFrame_Instance() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFrame_ChildFrame() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFrame_ParentFrame() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFrame_RootContext() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFrame_ReturnValue() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MinijavadynamicdataFactory getMinijavadynamicdataFactory() {
 		return (MinijavadynamicdataFactory)getEFactoryInstance();
 	}
@@ -437,13 +542,9 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		// Create classes and their features
 		contextEClass = createEClass(CONTEXT);
-		createEReference(contextEClass, CONTEXT__METHODCALL);
-		createEReference(contextEClass, CONTEXT__INSTANCE);
 		createEReference(contextEClass, CONTEXT__BINDINGS);
-		createEReference(contextEClass, CONTEXT__RETURN_VALUE);
 		createEReference(contextEClass, CONTEXT__PARENT_CONTEXT);
-		createEReference(contextEClass, CONTEXT__CHILDREN_CONTEXT);
-		createEReference(contextEClass, CONTEXT__OUTPUT_STREAM);
+		createEReference(contextEClass, CONTEXT__CHILD_CONTEXT);
 
 		valueEClass = createEClass(VALUE);
 
@@ -472,6 +573,22 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		outputStreamEClass = createEClass(OUTPUT_STREAM);
 		createEAttribute(outputStreamEClass, OUTPUT_STREAM__STREAM);
+
+		refValueEClass = createEClass(REF_VALUE);
+		createEReference(refValueEClass, REF_VALUE__INSTANCE);
+
+		stateEClass = createEClass(STATE);
+		createEReference(stateEClass, STATE__ROOT_FRAME);
+		createEReference(stateEClass, STATE__HEAP);
+		createEReference(stateEClass, STATE__OUTPUT_STREAM);
+
+		frameEClass = createEClass(FRAME);
+		createEReference(frameEClass, FRAME__METHODCALL);
+		createEReference(frameEClass, FRAME__INSTANCE);
+		createEReference(frameEClass, FRAME__CHILD_FRAME);
+		createEReference(frameEClass, FRAME__PARENT_FRAME);
+		createEReference(frameEClass, FRAME__ROOT_CONTEXT);
+		createEReference(frameEClass, FRAME__RETURN_VALUE);
 	}
 
 	/**
@@ -506,19 +623,15 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		// Add supertypes to classes
 		integerValueEClass.getESuperTypes().add(this.getValue());
-		instanceEClass.getESuperTypes().add(this.getValue());
 		stringValueEClass.getESuperTypes().add(this.getValue());
 		booleanValueEClass.getESuperTypes().add(this.getValue());
+		refValueEClass.getESuperTypes().add(this.getValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContext_Methodcall(), theMiniJavaPackage.getMemberSelection(), null, "methodcall", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_Instance(), this.getInstance(), null, "instance", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Bindings(), this.getSymbolBinding(), null, "bindings", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildrenContext(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_ChildrenContext(), this.getContext(), this.getContext_ParentContext(), "childrenContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildContext(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ChildContext(), this.getContext(), this.getContext_ParentContext(), "childContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -547,6 +660,22 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		initEClass(outputStreamEClass, OutputStream.class, "OutputStream", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOutputStream_Stream(), ecorePackage.getEString(), "stream", null, 0, -1, OutputStream.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(refValueEClass, RefValue.class, "RefValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRefValue_Instance(), this.getInstance(), null, "instance", null, 0, 1, RefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getState_RootFrame(), this.getFrame(), null, "rootFrame", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getState_Heap(), this.getInstance(), null, "heap", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getState_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(frameEClass, Frame.class, "Frame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFrame_Methodcall(), theMiniJavaPackage.getMemberSelection(), null, "methodcall", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFrame_Instance(), this.getInstance(), null, "instance", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFrame_ChildFrame(), this.getFrame(), this.getFrame_ParentFrame(), "childFrame", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFrame_ParentFrame(), this.getFrame(), this.getFrame_ChildFrame(), "parentFrame", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFrame_RootContext(), this.getContext(), null, "rootContext", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFrame_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
