@@ -78,7 +78,7 @@ class MiniJavaTestUtil {
 
 		genericTest(program, [ s |
 			val result = s.currentContext.get("x")
-			Assert::assertTrue(MiniJavaValueEquals::equals(
+			Assert::assertTrue('''«expectedValue» is different from «result»''',MiniJavaValueEquals::equals(
 				expectedValue,
 				result
 			))

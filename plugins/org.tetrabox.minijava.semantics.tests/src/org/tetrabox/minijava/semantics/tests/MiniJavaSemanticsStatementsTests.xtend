@@ -20,39 +20,39 @@ class MiniJavaSemanticsStatementsTests {
 	extension MiniJavaTestUtil testUtil
 
 	@Test
-	def void unit_PrintStatement_single() {
+	def void PrintStatement_single() {
 		genericStatementPrintTest('''System.out.println("Hello!");''', "Hello!")
 	}
 
 	@Test
-	def void unit_PrintStatement_multiple() {
+	def void PrintStatement_multiple() {
 		genericStatementPrintTest('''System.out.println("Hello!"); System.out.println("World!");''', "Hello!", "World!")
 	}
 
 	@Test
-	def void unit_IfStatement_noelse_true() {
+	def void IfStatement_noelse_true() {
 		genericStatementPrintTest('''if (true) { System.out.println("then"); }''', "then")
 	}
 
 	@Test
-	def void unit_IfStatement_noelse_false() {
+	def void IfStatement_noelse_false() {
 		genericStatementPrintTest('''if (false) { System.out.println("then"); }''', #[])
 	}
 
 	@Test
-	def void unit_IfStatement_else_true() {
+	def void IfStatement_else_true() {
 		genericStatementPrintTest('''if (true) { System.out.println("then"); } else { System.out.println("else");}''',
 			"then")
 	}
 
 	@Test
-	def void unit_IfStatement_else_false() {
+	def void IfStatement_else_false() {
 		genericStatementPrintTest('''if (false) { System.out.println("then"); } else { System.out.println("else");}''',
 			"else")
 	}
 
 	@Test
-	def void unit_WhileStatement_fewsteps() {
+	def void WhileStatement_fewsteps() {
 		genericStatementPrintTest('''
 			int i = 0;
 			while (i < 5) { 
@@ -63,7 +63,7 @@ class MiniJavaSemanticsStatementsTests {
 	}
 
 	@Test
-	def void unit_WhileStatement_false() {
+	def void WhileStatement_false() {
 		genericStatementPrintTest('''
 			while (false) { 
 				System.out.println("x");
@@ -72,7 +72,7 @@ class MiniJavaSemanticsStatementsTests {
 	}
 
 	@Test
-	def void unit_ForStatement_fewstep() {
+	def void ForStatement_fewstep() {
 		genericStatementPrintTest('''
 			for (int i = 0; i < 5; i = i+1) {
 				System.out.println("x");
@@ -81,7 +81,7 @@ class MiniJavaSemanticsStatementsTests {
 	}
 
 	@Test
-	def void unit_ForStatement_conditionfalse() {
+	def void ForStatement_conditionfalse() {
 		genericStatementPrintTest('''
 			for (int i = 0; i > 5; i = i+1) {
 				System.out.println("x");
@@ -90,21 +90,21 @@ class MiniJavaSemanticsStatementsTests {
 	}
 
 	@Test
-	def void unit_Assignment_declaration_int() {
+	def void Assignment_declaration_int() {
 		genericStatementBindingsTest('''
 			int x = 12;
 		''', #{"x" -> (factory.createIntegerValue => [value = 12])})
 	}
 
 	@Test
-	def void unit_Assignment_declaration_int_sum() {
+	def void Assignment_declaration_int_sum() {
 		genericStatementBindingsTest('''
 			int x = 12+6;
 		''', #{"x" -> (factory.createIntegerValue => [value = 18])})
 	}
 
 	@Test
-	def void unit_Assignment_reassignment_int() {
+	def void Assignment_reassignment_int() {
 		genericStatementBindingsTest('''
 			int x = 12+6;
 			x = -9;

@@ -312,13 +312,49 @@ public interface MiniJavaFactory extends EFactory
   Equality createEquality();
 
   /**
-   * Returns a new object of class '<em>Comparison</em>'.
+   * Returns a new object of class '<em>Inequality</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comparison</em>'.
+   * @return a new object of class '<em>Inequality</em>'.
    * @generated
    */
-  Comparison createComparison();
+  Inequality createInequality();
+
+  /**
+   * Returns a new object of class '<em>Superior Or Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Superior Or Equal</em>'.
+   * @generated
+   */
+  SuperiorOrEqual createSuperiorOrEqual();
+
+  /**
+   * Returns a new object of class '<em>Inferior Or Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inferior Or Equal</em>'.
+   * @generated
+   */
+  InferiorOrEqual createInferiorOrEqual();
+
+  /**
+   * Returns a new object of class '<em>Superior</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Superior</em>'.
+   * @generated
+   */
+  Superior createSuperior();
+
+  /**
+   * Returns a new object of class '<em>Inferior</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inferior</em>'.
+   * @generated
+   */
+  Inferior createInferior();
 
   /**
    * Returns a new object of class '<em>Plus</em>'.
@@ -339,13 +375,22 @@ public interface MiniJavaFactory extends EFactory
   Minus createMinus();
 
   /**
-   * Returns a new object of class '<em>Mul Or Div</em>'.
+   * Returns a new object of class '<em>Multiplication</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mul Or Div</em>'.
+   * @return a new object of class '<em>Multiplication</em>'.
    * @generated
    */
-  MulOrDiv createMulOrDiv();
+  Multiplication createMultiplication();
+
+  /**
+   * Returns a new object of class '<em>Division</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Division</em>'.
+   * @generated
+   */
+  Division createDivision();
 
   /**
    * Returns a new object of class '<em>Not</em>'.

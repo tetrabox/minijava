@@ -95,13 +95,27 @@
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Equality">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Equality/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Equality/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Equality/right"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Comparison">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Comparison/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Comparison/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Comparison/right"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Inequality">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Inequality/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Inequality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//SuperiorOrEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//SuperiorOrEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//SuperiorOrEqual/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//InferiorOrEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//InferiorOrEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//InferiorOrEqual/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Superior">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Superior/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Superior/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Inferior">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Inferior/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Inferior/right"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Plus">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Plus/left"/>
@@ -111,10 +125,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Minus/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Minus/right"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//MulOrDiv">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MulOrDiv/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//MulOrDiv/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//MulOrDiv/right"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Multiplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Multiplication/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Multiplication/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Division">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Division/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Division/right"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Not/expression"/>

@@ -41,7 +41,7 @@ enum AccessLevel:
 Block:
 	{Block} '{' statements+=Statement* '}';
 
-// TODO enable method calls as statements
+	// TODO enable method calls as statements
 Statement:
 	Return ';' |
 	=> Assignment ';' |
@@ -49,13 +49,12 @@ Statement:
 	WhileStatement |
 	ForStatement |
 	PrintStatement ";" |
-	Block// |
+	Block // |
 	//SelectionExpression ';'
-	;
-	
-PrintStatement:
-	"System" "." "out" "." "println" "(" expression = Expression ")"
 ;
+
+PrintStatement:
+	"System" "." "out" "." "println" "(" expression=Expression ")";
 
 Return:
 	'return' expression=Expression;
@@ -90,9 +89,9 @@ NamedElement:
 TypedDeclaration:
 	Symbol | Member;
 
-// here we need to set up an artificial priority with =>
+	// here we need to set up an artificial priority with =>
 Symbol:
-	=> Parameter |  VariableDeclaration;
+	=> Parameter | VariableDeclaration;
 
 VariableDeclaration:
 	typeRef=TypeRef name=ID;
@@ -104,11 +103,12 @@ Assignee:
 	=> SelectionExpression |
 	VariableDeclaration //|
 	//{SymbolRef}symbol=[Symbol|ID]
-	;
+;
 
 Expression:
-	Or;
-
+	Or
+;
+	
 Or returns Expression:
 	And ({Or.left=current} "||" right=And)*;
 
@@ -116,19 +116,21 @@ And returns Expression:
 	Equality ({And.left=current} "&&" right=Equality)*;
 
 Equality returns Expression:
-	Comparison ({Equality.left=current} op=("==" | "!=")
+	Comparison (({Equality.left=current} "==" | {Inequality.left=current} "!=")
 	right=Comparison)*;
 
 Comparison returns Expression:
-	PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<")
-	right=PlusOrMinus)*;
+	PlusOrMinus (({SuperiorOrEqual.left=current} ">=" |
+	{InferiorOrEqual.left=current} "<=" |
+	{Superior.left=current} ">" |
+	{Inferior.left=current} "<") right=PlusOrMinus)*;
 
 PlusOrMinus returns Expression:
 	MulOrDiv (({Plus.left=current} '+' | {Minus.left=current} '-')
 	right=MulOrDiv)*;
 
 MulOrDiv returns Expression:
-	Primary (({MulOrDiv.left=current} op=('*' | '/'))
+	Primary (({Multiplication.left=current} '*' | {Division.left=current} '/')
 	right=Primary)*;
 
 Primary returns Expression:
@@ -152,6 +154,5 @@ TerminalExpression returns Expression:
 	{Super} 'super' |
 	{Null} 'null' |
 	{New} 'new' type=[Class|QualifiedName] '(' ')' | //TODO possibility for non default constructors
-	{SymbolRef} symbol=[Symbol|ID]
-	;
+	{SymbolRef} symbol=[Symbol|ID];
 	

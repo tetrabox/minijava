@@ -1815,45 +1815,40 @@ ruleEquality returns [EObject current=null]
 		}
 		(
 			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0(),
-						$current);
-				}
-			)
-			(
 				(
 					(
-						lv_op_2_1='=='
 						{
-							newLeafNode(lv_op_2_1, grammarAccess.getEqualityAccess().getOpEqualsSignEqualsSignKeyword_1_1_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getEqualityRule());
-							}
-							setWithLastConsumed($current, "op", lv_op_2_1, null);
-						}
-						    |
-						lv_op_2_2='!='
-						{
-							newLeafNode(lv_op_2_2, grammarAccess.getEqualityAccess().getOpExclamationMarkEqualsSignKeyword_1_1_0_1());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getEqualityRule());
-							}
-							setWithLastConsumed($current, "op", lv_op_2_2, null);
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0_0_0(),
+								$current);
 						}
 					)
+					otherlv_2='=='
+					{
+						newLeafNode(otherlv_2, grammarAccess.getEqualityAccess().getEqualsSignEqualsSignKeyword_1_0_0_1());
+					}
+				)
+				    |
+				(
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getEqualityAccess().getInequalityLeftAction_1_0_1_0(),
+								$current);
+						}
+					)
+					otherlv_4='!='
+					{
+						newLeafNode(otherlv_4, grammarAccess.getEqualityAccess().getExclamationMarkEqualsSignKeyword_1_0_1_1());
+					}
 				)
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_1_0());
 					}
-					lv_right_3_0=ruleComparison
+					lv_right_5_0=ruleComparison
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEqualityRule());
@@ -1861,7 +1856,7 @@ ruleEquality returns [EObject current=null]
 						set(
 							$current,
 							"right",
-							lv_right_3_0,
+							lv_right_5_0,
 							"org.tetrabox.minijava.xtext.MiniJava.Comparison");
 						afterParserOrEnumRuleCall();
 					}
@@ -1897,67 +1892,68 @@ ruleComparison returns [EObject current=null]
 		}
 		(
 			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0(),
-						$current);
-				}
-			)
-			(
 				(
 					(
-						lv_op_2_1='>='
 						{
-							newLeafNode(lv_op_2_1, grammarAccess.getComparisonAccess().getOpGreaterThanSignEqualsSignKeyword_1_1_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonRule());
-							}
-							setWithLastConsumed($current, "op", lv_op_2_1, null);
-						}
-						    |
-						lv_op_2_2='<='
-						{
-							newLeafNode(lv_op_2_2, grammarAccess.getComparisonAccess().getOpLessThanSignEqualsSignKeyword_1_1_0_1());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonRule());
-							}
-							setWithLastConsumed($current, "op", lv_op_2_2, null);
-						}
-						    |
-						lv_op_2_3='>'
-						{
-							newLeafNode(lv_op_2_3, grammarAccess.getComparisonAccess().getOpGreaterThanSignKeyword_1_1_0_2());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonRule());
-							}
-							setWithLastConsumed($current, "op", lv_op_2_3, null);
-						}
-						    |
-						lv_op_2_4='<'
-						{
-							newLeafNode(lv_op_2_4, grammarAccess.getComparisonAccess().getOpLessThanSignKeyword_1_1_0_3());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonRule());
-							}
-							setWithLastConsumed($current, "op", lv_op_2_4, null);
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getComparisonAccess().getSuperiorOrEqualLeftAction_1_0_0_0(),
+								$current);
 						}
 					)
+					otherlv_2='>='
+					{
+						newLeafNode(otherlv_2, grammarAccess.getComparisonAccess().getGreaterThanSignEqualsSignKeyword_1_0_0_1());
+					}
+				)
+				    |
+				(
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getComparisonAccess().getInferiorOrEqualLeftAction_1_0_1_0(),
+								$current);
+						}
+					)
+					otherlv_4='<='
+					{
+						newLeafNode(otherlv_4, grammarAccess.getComparisonAccess().getLessThanSignEqualsSignKeyword_1_0_1_1());
+					}
+				)
+				    |
+				(
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getComparisonAccess().getSuperiorLeftAction_1_0_2_0(),
+								$current);
+						}
+					)
+					otherlv_6='>'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getComparisonAccess().getGreaterThanSignKeyword_1_0_2_1());
+					}
+				)
+				    |
+				(
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getComparisonAccess().getInferiorLeftAction_1_0_3_0(),
+								$current);
+						}
+					)
+					otherlv_8='<'
+					{
+						newLeafNode(otherlv_8, grammarAccess.getComparisonAccess().getLessThanSignKeyword_1_0_3_1());
+					}
 				)
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getComparisonAccess().getRightPlusOrMinusParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getComparisonAccess().getRightPlusOrMinusParserRuleCall_1_1_0());
 					}
-					lv_right_3_0=rulePlusOrMinus
+					lv_right_9_0=rulePlusOrMinus
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getComparisonRule());
@@ -1965,7 +1961,7 @@ ruleComparison returns [EObject current=null]
 						set(
 							$current,
 							"right",
-							lv_right_3_0,
+							lv_right_9_0,
 							"org.tetrabox.minijava.xtext.MiniJava.PlusOrMinus");
 						afterParserOrEnumRuleCall();
 					}
@@ -2079,38 +2075,31 @@ ruleMulOrDiv returns [EObject current=null]
 		(
 			(
 				(
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getMulOrDivAccess().getMultiplicationLeftAction_1_0_0_0(),
+								$current);
+						}
+					)
+					otherlv_2='*'
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getMulOrDivAccess().getMulOrDivLeftAction_1_0_0(),
-							$current);
+						newLeafNode(otherlv_2, grammarAccess.getMulOrDivAccess().getAsteriskKeyword_1_0_0_1());
 					}
 				)
+				    |
 				(
 					(
-						(
-							lv_op_2_1='*'
-							{
-								newLeafNode(lv_op_2_1, grammarAccess.getMulOrDivAccess().getOpAsteriskKeyword_1_0_1_0_0());
-							}
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getMulOrDivRule());
-								}
-								setWithLastConsumed($current, "op", lv_op_2_1, null);
-							}
-							    |
-							lv_op_2_2='/'
-							{
-								newLeafNode(lv_op_2_2, grammarAccess.getMulOrDivAccess().getOpSolidusKeyword_1_0_1_0_1());
-							}
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getMulOrDivRule());
-								}
-								setWithLastConsumed($current, "op", lv_op_2_2, null);
-							}
-						)
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getMulOrDivAccess().getDivisionLeftAction_1_0_1_0(),
+								$current);
+						}
 					)
+					otherlv_4='/'
+					{
+						newLeafNode(otherlv_4, grammarAccess.getMulOrDivAccess().getSolidusKeyword_1_0_1_1());
+					}
 				)
 			)
 			(
@@ -2118,7 +2107,7 @@ ruleMulOrDiv returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getMulOrDivAccess().getRightPrimaryParserRuleCall_1_1_0());
 					}
-					lv_right_3_0=rulePrimary
+					lv_right_5_0=rulePrimary
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMulOrDivRule());
@@ -2126,7 +2115,7 @@ ruleMulOrDiv returns [EObject current=null]
 						set(
 							$current,
 							"right",
-							lv_right_3_0,
+							lv_right_5_0,
 							"org.tetrabox.minijava.xtext.MiniJava.Primary");
 						afterParserOrEnumRuleCall();
 					}

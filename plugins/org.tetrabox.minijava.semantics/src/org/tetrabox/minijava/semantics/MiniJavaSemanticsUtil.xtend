@@ -92,32 +92,26 @@ class MiniJavaSemanticsUtil {
 	static def void popCurrentFrame(State state) {
 		state.currentFrame.childFrame = null
 	}
-	
+
 	static def dispatch Value copy(RefValue value) {
-		return factory.createRefValue=>[instance = value.instance]
+		return factory.createRefValue => [instance = value.instance]
 	}
-	
+
 	static def dispatch Value copy(IntegerValue value) {
-		return factory.createIntegerValue=>[value = value.value]
+		return factory.createIntegerValue => [value = value.value]
 	}
-	
+
 	static def dispatch Value copy(BooleanValue value) {
-		return factory.createBooleanValue=>[value = value.value]
+		return factory.createBooleanValue => [value = value.value]
 	}
-	
+
 	static def dispatch Value copy(StringValue value) {
-		return factory.createStringValue=>[value = value.value]
+		return factory.createStringValue => [value = value.value]
 	}
 
-	static def <T> boolean genericEqualityTest(T left, Object right, String op, BiFunction<T, T, Boolean> equality,
-		BiFunction<T, T, Boolean> inequality) {
-
+	static def <T> boolean genericEqualityTest(T left, Object right, BiFunction<T, T, Boolean> equalityFunction) {
 		return if (left.class == right.class) {
-			switch (op) {
-				case "==": equality.apply(left, right as T)
-				case "!=": inequality.apply(left, right as T)
-				default: throw new RuntimeException('''Equality operator «op» is not supported.''')
-			}
+			equalityFunction.apply(left, right as T)
 		} else {
 			throw new RuntimeException('''Equality operands must be of the same type: «left.class» is not «right.class»''')
 		}

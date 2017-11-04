@@ -1054,102 +1054,138 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cComparisonParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cEqualityLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
-		private final Keyword cOpEqualsSignEqualsSignKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
-		private final Keyword cOpExclamationMarkEqualsSignKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightComparisonParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cAlternatives_1_0.eContents().get(0);
+		private final Action cEqualityLeftAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Keyword cEqualsSignEqualsSignKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
+		private final Group cGroup_1_0_1 = (Group)cAlternatives_1_0.eContents().get(1);
+		private final Action cInequalityLeftAction_1_0_1_0 = (Action)cGroup_1_0_1.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_1_0_1_1 = (Keyword)cGroup_1_0_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightComparisonParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//Equality Expression:
-		//	Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*;
+		//	Comparison (({Equality.left=current} "==" | {Inequality.left=current} "!=") right=Comparison)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*
+		//Comparison (({Equality.left=current} "==" | {Inequality.left=current} "!=") right=Comparison)*
 		public Group getGroup() { return cGroup; }
 		
 		//Comparison
 		public RuleCall getComparisonParserRuleCall_0() { return cComparisonParserRuleCall_0; }
 		
-		//({Equality.left=current} op=("==" | "!=") right=Comparison)*
+		//(({Equality.left=current} "==" | {Inequality.left=current} "!=") right=Comparison)*
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//{Equality.left=current} "==" | {Inequality.left=current} "!="
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		
+		//{Equality.left=current} "=="
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
 		//{Equality.left=current}
-		public Action getEqualityLeftAction_1_0() { return cEqualityLeftAction_1_0; }
-		
-		//op=("==" | "!=")
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//("==" | "!=")
-		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
+		public Action getEqualityLeftAction_1_0_0_0() { return cEqualityLeftAction_1_0_0_0; }
 		
 		//"=="
-		public Keyword getOpEqualsSignEqualsSignKeyword_1_1_0_0() { return cOpEqualsSignEqualsSignKeyword_1_1_0_0; }
+		public Keyword getEqualsSignEqualsSignKeyword_1_0_0_1() { return cEqualsSignEqualsSignKeyword_1_0_0_1; }
+		
+		//{Inequality.left=current} "!="
+		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
+		
+		//{Inequality.left=current}
+		public Action getInequalityLeftAction_1_0_1_0() { return cInequalityLeftAction_1_0_1_0; }
 		
 		//"!="
-		public Keyword getOpExclamationMarkEqualsSignKeyword_1_1_0_1() { return cOpExclamationMarkEqualsSignKeyword_1_1_0_1; }
+		public Keyword getExclamationMarkEqualsSignKeyword_1_0_1_1() { return cExclamationMarkEqualsSignKeyword_1_0_1_1; }
 		
 		//right=Comparison
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
 		
 		//Comparison
-		public RuleCall getRightComparisonParserRuleCall_1_2_0() { return cRightComparisonParserRuleCall_1_2_0; }
+		public RuleCall getRightComparisonParserRuleCall_1_1_0() { return cRightComparisonParserRuleCall_1_1_0; }
 	}
 	public class ComparisonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Comparison");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cPlusOrMinusParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cComparisonLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
-		private final Keyword cOpGreaterThanSignEqualsSignKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
-		private final Keyword cOpLessThanSignEqualsSignKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
-		private final Keyword cOpGreaterThanSignKeyword_1_1_0_2 = (Keyword)cOpAlternatives_1_1_0.eContents().get(2);
-		private final Keyword cOpLessThanSignKeyword_1_1_0_3 = (Keyword)cOpAlternatives_1_1_0.eContents().get(3);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightPlusOrMinusParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cAlternatives_1_0.eContents().get(0);
+		private final Action cSuperiorOrEqualLeftAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
+		private final Group cGroup_1_0_1 = (Group)cAlternatives_1_0.eContents().get(1);
+		private final Action cInferiorOrEqualLeftAction_1_0_1_0 = (Action)cGroup_1_0_1.eContents().get(0);
+		private final Keyword cLessThanSignEqualsSignKeyword_1_0_1_1 = (Keyword)cGroup_1_0_1.eContents().get(1);
+		private final Group cGroup_1_0_2 = (Group)cAlternatives_1_0.eContents().get(2);
+		private final Action cSuperiorLeftAction_1_0_2_0 = (Action)cGroup_1_0_2.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_1_0_2_1 = (Keyword)cGroup_1_0_2.eContents().get(1);
+		private final Group cGroup_1_0_3 = (Group)cAlternatives_1_0.eContents().get(3);
+		private final Action cInferiorLeftAction_1_0_3_0 = (Action)cGroup_1_0_3.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_1_0_3_1 = (Keyword)cGroup_1_0_3.eContents().get(1);
+		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightPlusOrMinusParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//Comparison Expression:
-		//	PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*;
+		//	PlusOrMinus (({SuperiorOrEqual.left=current} ">=" | {InferiorOrEqual.left=current} "<=" | {Superior.left=current} ">"
+		//	| {Inferior.left=current} "<") right=PlusOrMinus)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*
+		//PlusOrMinus (({SuperiorOrEqual.left=current} ">=" | {InferiorOrEqual.left=current} "<=" | {Superior.left=current} ">" |
+		//{Inferior.left=current} "<") right=PlusOrMinus)*
 		public Group getGroup() { return cGroup; }
 		
 		//PlusOrMinus
 		public RuleCall getPlusOrMinusParserRuleCall_0() { return cPlusOrMinusParserRuleCall_0; }
 		
-		//({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*
+		//(({SuperiorOrEqual.left=current} ">=" | {InferiorOrEqual.left=current} "<=" | {Superior.left=current} ">" |
+		//{Inferior.left=current} "<") right=PlusOrMinus)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Comparison.left=current}
-		public Action getComparisonLeftAction_1_0() { return cComparisonLeftAction_1_0; }
+		//{SuperiorOrEqual.left=current} ">=" | {InferiorOrEqual.left=current} "<=" | {Superior.left=current} ">" |
+		//{Inferior.left=current} "<"
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
-		//op=(">=" | "<=" | ">" | "<")
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
+		//{SuperiorOrEqual.left=current} ">="
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
-		//(">=" | "<=" | ">" | "<")
-		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
+		//{SuperiorOrEqual.left=current}
+		public Action getSuperiorOrEqualLeftAction_1_0_0_0() { return cSuperiorOrEqualLeftAction_1_0_0_0; }
 		
 		//">="
-		public Keyword getOpGreaterThanSignEqualsSignKeyword_1_1_0_0() { return cOpGreaterThanSignEqualsSignKeyword_1_1_0_0; }
+		public Keyword getGreaterThanSignEqualsSignKeyword_1_0_0_1() { return cGreaterThanSignEqualsSignKeyword_1_0_0_1; }
+		
+		//{InferiorOrEqual.left=current} "<="
+		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
+		
+		//{InferiorOrEqual.left=current}
+		public Action getInferiorOrEqualLeftAction_1_0_1_0() { return cInferiorOrEqualLeftAction_1_0_1_0; }
 		
 		//"<="
-		public Keyword getOpLessThanSignEqualsSignKeyword_1_1_0_1() { return cOpLessThanSignEqualsSignKeyword_1_1_0_1; }
+		public Keyword getLessThanSignEqualsSignKeyword_1_0_1_1() { return cLessThanSignEqualsSignKeyword_1_0_1_1; }
+		
+		//{Superior.left=current} ">"
+		public Group getGroup_1_0_2() { return cGroup_1_0_2; }
+		
+		//{Superior.left=current}
+		public Action getSuperiorLeftAction_1_0_2_0() { return cSuperiorLeftAction_1_0_2_0; }
 		
 		//">"
-		public Keyword getOpGreaterThanSignKeyword_1_1_0_2() { return cOpGreaterThanSignKeyword_1_1_0_2; }
+		public Keyword getGreaterThanSignKeyword_1_0_2_1() { return cGreaterThanSignKeyword_1_0_2_1; }
+		
+		//{Inferior.left=current} "<"
+		public Group getGroup_1_0_3() { return cGroup_1_0_3; }
+		
+		//{Inferior.left=current}
+		public Action getInferiorLeftAction_1_0_3_0() { return cInferiorLeftAction_1_0_3_0; }
 		
 		//"<"
-		public Keyword getOpLessThanSignKeyword_1_1_0_3() { return cOpLessThanSignKeyword_1_1_0_3; }
+		public Keyword getLessThanSignKeyword_1_0_3_1() { return cLessThanSignKeyword_1_0_3_1; }
 		
 		//right=PlusOrMinus
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
 		
 		//PlusOrMinus
-		public RuleCall getRightPlusOrMinusParserRuleCall_1_2_0() { return cRightPlusOrMinusParserRuleCall_1_2_0; }
+		public RuleCall getRightPlusOrMinusParserRuleCall_1_1_0() { return cRightPlusOrMinusParserRuleCall_1_1_0; }
 	}
 	public class PlusOrMinusElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.PlusOrMinus");
@@ -1211,45 +1247,49 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cPrimaryParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cMulOrDivLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
-		private final Assignment cOpAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0_1_0 = (Alternatives)cOpAssignment_1_0_1.eContents().get(0);
-		private final Keyword cOpAsteriskKeyword_1_0_1_0_0 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(0);
-		private final Keyword cOpSolidusKeyword_1_0_1_0_1 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cAlternatives_1_0.eContents().get(0);
+		private final Action cMultiplicationLeftAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Keyword cAsteriskKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
+		private final Group cGroup_1_0_1 = (Group)cAlternatives_1_0.eContents().get(1);
+		private final Action cDivisionLeftAction_1_0_1_0 = (Action)cGroup_1_0_1.eContents().get(0);
+		private final Keyword cSolidusKeyword_1_0_1_1 = (Keyword)cGroup_1_0_1.eContents().get(1);
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightPrimaryParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//MulOrDiv Expression:
-		//	Primary (({MulOrDiv.left=current} op=('*' | '/')) right=Primary)*;
+		//	Primary (({Multiplication.left=current} '*' | {Division.left=current} '/') right=Primary)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Primary (({MulOrDiv.left=current} op=('*' | '/')) right=Primary)*
+		//Primary (({Multiplication.left=current} '*' | {Division.left=current} '/') right=Primary)*
 		public Group getGroup() { return cGroup; }
 		
 		//Primary
 		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
 		
-		//(({MulOrDiv.left=current} op=('*' | '/')) right=Primary)*
+		//(({Multiplication.left=current} '*' | {Division.left=current} '/') right=Primary)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{MulOrDiv.left=current} op=('*' | '/')
-		public Group getGroup_1_0() { return cGroup_1_0; }
+		//{Multiplication.left=current} '*' | {Division.left=current} '/'
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
-		//{MulOrDiv.left=current}
-		public Action getMulOrDivLeftAction_1_0_0() { return cMulOrDivLeftAction_1_0_0; }
+		//{Multiplication.left=current} '*'
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
-		//op=('*' | '/')
-		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
-		
-		//('*' | '/')
-		public Alternatives getOpAlternatives_1_0_1_0() { return cOpAlternatives_1_0_1_0; }
+		//{Multiplication.left=current}
+		public Action getMultiplicationLeftAction_1_0_0_0() { return cMultiplicationLeftAction_1_0_0_0; }
 		
 		//'*'
-		public Keyword getOpAsteriskKeyword_1_0_1_0_0() { return cOpAsteriskKeyword_1_0_1_0_0; }
+		public Keyword getAsteriskKeyword_1_0_0_1() { return cAsteriskKeyword_1_0_0_1; }
+		
+		//{Division.left=current} '/'
+		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
+		
+		//{Division.left=current}
+		public Action getDivisionLeftAction_1_0_1_0() { return cDivisionLeftAction_1_0_1_0; }
 		
 		//'/'
-		public Keyword getOpSolidusKeyword_1_0_1_0_1() { return cOpSolidusKeyword_1_0_1_0_1; }
+		public Keyword getSolidusKeyword_1_0_1_1() { return cSolidusKeyword_1_0_1_1; }
 		
 		//right=Primary
 		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
@@ -2023,7 +2063,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Equality Expression:
-	//	Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*;
+	//	Comparison (({Equality.left=current} "==" | {Inequality.left=current} "!=") right=Comparison)*;
 	public EqualityElements getEqualityAccess() {
 		return pEquality;
 	}
@@ -2033,7 +2073,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Comparison Expression:
-	//	PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*;
+	//	PlusOrMinus (({SuperiorOrEqual.left=current} ">=" | {InferiorOrEqual.left=current} "<=" | {Superior.left=current} ">"
+	//	| {Inferior.left=current} "<") right=PlusOrMinus)*;
 	public ComparisonElements getComparisonAccess() {
 		return pComparison;
 	}
@@ -2053,7 +2094,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MulOrDiv Expression:
-	//	Primary (({MulOrDiv.left=current} op=('*' | '/')) right=Primary)*;
+	//	Primary (({Multiplication.left=current} '*' | {Division.left=current} '/') right=Primary)*;
 	public MulOrDivElements getMulOrDivAccess() {
 		return pMulOrDiv;
 	}

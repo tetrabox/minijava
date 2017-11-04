@@ -21,13 +21,16 @@ import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
 import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.ClassRef;
-import org.tetrabox.minijava.xtext.miniJava.Comparison;
+import org.tetrabox.minijava.xtext.miniJava.Division;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
 import org.tetrabox.minijava.xtext.miniJava.ForStatement;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
+import org.tetrabox.minijava.xtext.miniJava.Inequality;
+import org.tetrabox.minijava.xtext.miniJava.Inferior;
+import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Member;
@@ -36,7 +39,7 @@ import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
-import org.tetrabox.minijava.xtext.miniJava.MulOrDiv;
+import org.tetrabox.minijava.xtext.miniJava.Multiplication;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.Neg;
 import org.tetrabox.minijava.xtext.miniJava.New;
@@ -53,6 +56,8 @@ import org.tetrabox.minijava.xtext.miniJava.Statement;
 import org.tetrabox.minijava.xtext.miniJava.StringConstant;
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Super;
+import org.tetrabox.minijava.xtext.miniJava.Superior;
+import org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
@@ -146,10 +151,15 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.OR: return createOr();
       case MiniJavaPackage.AND: return createAnd();
       case MiniJavaPackage.EQUALITY: return createEquality();
-      case MiniJavaPackage.COMPARISON: return createComparison();
+      case MiniJavaPackage.INEQUALITY: return createInequality();
+      case MiniJavaPackage.SUPERIOR_OR_EQUAL: return createSuperiorOrEqual();
+      case MiniJavaPackage.INFERIOR_OR_EQUAL: return createInferiorOrEqual();
+      case MiniJavaPackage.SUPERIOR: return createSuperior();
+      case MiniJavaPackage.INFERIOR: return createInferior();
       case MiniJavaPackage.PLUS: return createPlus();
       case MiniJavaPackage.MINUS: return createMinus();
-      case MiniJavaPackage.MUL_OR_DIV: return createMulOrDiv();
+      case MiniJavaPackage.MULTIPLICATION: return createMultiplication();
+      case MiniJavaPackage.DIVISION: return createDivision();
       case MiniJavaPackage.NOT: return createNot();
       case MiniJavaPackage.NEG: return createNeg();
       case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
@@ -557,10 +567,54 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Comparison createComparison()
+  public Inequality createInequality()
   {
-    ComparisonImpl comparison = new ComparisonImpl();
-    return comparison;
+    InequalityImpl inequality = new InequalityImpl();
+    return inequality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SuperiorOrEqual createSuperiorOrEqual()
+  {
+    SuperiorOrEqualImpl superiorOrEqual = new SuperiorOrEqualImpl();
+    return superiorOrEqual;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InferiorOrEqual createInferiorOrEqual()
+  {
+    InferiorOrEqualImpl inferiorOrEqual = new InferiorOrEqualImpl();
+    return inferiorOrEqual;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Superior createSuperior()
+  {
+    SuperiorImpl superior = new SuperiorImpl();
+    return superior;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Inferior createInferior()
+  {
+    InferiorImpl inferior = new InferiorImpl();
+    return inferior;
   }
 
   /**
@@ -590,10 +644,21 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MulOrDiv createMulOrDiv()
+  public Multiplication createMultiplication()
   {
-    MulOrDivImpl mulOrDiv = new MulOrDivImpl();
-    return mulOrDiv;
+    MultiplicationImpl multiplication = new MultiplicationImpl();
+    return multiplication;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Division createDivision()
+  {
+    DivisionImpl division = new DivisionImpl();
+    return division;
   }
 
   /**

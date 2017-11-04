@@ -1108,22 +1108,13 @@ public interface MiniJavaPackage extends EPackage
   int EQUALITY__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUALITY__OP = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int EQUALITY__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Equality</em>' class.
@@ -1132,17 +1123,17 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int EQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ComparisonImpl <em>Comparison</em>}' class.
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InequalityImpl <em>Inequality</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.ComparisonImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getComparison()
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.InequalityImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getInequality()
    * @generated
    */
-  int COMPARISON = 32;
+  int INEQUALITY = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1151,16 +1142,7 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int INEQUALITY__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -1169,16 +1151,164 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int INEQUALITY__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Comparison</em>' class.
+   * The number of structural features of the '<em>Inequality</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int INEQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SuperiorOrEqualImpl <em>Superior Or Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.SuperiorOrEqualImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuperiorOrEqual()
+   * @generated
+   */
+  int SUPERIOR_OR_EQUAL = 33;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPERIOR_OR_EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPERIOR_OR_EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Superior Or Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPERIOR_OR_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InferiorOrEqualImpl <em>Inferior Or Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.InferiorOrEqualImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getInferiorOrEqual()
+   * @generated
+   */
+  int INFERIOR_OR_EQUAL = 34;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFERIOR_OR_EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFERIOR_OR_EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Inferior Or Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFERIOR_OR_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SuperiorImpl <em>Superior</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.SuperiorImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuperior()
+   * @generated
+   */
+  int SUPERIOR = 35;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPERIOR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPERIOR__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Superior</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPERIOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InferiorImpl <em>Inferior</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.InferiorImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getInferior()
+   * @generated
+   */
+  int INFERIOR = 36;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFERIOR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFERIOR__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Inferior</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFERIOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.PlusImpl <em>Plus</em>}' class.
@@ -1188,7 +1318,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 33;
+  int PLUS = 37;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1225,7 +1355,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 34;
+  int MINUS = 38;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1255,14 +1385,14 @@ public interface MiniJavaPackage extends EPackage
   int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MulOrDivImpl <em>Mul Or Div</em>}' class.
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MultiplicationImpl <em>Multiplication</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MulOrDivImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMulOrDiv()
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MultiplicationImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMultiplication()
    * @generated
    */
-  int MUL_OR_DIV = 35;
+  int MULTIPLICATION = 39;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1271,16 +1401,7 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MUL_OR_DIV__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_OR_DIV__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int MULTIPLICATION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -1289,16 +1410,53 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MUL_OR_DIV__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int MULTIPLICATION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Mul Or Div</em>' class.
+   * The number of structural features of the '<em>Multiplication</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_OR_DIV_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int MULTIPLICATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.DivisionImpl <em>Division</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.DivisionImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getDivision()
+   * @generated
+   */
+  int DIVISION = 40;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Division</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NotImpl <em>Not</em>}' class.
@@ -1308,7 +1466,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 36;
+  int NOT = 41;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1336,7 +1494,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNeg()
    * @generated
    */
-  int NEG = 37;
+  int NEG = 42;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1364,7 +1522,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMemberSelection()
    * @generated
    */
-  int MEMBER_SELECTION = 38;
+  int MEMBER_SELECTION = 43;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1419,7 +1577,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 39;
+  int STRING_CONSTANT = 44;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1447,7 +1605,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 40;
+  int INT_CONSTANT = 45;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1475,7 +1633,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 41;
+  int BOOL_CONSTANT = 46;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1503,7 +1661,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getThis()
    * @generated
    */
-  int THIS = 42;
+  int THIS = 47;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -1522,7 +1680,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuper()
    * @generated
    */
-  int SUPER = 43;
+  int SUPER = 48;
 
   /**
    * The number of structural features of the '<em>Super</em>' class.
@@ -1541,7 +1699,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNull()
    * @generated
    */
-  int NULL = 44;
+  int NULL = 49;
 
   /**
    * The number of structural features of the '<em>Null</em>' class.
@@ -1560,7 +1718,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNew()
    * @generated
    */
-  int NEW = 45;
+  int NEW = 50;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1588,7 +1746,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 46;
+  int SYMBOL_REF = 51;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -1616,7 +1774,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 47;
+  int ACCESS_LEVEL = 52;
 
 
   /**
@@ -2314,17 +2472,6 @@ public interface MiniJavaPackage extends EPackage
   EReference getEquality_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xtext.miniJava.Equality#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Equality#getOp()
-   * @see #getEquality()
-   * @generated
-   */
-  EAttribute getEquality_Op();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Equality#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2336,47 +2483,164 @@ public interface MiniJavaPackage extends EPackage
   EReference getEquality_Right();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Comparison <em>Comparison</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Inequality <em>Inequality</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Comparison</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Comparison
+   * @return the meta object for class '<em>Inequality</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Inequality
    * @generated
    */
-  EClass getComparison();
+  EClass getInequality();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Comparison#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Inequality#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Comparison#getLeft()
-   * @see #getComparison()
+   * @see org.tetrabox.minijava.xtext.miniJava.Inequality#getLeft()
+   * @see #getInequality()
    * @generated
    */
-  EReference getComparison_Left();
+  EReference getInequality_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xtext.miniJava.Comparison#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Comparison#getOp()
-   * @see #getComparison()
-   * @generated
-   */
-  EAttribute getComparison_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Comparison#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Inequality#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Comparison#getRight()
-   * @see #getComparison()
+   * @see org.tetrabox.minijava.xtext.miniJava.Inequality#getRight()
+   * @see #getInequality()
    * @generated
    */
-  EReference getComparison_Right();
+  EReference getInequality_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual <em>Superior Or Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Superior Or Equal</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual
+   * @generated
+   */
+  EClass getSuperiorOrEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual#getLeft()
+   * @see #getSuperiorOrEqual()
+   * @generated
+   */
+  EReference getSuperiorOrEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual#getRight()
+   * @see #getSuperiorOrEqual()
+   * @generated
+   */
+  EReference getSuperiorOrEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual <em>Inferior Or Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Inferior Or Equal</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual
+   * @generated
+   */
+  EClass getInferiorOrEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual#getLeft()
+   * @see #getInferiorOrEqual()
+   * @generated
+   */
+  EReference getInferiorOrEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual#getRight()
+   * @see #getInferiorOrEqual()
+   * @generated
+   */
+  EReference getInferiorOrEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Superior <em>Superior</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Superior</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Superior
+   * @generated
+   */
+  EClass getSuperior();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Superior#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Superior#getLeft()
+   * @see #getSuperior()
+   * @generated
+   */
+  EReference getSuperior_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Superior#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Superior#getRight()
+   * @see #getSuperior()
+   * @generated
+   */
+  EReference getSuperior_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Inferior <em>Inferior</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Inferior</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Inferior
+   * @generated
+   */
+  EClass getInferior();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Inferior#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Inferior#getLeft()
+   * @see #getInferior()
+   * @generated
+   */
+  EReference getInferior_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Inferior#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Inferior#getRight()
+   * @see #getInferior()
+   * @generated
+   */
+  EReference getInferior_Right();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Plus <em>Plus</em>}'.
@@ -2443,47 +2707,68 @@ public interface MiniJavaPackage extends EPackage
   EReference getMinus_Right();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.MulOrDiv <em>Mul Or Div</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Multiplication <em>Multiplication</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Mul Or Div</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MulOrDiv
+   * @return the meta object for class '<em>Multiplication</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Multiplication
    * @generated
    */
-  EClass getMulOrDiv();
+  EClass getMultiplication();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.MulOrDiv#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Multiplication#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MulOrDiv#getLeft()
-   * @see #getMulOrDiv()
+   * @see org.tetrabox.minijava.xtext.miniJava.Multiplication#getLeft()
+   * @see #getMultiplication()
    * @generated
    */
-  EReference getMulOrDiv_Left();
+  EReference getMultiplication_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xtext.miniJava.MulOrDiv#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MulOrDiv#getOp()
-   * @see #getMulOrDiv()
-   * @generated
-   */
-  EAttribute getMulOrDiv_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.MulOrDiv#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Multiplication#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MulOrDiv#getRight()
-   * @see #getMulOrDiv()
+   * @see org.tetrabox.minijava.xtext.miniJava.Multiplication#getRight()
+   * @see #getMultiplication()
    * @generated
    */
-  EReference getMulOrDiv_Right();
+  EReference getMultiplication_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Division <em>Division</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Division</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Division
+   * @generated
+   */
+  EClass getDivision();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Division#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Division#getLeft()
+   * @see #getDivision()
+   * @generated
+   */
+  EReference getDivision_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Division#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Division#getRight()
+   * @see #getDivision()
+   * @generated
+   */
+  EReference getDivision_Right();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Not <em>Not</em>}'.
@@ -3342,14 +3627,6 @@ public interface MiniJavaPackage extends EPackage
     EReference EQUALITY__LEFT = eINSTANCE.getEquality_Left();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EQUALITY__OP = eINSTANCE.getEquality_Op();
-
-    /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3358,14 +3635,14 @@ public interface MiniJavaPackage extends EPackage
     EReference EQUALITY__RIGHT = eINSTANCE.getEquality_Right();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ComparisonImpl <em>Comparison</em>}' class.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InequalityImpl <em>Inequality</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.ComparisonImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getComparison()
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.InequalityImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getInequality()
      * @generated
      */
-    EClass COMPARISON = eINSTANCE.getComparison();
+    EClass INEQUALITY = eINSTANCE.getInequality();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -3373,15 +3650,7 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPARISON__LEFT = eINSTANCE.getComparison_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPARISON__OP = eINSTANCE.getComparison_Op();
+    EReference INEQUALITY__LEFT = eINSTANCE.getInequality_Left();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -3389,7 +3658,111 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPARISON__RIGHT = eINSTANCE.getComparison_Right();
+    EReference INEQUALITY__RIGHT = eINSTANCE.getInequality_Right();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SuperiorOrEqualImpl <em>Superior Or Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.SuperiorOrEqualImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuperiorOrEqual()
+     * @generated
+     */
+    EClass SUPERIOR_OR_EQUAL = eINSTANCE.getSuperiorOrEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUPERIOR_OR_EQUAL__LEFT = eINSTANCE.getSuperiorOrEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUPERIOR_OR_EQUAL__RIGHT = eINSTANCE.getSuperiorOrEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InferiorOrEqualImpl <em>Inferior Or Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.InferiorOrEqualImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getInferiorOrEqual()
+     * @generated
+     */
+    EClass INFERIOR_OR_EQUAL = eINSTANCE.getInferiorOrEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFERIOR_OR_EQUAL__LEFT = eINSTANCE.getInferiorOrEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFERIOR_OR_EQUAL__RIGHT = eINSTANCE.getInferiorOrEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SuperiorImpl <em>Superior</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.SuperiorImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuperior()
+     * @generated
+     */
+    EClass SUPERIOR = eINSTANCE.getSuperior();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUPERIOR__LEFT = eINSTANCE.getSuperior_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUPERIOR__RIGHT = eINSTANCE.getSuperior_Right();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InferiorImpl <em>Inferior</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.InferiorImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getInferior()
+     * @generated
+     */
+    EClass INFERIOR = eINSTANCE.getInferior();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFERIOR__LEFT = eINSTANCE.getInferior_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFERIOR__RIGHT = eINSTANCE.getInferior_Right();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.PlusImpl <em>Plus</em>}' class.
@@ -3444,14 +3817,14 @@ public interface MiniJavaPackage extends EPackage
     EReference MINUS__RIGHT = eINSTANCE.getMinus_Right();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MulOrDivImpl <em>Mul Or Div</em>}' class.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MultiplicationImpl <em>Multiplication</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MulOrDivImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMulOrDiv()
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MultiplicationImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMultiplication()
      * @generated
      */
-    EClass MUL_OR_DIV = eINSTANCE.getMulOrDiv();
+    EClass MULTIPLICATION = eINSTANCE.getMultiplication();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -3459,15 +3832,7 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MUL_OR_DIV__LEFT = eINSTANCE.getMulOrDiv_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MUL_OR_DIV__OP = eINSTANCE.getMulOrDiv_Op();
+    EReference MULTIPLICATION__LEFT = eINSTANCE.getMultiplication_Left();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -3475,7 +3840,33 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MUL_OR_DIV__RIGHT = eINSTANCE.getMulOrDiv_Right();
+    EReference MULTIPLICATION__RIGHT = eINSTANCE.getMultiplication_Right();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.DivisionImpl <em>Division</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.DivisionImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getDivision()
+     * @generated
+     */
+    EClass DIVISION = eINSTANCE.getDivision();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIVISION__LEFT = eINSTANCE.getDivision_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIVISION__RIGHT = eINSTANCE.getDivision_Right();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NotImpl <em>Not</em>}' class.
