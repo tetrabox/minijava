@@ -1372,87 +1372,108 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.SelectionExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cTerminalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cMemberSelectionReceiverAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cMemberAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final CrossReference cMemberMemberCrossReference_1_2_0 = (CrossReference)cMemberAssignment_1_2.eContents().get(0);
-		private final RuleCall cMemberMemberIDTerminalRuleCall_1_2_0_1 = (RuleCall)cMemberMemberCrossReference_1_2_0.eContents().get(1);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Assignment cMethodinvocationAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
-		private final Keyword cMethodinvocationLeftParenthesisKeyword_1_3_0_0 = (Keyword)cMethodinvocationAssignment_1_3_0.eContents().get(0);
-		private final Group cGroup_1_3_1 = (Group)cGroup_1_3.eContents().get(1);
-		private final Assignment cArgsAssignment_1_3_1_0 = (Assignment)cGroup_1_3_1.eContents().get(0);
-		private final RuleCall cArgsExpressionParserRuleCall_1_3_1_0_0 = (RuleCall)cArgsAssignment_1_3_1_0.eContents().get(0);
-		private final Group cGroup_1_3_1_1 = (Group)cGroup_1_3_1.eContents().get(1);
-		private final Keyword cCommaKeyword_1_3_1_1_0 = (Keyword)cGroup_1_3_1_1.eContents().get(0);
-		private final Assignment cArgsAssignment_1_3_1_1_1 = (Assignment)cGroup_1_3_1_1.eContents().get(1);
-		private final RuleCall cArgsExpressionParserRuleCall_1_3_1_1_1_0 = (RuleCall)cArgsAssignment_1_3_1_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_3_2 = (Keyword)cGroup_1_3.eContents().get(2);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Action cFieldAccessReceiverAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cMemberAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final CrossReference cMemberFieldCrossReference_1_0_2_0 = (CrossReference)cMemberAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cMemberFieldIDTerminalRuleCall_1_0_2_0_1 = (RuleCall)cMemberFieldCrossReference_1_0_2_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Action cMethodCallReceiverAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cMemberAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final CrossReference cMemberMethodCrossReference_1_1_2_0 = (CrossReference)cMemberAssignment_1_1_2.eContents().get(0);
+		private final RuleCall cMemberMethodIDTerminalRuleCall_1_1_2_0_1 = (RuleCall)cMemberMethodCrossReference_1_1_2_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_3 = (Keyword)cGroup_1_1.eContents().get(3);
+		private final Group cGroup_1_1_4 = (Group)cGroup_1_1.eContents().get(4);
+		private final Assignment cArgsAssignment_1_1_4_0 = (Assignment)cGroup_1_1_4.eContents().get(0);
+		private final RuleCall cArgsExpressionParserRuleCall_1_1_4_0_0 = (RuleCall)cArgsAssignment_1_1_4_0.eContents().get(0);
+		private final Group cGroup_1_1_4_1 = (Group)cGroup_1_1_4.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_4_1_0 = (Keyword)cGroup_1_1_4_1.eContents().get(0);
+		private final Assignment cArgsAssignment_1_1_4_1_1 = (Assignment)cGroup_1_1_4_1.eContents().get(1);
+		private final RuleCall cArgsExpressionParserRuleCall_1_1_4_1_1_0 = (RuleCall)cArgsAssignment_1_1_4_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_5 = (Keyword)cGroup_1_1.eContents().get(5);
 		
 		//SelectionExpression Expression:
-		//	TerminalExpression ({MemberSelection.receiver=current} '.'
-		//	member=[Member] (methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?)*;
+		//	TerminalExpression ({FieldAccess.receiver=current} '.' member=[Field] | {MethodCall.receiver=current} '.'
+		//	member=[Method]
+		//	'(' (args+=Expression (',' args+=Expression)*)? ')')*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TerminalExpression ({MemberSelection.receiver=current} '.' member=[Member] (methodinvocation?='(' (args+=Expression (','
-		//args+=Expression)*)? ')')?)*
+		//TerminalExpression ({FieldAccess.receiver=current} '.' member=[Field] | {MethodCall.receiver=current} '.'
+		//member=[Method] '(' (args+=Expression (',' args+=Expression)*)? ')')*
 		public Group getGroup() { return cGroup; }
 		
 		//TerminalExpression
 		public RuleCall getTerminalExpressionParserRuleCall_0() { return cTerminalExpressionParserRuleCall_0; }
 		
-		//({MemberSelection.receiver=current} '.' member=[Member] (methodinvocation?='(' (args+=Expression (','
-		//args+=Expression)*)? ')')?)*
-		public Group getGroup_1() { return cGroup_1; }
+		//({FieldAccess.receiver=current} '.' member=[Field] | {MethodCall.receiver=current} '.' member=[Method] '('
+		//(args+=Expression (',' args+=Expression)*)? ')')*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//{MemberSelection.receiver=current}
-		public Action getMemberSelectionReceiverAction_1_0() { return cMemberSelectionReceiverAction_1_0; }
+		//{FieldAccess.receiver=current} '.' member=[Field]
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{FieldAccess.receiver=current}
+		public Action getFieldAccessReceiverAction_1_0_0() { return cFieldAccessReceiverAction_1_0_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+		public Keyword getFullStopKeyword_1_0_1() { return cFullStopKeyword_1_0_1; }
 		
-		//member=[Member]
-		public Assignment getMemberAssignment_1_2() { return cMemberAssignment_1_2; }
+		//member=[Field]
+		public Assignment getMemberAssignment_1_0_2() { return cMemberAssignment_1_0_2; }
 		
-		//[Member]
-		public CrossReference getMemberMemberCrossReference_1_2_0() { return cMemberMemberCrossReference_1_2_0; }
+		//[Field]
+		public CrossReference getMemberFieldCrossReference_1_0_2_0() { return cMemberFieldCrossReference_1_0_2_0; }
 		
 		//ID
-		public RuleCall getMemberMemberIDTerminalRuleCall_1_2_0_1() { return cMemberMemberIDTerminalRuleCall_1_2_0_1; }
+		public RuleCall getMemberFieldIDTerminalRuleCall_1_0_2_0_1() { return cMemberFieldIDTerminalRuleCall_1_0_2_0_1; }
 		
-		//(methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?
-		public Group getGroup_1_3() { return cGroup_1_3; }
+		//{MethodCall.receiver=current} '.' member=[Method] '(' (args+=Expression (',' args+=Expression)*)? ')'
+		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//methodinvocation?='('
-		public Assignment getMethodinvocationAssignment_1_3_0() { return cMethodinvocationAssignment_1_3_0; }
+		//{MethodCall.receiver=current}
+		public Action getMethodCallReceiverAction_1_1_0() { return cMethodCallReceiverAction_1_1_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_1_1() { return cFullStopKeyword_1_1_1; }
+		
+		//member=[Method]
+		public Assignment getMemberAssignment_1_1_2() { return cMemberAssignment_1_1_2; }
+		
+		//[Method]
+		public CrossReference getMemberMethodCrossReference_1_1_2_0() { return cMemberMethodCrossReference_1_1_2_0; }
+		
+		//ID
+		public RuleCall getMemberMethodIDTerminalRuleCall_1_1_2_0_1() { return cMemberMethodIDTerminalRuleCall_1_1_2_0_1; }
 		
 		//'('
-		public Keyword getMethodinvocationLeftParenthesisKeyword_1_3_0_0() { return cMethodinvocationLeftParenthesisKeyword_1_3_0_0; }
+		public Keyword getLeftParenthesisKeyword_1_1_3() { return cLeftParenthesisKeyword_1_1_3; }
 		
 		//(args+=Expression (',' args+=Expression)*)?
-		public Group getGroup_1_3_1() { return cGroup_1_3_1; }
+		public Group getGroup_1_1_4() { return cGroup_1_1_4; }
 		
 		//args+=Expression
-		public Assignment getArgsAssignment_1_3_1_0() { return cArgsAssignment_1_3_1_0; }
+		public Assignment getArgsAssignment_1_1_4_0() { return cArgsAssignment_1_1_4_0; }
 		
 		//Expression
-		public RuleCall getArgsExpressionParserRuleCall_1_3_1_0_0() { return cArgsExpressionParserRuleCall_1_3_1_0_0; }
+		public RuleCall getArgsExpressionParserRuleCall_1_1_4_0_0() { return cArgsExpressionParserRuleCall_1_1_4_0_0; }
 		
 		//(',' args+=Expression)*
-		public Group getGroup_1_3_1_1() { return cGroup_1_3_1_1; }
+		public Group getGroup_1_1_4_1() { return cGroup_1_1_4_1; }
 		
 		//','
-		public Keyword getCommaKeyword_1_3_1_1_0() { return cCommaKeyword_1_3_1_1_0; }
+		public Keyword getCommaKeyword_1_1_4_1_0() { return cCommaKeyword_1_1_4_1_0; }
 		
 		//args+=Expression
-		public Assignment getArgsAssignment_1_3_1_1_1() { return cArgsAssignment_1_3_1_1_1; }
+		public Assignment getArgsAssignment_1_1_4_1_1() { return cArgsAssignment_1_1_4_1_1; }
 		
 		//Expression
-		public RuleCall getArgsExpressionParserRuleCall_1_3_1_1_1_0() { return cArgsExpressionParserRuleCall_1_3_1_1_1_0; }
+		public RuleCall getArgsExpressionParserRuleCall_1_1_4_1_1_0() { return cArgsExpressionParserRuleCall_1_1_4_1_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_1_3_2() { return cRightParenthesisKeyword_1_3_2; }
+		public Keyword getRightParenthesisKeyword_1_1_5() { return cRightParenthesisKeyword_1_1_5; }
 	}
 	public class TerminalExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.TerminalExpression");
@@ -2114,8 +2135,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SelectionExpression Expression:
-	//	TerminalExpression ({MemberSelection.receiver=current} '.'
-	//	member=[Member] (methodinvocation?='(' (args+=Expression (',' args+=Expression)*)? ')')?)*;
+	//	TerminalExpression ({FieldAccess.receiver=current} '.' member=[Field] | {MethodCall.receiver=current} '.'
+	//	member=[Method]
+	//	'(' (args+=Expression (',' args+=Expression)*)? ')')*;
 	public SelectionExpressionElements getSelectionExpressionAccess() {
 		return pSelectionExpression;
 	}

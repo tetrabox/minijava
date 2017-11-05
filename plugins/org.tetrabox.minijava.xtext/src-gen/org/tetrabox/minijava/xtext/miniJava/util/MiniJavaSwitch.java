@@ -20,6 +20,7 @@ import org.tetrabox.minijava.xtext.miniJava.Division;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.FieldAccess;
 import org.tetrabox.minijava.xtext.miniJava.ForStatement;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
@@ -29,8 +30,8 @@ import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Member;
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 import org.tetrabox.minijava.xtext.miniJava.Method;
+import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.Multiplication;
@@ -492,12 +493,21 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.MEMBER_SELECTION:
+      case MiniJavaPackage.FIELD_ACCESS:
       {
-        MemberSelection memberSelection = (MemberSelection)theEObject;
-        T result = caseMemberSelection(memberSelection);
-        if (result == null) result = caseExpression(memberSelection);
-        if (result == null) result = caseAssignee(memberSelection);
+        FieldAccess fieldAccess = (FieldAccess)theEObject;
+        T result = caseFieldAccess(fieldAccess);
+        if (result == null) result = caseExpression(fieldAccess);
+        if (result == null) result = caseAssignee(fieldAccess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.METHOD_CALL:
+      {
+        MethodCall methodCall = (MethodCall)theEObject;
+        T result = caseMethodCall(methodCall);
+        if (result == null) result = caseExpression(methodCall);
+        if (result == null) result = caseAssignee(methodCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1266,17 +1276,33 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Member Selection</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Field Access</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Member Selection</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Field Access</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMemberSelection(MemberSelection object)
+  public T caseFieldAccess(FieldAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodCall(MethodCall object)
   {
     return null;
   }

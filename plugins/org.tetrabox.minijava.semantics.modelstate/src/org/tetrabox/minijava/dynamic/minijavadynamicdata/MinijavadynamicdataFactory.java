@@ -85,15 +85,6 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	BooleanValue createBooleanValue();
 
 	/**
-	 * Returns a new object of class '<em>New EClass9</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>New EClass9</em>'.
-	 * @generated
-	 */
-	NewEClass9 createNewEClass9();
-
-	/**
 	 * Returns a new object of class '<em>Output Stream</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

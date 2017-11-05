@@ -25,6 +25,7 @@ import org.tetrabox.minijava.xtext.miniJava.Division;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.Field;
+import org.tetrabox.minijava.xtext.miniJava.FieldAccess;
 import org.tetrabox.minijava.xtext.miniJava.ForStatement;
 import org.tetrabox.minijava.xtext.miniJava.IfStatement;
 import org.tetrabox.minijava.xtext.miniJava.Import;
@@ -34,8 +35,8 @@ import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Member;
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
 import org.tetrabox.minijava.xtext.miniJava.Method;
+import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Minus;
@@ -162,7 +163,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.DIVISION: return createDivision();
       case MiniJavaPackage.NOT: return createNot();
       case MiniJavaPackage.NEG: return createNeg();
-      case MiniJavaPackage.MEMBER_SELECTION: return createMemberSelection();
+      case MiniJavaPackage.FIELD_ACCESS: return createFieldAccess();
+      case MiniJavaPackage.METHOD_CALL: return createMethodCall();
       case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
       case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
       case MiniJavaPackage.BOOL_CONSTANT: return createBoolConstant();
@@ -688,10 +690,21 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MemberSelection createMemberSelection()
+  public FieldAccess createFieldAccess()
   {
-    MemberSelectionImpl memberSelection = new MemberSelectionImpl();
-    return memberSelection;
+    FieldAccessImpl fieldAccess = new FieldAccessImpl();
+    return fieldAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodCall createMethodCall()
+  {
+    MethodCallImpl methodCall = new MethodCallImpl();
+    return methodCall;
   }
 
   /**

@@ -389,35 +389,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl <em>New EClass9</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewEClass9()
-	 * @generated
-	 */
-	int NEW_ECLASS9 = 8;
-
-	/**
-	 * The number of structural features of the '<em>New EClass9</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEW_ECLASS9_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>New EClass9</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEW_ECLASS9_OPERATION_COUNT = 0;
-
-
-	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.OutputStreamImpl <em>Output Stream</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,7 +396,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getOutputStream()
 	 * @generated
 	 */
-	int OUTPUT_STREAM = 9;
+	int OUTPUT_STREAM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Stream</b></em>' attribute list.
@@ -463,7 +434,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getRefValue()
 	 * @generated
 	 */
-	int REF_VALUE = 10;
+	int REF_VALUE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference.
@@ -501,7 +472,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 11;
+	int STATE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Root Frame</b></em>' containment reference.
@@ -557,7 +528,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getFrame()
 	 * @generated
 	 */
-	int FRAME = 12;
+	int FRAME = 11;
 
 	/**
 	 * The feature id for the '<em><b>Methodcall</b></em>' reference.
@@ -843,16 +814,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBooleanValue_Value();
-
-	/**
-	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9 <em>New EClass9</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>New EClass9</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9
-	 * @generated
-	 */
-	EClass getNewEClass9();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream <em>Output Stream</em>}'.
@@ -1213,16 +1174,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOLEAN_VALUE__VALUE = eINSTANCE.getBooleanValue_Value();
-
-		/**
-		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl <em>New EClass9</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewEClass9Impl
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewEClass9()
-		 * @generated
-		 */
-		EClass NEW_ECLASS9 = eINSTANCE.getNewEClass9();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.OutputStreamImpl <em>Output Stream</em>}' class.

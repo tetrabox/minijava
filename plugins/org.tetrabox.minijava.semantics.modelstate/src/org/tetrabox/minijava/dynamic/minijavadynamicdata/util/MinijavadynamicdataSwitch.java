@@ -117,12 +117,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MinijavadynamicdataPackage.NEW_ECLASS9: {
-				NewEClass9 newEClass9 = (NewEClass9)theEObject;
-				T result = caseNewEClass9(newEClass9);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MinijavadynamicdataPackage.OUTPUT_STREAM: {
 				OutputStream outputStream = (OutputStream)theEObject;
 				T result = caseOutputStream(outputStream);
@@ -269,21 +263,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBooleanValue(BooleanValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>New EClass9</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>New EClass9</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNewEClass9(NewEClass9 object) {
 		return null;
 	}
 

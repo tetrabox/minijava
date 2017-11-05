@@ -63,7 +63,6 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 			case MinijavadynamicdataPackage.FIELD_BINDING: return createFieldBinding();
 			case MinijavadynamicdataPackage.STRING_VALUE: return createStringValue();
 			case MinijavadynamicdataPackage.BOOLEAN_VALUE: return createBooleanValue();
-			case MinijavadynamicdataPackage.NEW_ECLASS9: return createNewEClass9();
 			case MinijavadynamicdataPackage.OUTPUT_STREAM: return createOutputStream();
 			case MinijavadynamicdataPackage.REF_VALUE: return createRefValue();
 			case MinijavadynamicdataPackage.STATE: return createState();
@@ -141,16 +140,6 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public BooleanValue createBooleanValue() {
 		BooleanValueImpl booleanValue = new BooleanValueImpl();
 		return booleanValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NewEClass9 createNewEClass9() {
-		NewEClass9Impl newEClass9 = new NewEClass9Impl();
-		return newEClass9;
 	}
 
 	/**

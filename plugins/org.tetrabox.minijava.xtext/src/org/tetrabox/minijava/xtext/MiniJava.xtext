@@ -141,10 +141,16 @@ Primary returns Expression:
 
 SelectionExpression returns Expression:
 	TerminalExpression
-	({MemberSelection.receiver=current} '.'
-	member=[Member]
-	(methodinvocation?='('
-	(args+=Expression (',' args+=Expression)*)? ')')?)*;
+	(
+		(
+		{FieldAccess.receiver=current} '.'	member=[Field]
+		|
+		{MethodCall.receiver=current} '.'	member=[Method]
+			'('(args+=Expression (',' args+=Expression)*)? ')'
+		)
+	)*;
+	
+
 
 TerminalExpression returns Expression:
 	{StringConstant} value=STRING |

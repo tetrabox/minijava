@@ -9,19 +9,19 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.CheckType
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
-import org.tetrabox.minijava.xtext.scoping.MiniJavaIndex
 import org.tetrabox.minijava.xtext.miniJava.Block
 import org.tetrabox.minijava.xtext.miniJava.Class
 import org.tetrabox.minijava.xtext.miniJava.Expression
-import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection
+import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.Method
+import org.tetrabox.minijava.xtext.miniJava.MethodCall
+import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
 import org.tetrabox.minijava.xtext.miniJava.NamedElement
 import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.Super
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
-import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
+import org.tetrabox.minijava.xtext.scoping.MiniJavaIndex
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 
@@ -63,22 +63,6 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			error("cycle in hierarchy of class '" + c.name + "'", MiniJavaPackage.eINSTANCE.class_Superclass,
 				HIERARCHY_CYCLE, c.superclass.name)
 		}
-	}
-
-	@Check
-	def void checkMemberSelection(MemberSelection sel) {
-		val member = sel.member
-
-		if (member instanceof Field && sel.methodinvocation)
-			error(
-				'''Method invocation on a field''', MiniJavaPackage.eINSTANCE.memberSelection_Methodinvocation,
-				METHOD_INVOCATION_ON_FIELD)
-		else if (member instanceof Method && !sel.methodinvocation)
-			error(
-				'''Field selection on a method''',
-				MiniJavaPackage.eINSTANCE.memberSelection_Member,
-				FIELD_SELECTION_ON_METHOD
-			)
 	}
 
 	@Check
@@ -140,12 +124,12 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		}
 	}
 
-	@Check def void checkMethodInvocationArguments(MemberSelection sel) {
+	@Check def void checkMethodInvocationArguments(MethodCall sel) {
 		val method = sel.member
 		if (method instanceof Method) {
 			if (method.params.size != sel.args.size) {
 				error("Invalid number of arguments: expected " + method.params.size + " but was " + sel.args.size,
-					MiniJavaPackage.eINSTANCE.memberSelection_Member, INVALID_ARGS)
+					MiniJavaPackage.eINSTANCE.methodCall_Member, INVALID_ARGS)
 			}
 		}
 	}
@@ -155,9 +139,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 		for (m : c.methods) {
 			val overridden = hierarchyMethods.get(m.name)
-			if (overridden !== null &&
-				(!m.typeRef.type.isConformant(overridden.typeRef.type) ||
-					!m.params.map[typeRef].elementsEqual(overridden.params.map[typeRef]))) {
+			if (overridden !== null && (!m.typeRef.type.isConformant(overridden.typeRef.type) ||
+				!m.params.map[typeRef].elementsEqual(overridden.params.map[typeRef]))) {
 				error("The method '" + m.name + "' must override a superclass method", m,
 					MiniJavaPackage.eINSTANCE.namedElement_Name, WRONG_METHOD_OVERRIDE)
 			} else if (m.access < overridden.access) {
@@ -167,12 +150,22 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		}
 	}
 
-	@Check def void checkAccessibility(MemberSelection sel) {
+	@Check def void checkAccessibility(FieldAccess sel) {
 		val member = sel.member
 		if (member.name !== null && !member.isAccessibleFrom(sel))
 			error(
 				'''The «member.access» member «member.name» is not accessible here''',
-				MiniJavaPackage.eINSTANCE.memberSelection_Member,
+				MiniJavaPackage.eINSTANCE.fieldAccess_Member,
+				MEMBER_NOT_ACCESSIBLE
+			)
+	}
+
+	@Check def void checkAccessibility(MethodCall sel) {
+		val member = sel.member
+		if (member.name !== null && !member.isAccessibleFrom(sel))
+			error(
+				'''The «member.access» member «member.name» is not accessible here''',
+				MiniJavaPackage.eINSTANCE.methodCall_Member,
 				MEMBER_NOT_ACCESSIBLE
 			)
 	}
@@ -192,7 +185,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 	@Check
 	def void checkSuper(Super s) {
-		if (s.eContainingFeature != MiniJavaPackage.eINSTANCE.memberSelection_Receiver)
+		if (s.eContainingFeature != MiniJavaPackage.eINSTANCE.methodCall_Receiver &&
+			s.eContainingFeature != MiniJavaPackage.eINSTANCE.fieldAccess_Receiver)
 			error("'super' can be used only as member selection receiver", null, WRONG_SUPER_USAGE)
 	}
 

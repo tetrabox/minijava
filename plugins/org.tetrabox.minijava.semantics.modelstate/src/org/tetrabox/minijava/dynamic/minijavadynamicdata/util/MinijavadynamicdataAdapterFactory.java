@@ -100,10 +100,6 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanValueAdapter();
 			}
 			@Override
-			public Adapter caseNewEClass9(NewEClass9 object) {
-				return createNewEClass9Adapter();
-			}
-			@Override
 			public Adapter caseOutputStream(OutputStream object) {
 				return createOutputStreamAdapter();
 			}
@@ -248,20 +244,6 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBooleanValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9 <em>New EClass9</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.NewEClass9
-	 * @generated
-	 */
-	public Adapter createNewEClass9Adapter() {
 		return null;
 	}
 

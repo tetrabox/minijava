@@ -3,8 +3,7 @@
 package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
+import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,12 +36,12 @@ public interface Frame extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Methodcall</em>' reference.
-	 * @see #setMethodcall(MemberSelection)
+	 * @see #setMethodcall(MethodCall)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFrame_Methodcall()
 	 * @model
 	 * @generated
 	 */
-	MemberSelection getMethodcall();
+	MethodCall getMethodcall();
 
 	/**
 	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getMethodcall <em>Methodcall</em>}' reference.
@@ -52,7 +51,7 @@ public interface Frame extends EObject {
 	 * @see #getMethodcall()
 	 * @generated
 	 */
-	void setMethodcall(MemberSelection value);
+	void setMethodcall(MethodCall value);
 
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' reference.

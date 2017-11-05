@@ -301,4 +301,24 @@ class MiniJavaSemanticsExpressionsTests {
 	def void division_3() {
 		genericExpressionTest("int", ''' 5/2 ''', factory.createIntegerValue => [value = 2])
 	}
+	
+	@Test
+	def void not_1() {
+		genericExpressionTest("boolean", ''' !true ''', factory.createBooleanValue => [value = false])
+	}
+	
+	@Test
+	def void not_2() {
+		genericExpressionTest("boolean", ''' !false ''', factory.createBooleanValue => [value = true])
+	}
+	
+	@Test
+	def void neg_1() {
+		genericExpressionTest("int", ''' -12 ''', factory.createIntegerValue => [value = -12])
+	}
+	
+	@Test
+	def void neg_2() {
+		genericExpressionTest("int", ''' -(-12) ''', factory.createIntegerValue => [value = 12])
+	}
 }

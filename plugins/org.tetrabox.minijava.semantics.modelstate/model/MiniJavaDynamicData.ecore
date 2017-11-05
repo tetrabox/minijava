@@ -34,7 +34,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//Value">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NewEClass9"/>
   <eClassifiers xsi:type="ecore:EClass" name="OutputStream">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -51,7 +50,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall" eType="ecore:EClass ../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//MemberSelection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall" eType="ecore:EClass ../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//MethodCall"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//Instance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childFrame" eType="#//Frame"
         containment="true" eOpposite="#//Frame/parentFrame"/>

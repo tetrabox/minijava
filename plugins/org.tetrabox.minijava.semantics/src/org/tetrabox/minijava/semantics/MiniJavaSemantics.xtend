@@ -16,20 +16,23 @@ import org.tetrabox.minijava.xtext.miniJava.And
 import org.tetrabox.minijava.xtext.miniJava.Assignment
 import org.tetrabox.minijava.xtext.miniJava.Block
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant
+import org.tetrabox.minijava.xtext.miniJava.Division
 import org.tetrabox.minijava.xtext.miniJava.Equality
 import org.tetrabox.minijava.xtext.miniJava.Expression
 import org.tetrabox.minijava.xtext.miniJava.Field
+import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.ForStatement
 import org.tetrabox.minijava.xtext.miniJava.IfStatement
+import org.tetrabox.minijava.xtext.miniJava.Inequality
 import org.tetrabox.minijava.xtext.miniJava.Inferior
 import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual
 import org.tetrabox.minijava.xtext.miniJava.IntConstant
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.Minus
 import org.tetrabox.minijava.xtext.miniJava.Multiplication
 import org.tetrabox.minijava.xtext.miniJava.Neg
 import org.tetrabox.minijava.xtext.miniJava.New
+import org.tetrabox.minijava.xtext.miniJava.Not
 import org.tetrabox.minijava.xtext.miniJava.Or
 import org.tetrabox.minijava.xtext.miniJava.Plus
 import org.tetrabox.minijava.xtext.miniJava.PrintStatement
@@ -47,8 +50,7 @@ import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.MiniJavaSemanticsUtil.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
-import org.tetrabox.minijava.xtext.miniJava.Inequality
-import org.tetrabox.minijava.xtext.miniJava.Division
+import org.tetrabox.minijava.xtext.miniJava.MethodCall
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -122,7 +124,7 @@ class AssigmentAspect extends StatementAspect {
 				]
 				context.bindings.add(binding)
 			}
-			MemberSelection: {
+			FieldAccess: {
 				val f = assignee.member as Field
 				val existingBinding = frame.instance.fieldbindings.findFirst[it.field === f]
 				if (existingBinding !== null) {
@@ -329,6 +331,17 @@ class SuperiorAspect extends ExpressionAspect {
 	}
 }
 
+@Aspect(className=Not)
+class NotAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(State state) {
+		val expr = (_self.expression.evaluate(state) as BooleanValue).value
+		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
+			value = !expr
+		]
+	}
+}
+
 @Aspect(className=Equality)
 class EqualityAspect extends ExpressionAspect {
 
@@ -381,30 +394,35 @@ class InequalityAspect extends ExpressionAspect {
 	}
 }
 
-@Aspect(className=MemberSelection)
-class MemberSelectionAspect extends ExpressionAspect {
+@Aspect(className=MethodCall)
+class MethodCallAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(State state) {
 		val realReceiver = _self.receiver.evaluate(state) as Instance
-		if (_self.methodinvocation) {
-			val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
-			for (arg : _self.args) {
-				val param = (_self.member as Method).params.get(_self.args.indexOf(arg))
-				val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
-					symbol = param
-					value = (arg as Expression).evaluate(state)
-				]
-				newContext.bindings.add(binding)
-			}
-			state.pushNewFrame(realReceiver, _self, newContext)
-			(_self.member as Method).body.evaluate(state)
-			val returnValue = state.currentFrame.returnValue
-			state.popCurrentFrame
-			return returnValue
-
-		} else {
-			return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
+		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+		for (arg : _self.args) {
+			val param = (_self.member as Method).params.get(_self.args.indexOf(arg))
+			val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
+				symbol = param
+				value = (arg as Expression).evaluate(state)
+			]
+			newContext.bindings.add(binding)
 		}
+		state.pushNewFrame(realReceiver, _self, newContext)
+		(_self.member as Method).body.evaluate(state)
+		val returnValue = state.currentFrame.returnValue
+		state.popCurrentFrame
+		return returnValue
+
+	}
+}
+
+@Aspect(className=FieldAccess)
+class FieldAccessAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluate(State state) {
+		val realReceiver = _self.receiver.evaluate(state) as Instance
+		return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
 	}
 }
 

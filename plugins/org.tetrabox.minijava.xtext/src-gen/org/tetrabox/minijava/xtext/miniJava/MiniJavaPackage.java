@@ -1515,14 +1515,14 @@ public interface MiniJavaPackage extends EPackage
   int NEG_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MemberSelectionImpl <em>Member Selection</em>}' class.
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.FieldAccessImpl <em>Field Access</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MemberSelectionImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMemberSelection()
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.FieldAccessImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getFieldAccess()
    * @generated
    */
-  int MEMBER_SELECTION = 43;
+  int FIELD_ACCESS = 43;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1531,7 +1531,7 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_SELECTION__RECEIVER = EXPRESSION_FEATURE_COUNT + 0;
+  int FIELD_ACCESS__RECEIVER = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Member</b></em>' reference.
@@ -1540,16 +1540,44 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_SELECTION__MEMBER = EXPRESSION_FEATURE_COUNT + 1;
+  int FIELD_ACCESS__MEMBER = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Methodinvocation</b></em>' attribute.
+   * The number of structural features of the '<em>Field Access</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER_SELECTION__METHODINVOCATION = EXPRESSION_FEATURE_COUNT + 2;
+  int FIELD_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodCallImpl <em>Method Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MethodCallImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMethodCall()
+   * @generated
+   */
+  int METHOD_CALL = 44;
+
+  /**
+   * The feature id for the '<em><b>Receiver</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_CALL__RECEIVER = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_CALL__MEMBER = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -1558,16 +1586,16 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_SELECTION__ARGS = EXPRESSION_FEATURE_COUNT + 3;
+  int METHOD_CALL__ARGS = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Member Selection</em>' class.
+   * The number of structural features of the '<em>Method Call</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER_SELECTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
+  int METHOD_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -1577,7 +1605,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 44;
+  int STRING_CONSTANT = 45;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1605,7 +1633,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 45;
+  int INT_CONSTANT = 46;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1633,7 +1661,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 46;
+  int BOOL_CONSTANT = 47;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1661,7 +1689,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getThis()
    * @generated
    */
-  int THIS = 47;
+  int THIS = 48;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -1680,7 +1708,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuper()
    * @generated
    */
-  int SUPER = 48;
+  int SUPER = 49;
 
   /**
    * The number of structural features of the '<em>Super</em>' class.
@@ -1699,7 +1727,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNull()
    * @generated
    */
-  int NULL = 49;
+  int NULL = 50;
 
   /**
    * The number of structural features of the '<em>Null</em>' class.
@@ -1718,7 +1746,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNew()
    * @generated
    */
-  int NEW = 50;
+  int NEW = 51;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1746,7 +1774,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 51;
+  int SYMBOL_REF = 52;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -1774,7 +1802,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 52;
+  int ACCESS_LEVEL = 53;
 
 
   /**
@@ -2813,58 +2841,79 @@ public interface MiniJavaPackage extends EPackage
   EReference getNeg_Expression();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection <em>Member Selection</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.FieldAccess <em>Field Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Member Selection</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MemberSelection
+   * @return the meta object for class '<em>Field Access</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.FieldAccess
    * @generated
    */
-  EClass getMemberSelection();
+  EClass getFieldAccess();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection#getReceiver <em>Receiver</em>}'.
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.FieldAccess#getReceiver <em>Receiver</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Receiver</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MemberSelection#getReceiver()
-   * @see #getMemberSelection()
+   * @see org.tetrabox.minijava.xtext.miniJava.FieldAccess#getReceiver()
+   * @see #getFieldAccess()
    * @generated
    */
-  EReference getMemberSelection_Receiver();
+  EReference getFieldAccess_Receiver();
 
   /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection#getMember <em>Member</em>}'.
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.FieldAccess#getMember <em>Member</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Member</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MemberSelection#getMember()
-   * @see #getMemberSelection()
+   * @see org.tetrabox.minijava.xtext.miniJava.FieldAccess#getMember()
+   * @see #getFieldAccess()
    * @generated
    */
-  EReference getMemberSelection_Member();
+  EReference getFieldAccess_Member();
 
   /**
-   * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection#isMethodinvocation <em>Methodinvocation</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.MethodCall <em>Method Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Methodinvocation</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MemberSelection#isMethodinvocation()
-   * @see #getMemberSelection()
+   * @return the meta object for class '<em>Method Call</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.MethodCall
    * @generated
    */
-  EAttribute getMemberSelection_Methodinvocation();
+  EClass getMethodCall();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.MemberSelection#getArgs <em>Args</em>}'.
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.MethodCall#getReceiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Receiver</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.MethodCall#getReceiver()
+   * @see #getMethodCall()
+   * @generated
+   */
+  EReference getMethodCall_Receiver();
+
+  /**
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.MethodCall#getMember <em>Member</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Member</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.MethodCall#getMember()
+   * @see #getMethodCall()
+   * @generated
+   */
+  EReference getMethodCall_Member();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.MethodCall#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Args</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.MemberSelection#getArgs()
-   * @see #getMemberSelection()
+   * @see org.tetrabox.minijava.xtext.miniJava.MethodCall#getArgs()
+   * @see #getMethodCall()
    * @generated
    */
-  EReference getMemberSelection_Args();
+  EReference getMethodCall_Args();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.StringConstant <em>String Constant</em>}'.
@@ -3905,14 +3954,14 @@ public interface MiniJavaPackage extends EPackage
     EReference NEG__EXPRESSION = eINSTANCE.getNeg_Expression();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MemberSelectionImpl <em>Member Selection</em>}' class.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.FieldAccessImpl <em>Field Access</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MemberSelectionImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMemberSelection()
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.FieldAccessImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getFieldAccess()
      * @generated
      */
-    EClass MEMBER_SELECTION = eINSTANCE.getMemberSelection();
+    EClass FIELD_ACCESS = eINSTANCE.getFieldAccess();
 
     /**
      * The meta object literal for the '<em><b>Receiver</b></em>' containment reference feature.
@@ -3920,7 +3969,7 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MEMBER_SELECTION__RECEIVER = eINSTANCE.getMemberSelection_Receiver();
+    EReference FIELD_ACCESS__RECEIVER = eINSTANCE.getFieldAccess_Receiver();
 
     /**
      * The meta object literal for the '<em><b>Member</b></em>' reference feature.
@@ -3928,15 +3977,33 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MEMBER_SELECTION__MEMBER = eINSTANCE.getMemberSelection_Member();
+    EReference FIELD_ACCESS__MEMBER = eINSTANCE.getFieldAccess_Member();
 
     /**
-     * The meta object literal for the '<em><b>Methodinvocation</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodCallImpl <em>Method Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MethodCallImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMethodCall()
+     * @generated
+     */
+    EClass METHOD_CALL = eINSTANCE.getMethodCall();
+
+    /**
+     * The meta object literal for the '<em><b>Receiver</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MEMBER_SELECTION__METHODINVOCATION = eINSTANCE.getMemberSelection_Methodinvocation();
+    EReference METHOD_CALL__RECEIVER = eINSTANCE.getMethodCall_Receiver();
+
+    /**
+     * The meta object literal for the '<em><b>Member</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_CALL__MEMBER = eINSTANCE.getMethodCall_Member();
 
     /**
      * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
@@ -3944,7 +4011,7 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MEMBER_SELECTION__ARGS = eINSTANCE.getMemberSelection_Args();
+    EReference METHOD_CALL__ARGS = eINSTANCE.getMethodCall_Args();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.StringConstantImpl <em>String Constant</em>}' class.

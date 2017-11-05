@@ -12,8 +12,8 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection
 import org.tetrabox.minijava.xtext.miniJava.Symbol
+import org.tetrabox.minijava.xtext.miniJava.MethodCall
 
 class MiniJavaSemanticsUtil {
 
@@ -81,7 +81,7 @@ class MiniJavaSemanticsUtil {
 		state.currentContext.childContext = null
 	}
 
-	static def void pushNewFrame(State state, Instance receiver, MemberSelection methodCall, Context newContext) {
+	static def void pushNewFrame(State state, Instance receiver, MethodCall methodCall, Context newContext) {
 		state.currentFrame.childFrame = factory.createFrame => [
 			instance = receiver
 			methodcall = methodCall

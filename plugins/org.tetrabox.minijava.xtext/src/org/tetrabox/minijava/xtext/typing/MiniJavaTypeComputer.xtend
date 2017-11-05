@@ -8,7 +8,6 @@ import org.tetrabox.minijava.xtext.miniJava.ClassRef
 import org.tetrabox.minijava.xtext.miniJava.Expression
 import org.tetrabox.minijava.xtext.miniJava.IntConstant
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
@@ -24,6 +23,8 @@ import org.tetrabox.minijava.xtext.miniJava.TypeRef
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
+import org.tetrabox.minijava.xtext.miniJava.FieldAccess
+import org.tetrabox.minijava.xtext.miniJava.MethodCall
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -33,7 +34,6 @@ class MiniJavaTypeComputer {
 	public static val NULL_TYPE = factory.createClass => [name = 'nullType']
 
 	static val ep = MiniJavaPackage.eINSTANCE
-
 
 	def getType(TypeRef r) {
 		switch r {
@@ -50,7 +50,9 @@ class MiniJavaTypeComputer {
 				e.type
 			SymbolRef:
 				e.symbol.typeRef.type
-			MemberSelection:
+			FieldAccess:
+				e.member.typeRef.type
+			MethodCall:
 				e.member.typeRef.type
 			This:
 				e.getContainerOfType(Class)
@@ -68,7 +70,7 @@ class MiniJavaTypeComputer {
 	}
 
 	def getSuperclassOrObject(Class c) {
-		c.superclass 
+		c.superclass
 	}
 
 	def isPrimitive(Class c) {
@@ -83,23 +85,17 @@ class MiniJavaTypeComputer {
 				c.typeRef.type
 			Assignment case f == ep.assignment_Value: {
 				val assignee = c.assignee
-				switch(assignee) {
+				switch (assignee) {
 					VariableDeclaration: assignee.typeRef.type
-					MemberSelection: assignee.typeFor
+					FieldAccess: assignee.typeFor
 				}
 			}
 			Return:
 				c.getContainerOfType(Method).typeRef.type
 			case f == ep.ifStatement_Expression:
 				BOOLEAN_TYPE
-			MemberSelection case f == ep.memberSelection_Args: {
-				// assume that it refers to a method and that there
-				// is a parameter corresponding to the argument
-				try {
-					(c.member as Method).params.get(c.args.indexOf(e)).typeRef.type
-				} catch (Throwable t) {
-					null // otherwise there is no specific expected type
-				}
+			MethodCall case f == ep.methodCall_Args: {
+				(c.member as Method).params.get(c.args.indexOf(e)).typeRef.type
 			}
 		}
 	}

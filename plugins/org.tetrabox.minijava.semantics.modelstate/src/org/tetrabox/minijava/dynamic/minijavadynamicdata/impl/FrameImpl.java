@@ -15,8 +15,7 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
-
-import org.tetrabox.minijava.xtext.miniJava.MemberSelection;
+import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +44,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * @generated
 	 * @ordered
 	 */
-	protected MemberSelection methodcall;
+	protected MethodCall methodcall;
 
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference.
@@ -111,10 +110,10 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MemberSelection getMethodcall() {
+	public MethodCall getMethodcall() {
 		if (methodcall != null && methodcall.eIsProxy()) {
 			InternalEObject oldMethodcall = (InternalEObject)methodcall;
-			methodcall = (MemberSelection)eResolveProxy(oldMethodcall);
+			methodcall = (MethodCall)eResolveProxy(oldMethodcall);
 			if (methodcall != oldMethodcall) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.FRAME__METHODCALL, oldMethodcall, methodcall));
@@ -128,7 +127,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MemberSelection basicGetMethodcall() {
+	public MethodCall basicGetMethodcall() {
 		return methodcall;
 	}
 
@@ -137,8 +136,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMethodcall(MemberSelection newMethodcall) {
-		MemberSelection oldMethodcall = methodcall;
+	public void setMethodcall(MethodCall newMethodcall) {
+		MethodCall oldMethodcall = methodcall;
 		methodcall = newMethodcall;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.FRAME__METHODCALL, oldMethodcall, methodcall));
@@ -442,7 +441,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.FRAME__METHODCALL:
-				setMethodcall((MemberSelection)newValue);
+				setMethodcall((MethodCall)newValue);
 				return;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
 				setInstance((Instance)newValue);
@@ -472,7 +471,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.FRAME__METHODCALL:
-				setMethodcall((MemberSelection)null);
+				setMethodcall((MethodCall)null);
 				return;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
 				setInstance((Instance)null);
