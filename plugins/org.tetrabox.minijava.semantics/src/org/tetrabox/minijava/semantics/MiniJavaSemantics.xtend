@@ -51,6 +51,8 @@ import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.MiniJavaSemanticsUtil.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
+import org.tetrabox.minijava.xtext.miniJava.Return
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -61,12 +63,10 @@ class ProgramAspect {
 		val main = _self.classes.map[members].flatten.filter(Method).findFirst[it.name == "main" && it.static]
 		val state = factory.createState => [
 			outputStream = factory.createOutputStream
-			rootFrame = factory.createFrame => [
-				rootContext = factory.createContext
-			]
+			rootFrame = factory.createFrame
 		]
 		if (main !== null) {
-			main.body.evaluate(state)
+			main.body.evaluateKeepContext(state)
 			return state
 		} else
 			throw new RuntimeException("No main method found.")
@@ -76,14 +76,19 @@ class ProgramAspect {
 
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
-	@OverrideAspectMethod
-	def void evaluate(State state) {
+
+	def void evaluateKeepContext(State state) {
 		state.pushNewContext
 		val currentFrame = state.currentFrame
 		var i = _self.statements.iterator
 		while (i.hasNext && currentFrame.returnValue === null) {
 			i.next.evaluate(state)
 		}
+	}
+
+	@OverrideAspectMethod
+	def void evaluate(State state) {
+		_self.evaluateKeepContext(state)
 		state.popCurrentContext
 	}
 }
@@ -398,7 +403,7 @@ class InequalityAspect extends ExpressionAspect {
 class MethodCallAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(State state) {
-		val realReceiver = _self.receiver.evaluate(state) as Instance
+		val realReceiver = (_self.receiver.evaluate(state) as RefValue).instance
 		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		for (arg : _self.args) {
 			val param = (_self.member as Method).params.get(_self.args.indexOf(arg))
@@ -423,6 +428,15 @@ class FieldAccessAspect extends ExpressionAspect {
 	def Value evaluate(State state) {
 		val realReceiver = (_self.receiver.evaluate(state) as RefValue).instance
 		return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
+	}
+}
+
+@Aspect(className=Return)
+class ReturnAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluate(State state) {
+		val value = _self.expression.evaluate(state);
+		state.currentFrame.returnValue = value
 	}
 }
 

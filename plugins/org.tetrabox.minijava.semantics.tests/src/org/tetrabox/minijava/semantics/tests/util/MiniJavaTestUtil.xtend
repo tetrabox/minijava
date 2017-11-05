@@ -40,12 +40,12 @@ class MiniJavaTestUtil {
 			}
 			
 			int increment(int inc) {
-				this.i = i + inc;
+				this.i = this.i + inc;
 				return i;
 			}
 			
-			boolean test(String s) {
-				return s == "hello";
+			boolean testString(String tested) {
+				return this.s == tested;
 			}
 				
 		}
@@ -72,8 +72,8 @@ class MiniJavaTestUtil {
 		val result = context.bindings.findFirst[it.symbol.name == symbol]
 		if (result !== null) {
 			return result.value
-		} else if (context.childContext !== null) {
-			return context.childContext.get(symbol)
+		} else if (context.parentContext !== null) {
+			return context.parentContext.get(symbol)
 		} else {
 			return null;
 		}

@@ -335,4 +335,10 @@ class MiniJavaSemanticsExpressionsTests {
 		genericExpressionTest("X test = new X(); test.i = 12; test.i = 15;", "int", ''' test.i ''',
 			factory.createIntegerValue => [value = 15])
 	}
+	
+	@Test
+	def void methodCall_1() {
+		genericExpressionTest('''X test = new X(); test.s = "hello"; ''', "boolean", ''' test.testString("hello") ''',
+			factory.createBooleanValue => [value = true])
+	}
 }

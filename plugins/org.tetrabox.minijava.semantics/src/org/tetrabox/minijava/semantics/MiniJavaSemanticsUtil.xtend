@@ -55,8 +55,10 @@ class MiniJavaSemanticsUtil {
 	static def Context getCurrentContext(Frame frame) {
 		if (frame.childFrame !== null) {
 			return frame.childFrame.currentContext
-		} else {
+		} else if (frame.rootContext !== null) {
 			return frame.rootContext.currentContext
+		} else {
+			return null
 		}
 	}
 
@@ -74,11 +76,15 @@ class MiniJavaSemanticsUtil {
 	}
 
 	static def void pushNewContext(State state) {
-		state.currentContext.childContext = factory.createContext
+		if (state.currentContext !== null) {
+			state.currentContext.childContext = factory.createContext
+		} else {
+			state.currentFrame.rootContext = factory.createContext
+		}
 	}
 
 	static def void popCurrentContext(State state) {
-		state.currentContext.childContext = null
+		state.currentContext.parentContext = null
 	}
 
 	static def void pushNewFrame(State state, Instance receiver, MethodCall methodCall, Context newContext) {
@@ -90,7 +96,7 @@ class MiniJavaSemanticsUtil {
 	}
 
 	static def void popCurrentFrame(State state) {
-		state.currentFrame.childFrame = null
+		state.currentFrame.parentFrame = null;
 	}
 
 	static def dispatch Value copy(RefValue value) {
