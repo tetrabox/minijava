@@ -440,16 +440,19 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPrintStatementParserRuleCall_5_0 = (RuleCall)cGroup_5.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final RuleCall cBlockParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final RuleCall cSelectionExpressionParserRuleCall_7_0 = (RuleCall)cGroup_7.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		
 		//// TODO enable method calls as statements
 		//Statement:
 		//	Return ';' |
-		//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block // |
-		//	//SelectionExpression ';'
-		//;
+		//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block | SelectionExpression
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Return ';' | => Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block
+		//Return ';' | => Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block |
+		//SelectionExpression ';'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Return ';'
@@ -490,6 +493,15 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Block
 		public RuleCall getBlockParserRuleCall_6() { return cBlockParserRuleCall_6; }
+		
+		//SelectionExpression ';'
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//SelectionExpression
+		public RuleCall getSelectionExpressionParserRuleCall_7_0() { return cSelectionExpressionParserRuleCall_7_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_7_1() { return cSemicolonKeyword_7_1; }
 	}
 	public class PrintStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.PrintStatement");
@@ -1899,9 +1911,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	//// TODO enable method calls as statements
 	//Statement:
 	//	Return ';' |
-	//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block // |
-	//	//SelectionExpression ';'
-	//;
+	//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block | SelectionExpression
+	//	';';
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}

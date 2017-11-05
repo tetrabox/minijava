@@ -324,12 +324,15 @@ class MiniJavaSemanticsExpressionsTests {
 	}
 
 	@Test
-	def void fieldAccess_int() {
-		genericExpressionTest("X test = new X(); test.i = 12;", "int", ''' test.i ''', factory.createIntegerValue => [value = 12])
+	def void fieldAccess_singlechange() {
+		genericExpressionTest("X test = new X(); test.i = 12;", "int", ''' test.i ''', factory.createIntegerValue => [
+			value = 12
+		])
 	}
-	
+
 	@Test
-	def void fieldAccess_boolean() {
-		genericExpressionTest("X test = new X(); test.b = true;", "boolean", ''' test.b ''', factory.createBooleanValue => [value = true])
+	def void fieldAccess_multiplechanges() {
+		genericExpressionTest("X test = new X(); test.i = 12; test.i = 15;", "int", ''' test.i ''',
+			factory.createIntegerValue => [value = 15])
 	}
 }

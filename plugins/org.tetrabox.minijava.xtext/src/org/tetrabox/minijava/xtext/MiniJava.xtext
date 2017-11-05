@@ -41,7 +41,6 @@ enum AccessLevel:
 Block:
 	{Block} '{' statements+=Statement* '}';
 
-	// TODO enable method calls as statements
 Statement:
 	Return ';' |
 	=> Assignment ';' |
@@ -49,8 +48,8 @@ Statement:
 	WhileStatement |
 	ForStatement |
 	PrintStatement ";" |
-	Block // |
-	//SelectionExpression ';'
+	Block  |
+	SelectionExpression ';'
 ;
 
 PrintStatement:

@@ -14,6 +14,6 @@ package org.tetrabox.minijava.xtext.miniJava;
  * @model
  * @generated
  */
-public interface Expression extends Assignee
+public interface Expression extends Statement, Assignee
 {
 } // Expression

@@ -92,7 +92,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assignee"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Assignee"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Statement #//Assignee"/>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayTypeRef" eSuperTypes="#//TypeRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//SingleTypeRef"
         containment="true"/>

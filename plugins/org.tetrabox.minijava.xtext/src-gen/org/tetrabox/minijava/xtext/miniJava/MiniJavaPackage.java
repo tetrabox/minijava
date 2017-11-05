@@ -908,7 +908,7 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = ASSIGNEE_FEATURE_COUNT + 0;
+  int EXPRESSION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ArrayTypeRefImpl <em>Array Type Ref</em>}' class.

@@ -863,6 +863,21 @@ ruleStatement returns [EObject current=null]
 			$current = $this_Block_9.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		(
+			{
+				newCompositeNode(grammarAccess.getStatementAccess().getSelectionExpressionParserRuleCall_7_0());
+			}
+			this_SelectionExpression_10=ruleSelectionExpression
+			{
+				$current = $this_SelectionExpression_10.current;
+				afterParserOrEnumRuleCall();
+			}
+			otherlv_11=';'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getStatementAccess().getSemicolonKeyword_7_1());
+			}
+		)
 	)
 ;
 

@@ -1958,6 +1958,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     variableDeclarationEClass.getESuperTypes().add(this.getSymbol());
     variableDeclarationEClass.getESuperTypes().add(this.getAssignee());
     assignmentEClass.getESuperTypes().add(this.getStatement());
+    expressionEClass.getESuperTypes().add(this.getStatement());
     expressionEClass.getESuperTypes().add(this.getAssignee());
     arrayTypeRefEClass.getESuperTypes().add(this.getTypeRef());
     integerTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());

@@ -319,6 +319,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = caseStatement(expression);
         if (result == null) result = caseAssignee(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -372,6 +373,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Or or = (Or)theEObject;
         T result = caseOr(or);
         if (result == null) result = caseExpression(or);
+        if (result == null) result = caseStatement(or);
         if (result == null) result = caseAssignee(or);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -381,6 +383,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         And and = (And)theEObject;
         T result = caseAnd(and);
         if (result == null) result = caseExpression(and);
+        if (result == null) result = caseStatement(and);
         if (result == null) result = caseAssignee(and);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -390,6 +393,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Equality equality = (Equality)theEObject;
         T result = caseEquality(equality);
         if (result == null) result = caseExpression(equality);
+        if (result == null) result = caseStatement(equality);
         if (result == null) result = caseAssignee(equality);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -399,6 +403,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Inequality inequality = (Inequality)theEObject;
         T result = caseInequality(inequality);
         if (result == null) result = caseExpression(inequality);
+        if (result == null) result = caseStatement(inequality);
         if (result == null) result = caseAssignee(inequality);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -408,6 +413,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         SuperiorOrEqual superiorOrEqual = (SuperiorOrEqual)theEObject;
         T result = caseSuperiorOrEqual(superiorOrEqual);
         if (result == null) result = caseExpression(superiorOrEqual);
+        if (result == null) result = caseStatement(superiorOrEqual);
         if (result == null) result = caseAssignee(superiorOrEqual);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -417,6 +423,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         InferiorOrEqual inferiorOrEqual = (InferiorOrEqual)theEObject;
         T result = caseInferiorOrEqual(inferiorOrEqual);
         if (result == null) result = caseExpression(inferiorOrEqual);
+        if (result == null) result = caseStatement(inferiorOrEqual);
         if (result == null) result = caseAssignee(inferiorOrEqual);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -426,6 +433,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Superior superior = (Superior)theEObject;
         T result = caseSuperior(superior);
         if (result == null) result = caseExpression(superior);
+        if (result == null) result = caseStatement(superior);
         if (result == null) result = caseAssignee(superior);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -435,6 +443,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Inferior inferior = (Inferior)theEObject;
         T result = caseInferior(inferior);
         if (result == null) result = caseExpression(inferior);
+        if (result == null) result = caseStatement(inferior);
         if (result == null) result = caseAssignee(inferior);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -444,6 +453,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Plus plus = (Plus)theEObject;
         T result = casePlus(plus);
         if (result == null) result = caseExpression(plus);
+        if (result == null) result = caseStatement(plus);
         if (result == null) result = caseAssignee(plus);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -453,6 +463,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Minus minus = (Minus)theEObject;
         T result = caseMinus(minus);
         if (result == null) result = caseExpression(minus);
+        if (result == null) result = caseStatement(minus);
         if (result == null) result = caseAssignee(minus);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -462,6 +473,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Multiplication multiplication = (Multiplication)theEObject;
         T result = caseMultiplication(multiplication);
         if (result == null) result = caseExpression(multiplication);
+        if (result == null) result = caseStatement(multiplication);
         if (result == null) result = caseAssignee(multiplication);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -471,6 +483,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Division division = (Division)theEObject;
         T result = caseDivision(division);
         if (result == null) result = caseExpression(division);
+        if (result == null) result = caseStatement(division);
         if (result == null) result = caseAssignee(division);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -480,6 +493,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Not not = (Not)theEObject;
         T result = caseNot(not);
         if (result == null) result = caseExpression(not);
+        if (result == null) result = caseStatement(not);
         if (result == null) result = caseAssignee(not);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -489,6 +503,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Neg neg = (Neg)theEObject;
         T result = caseNeg(neg);
         if (result == null) result = caseExpression(neg);
+        if (result == null) result = caseStatement(neg);
         if (result == null) result = caseAssignee(neg);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -498,6 +513,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         FieldAccess fieldAccess = (FieldAccess)theEObject;
         T result = caseFieldAccess(fieldAccess);
         if (result == null) result = caseExpression(fieldAccess);
+        if (result == null) result = caseStatement(fieldAccess);
         if (result == null) result = caseAssignee(fieldAccess);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -507,6 +523,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         MethodCall methodCall = (MethodCall)theEObject;
         T result = caseMethodCall(methodCall);
         if (result == null) result = caseExpression(methodCall);
+        if (result == null) result = caseStatement(methodCall);
         if (result == null) result = caseAssignee(methodCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -516,6 +533,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         StringConstant stringConstant = (StringConstant)theEObject;
         T result = caseStringConstant(stringConstant);
         if (result == null) result = caseExpression(stringConstant);
+        if (result == null) result = caseStatement(stringConstant);
         if (result == null) result = caseAssignee(stringConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -525,6 +543,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         IntConstant intConstant = (IntConstant)theEObject;
         T result = caseIntConstant(intConstant);
         if (result == null) result = caseExpression(intConstant);
+        if (result == null) result = caseStatement(intConstant);
         if (result == null) result = caseAssignee(intConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -534,6 +553,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         BoolConstant boolConstant = (BoolConstant)theEObject;
         T result = caseBoolConstant(boolConstant);
         if (result == null) result = caseExpression(boolConstant);
+        if (result == null) result = caseStatement(boolConstant);
         if (result == null) result = caseAssignee(boolConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -543,6 +563,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         This this_ = (This)theEObject;
         T result = caseThis(this_);
         if (result == null) result = caseExpression(this_);
+        if (result == null) result = caseStatement(this_);
         if (result == null) result = caseAssignee(this_);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -552,6 +573,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Super super_ = (Super)theEObject;
         T result = caseSuper(super_);
         if (result == null) result = caseExpression(super_);
+        if (result == null) result = caseStatement(super_);
         if (result == null) result = caseAssignee(super_);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -561,6 +583,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         Null null_ = (Null)theEObject;
         T result = caseNull(null_);
         if (result == null) result = caseExpression(null_);
+        if (result == null) result = caseStatement(null_);
         if (result == null) result = caseAssignee(null_);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -570,6 +593,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         New new_ = (New)theEObject;
         T result = caseNew(new_);
         if (result == null) result = caseExpression(new_);
+        if (result == null) result = caseStatement(new_);
         if (result == null) result = caseAssignee(new_);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -579,6 +603,7 @@ public class MiniJavaSwitch<T> extends Switch<T>
         SymbolRef symbolRef = (SymbolRef)theEObject;
         T result = caseSymbolRef(symbolRef);
         if (result == null) result = caseExpression(symbolRef);
+        if (result == null) result = caseStatement(symbolRef);
         if (result == null) result = caseAssignee(symbolRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
