@@ -141,8 +141,9 @@ class MiniJavaSemanticsExpressionsTests {
 
 	@Test
 	def void Equality_inequal_instances_false() {
-		genericExpressionTest('''Main i1 = new Main(); Main i2 = i1;''', "boolean", ''' i1 != i2 ''',
-			factory.createBooleanValue => [value = false])
+		genericExpressionTest('''
+		Main i1 = new Main(); 
+		Main i2 = i1;''', "boolean", ''' i1 != i2 ''', factory.createBooleanValue => [value = false])
 	}
 
 	@Test
@@ -301,24 +302,34 @@ class MiniJavaSemanticsExpressionsTests {
 	def void division_3() {
 		genericExpressionTest("int", ''' 5/2 ''', factory.createIntegerValue => [value = 2])
 	}
-	
+
 	@Test
 	def void not_1() {
 		genericExpressionTest("boolean", ''' !true ''', factory.createBooleanValue => [value = false])
 	}
-	
+
 	@Test
 	def void not_2() {
 		genericExpressionTest("boolean", ''' !false ''', factory.createBooleanValue => [value = true])
 	}
-	
+
 	@Test
 	def void neg_1() {
 		genericExpressionTest("int", ''' -12 ''', factory.createIntegerValue => [value = -12])
 	}
-	
+
 	@Test
 	def void neg_2() {
 		genericExpressionTest("int", ''' -(-12) ''', factory.createIntegerValue => [value = 12])
+	}
+
+	@Test
+	def void fieldAccess_int() {
+		genericExpressionTest("X test = new X(); test.i = 12;", "int", ''' test.i ''', factory.createIntegerValue => [value = 12])
+	}
+	
+	@Test
+	def void fieldAccess_boolean() {
+		genericExpressionTest("X test = new X(); test.b = true;", "boolean", ''' test.b ''', factory.createBooleanValue => [value = true])
 	}
 }

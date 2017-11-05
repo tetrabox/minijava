@@ -17,6 +17,7 @@ import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 import static extension org.tetrabox.minijava.semantics.MiniJavaSemanticsUtil.*
+
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaTestUtil {
 
@@ -26,6 +27,35 @@ class MiniJavaTestUtil {
 	public static val String intTypeName = "int"
 	public static val String booleanTypeName = "boolean"
 	public static val String stringTypeName = "String"
+
+	public def static String prepareTestProgram(String mainContent) {
+		'''
+		class X {
+			int i;
+			boolean b;
+			String s;
+			
+			void hello() {
+				System.out.println("hello");
+			}
+			
+			int increment(int inc) {
+				this.i = i + inc;
+				return i;
+			}
+			
+			boolean test(String s) {
+				return s == "hello";
+			}
+				
+		}
+		
+		class Main  {
+			public static void main(String[] args) {
+				«mainContent»
+			} 
+		}'''
+	}
 
 	public def static void assertPrint(State state, String... expecteds) {
 		val stream = state.outputStream.stream
@@ -69,16 +99,10 @@ class MiniJavaTestUtil {
 	}
 
 	public def void genericExpressionTest(String preStatements, String type, String expression, Value expectedValue) {
-		val program = '''class Main  {
-			public static void main(String[] args) {
-				«preStatements»
-				«type» x = «expression»;
-			} 
-		}'''
-
+		val program = prepareTestProgram('''  «preStatements» «type» x = «expression»; ''')
 		genericTest(program, [ s |
 			val result = s.currentContext.get("x")
-			Assert::assertTrue('''«expectedValue» is different from «result»''',MiniJavaValueEquals::equals(
+			Assert::assertTrue('''«expectedValue» is different from «result»''', MiniJavaValueEquals::equals(
 				expectedValue,
 				result
 			))
@@ -90,11 +114,7 @@ class MiniJavaTestUtil {
 	}
 
 	public def void genericStatementTest(String statement, Consumer<State> oracle) {
-		val program = '''class Main  {
-			public static void main(String[] args) {
-				«statement»
-			} 
-		}'''
+		val program = prepareTestProgram(statement)
 		genericTest(program, oracle)
 	}
 

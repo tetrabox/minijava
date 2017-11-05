@@ -109,7 +109,6 @@ class AssigmentAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluate(State state) {
 		val context = state.currentContext
-		val frame = state.currentFrame
 		val right = _self.value.evaluate(state)
 		val assignee = _self.assignee
 		switch (assignee) {
@@ -126,7 +125,8 @@ class AssigmentAspect extends StatementAspect {
 			}
 			FieldAccess: {
 				val f = assignee.member as Field
-				val existingBinding = frame.instance.fieldbindings.findFirst[it.field === f]
+				val realReceiver = (assignee.receiver.evaluate(state) as RefValue).instance
+				val existingBinding = realReceiver.fieldbindings.findFirst[it.field === f]
 				if (existingBinding !== null) {
 					existingBinding.value = right
 				} else {
@@ -134,7 +134,7 @@ class AssigmentAspect extends StatementAspect {
 						field = f
 						value = right
 					]
-					frame.instance.fieldbindings.add(binding)
+					realReceiver.fieldbindings.add(binding)
 				}
 			}
 		}
@@ -421,7 +421,7 @@ class MethodCallAspect extends ExpressionAspect {
 class FieldAccessAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluate(State state) {
-		val realReceiver = _self.receiver.evaluate(state) as Instance
+		val realReceiver = (_self.receiver.evaluate(state) as RefValue).instance
 		return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
 	}
 }
