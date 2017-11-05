@@ -53,6 +53,8 @@ import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.tetrabox.minijava.xtext.miniJava.Null
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -66,7 +68,7 @@ class ProgramAspect {
 			rootFrame = factory.createFrame
 		]
 		if (main !== null) {
-			main.body.evaluateKeepContext(state)
+			main.body.evaluateStatementKeepContext(state)
 			return state
 		} else
 			throw new RuntimeException("No main method found.")
@@ -77,25 +79,25 @@ class ProgramAspect {
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
 
-	def void evaluateKeepContext(State state) {
+	def void evaluateStatementKeepContext(State state) {
 		state.pushNewContext
 		val currentFrame = state.currentFrame
 		var i = _self.statements.iterator
 		while (i.hasNext && currentFrame.returnValue === null) {
-			i.next.evaluate(state)
+			i.next.evaluateStatement(state)
 		}
 	}
 
 	@OverrideAspectMethod
-	def void evaluate(State state) {
-		_self.evaluateKeepContext(state)
+	def void evaluateStatement(State state) {
+		_self.evaluateStatementKeepContext(state)
 		state.popCurrentContext
 	}
 }
 
 @Aspect(className=Statement)
 class StatementAspect {
-	def void evaluate(State state) {
+	def void evaluateStatement(State state) {
 		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
 	}
 }
@@ -103,18 +105,20 @@ class StatementAspect {
 @Aspect(className=PrintStatement)
 class PrintStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
-	def void evaluate(State state) {
-		val string = _self.expression.evaluate(state).customToString
+	def void evaluateStatement(State state) {
+		val string = _self.expression.evaluateExpression(state).customToString
 		state.println(string)
 	}
 }
 
+
+
 @Aspect(className=Assignment)
 class AssigmentAspect extends StatementAspect {
 	@OverrideAspectMethod
-	def void evaluate(State state) {
+	def void evaluateStatement(State state) {
 		val context = state.currentContext
-		val right = _self.value.evaluate(state)
+		val right = _self.value.evaluateExpression(state)
 		val assignee = _self.assignee
 		switch (assignee) {
 			SymbolRef: {
@@ -130,7 +134,7 @@ class AssigmentAspect extends StatementAspect {
 			}
 			FieldAccess: {
 				val f = assignee.member as Field
-				val realReceiver = (assignee.receiver.evaluate(state) as RefValue).instance
+				val realReceiver = (assignee.receiver.evaluateExpression(state) as RefValue).instance
 				val existingBinding = realReceiver.fieldbindings.findFirst[it.field === f]
 				if (existingBinding !== null) {
 					existingBinding.value = right
@@ -149,11 +153,11 @@ class AssigmentAspect extends StatementAspect {
 @Aspect(className=ForStatement)
 class ForStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
-	def void evaluate(State state) {
+	def void evaluateStatement(State state) {
 		state.pushNewContext
-		for (_self.declaration.evaluate(state); (_self.condition.evaluate(state) as BooleanValue).value; _self.
-			progression.evaluate(state)) {
-			_self.block.evaluate(state)
+		for (_self.declaration.evaluateStatement(state); (_self.condition.evaluateExpression(state) as BooleanValue).value; _self.
+			progression.evaluateStatement(state)) {
+			_self.block.evaluateStatement(state)
 		}
 		state.popCurrentContext
 	}
@@ -162,11 +166,11 @@ class ForStatementAspect extends StatementAspect {
 @Aspect(className=IfStatement)
 class IfStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
-	def void evaluate(State state) {
-		if ((_self.expression.evaluate(state) as BooleanValue).value) {
-			_self.thenBlock.evaluate(state)
+	def void evaluateStatement(State state) {
+		if ((_self.expression.evaluateExpression(state) as BooleanValue).value) {
+			_self.thenBlock.evaluateStatement(state)
 		} else if (_self.elseBlock !== null) {
-			_self.elseBlock.evaluate(state)
+			_self.elseBlock.evaluateStatement(state)
 		}
 	}
 }
@@ -174,16 +178,16 @@ class IfStatementAspect extends StatementAspect {
 @Aspect(className=WhileStatement)
 class WhileStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
-	def void evaluate(State state) {
-		while ((_self.condition.evaluate(state) as BooleanValue).value) {
-			_self.block.evaluate(state)
+	def void evaluateStatement(State state) {
+		while ((_self.condition.evaluateExpression(state) as BooleanValue).value) {
+			_self.block.evaluateStatement(state)
 		}
 	}
 }
 
 @Aspect(className=Expression)
 class ExpressionAspect {
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
 	}
 }
@@ -191,18 +195,26 @@ class ExpressionAspect {
 @Aspect(className=Neg)
 class NegAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val intabsvalue = (_self.expression.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val intabsvalue = (_self.expression.evaluateExpression(state) as IntegerValue).value
 		return factory.createIntegerValue => [value = -intabsvalue]
+	}
+}
+
+@Aspect(className=Null)
+class NullAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluateExpression(State state) {
+		return factory.createNullValue
 	}
 }
 
 @Aspect(className=Minus)
 class MinusAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return factory.createIntegerValue => [value = left - right]
 	}
 }
@@ -210,9 +222,9 @@ class MinusAspect extends ExpressionAspect {
 @Aspect(className=Multiplication)
 class MultiplicationAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return factory.createIntegerValue => [value = left * right]
 	}
 }
@@ -220,9 +232,9 @@ class MultiplicationAspect extends ExpressionAspect {
 @Aspect(className=Division)
 class DivisionAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return factory.createIntegerValue => [value = left / right]
 	}
 }
@@ -230,9 +242,9 @@ class DivisionAspect extends ExpressionAspect {
 @Aspect(className=Plus)
 class PlusAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = _self.left.evaluate(state)
-		val right = _self.right.evaluate(state)
+	def Value evaluateExpression(State state) {
+		val left = _self.left.evaluateExpression(state)
+		val right = _self.right.evaluateExpression(state)
 		if (left instanceof StringValue) {
 			if (right instanceof StringValue) {
 				return factory.createStringValue => [
@@ -254,9 +266,9 @@ class PlusAspect extends ExpressionAspect {
 @Aspect(className=Or)
 class OrAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = _self.left.evaluate(state)
-		val right = _self.right.evaluate(state)
+	def Value evaluateExpression(State state) {
+		val left = _self.left.evaluateExpression(state)
+		val right = _self.right.evaluateExpression(state)
 		if (left instanceof BooleanValue) {
 			if (right instanceof BooleanValue) {
 				return factory.createBooleanValue => [
@@ -272,9 +284,9 @@ class OrAspect extends ExpressionAspect {
 @Aspect(className=And)
 class AndAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = _self.left.evaluate(state)
-		val right = _self.right.evaluate(state)
+	def Value evaluateExpression(State state) {
+		val left = _self.left.evaluateExpression(state)
+		val right = _self.right.evaluateExpression(state)
 		if (left instanceof BooleanValue) {
 			if (right instanceof BooleanValue) {
 				return factory.createBooleanValue => [
@@ -290,9 +302,9 @@ class AndAspect extends ExpressionAspect {
 @Aspect(className=Inferior)
 class InferiorAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = left < right
 		]
@@ -302,9 +314,9 @@ class InferiorAspect extends ExpressionAspect {
 @Aspect(className=InferiorOrEqual)
 class InferiorOrEqualAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = left <= right
 		]
@@ -315,9 +327,9 @@ class InferiorOrEqualAspect extends ExpressionAspect {
 @Aspect(className=SuperiorOrEqual)
 class SuperiorOrEqualAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = left >= right
 		]
@@ -327,9 +339,9 @@ class SuperiorOrEqualAspect extends ExpressionAspect {
 @Aspect(className=Superior)
 class SuperiorAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = (_self.left.evaluate(state) as IntegerValue).value
-		val right = (_self.right.evaluate(state) as IntegerValue).value
+	def Value evaluateExpression(State state) {
+		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
+		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = left > right
 		]
@@ -339,8 +351,8 @@ class SuperiorAspect extends ExpressionAspect {
 @Aspect(className=Not)
 class NotAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val expr = (_self.expression.evaluate(state) as BooleanValue).value
+	def Value evaluateExpression(State state) {
+		val expr = (_self.expression.evaluateExpression(state) as BooleanValue).value
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = !expr
 		]
@@ -351,9 +363,9 @@ class NotAspect extends ExpressionAspect {
 class EqualityAspect extends ExpressionAspect {
 
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = _self.left.evaluate(state)
-		val right = _self.right.evaluate(state)
+	def Value evaluateExpression(State state) {
+		val left = _self.left.evaluateExpression(state)
+		val right = _self.right.evaluateExpression(state)
 
 		val boolean result = if (left instanceof IntegerValue) {
 				genericEqualityTest(left, right, [l, r|l.value === r.value])
@@ -377,9 +389,9 @@ class EqualityAspect extends ExpressionAspect {
 class InequalityAspect extends ExpressionAspect {
 
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val left = _self.left.evaluate(state)
-		val right = _self.right.evaluate(state)
+	def Value evaluateExpression(State state) {
+		val left = _self.left.evaluateExpression(state)
+		val right = _self.right.evaluateExpression(state)
 
 		val boolean result = if (left instanceof IntegerValue) {
 				genericEqualityTest(left, right, [l, r|l.value !== r.value])
@@ -400,21 +412,21 @@ class InequalityAspect extends ExpressionAspect {
 }
 
 @Aspect(className=MethodCall)
-class MethodCallAspect extends ExpressionAspect {
+class MethodCallExpressionAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val realReceiver = (_self.receiver.evaluate(state) as RefValue).instance
+	def Value evaluateExpression(State state) {
+		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
 		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		for (arg : _self.args) {
-			val param = (_self.member as Method).params.get(_self.args.indexOf(arg))
+			val param = _self.member.params.get(_self.args.indexOf(arg))
 			val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
 				symbol = param
-				value = (arg as Expression).evaluate(state)
+				value = arg.evaluateExpression(state)
 			]
 			newContext.bindings.add(binding)
 		}
 		state.pushNewFrame(realReceiver, _self, newContext)
-		(_self.member as Method).body.evaluate(state)
+		_self.member.body.evaluateStatement(state)
 		val returnValue = state.currentFrame.returnValue
 		state.popCurrentFrame
 		return returnValue
@@ -422,11 +434,19 @@ class MethodCallAspect extends ExpressionAspect {
 	}
 }
 
+@Aspect(className=Expression)
+class ExpressionStatementAspect extends StatementAspect {
+	@OverrideAspectMethod
+	def void evaluateStatement(State state) {
+		_self.evaluateExpression(state)
+	}
+}
+
 @Aspect(className=FieldAccess)
 class FieldAccessAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
-		val realReceiver = (_self.receiver.evaluate(state) as RefValue).instance
+	def Value evaluateExpression(State state) {
+		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
 		return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
 	}
 }
@@ -434,8 +454,8 @@ class FieldAccessAspect extends ExpressionAspect {
 @Aspect(className=Return)
 class ReturnAspect extends StatementAspect {
 	@OverrideAspectMethod
-	def void evaluate(State state) {
-		val value = _self.expression.evaluate(state);
+	def void evaluateStatement(State state) {
+		val value = _self.expression.evaluateExpression(state);
 		state.currentFrame.returnValue = value
 	}
 }
@@ -443,7 +463,7 @@ class ReturnAspect extends StatementAspect {
 @Aspect(className=This)
 class ThisAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		val currentInstance = state.currentFrame.instance
 		if (currentInstance === null) {
 			throw new RuntimeException('''"this" is not valid in the current context''')
@@ -456,7 +476,7 @@ class ThisAspect extends ExpressionAspect {
 @Aspect(className=SymbolRef)
 class SymbolRefAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		state.currentContext.get(_self.symbol).value.copy
 	}
 }
@@ -464,7 +484,7 @@ class SymbolRefAspect extends ExpressionAspect {
 @Aspect(className=New)
 class NewAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		val result = factory.createInstance => [
 			type = _self.type
 		]
@@ -484,14 +504,14 @@ class NewAspect extends ExpressionAspect {
 //@Aspect(className=Cast)
 //class CastAspect extends ExpressionAspect {
 //	@OverrideAspectMethod
-//	def Value evaluate(State state) {
+//	def Value evaluateExpression(State state) {
 //		return _self.object.evaluate(context)
 //	}
 //}
 @Aspect(className=StringConstant)
 class StringConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [
 			value = _self.value
 		]
@@ -501,7 +521,7 @@ class StringConstantAspect extends ExpressionAspect {
 @Aspect(className=IntConstant)
 class IntConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [
 			value = _self.value
 		]
@@ -511,7 +531,7 @@ class IntConstantAspect extends ExpressionAspect {
 @Aspect(className=BoolConstant)
 class BoolConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
-	def Value evaluate(State state) {
+	def Value evaluateExpression(State state) {
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = _self.value.equalsIgnoreCase("true")
 		]

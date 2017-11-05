@@ -121,6 +121,15 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	Frame createFrame();
 
 	/**
+	 * Returns a new object of class '<em>Null Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Null Value</em>'.
+	 * @generated
+	 */
+	NullValue createNullValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

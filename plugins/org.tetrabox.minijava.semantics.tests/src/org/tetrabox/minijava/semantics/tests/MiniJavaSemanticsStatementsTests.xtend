@@ -12,6 +12,7 @@ import org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil.*
+import org.tetrabox.minijava.semantics.tests.util.MiniJavaValueEquals.ObjectTemplate
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
@@ -91,26 +92,40 @@ class MiniJavaSemanticsStatementsTests {
 
 	@Test
 	def void Assignment_declaration_int() {
-		genericStatementBindingsTest('''
-			int x = 12;
-		''', #{"x" -> (factory.createIntegerValue => [value = 12])})
+		genericStatementBindingsTest("int x = 12;", #{"x" -> 12})
 	}
 
 	@Test
 	def void Assignment_declaration_int_sum() {
-		genericStatementBindingsTest('''
-			int x = 12+6;
-		''', #{"x" -> (factory.createIntegerValue => [value = 18])})
+		genericStatementBindingsTest("int x = 12+6;", #{"x" -> 18})
 	}
+	
+	@Test
+	def void Assignment_field() {
+		genericStatementBindingsTest("X y = new X(); y.i = 76;", #{"y" -> new ObjectTemplate("X", #{"i" -> 76})})
+	}
+	
 
 	@Test
 	def void Assignment_reassignment_int() {
-		genericStatementBindingsTest('''
-			int x = 12+6;
-			x = -9;
-		''', #{"x" -> (factory.createIntegerValue => [value = -9])})
+		genericStatementBindingsTest(
+			'''
+				int x = 12+6;
+				x = -9;
+			''',
+			#{"x" -> -9}
+		)
+
 	}
-	
-	//TODO test return statement
+
+	@Test
+	def void methodCall_print() {
+		genericStatementPrintTest('''X test = new X(); test.hello(); ''', "hello")
+	}
+
+	@Test
+	def void methodCall_changefield() {
+		genericStatementBindingsTest('''X test = new X(); test.i = 78; test.increment(3); ''', #{"test" -> new ObjectTemplate("X", #{"i" -> 81})})
+	}
 
 }

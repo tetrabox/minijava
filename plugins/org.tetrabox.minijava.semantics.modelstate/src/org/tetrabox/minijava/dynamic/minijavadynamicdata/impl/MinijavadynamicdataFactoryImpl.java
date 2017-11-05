@@ -67,6 +67,7 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 			case MinijavadynamicdataPackage.REF_VALUE: return createRefValue();
 			case MinijavadynamicdataPackage.STATE: return createState();
 			case MinijavadynamicdataPackage.FRAME: return createFrame();
+			case MinijavadynamicdataPackage.NULL_VALUE: return createNullValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,6 +181,16 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public Frame createFrame() {
 		FrameImpl frame = new FrameImpl();
 		return frame;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NullValue createNullValue() {
+		NullValueImpl nullValue = new NullValueImpl();
+		return nullValue;
 	}
 
 	/**

@@ -142,6 +142,13 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MinijavadynamicdataPackage.NULL_VALUE: {
+				NullValue nullValue = (NullValue)theEObject;
+				T result = caseNullValue(nullValue);
+				if (result == null) result = caseValue(nullValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -323,6 +330,21 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFrame(Frame object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Null Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Null Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNullValue(NullValue object) {
 		return null;
 	}
 

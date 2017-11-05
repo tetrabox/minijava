@@ -100,8 +100,7 @@ Assignment:
 
 Assignee:
 	=> SelectionExpression |
-	VariableDeclaration //|
-	//{SymbolRef}symbol=[Symbol|ID]
+	VariableDeclaration
 ;
 
 Expression:

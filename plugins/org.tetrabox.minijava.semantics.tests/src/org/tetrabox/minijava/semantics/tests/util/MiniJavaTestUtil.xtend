@@ -31,21 +31,28 @@ class MiniJavaTestUtil {
 	public def static String prepareTestProgram(String mainContent) {
 		'''
 		class X {
-			int i;
-			boolean b;
-			String s;
+			public int i;
+			public boolean b;
+			public String s;
 			
-			void hello() {
+			public int identity(int j) {
+				return j;
+			}
+			
+			public void hello() {
 				System.out.println("hello");
 			}
 			
-			int increment(int inc) {
+			public void increment(int inc) {
 				this.i = this.i + inc;
-				return i;
 			}
 			
-			boolean testString(String tested) {
+			public boolean testString(String tested) {
 				return this.s == tested;
+			}
+			
+			public int getI() {
+				return this.i;
 			}
 				
 		}
@@ -98,18 +105,18 @@ class MiniJavaTestUtil {
 		oracle.accept(state)
 	}
 
-	public def void genericExpressionTest(String preStatements, String type, String expression, Value expectedValue) {
+	public def void genericExpressionTest(String preStatements, String type, String expression, Object expectedValue) {
 		val program = prepareTestProgram('''  «preStatements» «type» x = «expression»; ''')
 		genericTest(program, [ s |
 			val result = s.currentContext.get("x")
 			Assert::assertTrue('''«expectedValue» is different from «result»''', MiniJavaValueEquals::equals(
-				expectedValue,
-				result
+				result,
+				expectedValue
 			))
 		])
 	}
 
-	public def void genericExpressionTest(String type, String expression, Value expectedValue) {
+	public def void genericExpressionTest(String type, String expression, Object expectedValue) {
 		genericExpressionTest("", type, expression, expectedValue)
 	}
 
@@ -122,13 +129,13 @@ class MiniJavaTestUtil {
 		genericStatementTest(statement, [State s|Assert::assertEquals(expected.toList, s.outputStream.stream)])
 	}
 
-	public def void genericStatementBindingsTest(String statement, Map<String, Value> expectedBindings) {
+	public def void genericStatementBindingsTest(String statement, Map<String, Object> expectedBindings) {
 		genericStatementTest(statement, [ State s |
 			Assert::assertEquals(expectedBindings.size, s.currentFrame.rootContext.allSymbolBindings.size)
 			for (symbol : expectedBindings.keySet) {
 				val expectedValue = expectedBindings.get(symbol)
 				val value = s.currentContext.get(symbol)
-				Assert::assertTrue(MiniJavaValueEquals::equals(expectedValue, value))
+				Assert::assertTrue(MiniJavaValueEquals::equals(value,expectedValue))
 			}
 		])
 	}

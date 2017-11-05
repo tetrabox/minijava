@@ -4,27 +4,56 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
-
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
+import java.util.Map
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue
+import org.eclipse.xtend.lib.annotations.Data 
 /**
  * TODO work in progress
  */
 class MiniJavaValueEquals {
+	
+	
+	@Data
+	static class ObjectTemplate {
+		val String typeName
+		val Map<String,Object> bindings
+	}
 
-	def dispatch static boolean equals(Value v1, Value v2) {
+	def dispatch static boolean equals(Value v1, Object v2) {
 		throw new  UnsupportedOperationException();
 	}
 
-	def dispatch static boolean equals(IntegerValue v1, IntegerValue v2) {
-		return v1.value === v2.value
+	def dispatch static boolean equals(IntegerValue v1, Integer v2) {
+		return v1.value === v2
 	}
 
-	def dispatch static boolean equals(BooleanValue v1, BooleanValue v2) {
-		return v1.value === v2.value
+	def dispatch static boolean equals(BooleanValue v1, Boolean v2) {
+		return v1.value === v2
 	}
 
-	def dispatch static boolean equals(StringValue v1, StringValue v2) {
-		return v1.value == v2.value
+	def dispatch static boolean equals(StringValue v1, String v2) {
+		return v1.value == v2
 	}
+	
+	def dispatch static boolean equals(RefValue v1, ObjectTemplate pattern) {
+		
+		if (v1.instance.type.name != pattern.typeName)
+			return false;
+		
+		for (String fieldName : pattern.bindings.keySet) {
+			val Object expectedValue = pattern.bindings.get(fieldName)
+			val Value currentValue = v1.instance.fieldbindings.findFirst[it.field.name == fieldName].value
+			if (! MiniJavaValueEquals::equals(currentValue,expectedValue))
+				return false
+		}
+		return true;
+	}
+	
+	def dispatch static boolean equals(NullValue v1, NullValue v2) {
+		return true;
+	}
+	
 
 //	def dispatch static boolean equals(Instance v1, Instance v2) {
 //		throw new  UnsupportedOperationException();

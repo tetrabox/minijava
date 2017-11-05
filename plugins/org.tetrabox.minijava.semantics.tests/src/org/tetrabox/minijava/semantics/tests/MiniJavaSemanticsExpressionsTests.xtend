@@ -12,6 +12,8 @@ import org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil.*
+import org.tetrabox.minijava.semantics.tests.util.MiniJavaValueEquals.ObjectTemplate
+import java.util.HashMap
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
@@ -20,325 +22,341 @@ class MiniJavaSemanticsExpressionsTests {
 	extension MiniJavaTestUtil testUtil
 
 	@Test
-	def void IntConstant_1() {
-		val expected = factory.createIntegerValue => [value = 1]
-		genericExpressionTest(intTypeName, "1", expected)
+	def void intConstant_1() {
+		genericExpressionTest(intTypeName, "1", 1)
 	}
 
 	@Test
-	def void IntConstant_0() {
-		val expected = factory.createIntegerValue => [value = 0]
-		genericExpressionTest(intTypeName, "0", expected)
+	def void intConstant_0() {
+		genericExpressionTest(intTypeName, "0", 0)
 	}
 
 	@Test
-	def void IntConstant_min_1() {
-		val expected = factory.createIntegerValue => [value = -1]
-		genericExpressionTest(intTypeName, "-1", expected)
+	def void intConstant_min_1() {
+		genericExpressionTest(intTypeName, "-1", -1)
 	}
 
 	@Test
-	def void IntConstant_min_MAX_VALUE() {
-		val expected = factory.createIntegerValue => [value = -Integer::MAX_VALUE]
-		genericExpressionTest(intTypeName, '''-«Integer::MAX_VALUE»''', expected)
+	def void intConstant_min_MAX_VALUE() {
+		genericExpressionTest(intTypeName, '''-«Integer::MAX_VALUE»''', -Integer::MAX_VALUE)
 	}
 
 	@Test
-	def void IntConstant_MAX_VALUE() {
-		val expected = factory.createIntegerValue => [value = Integer::MAX_VALUE]
-		genericExpressionTest(intTypeName, Integer::MAX_VALUE.toString, expected)
+	def void intConstant_MAX_VALUE() {
+		genericExpressionTest(intTypeName, Integer::MAX_VALUE.toString, Integer::MAX_VALUE)
 	}
 
 	@Test
-	def void BoolConstant_true() {
-		val expected = factory.createBooleanValue => [value = true]
-		genericExpressionTest(booleanTypeName, "true", expected)
+	def void boolConstant_true() {
+		genericExpressionTest(booleanTypeName, "true", true)
 	}
 
 	@Test
-	def void BoolConstant_false() {
-		val expected = factory.createBooleanValue => [value = false]
-		genericExpressionTest(booleanTypeName, "false", expected)
+	def void boolConstant_false() {
+		genericExpressionTest(booleanTypeName, "false", false)
 	}
 
 	@Test
-	def void StringConstant_empty() {
-		val expected = factory.createStringValue => [value = ""]
-		genericExpressionTest(stringTypeName, '''""''', expected)
+	def void stringConstant_empty() {
+		genericExpressionTest(stringTypeName, '''""''', "")
 	}
 
 	@Test
-	def void StringConstant_short() {
-		val expected = factory.createStringValue => [value = "short"]
-		genericExpressionTest(stringTypeName, '''"short"''', expected)
+	def void stringConstant_short() {
+		genericExpressionTest(stringTypeName, '''"short"''', "short")
 	}
 
 	@Test
-	def void StringConstant_long() {
-		val expected = factory.createStringValue => [value = Integer::MAX_VALUE.toString]
-		genericExpressionTest(stringTypeName, '''"«Integer::MAX_VALUE.toString»"''', expected)
+	def void stringConstant_long() {
+		genericExpressionTest(stringTypeName, '''"«Integer::MAX_VALUE.toString»"''', Integer::MAX_VALUE.toString)
 	}
 
 	@Test
-	def void Or_true_true() {
-		genericExpressionTest("boolean", "true || true", factory.createBooleanValue => [value = true])
+	def void or_true_true() {
+		genericExpressionTest("boolean", "true || true", true)
 	}
 
 	@Test
-	def void Or_true_false() {
-		genericExpressionTest("boolean", "true || false", factory.createBooleanValue => [value = true])
+	def void or_true_false() {
+		genericExpressionTest("boolean", "true || false", true)
 	}
 
 	@Test
-	def void Or_false_false() {
-		genericExpressionTest("boolean", "false || false", factory.createBooleanValue => [value = false])
+	def void or_false_false() {
+		genericExpressionTest("boolean", "false || false", false)
 	}
 
 	@Test
-	def void And_true_true() {
-		genericExpressionTest("boolean", "true && true", factory.createBooleanValue => [value = true])
+	def void and_true_true() {
+		genericExpressionTest("boolean", "true && true", true)
 	}
 
 	@Test
-	def void And_true_false() {
-		genericExpressionTest("boolean", "true && false", factory.createBooleanValue => [value = false])
+	def void and_true_false() {
+		genericExpressionTest("boolean", "true && false", false)
 	}
 
 	@Test
-	def void And_false_false() {
-		genericExpressionTest("boolean", "false && false", factory.createBooleanValue => [value = false])
+	def void and_false_false() {
+		genericExpressionTest("boolean", "false && false", false)
 	}
 
 	@Test
-	def void Equality_inequal_integers_false() {
-		genericExpressionTest("boolean", "1 != 1 ", factory.createBooleanValue => [value = false])
+	def void equality_inequal_integers_false() {
+		genericExpressionTest("boolean", "1 != 1 ", false)
 	}
 
 	@Test
-	def void Equality_inequal__integers_true() {
-		genericExpressionTest("boolean", "1 != 0 ", factory.createBooleanValue => [value = true])
+	def void equality_inequal__integers_true() {
+		genericExpressionTest("boolean", "1 != 0 ", true)
 	}
 
 	@Test
-	def void Equality_inequal_booleans_false() {
-		genericExpressionTest("boolean", "false != false ", factory.createBooleanValue => [value = false])
+	def void equality_inequal_booleans_false() {
+		genericExpressionTest("boolean", "false != false ", false)
 	}
 
 	@Test
-	def void Equality_inequal__booleans_true() {
-		genericExpressionTest("boolean", "true != false ", factory.createBooleanValue => [value = true])
+	def void equality_inequal__booleans_true() {
+		genericExpressionTest("boolean", "true != false ", true)
 	}
 
 	@Test
-	def void Equality_inequal_strings_false() {
-		genericExpressionTest("boolean", ''' "yay" != "yay" ''', factory.createBooleanValue => [value = false])
+	def void equality_inequal_strings_false() {
+		genericExpressionTest("boolean", ''' "yay" != "yay" ''', false)
 	}
 
 	@Test
-	def void Equality_inequal_instances_true() {
-		genericExpressionTest("boolean", ''' new Main() != new Main() ''', factory.createBooleanValue => [value = true])
+	def void equality_inequal_instances_true() {
+		genericExpressionTest("boolean", ''' new Main() != new Main() ''', true)
 	}
 
 	@Test
-	def void Equality_inequal_instances_false() {
+	def void equality_inequal_instances_false() {
 		genericExpressionTest('''
 		Main i1 = new Main(); 
-		Main i2 = i1;''', "boolean", ''' i1 != i2 ''', factory.createBooleanValue => [value = false])
+		Main i2 = i1;''', "boolean", ''' i1 != i2 ''', false)
 	}
 
 	@Test
-	def void Equality_equal_integers_true() {
-		genericExpressionTest("boolean", "1 == 1 ", factory.createBooleanValue => [value = true])
+	def void equality_equal_integers_true() {
+		genericExpressionTest("boolean", "1 == 1 ", true)
 	}
 
 	@Test
-	def void Equality_equal__integers_false() {
-		genericExpressionTest("boolean", "1 == 0 ", factory.createBooleanValue => [value = false])
+	def void equality_equal__integers_false() {
+		genericExpressionTest("boolean", "1 == 0 ", false)
 	}
 
 	@Test
-	def void Equality_equal_booleans_true() {
-		genericExpressionTest("boolean", "false == false ", factory.createBooleanValue => [value = true])
+	def void equality_equal_booleans_true() {
+		genericExpressionTest("boolean", "false == false ", true)
 	}
 
 	@Test
-	def void Equality_equal__booleans_false() {
-		genericExpressionTest("boolean", "true == false ", factory.createBooleanValue => [value = false])
+	def void equality_equal__booleans_false() {
+		genericExpressionTest("boolean", "true == false ", false)
 	}
 
 	@Test
-	def void Equality_equal_strings_true() {
-		genericExpressionTest("boolean", ''' "yay" == "yay" ''', factory.createBooleanValue => [value = true])
+	def void equality_equal_strings_true() {
+		genericExpressionTest("boolean", ''' "yay" == "yay" ''', true)
 	}
 
 	@Test
-	def void Equality_equal_instances_false() {
-		genericExpressionTest("boolean", ''' new Main() == new Main() ''',
-			factory.createBooleanValue => [value = false])
+	def void equality_equal_instances_false() {
+		genericExpressionTest("boolean", ''' new Main() == new Main() ''', false)
 	}
 
 	@Test
-	def void Equality_equal_instances_true() {
-		genericExpressionTest('''Main i1 = new Main(); Main i2 = i1;''', "boolean", ''' i1 == i2 ''',
-			factory.createBooleanValue => [value = true])
+	def void equality_equal_instances_true() {
+		genericExpressionTest('''Main i1 = new Main(); Main i2 = i1;''', "boolean", ''' i1 == i2 ''', true)
 	}
 
 	@Test
 	def void comparison_less_true() {
-		genericExpressionTest("boolean", ''' 1 < 2 ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' 1 < 2 ''', true)
 	}
 
 	@Test
 	def void comparison_less_false() {
-		genericExpressionTest("boolean", ''' 12 < 2 ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' 12 < 2 ''', false)
 	}
 
 	@Test
 	def void comparison_less_same_false() {
-		genericExpressionTest("boolean", ''' 2 < 2 ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' 2 < 2 ''', false)
 	}
 
 	@Test
 	def void comparison_lesseq_true() {
-		genericExpressionTest("boolean", ''' 1 <= 2 ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' 1 <= 2 ''', true)
 	}
 
 	@Test
 	def void comparison_lesseq_same_true() {
-		genericExpressionTest("boolean", ''' 1 <= 1 ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' 1 <= 1 ''', true)
 	}
 
 	@Test
 	def void comparison_lesseq_false() {
-		genericExpressionTest("boolean", ''' 12 <= 2 ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' 12 <= 2 ''', false)
 	}
 
 	@Test
 	def void comparison_sup_false() {
-		genericExpressionTest("boolean", ''' 1 > 2 ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' 1 > 2 ''', false)
 	}
 
 	@Test
 	def void comparison_sup_true() {
-		genericExpressionTest("boolean", ''' 12 > 2 ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' 12 > 2 ''', true)
 	}
 
 	@Test
 	def void comparison_sup_same_false() {
-		genericExpressionTest("boolean", ''' 2 > 2 ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' 2 > 2 ''', false)
 	}
 
 	@Test
 	def void comparison_supeq_false() {
-		genericExpressionTest("boolean", ''' 1 >= 2 ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' 1 >= 2 ''', false)
 	}
 
 	@Test
 	def void comparison_supeq_same_true() {
-		genericExpressionTest("boolean", ''' 1 >= 1 ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' 1 >= 1 ''', true)
 	}
 
 	@Test
 	def void comparison_supeq_true() {
-		genericExpressionTest("boolean", ''' 12 >= 2 ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' 12 >= 2 ''', true)
 	}
 
 	@Test
 	def void plus_1() {
-		genericExpressionTest("int", ''' 12 + 5 ''', factory.createIntegerValue => [value = 17])
+		genericExpressionTest("int", ''' 12 + 5 ''', 17)
 	}
 
 	@Test
 	def void plus_2() {
-		genericExpressionTest("int", ''' 150 + 0 ''', factory.createIntegerValue => [value = 150])
+		genericExpressionTest("int", ''' 150 + 0 ''', 150)
 	}
 
 	@Test
 	def void plus_3() {
-		genericExpressionTest("int", ''' 150 + 16 ''', factory.createIntegerValue => [value = 166])
+		genericExpressionTest("int", ''' 150 + 16 ''', 166)
 	}
 
 	@Test
 	def void minus_1() {
-		genericExpressionTest("int", ''' 12 - 5 ''', factory.createIntegerValue => [value = 7])
+		genericExpressionTest("int", ''' 12 - 5 ''', 7)
 	}
 
 	@Test
 	def void minus_2() {
-		genericExpressionTest("int", ''' 150 - 0 ''', factory.createIntegerValue => [value = 150])
+		genericExpressionTest("int", ''' 150 - 0 ''', 150)
 	}
 
 	@Test
 	def void minus_3() {
-		genericExpressionTest("int", ''' 150 - 16 ''', factory.createIntegerValue => [value = 134])
+		genericExpressionTest("int", ''' 150 - 16 ''', 134)
 	}
 
 	@Test
 	def void multiplication_1() {
-		genericExpressionTest("int", ''' 3*4 ''', factory.createIntegerValue => [value = 12])
+		genericExpressionTest("int", ''' 3*4 ''', 12)
 	}
 
 	@Test
 	def void multiplication_2() {
-		genericExpressionTest("int", ''' 3*0 ''', factory.createIntegerValue => [value = 0])
+		genericExpressionTest("int", ''' 3*0 ''', 0)
 	}
 
 	@Test
 	def void multiplication_3() {
-		genericExpressionTest("int", ''' 150*2 ''', factory.createIntegerValue => [value = 300])
+		genericExpressionTest("int", ''' 150*2 ''', 300)
 	}
 
 	@Test
 	def void division_1() {
-		genericExpressionTest("int", ''' 4/2 ''', factory.createIntegerValue => [value = 2])
+		genericExpressionTest("int", ''' 4/2 ''', 2)
 	}
 
 	@Test
 	def void division_2() {
-		genericExpressionTest("int", ''' 0/3 ''', factory.createIntegerValue => [value = 0])
+		genericExpressionTest("int", ''' 0/3 ''', 0)
 	}
 
 	@Test
 	def void division_3() {
-		genericExpressionTest("int", ''' 5/2 ''', factory.createIntegerValue => [value = 2])
+		genericExpressionTest("int", ''' 5/2 ''', 2)
 	}
 
 	@Test
 	def void not_1() {
-		genericExpressionTest("boolean", ''' !true ''', factory.createBooleanValue => [value = false])
+		genericExpressionTest("boolean", ''' !true ''', false)
 	}
 
 	@Test
 	def void not_2() {
-		genericExpressionTest("boolean", ''' !false ''', factory.createBooleanValue => [value = true])
+		genericExpressionTest("boolean", ''' !false ''', true)
 	}
 
 	@Test
 	def void neg_1() {
-		genericExpressionTest("int", ''' -12 ''', factory.createIntegerValue => [value = -12])
+		genericExpressionTest("int", ''' -12 ''', -12)
 	}
 
 	@Test
 	def void neg_2() {
-		genericExpressionTest("int", ''' -(-12) ''', factory.createIntegerValue => [value = 12])
+		genericExpressionTest("int", ''' -(-12) ''', 12)
 	}
 
 	@Test
-	def void fieldAccess_singlechange() {
-		genericExpressionTest("X test = new X(); test.i = 12;", "int", ''' test.i ''', factory.createIntegerValue => [
-			value = 12
-		])
+	def void fieldAccess_singleset() {
+		genericExpressionTest(
+			"X test = new X(); test.i = 12;",
+			"int",
+			''' test.i ''',
+			12
+		)
 	}
 
 	@Test
-	def void fieldAccess_multiplechanges() {
-		genericExpressionTest("X test = new X(); test.i = 12; test.i = 15;", "int", ''' test.i ''',
-			factory.createIntegerValue => [value = 15])
+	def void fieldAccess_multiplesets() {
+		genericExpressionTest("X test = new X(); test.i = 12; test.i = 15;", "int", ''' test.i ''', 15)
+	}
+
+	@Test
+	def void methodCall_innercomputation() {
+		genericExpressionTest('''X test = new X(); test.s = "hello"; ''', "boolean", ''' test.testString("hello") ''',
+			true)
+	}
+
+	@Test
+	def void methodCall_getter() {
+		genericExpressionTest('''X test = new X(); test.i = 47; ''', "boolean", ''' test.getI() ''', 47)
+	}
+
+	@Test
+	def void null_() {
+		genericExpressionTest("X", ''' null ''', factory.createNullValue)
+	}
+
+	@Test
+	def void new_1() {
+		genericExpressionTest("X", ''' new X() ''', new ObjectTemplate("X", new HashMap))
+	}
+
+	@Test
+	def void symbolRef_variable() {
+		genericExpressionTest("int g = 13;", "int", ''' g ''', 13)
 	}
 	
 	@Test
-	def void methodCall_1() {
-		genericExpressionTest('''X test = new X(); test.s = "hello"; ''', "boolean", ''' test.testString("hello") ''',
-			factory.createBooleanValue => [value = true])
+	def void symbolRef_parameter() {
+		genericExpressionTest("int", ''' new X().identity(1337) ''', 1337)
 	}
+
 }

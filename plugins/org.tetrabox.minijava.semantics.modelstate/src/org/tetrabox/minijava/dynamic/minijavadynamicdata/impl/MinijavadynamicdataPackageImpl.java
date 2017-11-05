@@ -17,6 +17,7 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.State;
@@ -116,6 +117,13 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * @generated
 	 */
 	private EClass frameEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nullValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -501,6 +509,15 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNullValue() {
+		return nullValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MinijavadynamicdataFactory getMinijavadynamicdataFactory() {
 		return (MinijavadynamicdataFactory)getEFactoryInstance();
 	}
@@ -570,6 +587,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(frameEClass, FRAME__PARENT_FRAME);
 		createEReference(frameEClass, FRAME__ROOT_CONTEXT);
 		createEReference(frameEClass, FRAME__RETURN_VALUE);
+
+		nullValueEClass = createEClass(NULL_VALUE);
 	}
 
 	/**
@@ -607,6 +626,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		stringValueEClass.getESuperTypes().add(this.getValue());
 		booleanValueEClass.getESuperTypes().add(this.getValue());
 		refValueEClass.getESuperTypes().add(this.getValue());
+		nullValueEClass.getESuperTypes().add(this.getValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -655,6 +675,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getFrame_ParentFrame(), this.getFrame(), this.getFrame_ChildFrame(), "parentFrame", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_RootContext(), this.getContext(), null, "rootContext", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
