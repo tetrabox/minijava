@@ -63,12 +63,12 @@ class MiniJavaModelUtil {
 			else
 				""
 		} else if (m instanceof Constructor) {
-			m.classRef.name + "(" + m.params.map[typeRef.name].join(", ") + ")"
+			m.type.name + "(" + m.params.map[typeRef.name].join(", ") + ")"
 		}
 	}
 
 	def memberAsStringWithType(Member m) {
-		m.memberAsString + " : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.classRef.name
+		m.memberAsString + " : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.type.name
 	}
 
 	def String getName(TypeRef r) {

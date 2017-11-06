@@ -3,13 +3,22 @@
  */
 package org.tetrabox.minijava.xtext.miniJava.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.tetrabox.minijava.xtext.miniJava.Expression;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.New;
 
@@ -22,6 +31,7 @@ import org.tetrabox.minijava.xtext.miniJava.New;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.NewImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.NewImpl#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +47,16 @@ public class NewImpl extends ExpressionImpl implements New
    * @ordered
    */
   protected org.tetrabox.minijava.xtext.miniJava.Class type;
+
+  /**
+   * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArgs()
+   * @generated
+   * @ordered
+   */
+  protected EList<Expression> args;
 
   /**
    * <!-- begin-user-doc -->
@@ -107,6 +127,36 @@ public class NewImpl extends ExpressionImpl implements New
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Expression> getArgs()
+  {
+    if (args == null)
+    {
+      args = new EObjectContainmentEList<Expression>(Expression.class, this, MiniJavaPackage.NEW__ARGS);
+    }
+    return args;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MiniJavaPackage.NEW__ARGS:
+        return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -115,6 +165,8 @@ public class NewImpl extends ExpressionImpl implements New
       case MiniJavaPackage.NEW__TYPE:
         if (resolve) return getType();
         return basicGetType();
+      case MiniJavaPackage.NEW__ARGS:
+        return getArgs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,6 +176,7 @@ public class NewImpl extends ExpressionImpl implements New
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -131,6 +184,10 @@ public class NewImpl extends ExpressionImpl implements New
     {
       case MiniJavaPackage.NEW__TYPE:
         setType((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
+        return;
+      case MiniJavaPackage.NEW__ARGS:
+        getArgs().clear();
+        getArgs().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,6 +206,9 @@ public class NewImpl extends ExpressionImpl implements New
       case MiniJavaPackage.NEW__TYPE:
         setType((org.tetrabox.minijava.xtext.miniJava.Class)null);
         return;
+      case MiniJavaPackage.NEW__ARGS:
+        getArgs().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -165,6 +225,8 @@ public class NewImpl extends ExpressionImpl implements New
     {
       case MiniJavaPackage.NEW__TYPE:
         return type != null;
+      case MiniJavaPackage.NEW__ARGS:
+        return args != null && !args.isEmpty();
     }
     return super.eIsSet(featureID);
   }

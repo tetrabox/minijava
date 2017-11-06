@@ -29,7 +29,7 @@ TypedMember:
 ;
 
 Constructor:
-	access=AccessLevel? classRef=ClassRef '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
+	access=AccessLevel? type=[Class] '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
 ;
 
 Method:
@@ -171,6 +171,6 @@ TerminalExpression returns Expression:
 	{This} 'this' |
 	{Super} 'super' |
 	{Null} 'null' |
-	{New} 'new' type=[Class|QualifiedName] '(' ')' | //TODO possibility for non default constructors
+	{New} 'new' type=[Class|QualifiedName] '('(args+=Expression (',' args+=Expression)*)? ')' | //TODO possibility for non default constructors
 	{SymbolRef} symbol=[Symbol|ID];
 	

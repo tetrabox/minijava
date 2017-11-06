@@ -270,8 +270,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAccessAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAccessAccessLevelEnumRuleCall_0_0 = (RuleCall)cAccessAssignment_0.eContents().get(0);
-		private final Assignment cClassRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cClassRefClassRefParserRuleCall_1_0 = (RuleCall)cClassRefAssignment_1.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTypeClassCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
+		private final RuleCall cTypeClassIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeClassCrossReference_1_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cParamsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
@@ -285,10 +286,10 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyBlockParserRuleCall_5_0 = (RuleCall)cBodyAssignment_5.eContents().get(0);
 		
 		//Constructor:
-		//	access=AccessLevel? classRef=ClassRef '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block;
+		//	access=AccessLevel? type=[Class] '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//access=AccessLevel? classRef=ClassRef '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
+		//access=AccessLevel? type=[Class] '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
 		public Group getGroup() { return cGroup; }
 		
 		//access=AccessLevel?
@@ -297,11 +298,14 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//AccessLevel
 		public RuleCall getAccessAccessLevelEnumRuleCall_0_0() { return cAccessAccessLevelEnumRuleCall_0_0; }
 		
-		//classRef=ClassRef
-		public Assignment getClassRefAssignment_1() { return cClassRefAssignment_1; }
+		//type=[Class]
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
 		
-		//ClassRef
-		public RuleCall getClassRefClassRefParserRuleCall_1_0() { return cClassRefClassRefParserRuleCall_1_0; }
+		//[Class]
+		public CrossReference getTypeClassCrossReference_1_0() { return cTypeClassCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getTypeClassIDTerminalRuleCall_1_0_1() { return cTypeClassIDTerminalRuleCall_1_0_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
@@ -1654,7 +1658,14 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cTypeClassCrossReference_6_2_0 = (CrossReference)cTypeAssignment_6_2.eContents().get(0);
 		private final RuleCall cTypeClassQualifiedNameParserRuleCall_6_2_0_1 = (RuleCall)cTypeClassCrossReference_6_2_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
-		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Group cGroup_6_4 = (Group)cGroup_6.eContents().get(4);
+		private final Assignment cArgsAssignment_6_4_0 = (Assignment)cGroup_6_4.eContents().get(0);
+		private final RuleCall cArgsExpressionParserRuleCall_6_4_0_0 = (RuleCall)cArgsAssignment_6_4_0.eContents().get(0);
+		private final Group cGroup_6_4_1 = (Group)cGroup_6_4.eContents().get(1);
+		private final Keyword cCommaKeyword_6_4_1_0 = (Keyword)cGroup_6_4_1.eContents().get(0);
+		private final Assignment cArgsAssignment_6_4_1_1 = (Assignment)cGroup_6_4_1.eContents().get(1);
+		private final RuleCall cArgsExpressionParserRuleCall_6_4_1_1_0 = (RuleCall)cArgsAssignment_6_4_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_5 = (Keyword)cGroup_6.eContents().get(5);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
 		private final Action cSymbolRefAction_7_0 = (Action)cGroup_7.eContents().get(0);
 		private final Assignment cSymbolAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -1663,11 +1674,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TerminalExpression Expression:
 		//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
-		//	{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol];
+		//	{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' (args+=Expression (','
+		//	args+=Expression)*)? ')' | {SymbolRef} symbol=[Symbol];
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
-		//{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol]
+		//{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' (args+=Expression (','
+		//args+=Expression)*)? ')' | {SymbolRef} symbol=[Symbol]
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{StringConstant} value=STRING
@@ -1739,7 +1752,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//'null'
 		public Keyword getNullKeyword_5_1() { return cNullKeyword_5_1; }
 		
-		//{New} 'new' type=[Class|QualifiedName] '(' ')'
+		//{New} 'new' type=[Class|QualifiedName] '(' (args+=Expression (',' args+=Expression)*)? ')'
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//{New}
@@ -1760,8 +1773,29 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_6_3() { return cLeftParenthesisKeyword_6_3; }
 		
+		//(args+=Expression (',' args+=Expression)*)?
+		public Group getGroup_6_4() { return cGroup_6_4; }
+		
+		//args+=Expression
+		public Assignment getArgsAssignment_6_4_0() { return cArgsAssignment_6_4_0; }
+		
+		//Expression
+		public RuleCall getArgsExpressionParserRuleCall_6_4_0_0() { return cArgsExpressionParserRuleCall_6_4_0_0; }
+		
+		//(',' args+=Expression)*
+		public Group getGroup_6_4_1() { return cGroup_6_4_1; }
+		
+		//','
+		public Keyword getCommaKeyword_6_4_1_0() { return cCommaKeyword_6_4_1_0; }
+		
+		//args+=Expression
+		public Assignment getArgsAssignment_6_4_1_1() { return cArgsAssignment_6_4_1_1; }
+		
+		//Expression
+		public RuleCall getArgsExpressionParserRuleCall_6_4_1_1_0() { return cArgsExpressionParserRuleCall_6_4_1_1_0; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
+		public Keyword getRightParenthesisKeyword_6_5() { return cRightParenthesisKeyword_6_5; }
 		
 		//{SymbolRef} symbol=[Symbol]
 		public Group getGroup_7() { return cGroup_7; }
@@ -2007,7 +2041,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Constructor:
-	//	access=AccessLevel? classRef=ClassRef '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block;
+	//	access=AccessLevel? type=[Class] '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block;
 	public ConstructorElements getConstructorAccess() {
 		return pConstructor;
 	}
@@ -2325,7 +2359,8 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//TerminalExpression Expression:
 	//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=('true' | 'false') | {This} 'this' |
-	//	{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' ')' | {SymbolRef} symbol=[Symbol];
+	//	{Super} 'super' | {Null} 'null' | {New} 'new' type=[Class|QualifiedName] '(' (args+=Expression (','
+	//	args+=Expression)*)? ')' | {SymbolRef} symbol=[Symbol];
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return pTerminalExpression;
 	}

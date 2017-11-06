@@ -502,19 +502,13 @@ ruleConstructor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConstructorAccess().getClassRefClassRefParserRuleCall_1_0());
-				}
-				lv_classRef_1_0=ruleClassRef
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getConstructorRule());
+						$current = createModelElement(grammarAccess.getConstructorRule());
 					}
-					set(
-						$current,
-						"classRef",
-						lv_classRef_1_0,
-						"org.tetrabox.minijava.xtext.MiniJava.ClassRef");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getConstructorAccess().getTypeClassCrossReference_1_0());
 				}
 			)
 		)
@@ -2824,9 +2818,55 @@ ruleTerminalExpression returns [EObject current=null]
 			{
 				newLeafNode(otherlv_15, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_6_3());
 			}
-			otherlv_16=')'
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTerminalExpressionAccess().getArgsExpressionParserRuleCall_6_4_0_0());
+						}
+						lv_args_16_0=ruleExpression
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+							}
+							add(
+								$current,
+								"args",
+								lv_args_16_0,
+								"org.tetrabox.minijava.xtext.MiniJava.Expression");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_17=','
+					{
+						newLeafNode(otherlv_17, grammarAccess.getTerminalExpressionAccess().getCommaKeyword_6_4_1_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getTerminalExpressionAccess().getArgsExpressionParserRuleCall_6_4_1_1_0());
+							}
+							lv_args_18_0=ruleExpression
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+								}
+								add(
+									$current,
+									"args",
+									lv_args_18_0,
+									"org.tetrabox.minijava.xtext.MiniJava.Expression");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+			)?
+			otherlv_19=')'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getTerminalExpressionAccess().getRightParenthesisKeyword_6_4());
+				newLeafNode(otherlv_19, grammarAccess.getTerminalExpressionAccess().getRightParenthesisKeyword_6_5());
 			}
 		)
 		    |
@@ -2845,9 +2885,9 @@ ruleTerminalExpression returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getTerminalExpressionRule());
 						}
 					}
-					otherlv_18=RULE_ID
+					otherlv_21=RULE_ID
 					{
-						newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getSymbolSymbolCrossReference_7_1_0());
+						newLeafNode(otherlv_21, grammarAccess.getTerminalExpressionAccess().getSymbolSymbolCrossReference_7_1_0());
 					}
 				)
 			)

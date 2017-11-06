@@ -27,6 +27,7 @@ import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.Constructor
+import org.tetrabox.minijava.xtext.miniJava.New
 
 /**
  * This class contains custom validation rules. 
@@ -138,6 +139,16 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		}
 	}
 
+	@Check def void checkConstructorInvocationArguments(New n) {
+		if (! n.args.isEmpty) {
+			val Constructor constructor = n.type.members.filter(Constructor).findFirst[it.params.size === n.args.size]
+			if (constructor === null) {
+				error('''There is no constructor in class «n.type.name» with «n.args.size» parameters.''',
+					MiniJavaPackage.eINSTANCE.new_Args, INVALID_ARGS)
+			}
+		} else {}
+	}
+
 	@Check def void checkMethodOverride(Class c) {
 		val hierarchyMethods = c.classHierarchyMethods
 
@@ -186,6 +197,16 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 				MEMBER_NOT_ACCESSIBLE
 			)
 	}
+	
+	@Check def void checkAccessibility(New n) {
+		val constructor = n.type.members.filter(Constructor).findFirst[it.params.size === n.args.size]
+		if (!constructor.isAccessibleFrom(n))
+			error(
+				'''This constructor is not accessible here.''',
+				MiniJavaPackage.eINSTANCE.new_Type,
+				MEMBER_NOT_ACCESSIBLE
+			)
+	}
 
 	// perform this check only on file save
 	@Check(CheckType.NORMAL)
@@ -210,9 +231,9 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	@Check
 	def void checkConstructor(Constructor constructor) {
 		val parentClass = (constructor.eContainer as Class)
-		if (constructor.classRef.referencedClass !== parentClass) {
+		if (constructor.type !== parentClass) {
 			error("A constructor must be in the same class as its name.", constructor,
-				MiniJavaPackage.eINSTANCE.constructor_ClassRef, CONSTRUCTOR_CLASS)
+				MiniJavaPackage.eINSTANCE.constructor_Type, CONSTRUCTOR_CLASS)
 		}
 	}
 

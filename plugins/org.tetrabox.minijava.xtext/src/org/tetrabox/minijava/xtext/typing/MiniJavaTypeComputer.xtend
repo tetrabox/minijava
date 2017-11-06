@@ -26,6 +26,7 @@ import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef
+import org.tetrabox.minijava.xtext.miniJava.Constructor
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -97,7 +98,11 @@ class MiniJavaTypeComputer {
 			case f == ep.ifStatement_Expression:
 				BOOLEAN_TYPE
 			MethodCall case f == ep.methodCall_Args: {
-				(c.member as Method).params.get(c.args.indexOf(e)).typeRef.type
+				if ((c.member as Method).params.size > c.args.indexOf(e))
+					(c.member as Method).params.get(c.args.indexOf(e)).typeRef.type
+			}
+			New case f == ep.new_Args: {
+				c.type.members.filter(Constructor).findFirst[it.params.size === c.args.size].params.get(c.args.indexOf(e)).typeRef.type
 			}
 		}
 	}

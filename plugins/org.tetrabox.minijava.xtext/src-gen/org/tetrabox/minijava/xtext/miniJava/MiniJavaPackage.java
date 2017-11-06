@@ -318,13 +318,13 @@ public interface MiniJavaPackage extends EPackage
   int CONSTRUCTOR__ACCESS = MEMBER__ACCESS;
 
   /**
-   * The feature id for the '<em><b>Class Ref</b></em>' containment reference.
+   * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTRUCTOR__CLASS_REF = MEMBER_FEATURE_COUNT + 0;
+  int CONSTRUCTOR__TYPE = MEMBER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -1868,13 +1868,22 @@ public interface MiniJavaPackage extends EPackage
   int NEW__TYPE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW__ARGS = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>New</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NEW_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int NEW_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
@@ -2075,15 +2084,15 @@ public interface MiniJavaPackage extends EPackage
   EClass getConstructor();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.Constructor#getClassRef <em>Class Ref</em>}'.
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.Constructor#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Class Ref</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Constructor#getClassRef()
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Constructor#getType()
    * @see #getConstructor()
    * @generated
    */
-  EReference getConstructor_ClassRef();
+  EReference getConstructor_Type();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.Constructor#getParams <em>Params</em>}'.
@@ -3226,6 +3235,17 @@ public interface MiniJavaPackage extends EPackage
   EReference getNew_Type();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.New#getArgs <em>Args</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.New#getArgs()
+   * @see #getNew()
+   * @generated
+   */
+  EReference getNew_Args();
+
+  /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3412,12 +3432,12 @@ public interface MiniJavaPackage extends EPackage
     EClass CONSTRUCTOR = eINSTANCE.getConstructor();
 
     /**
-     * The meta object literal for the '<em><b>Class Ref</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONSTRUCTOR__CLASS_REF = eINSTANCE.getConstructor_ClassRef();
+    EReference CONSTRUCTOR__TYPE = eINSTANCE.getConstructor_Type();
 
     /**
      * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
@@ -4378,6 +4398,14 @@ public interface MiniJavaPackage extends EPackage
      * @generated
      */
     EReference NEW__TYPE = eINSTANCE.getNew_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEW__ARGS = eINSTANCE.getNew_Args();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.

@@ -23,8 +23,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypedMember" eSuperTypes="#//Member #//TypedDeclaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//Member">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classRef" eType="#//ClassRef"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Block"
@@ -221,6 +220,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Null" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="New" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SymbolRef" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" eType="#//Symbol"/>

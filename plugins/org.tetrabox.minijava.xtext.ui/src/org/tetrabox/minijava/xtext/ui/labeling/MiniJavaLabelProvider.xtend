@@ -30,7 +30,7 @@ class MiniJavaLabelProvider extends DefaultEObjectLabelProvider {
 	@Inject extension MiniJavaModelUtil
 
 	def text(Member m) {
-		new StyledString(m.memberAsString).append(new StyledString(" : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.classRef.name,
+		new StyledString(m.memberAsString).append(new StyledString(" : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.type.name,
 			StyledString.DECORATIONS_STYLER))
 	}
 

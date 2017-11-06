@@ -687,7 +687,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstructor_ClassRef()
+  public EReference getConstructor_Type()
   {
     return (EReference)constructorEClass.getEStructuralFeatures().get(0);
   }
@@ -1777,6 +1777,16 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getNew_Args()
+  {
+    return (EReference)newEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSymbolRef()
   {
     return symbolRefEClass;
@@ -1852,7 +1862,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     typedMemberEClass = createEClass(TYPED_MEMBER);
 
     constructorEClass = createEClass(CONSTRUCTOR);
-    createEReference(constructorEClass, CONSTRUCTOR__CLASS_REF);
+    createEReference(constructorEClass, CONSTRUCTOR__TYPE);
     createEReference(constructorEClass, CONSTRUCTOR__PARAMS);
     createEReference(constructorEClass, CONSTRUCTOR__BODY);
 
@@ -2009,6 +2019,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     newEClass = createEClass(NEW);
     createEReference(newEClass, NEW__TYPE);
+    createEReference(newEClass, NEW__ARGS);
 
     symbolRefEClass = createEClass(SYMBOL_REF);
     createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
@@ -2119,7 +2130,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEClass(typedMemberEClass, TypedMember.class, "TypedMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstructor_ClassRef(), this.getClassRef(), null, "classRef", null, 0, 1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstructor_Type(), this.getClass_(), null, "type", null, 0, 1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstructor_Params(), this.getParameter(), null, "params", null, 0, -1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstructor_Body(), this.getBlock(), null, "body", null, 0, 1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2276,6 +2287,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(newEClass, New.class, "New", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNew_Type(), this.getClass_(), null, "type", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNew_Args(), this.getExpression(), null, "args", null, 0, -1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
