@@ -16,20 +16,26 @@ import org.tetrabox.minijava.xminijavamt.miniJava.Assignment;
 import org.tetrabox.minijava.xminijavamt.miniJava.Block;
 import org.tetrabox.minijava.xminijavamt.miniJava.BoolConstant;
 import org.tetrabox.minijava.xminijavamt.miniJava.BooleanTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.ClassRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.Context;
 import org.tetrabox.minijava.xminijavamt.miniJava.Division;
 import org.tetrabox.minijava.xminijavamt.miniJava.Equality;
 import org.tetrabox.minijava.xminijavamt.miniJava.Expression;
 import org.tetrabox.minijava.xminijavamt.miniJava.Field;
 import org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess;
+import org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding;
 import org.tetrabox.minijava.xminijavamt.miniJava.ForStatement;
+import org.tetrabox.minijava.xminijavamt.miniJava.Frame;
 import org.tetrabox.minijava.xminijavamt.miniJava.IfStatement;
 import org.tetrabox.minijava.xminijavamt.miniJava.Import;
 import org.tetrabox.minijava.xminijavamt.miniJava.Inequality;
 import org.tetrabox.minijava.xminijavamt.miniJava.Inferior;
 import org.tetrabox.minijava.xminijavamt.miniJava.InferiorOrEqual;
+import org.tetrabox.minijava.xminijavamt.miniJava.Instance;
 import org.tetrabox.minijava.xminijavamt.miniJava.IntConstant;
 import org.tetrabox.minijava.xminijavamt.miniJava.IntegerTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Member;
 import org.tetrabox.minijava.xminijavamt.miniJava.Method;
 import org.tetrabox.minijava.xminijavamt.miniJava.MethodCall;
@@ -41,24 +47,31 @@ import org.tetrabox.minijava.xminijavamt.miniJava.Neg;
 import org.tetrabox.minijava.xminijavamt.miniJava.New;
 import org.tetrabox.minijava.xminijavamt.miniJava.Not;
 import org.tetrabox.minijava.xminijavamt.miniJava.Null;
+import org.tetrabox.minijava.xminijavamt.miniJava.NullValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Or;
+import org.tetrabox.minijava.xminijavamt.miniJava.OutputStream;
 import org.tetrabox.minijava.xminijavamt.miniJava.Parameter;
 import org.tetrabox.minijava.xminijavamt.miniJava.Plus;
 import org.tetrabox.minijava.xminijavamt.miniJava.PrintStatement;
 import org.tetrabox.minijava.xminijavamt.miniJava.Program;
+import org.tetrabox.minijava.xminijavamt.miniJava.RefValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Return;
 import org.tetrabox.minijava.xminijavamt.miniJava.SingleTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.State;
 import org.tetrabox.minijava.xminijavamt.miniJava.Statement;
 import org.tetrabox.minijava.xminijavamt.miniJava.StringConstant;
 import org.tetrabox.minijava.xminijavamt.miniJava.StringTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.StringValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Super;
 import org.tetrabox.minijava.xminijavamt.miniJava.Superior;
 import org.tetrabox.minijava.xminijavamt.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.xminijavamt.miniJava.Symbol;
+import org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding;
 import org.tetrabox.minijava.xminijavamt.miniJava.SymbolRef;
 import org.tetrabox.minijava.xminijavamt.miniJava.This;
 import org.tetrabox.minijava.xminijavamt.miniJava.TypeRef;
 import org.tetrabox.minijava.xminijavamt.miniJava.TypedDeclaration;
+import org.tetrabox.minijava.xminijavamt.miniJava.Value;
 import org.tetrabox.minijava.xminijavamt.miniJava.VariableDeclaration;
 import org.tetrabox.minijava.xminijavamt.miniJava.VoidTypeRef;
 import org.tetrabox.minijava.xminijavamt.miniJava.WhileStatement;
@@ -330,6 +343,58 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSymbolRef(SymbolRef object) {
 				return createSymbolRefAdapter();
+			}
+			@Override
+			public Adapter caseContext(Context object) {
+				return createContextAdapter();
+			}
+			@Override
+			public Adapter caseValue(Value object) {
+				return createValueAdapter();
+			}
+			@Override
+			public Adapter caseIntegerValue(IntegerValue object) {
+				return createIntegerValueAdapter();
+			}
+			@Override
+			public Adapter caseInstance(Instance object) {
+				return createInstanceAdapter();
+			}
+			@Override
+			public Adapter caseSymbolBinding(SymbolBinding object) {
+				return createSymbolBindingAdapter();
+			}
+			@Override
+			public Adapter caseFieldBinding(FieldBinding object) {
+				return createFieldBindingAdapter();
+			}
+			@Override
+			public Adapter caseStringValue(StringValue object) {
+				return createStringValueAdapter();
+			}
+			@Override
+			public Adapter caseBooleanValue(BooleanValue object) {
+				return createBooleanValueAdapter();
+			}
+			@Override
+			public Adapter caseOutputStream(OutputStream object) {
+				return createOutputStreamAdapter();
+			}
+			@Override
+			public Adapter caseRefValue(RefValue object) {
+				return createRefValueAdapter();
+			}
+			@Override
+			public Adapter caseState(State object) {
+				return createStateAdapter();
+			}
+			@Override
+			public Adapter caseFrame(Frame object) {
+				return createFrameAdapter();
+			}
+			@Override
+			public Adapter caseNullValue(NullValue object) {
+				return createNullValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -1090,6 +1155,188 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSymbolRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Context <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Context
+	 * @generated
+	 */
+	public Adapter createContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Value
+	 * @generated
+	 */
+	public Adapter createValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue <em>Integer Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue
+	 * @generated
+	 */
+	public Adapter createIntegerValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Instance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Instance
+	 * @generated
+	 */
+	public Adapter createInstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding <em>Symbol Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding
+	 * @generated
+	 */
+	public Adapter createSymbolBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding <em>Field Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding
+	 * @generated
+	 */
+	public Adapter createFieldBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.StringValue
+	 * @generated
+	 */
+	public Adapter createStringValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue <em>Boolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue
+	 * @generated
+	 */
+	public Adapter createBooleanValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.OutputStream <em>Output Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.OutputStream
+	 * @generated
+	 */
+	public Adapter createOutputStreamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.RefValue <em>Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.RefValue
+	 * @generated
+	 */
+	public Adapter createRefValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.State
+	 * @generated
+	 */
+	public Adapter createStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame <em>Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame
+	 * @generated
+	 */
+	public Adapter createFrameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xminijavamt.miniJava.NullValue <em>Null Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.NullValue
+	 * @generated
+	 */
+	public Adapter createNullValueAdapter() {
 		return null;
 	}
 

@@ -91,4 +91,12 @@ public interface MethodCall extends Expression {
 	 */
 	EList<Expression> getArgs();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // MethodCall

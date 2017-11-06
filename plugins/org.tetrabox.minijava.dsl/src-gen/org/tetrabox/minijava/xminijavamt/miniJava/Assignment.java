@@ -73,4 +73,12 @@ public interface Assignment extends Statement {
 	 */
 	void setValue(Expression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatement(State state);
+
 } // Assignment

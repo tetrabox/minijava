@@ -14,4 +14,12 @@ package org.tetrabox.minijava.xminijavamt.miniJava;
  * @generated
  */
 public interface Null extends Expression {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // Null

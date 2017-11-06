@@ -73,4 +73,12 @@ public interface WhileStatement extends Statement {
 	 */
 	void setBlock(Block value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatement(State state);
+
 } // WhileStatement

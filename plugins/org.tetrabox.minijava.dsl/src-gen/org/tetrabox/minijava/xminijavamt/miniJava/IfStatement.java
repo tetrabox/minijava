@@ -100,4 +100,12 @@ public interface IfStatement extends Statement {
 	 */
 	void setElseBlock(Block value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatement(State state);
+
 } // IfStatement

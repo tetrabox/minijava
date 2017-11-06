@@ -140,7 +140,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		for (m : c.methods) {
 			val overridden = hierarchyMethods.get(m.name)
 			if (overridden !== null && (!m.typeRef.type.isConformant(overridden.typeRef.type) ||
-				!m.params.map[typeRef].elementsEqual(overridden.params.map[typeRef]))) {
+				!m.params.map[typeRef].map[type].elementsEqual(overridden.params.map[typeRef].map[type]))) {
 				error("The method '" + m.name + "' must override a superclass method", m,
 					MiniJavaPackage.eINSTANCE.namedElement_Name, WRONG_METHOD_OVERRIDE)
 			} else if (m.access < overridden.access) {

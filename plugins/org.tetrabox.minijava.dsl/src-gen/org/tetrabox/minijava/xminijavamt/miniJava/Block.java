@@ -37,4 +37,20 @@ public interface Block extends Statement {
 	 */
 	EList<Statement> getStatements();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatementKeepContext(State state);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatement(State state);
+
 } // Block

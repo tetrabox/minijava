@@ -46,4 +46,12 @@ public interface PrintStatement extends Statement {
 	 */
 	void setExpression(Expression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatement(State state);
+
 } // PrintStatement

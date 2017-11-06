@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minijavadynamicdata" nsURI="minijavadynamicdata" nsPrefix="minijavadynamicdata">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minijavadynamicdata" nsURI="minijavadynamicdata" nsPrefix="minijavadynamicdata">
   <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
-        eType="#//SymbolBinding" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//Context"
-        eOpposite="#//Context/childContext"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childContext" eType="#//Context"
-        containment="true" eOpposite="#//Context/parentContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="//SymbolBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="//Context" eOpposite="//Context/childContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childContext" eType="//Context" containment="true" eOpposite="//Context/parentContext"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="//Value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fieldbindings" upperBound="-1"
-        eType="#//FieldBinding" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fieldbindings" upperBound="-1" eType="//FieldBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1">
+      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Class"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SymbolBinding">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" eType="ecore:EClass ../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Symbol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="symbol">
+      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Symbol"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FieldBinding">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" eType="ecore:EClass ../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1">
+      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//Field"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="//Value" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="//Value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="//Value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputStream">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" unique="false" upperBound="-1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RefValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//Instance"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RefValue" eSuperTypes="//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="//Instance"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootFrame" eType="#//Frame"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="heap" upperBound="-1" eType="#//Instance"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="#//OutputStream"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootFrame" eType="//Frame" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="heap" upperBound="-1" eType="//Instance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="//OutputStream" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall" eType="ecore:EClass ../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//MethodCall"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//Instance"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childFrame" eType="#//Frame"
-        containment="true" eOpposite="#//Frame/parentFrame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentFrame" eType="#//Frame"
-        eOpposite="#//Frame/childFrame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootContext" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall">
+      <eType xsi:type="ecore:EClass" href="../../org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore#//MethodCall"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="//Instance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childFrame" eType="//Frame" containment="true" eOpposite="//Frame/parentFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentFrame" eType="//Frame" eOpposite="//Frame/childFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootContext" eType="//Context" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="//Value" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="//Value"/>
 </ecore:EPackage>

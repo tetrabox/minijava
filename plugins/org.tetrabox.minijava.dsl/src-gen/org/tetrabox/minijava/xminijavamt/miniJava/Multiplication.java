@@ -73,4 +73,12 @@ public interface Multiplication extends Expression {
 	 */
 	void setRight(Expression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // Multiplication

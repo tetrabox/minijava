@@ -73,4 +73,12 @@ public interface FieldAccess extends Expression {
 	 */
 	void setMember(Field value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // FieldAccess

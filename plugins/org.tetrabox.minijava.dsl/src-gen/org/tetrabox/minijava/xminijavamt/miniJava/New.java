@@ -46,4 +46,12 @@ public interface New extends Expression {
 	 */
 	void setType(org.tetrabox.minijava.xminijavamt.miniJava.Class value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // New

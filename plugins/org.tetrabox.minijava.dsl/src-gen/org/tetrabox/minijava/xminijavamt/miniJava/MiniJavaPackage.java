@@ -1793,6 +1793,460 @@ public interface MiniJavaPackage extends EPackage {
 	int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.ContextImpl <em>Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.ContextImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getContext()
+	 * @generated
+	 */
+	int CONTEXT = 53;
+
+	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__BINDINGS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__PARENT_CONTEXT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Child Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__CHILD_CONTEXT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.ValueImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 54;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.IntegerValueImpl <em>Integer Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.IntegerValueImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getIntegerValue()
+	 * @generated
+	 */
+	int INTEGER_VALUE = 55;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Integer Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.InstanceImpl <em>Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.InstanceImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getInstance()
+	 * @generated
+	 */
+	int INSTANCE = 56;
+
+	/**
+	 * The feature id for the '<em><b>Fieldbindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE__FIELDBINDINGS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE__TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.SymbolBindingImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getSymbolBinding()
+	 * @generated
+	 */
+	int SYMBOL_BINDING = 57;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL_BINDING__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Symbol</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL_BINDING__SYMBOL = 1;
+
+	/**
+	 * The number of structural features of the '<em>Symbol Binding</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL_BINDING_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.FieldBindingImpl <em>Field Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.FieldBindingImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getFieldBinding()
+	 * @generated
+	 */
+	int FIELD_BINDING = 58;
+
+	/**
+	 * The feature id for the '<em><b>Field</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_BINDING__FIELD = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_BINDING__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Field Binding</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_BINDING_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.StringValueImpl <em>String Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.StringValueImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getStringValue()
+	 * @generated
+	 */
+	int STRING_VALUE = 59;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.BooleanValueImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getBooleanValue()
+	 * @generated
+	 */
+	int BOOLEAN_VALUE = 60;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.OutputStreamImpl <em>Output Stream</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.OutputStreamImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getOutputStream()
+	 * @generated
+	 */
+	int OUTPUT_STREAM = 61;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_STREAM__STREAM = 0;
+
+	/**
+	 * The number of structural features of the '<em>Output Stream</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_STREAM_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.RefValueImpl <em>Ref Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.RefValueImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getRefValue()
+	 * @generated
+	 */
+	int REF_VALUE = 62;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_VALUE__INSTANCE = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ref Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.StateImpl <em>State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.StateImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getState()
+	 * @generated
+	 */
+	int STATE = 63;
+
+	/**
+	 * The feature id for the '<em><b>Root Frame</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ROOT_FRAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Heap</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__HEAP = 1;
+
+	/**
+	 * The feature id for the '<em><b>Output Stream</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__OUTPUT_STREAM = 2;
+
+	/**
+	 * The number of structural features of the '<em>State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.FrameImpl <em>Frame</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.FrameImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getFrame()
+	 * @generated
+	 */
+	int FRAME = 64;
+
+	/**
+	 * The feature id for the '<em><b>Methodcall</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME__METHODCALL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME__INSTANCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Child Frame</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME__CHILD_FRAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parent Frame</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME__PARENT_FRAME = 3;
+
+	/**
+	 * The feature id for the '<em><b>Root Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME__ROOT_CONTEXT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME__RETURN_VALUE = 5;
+
+	/**
+	 * The number of structural features of the '<em>Frame</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME_FEATURE_COUNT = 6;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.NullValueImpl <em>Null Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.NullValueImpl
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getNullValue()
+	 * @generated
+	 */
+	int NULL_VALUE = 65;
+
+	/**
+	 * The number of structural features of the '<em>Null Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.AccessLevel <em>Access Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,7 +2254,7 @@ public interface MiniJavaPackage extends EPackage {
 	 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 53;
+	int ACCESS_LEVEL = 66;
 
 
 	/**
@@ -3049,6 +3503,389 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getSymbolRef_Symbol();
 
 	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Context <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Context</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Context
+	 * @generated
+	 */
+	EClass getContext();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xminijavamt.miniJava.Context#getBindings <em>Bindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bindings</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Context#getBindings()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_Bindings();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Context#getParentContext <em>Parent Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Context</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Context#getParentContext()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_ParentContext();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Context#getChildContext <em>Child Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Child Context</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Context#getChildContext()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_ChildContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Value
+	 * @generated
+	 */
+	EClass getValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue <em>Integer Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue
+	 * @generated
+	 */
+	EClass getIntegerValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue#getValue()
+	 * @see #getIntegerValue()
+	 * @generated
+	 */
+	EAttribute getIntegerValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Instance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Instance</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Instance
+	 * @generated
+	 */
+	EClass getInstance();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xminijavamt.miniJava.Instance#getFieldbindings <em>Fieldbindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Fieldbindings</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Instance#getFieldbindings()
+	 * @see #getInstance()
+	 * @generated
+	 */
+	EReference getInstance_Fieldbindings();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Instance#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Instance#getType()
+	 * @see #getInstance()
+	 * @generated
+	 */
+	EReference getInstance_Type();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding <em>Symbol Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Symbol Binding</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding
+	 * @generated
+	 */
+	EClass getSymbolBinding();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding#getValue()
+	 * @see #getSymbolBinding()
+	 * @generated
+	 */
+	EReference getSymbolBinding_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding#getSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Symbol</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding#getSymbol()
+	 * @see #getSymbolBinding()
+	 * @generated
+	 */
+	EReference getSymbolBinding_Symbol();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding <em>Field Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Field Binding</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding
+	 * @generated
+	 */
+	EClass getFieldBinding();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding#getField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Field</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding#getField()
+	 * @see #getFieldBinding()
+	 * @generated
+	 */
+	EReference getFieldBinding_Field();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding#getValue()
+	 * @see #getFieldBinding()
+	 * @generated
+	 */
+	EReference getFieldBinding_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.StringValue
+	 * @generated
+	 */
+	EClass getStringValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xminijavamt.miniJava.StringValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.StringValue#getValue()
+	 * @see #getStringValue()
+	 * @generated
+	 */
+	EAttribute getStringValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue <em>Boolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue
+	 * @generated
+	 */
+	EClass getBooleanValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue#isValue()
+	 * @see #getBooleanValue()
+	 * @generated
+	 */
+	EAttribute getBooleanValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.OutputStream <em>Output Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Stream</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.OutputStream
+	 * @generated
+	 */
+	EClass getOutputStream();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.tetrabox.minijava.xminijavamt.miniJava.OutputStream#getStream <em>Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Stream</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.OutputStream#getStream()
+	 * @see #getOutputStream()
+	 * @generated
+	 */
+	EAttribute getOutputStream_Stream();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.RefValue <em>Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ref Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.RefValue
+	 * @generated
+	 */
+	EClass getRefValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.RefValue#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instance</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.RefValue#getInstance()
+	 * @see #getRefValue()
+	 * @generated
+	 */
+	EReference getRefValue_Instance();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>State</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.State
+	 * @generated
+	 */
+	EClass getState();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.State#getRootFrame <em>Root Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Root Frame</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.State#getRootFrame()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_RootFrame();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xminijavamt.miniJava.State#getHeap <em>Heap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Heap</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.State#getHeap()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_Heap();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.State#getOutputStream <em>Output Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output Stream</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.State#getOutputStream()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_OutputStream();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame <em>Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Frame</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame
+	 * @generated
+	 */
+	EClass getFrame();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame#getMethodcall <em>Methodcall</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Methodcall</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame#getMethodcall()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_Methodcall();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instance</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame#getInstance()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_Instance();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame#getChildFrame <em>Child Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Child Frame</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame#getChildFrame()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_ChildFrame();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame#getParentFrame <em>Parent Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Frame</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame#getParentFrame()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_ParentFrame();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame#getRootContext <em>Root Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Root Context</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame#getRootContext()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_RootContext();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Frame#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Return Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Frame#getReturnValue()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_ReturnValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.NullValue <em>Null Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Null Value</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.NullValue
+	 * @generated
+	 */
+	EClass getNullValue();
+
+	/**
 	 * Returns the meta object for enum '{@link org.tetrabox.minijava.xminijavamt.miniJava.AccessLevel <em>Access Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4129,6 +4966,320 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.ContextImpl <em>Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.ContextImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getContext()
+		 * @generated
+		 */
+		EClass CONTEXT = eINSTANCE.getContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__BINDINGS = eINSTANCE.getContext_Bindings();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Context</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__PARENT_CONTEXT = eINSTANCE.getContext_ParentContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Child Context</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__CHILD_CONTEXT = eINSTANCE.getContext_ChildContext();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.ValueImpl <em>Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.ValueImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getValue()
+		 * @generated
+		 */
+		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.IntegerValueImpl <em>Integer Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.IntegerValueImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getIntegerValue()
+		 * @generated
+		 */
+		EClass INTEGER_VALUE = eINSTANCE.getIntegerValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_VALUE__VALUE = eINSTANCE.getIntegerValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.InstanceImpl <em>Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.InstanceImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getInstance()
+		 * @generated
+		 */
+		EClass INSTANCE = eINSTANCE.getInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Fieldbindings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSTANCE__FIELDBINDINGS = eINSTANCE.getInstance_Fieldbindings();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSTANCE__TYPE = eINSTANCE.getInstance_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.SymbolBindingImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getSymbolBinding()
+		 * @generated
+		 */
+		EClass SYMBOL_BINDING = eINSTANCE.getSymbolBinding();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYMBOL_BINDING__VALUE = eINSTANCE.getSymbolBinding_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYMBOL_BINDING__SYMBOL = eINSTANCE.getSymbolBinding_Symbol();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.FieldBindingImpl <em>Field Binding</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.FieldBindingImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getFieldBinding()
+		 * @generated
+		 */
+		EClass FIELD_BINDING = eINSTANCE.getFieldBinding();
+
+		/**
+		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD_BINDING__FIELD = eINSTANCE.getFieldBinding_Field();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD_BINDING__VALUE = eINSTANCE.getFieldBinding_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.StringValueImpl <em>String Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.StringValueImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getStringValue()
+		 * @generated
+		 */
+		EClass STRING_VALUE = eINSTANCE.getStringValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.BooleanValueImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getBooleanValue()
+		 * @generated
+		 */
+		EClass BOOLEAN_VALUE = eINSTANCE.getBooleanValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_VALUE__VALUE = eINSTANCE.getBooleanValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.OutputStreamImpl <em>Output Stream</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.OutputStreamImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getOutputStream()
+		 * @generated
+		 */
+		EClass OUTPUT_STREAM = eINSTANCE.getOutputStream();
+
+		/**
+		 * The meta object literal for the '<em><b>Stream</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_STREAM__STREAM = eINSTANCE.getOutputStream_Stream();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.RefValueImpl <em>Ref Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.RefValueImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getRefValue()
+		 * @generated
+		 */
+		EClass REF_VALUE = eINSTANCE.getRefValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REF_VALUE__INSTANCE = eINSTANCE.getRefValue_Instance();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.StateImpl <em>State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.StateImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getState()
+		 * @generated
+		 */
+		EClass STATE = eINSTANCE.getState();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Frame</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ROOT_FRAME = eINSTANCE.getState_RootFrame();
+
+		/**
+		 * The meta object literal for the '<em><b>Heap</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__HEAP = eINSTANCE.getState_Heap();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Stream</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__OUTPUT_STREAM = eINSTANCE.getState_OutputStream();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.FrameImpl <em>Frame</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.FrameImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getFrame()
+		 * @generated
+		 */
+		EClass FRAME = eINSTANCE.getFrame();
+
+		/**
+		 * The meta object literal for the '<em><b>Methodcall</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__METHODCALL = eINSTANCE.getFrame_Methodcall();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__INSTANCE = eINSTANCE.getFrame_Instance();
+
+		/**
+		 * The meta object literal for the '<em><b>Child Frame</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__CHILD_FRAME = eINSTANCE.getFrame_ChildFrame();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Frame</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__PARENT_FRAME = eINSTANCE.getFrame_ParentFrame();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Context</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__ROOT_CONTEXT = eINSTANCE.getFrame_RootContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__RETURN_VALUE = eINSTANCE.getFrame_ReturnValue();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.NullValueImpl <em>Null Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.NullValueImpl
+		 * @see org.tetrabox.minijava.xminijavamt.miniJava.impl.MiniJavaPackageImpl#getNullValue()
+		 * @generated
+		 */
+		EClass NULL_VALUE = eINSTANCE.getNullValue();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.AccessLevel <em>Access Level</em>}' enum.

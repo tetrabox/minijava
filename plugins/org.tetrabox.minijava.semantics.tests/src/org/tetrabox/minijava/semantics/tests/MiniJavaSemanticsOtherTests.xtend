@@ -11,8 +11,6 @@ import org.junit.runner.RunWith
 import org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
-import static org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil.*
-
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaSemanticsOtherTests {
@@ -20,9 +18,9 @@ class MiniJavaSemanticsOtherTests {
 	extension MiniJavaTestUtil testUtil
 
 	@Test
-	def void model1() {
+	def void main1() {
 		val expected = #["start"] + (0 .. 9).map[it.toString]
-		genericTest('''
+		genericPrintTest('''
 class Main  {
 	public static void main(String[] args) {
 		System.out.println("start");
@@ -34,7 +32,85 @@ class Main  {
 		}
 	} 
 }
-''', [c|assertPrint(c, expected)])
+''', expected)
+
+	}
+
+	@Test
+	def void stateMachine() {
+		val expected = #[
+			"Monday",
+			"hello! it is Tuesday",
+			"hello! it is Wednesday",
+			"Thursday",
+			"hello! it is Friday",
+			"hello! it is Saturday",
+			"Sunday"
+		]
+		genericPrintTest('''
+			
+			public class Statelike {
+			   public void writeName(StateContext context, String name) {}
+			}
+			 
+			public class StateNormal extends Statelike {
+			    public void writeName(StateContext context, String name) {
+			        System.out.println(name);
+			        StateHello hello = new StateHello();
+			        hello.count = 0;
+			        context.setState(hello);
+			    } 
+			}
+			
+			public class StateHello extends Statelike {
+			    /** Counter local to this state */
+			    public int count;
+			
+			    public void writeName(StateContext context, String name) {
+			        System.out.println("hello! it is " + name);
+			        /* Change state after StateMultipleUpperCase's writeName() gets invoked twice */
+			        this.count = this.count +1;
+			        if(this.count > 1) {
+			            context.setState(new StateNormal());
+			        }
+			    }
+			}
+			
+			
+			public class StateContext {
+			    private Statelike myState;
+			
+			    /**
+			     * Setter method for the state.
+			     * Normally only called by classes implementing the State interface.
+			     * @param newState the new state of this context
+			     */
+			    public void setState(Statelike newState) {
+			        this.myState = newState;
+			    }
+			
+			    public void writeName(String name) {
+			        this.myState.writeName(this, name);
+			    }
+			}
+			
+			
+			public class DemoOfClientState {
+			    public static void main(String[] args) {
+			        StateContext sc = new StateContext();
+			        sc.setState(new StateNormal());
+			
+			        sc.writeName("Monday");
+			        sc.writeName("Tuesday");
+			        sc.writeName("Wednesday");
+			        sc.writeName("Thursday");
+			        sc.writeName("Friday");
+			        sc.writeName("Saturday");
+			        sc.writeName("Sunday");
+			    }
+			}
+
+		''', expected)
 	}
 
 }

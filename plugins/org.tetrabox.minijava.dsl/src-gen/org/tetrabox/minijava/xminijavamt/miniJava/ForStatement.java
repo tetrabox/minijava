@@ -127,4 +127,12 @@ public interface ForStatement extends Statement {
 	 */
 	void setBlock(Block value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluateStatement(State state);
+
 } // ForStatement

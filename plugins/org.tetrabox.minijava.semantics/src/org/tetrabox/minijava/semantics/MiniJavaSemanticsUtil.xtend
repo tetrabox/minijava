@@ -29,20 +29,20 @@ class ContextAspect {
 		]
 	}
 
-	def SymbolBinding get(Symbol symbol) {
+	def SymbolBinding findBinding(Symbol symbol) {
 		val binding = _self.bindings.findFirst[it.symbol === symbol]
 		if (binding !== null) {
 			return binding
 		} else if (_self.parentContext !== null) {
-			return _self.parentContext.get(symbol)
+			return _self.parentContext.findBinding(symbol)
 		} else {
 			return null
 		}
 	}
 
-	def Context getCurrentContext() {
+	def Context findCurrentContext() {
 		if (_self.childContext !== null) {
-			return _self.childContext.currentContext
+			return _self.childContext.findCurrentContext
 		} else {
 			return _self
 		}
@@ -53,12 +53,12 @@ class ContextAspect {
 @Aspect(className=State)
 class StateAspect {
 
-	def Frame getCurrentFrame() {
-		return _self.rootFrame.currentFrame
+	def Frame findCurrentFrame() {
+		return _self.rootFrame.findCurrentFrame
 	}
 
-	def Context getCurrentContext() {
-		return _self.rootFrame.currentContext
+	def Context findCurrentContext() {
+		return _self.rootFrame.findCurrentContext
 	}
 
 	def void println(String string) {
@@ -67,19 +67,19 @@ class StateAspect {
 	}
 
 	def void pushNewContext() {
-		if (_self.currentContext !== null) {
-			_self.currentContext.childContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+		if (_self.findCurrentContext !== null) {
+			_self.findCurrentContext.childContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		} else {
-			_self.currentFrame.rootContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+			_self.findCurrentFrame.rootContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		}
 	}
 
 	def void popCurrentContext() {
-		_self.currentContext.parentContext = null
+		_self.findCurrentContext.parentContext = null
 	}
 
 	def void pushNewFrame(Instance receiver, MethodCall methodCall, Context newContext) {
-		_self.currentFrame.childFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
+		_self.findCurrentFrame.childFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
 			instance = receiver
 			methodcall = methodCall
 			rootContext = newContext
@@ -87,7 +87,7 @@ class StateAspect {
 	}
 
 	def void popCurrentFrame() {
-		_self.currentFrame.parentFrame = null;
+		_self.findCurrentFrame.parentFrame = null;
 	}
 
 }
@@ -95,19 +95,19 @@ class StateAspect {
 @Aspect(className=Frame)
 class FrameAspect {
 
-	def Frame getCurrentFrame() {
+	def Frame findCurrentFrame() {
 		if (_self.childFrame !== null) {
-			return _self.childFrame.currentFrame
+			return _self.childFrame.findCurrentFrame
 		} else {
 			return _self
 		}
 	}
 
-	def Context getCurrentContext() {
+	def Context findCurrentContext() {
 		if (_self.childFrame !== null) {
-			return _self.childFrame.currentContext
+			return _self.childFrame.findCurrentContext
 		} else if (_self.rootContext !== null) {
-			return _self.rootContext.currentContext
+			return _self.rootContext.findCurrentContext
 		} else {
 			return null
 		}

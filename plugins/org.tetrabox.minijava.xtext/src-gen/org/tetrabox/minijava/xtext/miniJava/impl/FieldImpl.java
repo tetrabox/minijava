@@ -18,24 +18,24 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 public class FieldImpl extends MemberImpl implements Field
 {
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected FieldImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MiniJavaPackage.Literals.FIELD;
-  }
+		return MiniJavaPackage.Literals.FIELD;
+	}
 
 } //FieldImpl

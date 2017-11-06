@@ -41,239 +41,232 @@ import org.tetrabox.minijava.xtext.miniJava.Program;
 public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Import> imports;
 
   /**
-   * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClasses()
-   * @generated
-   * @ordered
-   */
+	 * @see #getClasses()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<org.tetrabox.minijava.xtext.miniJava.Class> classes;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ProgramImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MiniJavaPackage.Literals.PROGRAM;
-  }
+		return MiniJavaPackage.Literals.PROGRAM;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Import> getImports()
   {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, MiniJavaPackage.PROGRAM__IMPORTS);
-    }
-    return imports;
-  }
+		if (imports == null) {
+			imports = new EObjectContainmentEList<Import>(Import.class, this, MiniJavaPackage.PROGRAM__IMPORTS);
+		}
+		return imports;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<org.tetrabox.minijava.xtext.miniJava.Class> getClasses()
   {
-    if (classes == null)
-    {
-      classes = new EObjectContainmentEList<org.tetrabox.minijava.xtext.miniJava.Class>(org.tetrabox.minijava.xtext.miniJava.Class.class, this, MiniJavaPackage.PROGRAM__CLASSES);
-    }
-    return classes;
-  }
+		if (classes == null) {
+			classes = new EObjectContainmentEList<org.tetrabox.minijava.xtext.miniJava.Class>(org.tetrabox.minijava.xtext.miniJava.Class.class, this, MiniJavaPackage.PROGRAM__CLASSES);
+		}
+		return classes;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case MiniJavaPackage.PROGRAM__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-      case MiniJavaPackage.PROGRAM__CLASSES:
-        return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case MiniJavaPackage.PROGRAM__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+			case MiniJavaPackage.PROGRAM__CLASSES:
+				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MiniJavaPackage.PROGRAM__NAME:
-        return getName();
-      case MiniJavaPackage.PROGRAM__IMPORTS:
-        return getImports();
-      case MiniJavaPackage.PROGRAM__CLASSES:
-        return getClasses();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MiniJavaPackage.PROGRAM__NAME:
+				return getName();
+			case MiniJavaPackage.PROGRAM__IMPORTS:
+				return getImports();
+			case MiniJavaPackage.PROGRAM__CLASSES:
+				return getClasses();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MiniJavaPackage.PROGRAM__NAME:
-        setName((String)newValue);
-        return;
-      case MiniJavaPackage.PROGRAM__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
-        return;
-      case MiniJavaPackage.PROGRAM__CLASSES:
-        getClasses().clear();
-        getClasses().addAll((Collection<? extends org.tetrabox.minijava.xtext.miniJava.Class>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MiniJavaPackage.PROGRAM__NAME:
+				setName((String)newValue);
+				return;
+			case MiniJavaPackage.PROGRAM__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends Import>)newValue);
+				return;
+			case MiniJavaPackage.PROGRAM__CLASSES:
+				getClasses().clear();
+				getClasses().addAll((Collection<? extends org.tetrabox.minijava.xtext.miniJava.Class>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MiniJavaPackage.PROGRAM__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case MiniJavaPackage.PROGRAM__IMPORTS:
-        getImports().clear();
-        return;
-      case MiniJavaPackage.PROGRAM__CLASSES:
-        getClasses().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MiniJavaPackage.PROGRAM__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case MiniJavaPackage.PROGRAM__IMPORTS:
+				getImports().clear();
+				return;
+			case MiniJavaPackage.PROGRAM__CLASSES:
+				getClasses().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MiniJavaPackage.PROGRAM__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MiniJavaPackage.PROGRAM__IMPORTS:
-        return imports != null && !imports.isEmpty();
-      case MiniJavaPackage.PROGRAM__CLASSES:
-        return classes != null && !classes.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MiniJavaPackage.PROGRAM__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MiniJavaPackage.PROGRAM__IMPORTS:
+				return imports != null && !imports.isEmpty();
+			case MiniJavaPackage.PROGRAM__CLASSES:
+				return classes != null && !classes.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ProgramImpl

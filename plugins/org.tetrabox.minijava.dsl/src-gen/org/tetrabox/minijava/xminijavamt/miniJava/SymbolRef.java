@@ -46,4 +46,12 @@ public interface SymbolRef extends Expression {
 	 */
 	void setSymbol(Symbol value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // SymbolRef

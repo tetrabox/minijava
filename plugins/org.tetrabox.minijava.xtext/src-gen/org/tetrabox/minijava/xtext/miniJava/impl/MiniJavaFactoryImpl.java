@@ -77,766 +77,760 @@ import org.tetrabox.minijava.xtext.miniJava.WhileStatement;
 public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 {
   /**
-   * Creates the default factory implementation.
-   * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static MiniJavaFactory init()
   {
-    try
-    {
-      MiniJavaFactory theMiniJavaFactory = (MiniJavaFactory)EPackage.Registry.INSTANCE.getEFactory(MiniJavaPackage.eNS_URI);
-      if (theMiniJavaFactory != null)
-      {
-        return theMiniJavaFactory;
-      }
-    }
-    catch (Exception exception)
-    {
-      EcorePlugin.INSTANCE.log(exception);
-    }
-    return new MiniJavaFactoryImpl();
-  }
+		try {
+			MiniJavaFactory theMiniJavaFactory = (MiniJavaFactory)EPackage.Registry.INSTANCE.getEFactory(MiniJavaPackage.eNS_URI);
+			if (theMiniJavaFactory != null) {
+				return theMiniJavaFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new MiniJavaFactoryImpl();
+	}
 
   /**
-   * Creates an instance of the factory.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public MiniJavaFactoryImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EObject create(EClass eClass)
   {
-    switch (eClass.getClassifierID())
-    {
-      case MiniJavaPackage.PROGRAM: return createProgram();
-      case MiniJavaPackage.IMPORT: return createImport();
-      case MiniJavaPackage.CLASS: return createClass();
-      case MiniJavaPackage.MEMBER: return createMember();
-      case MiniJavaPackage.PARAMETER: return createParameter();
-      case MiniJavaPackage.FIELD: return createField();
-      case MiniJavaPackage.METHOD: return createMethod();
-      case MiniJavaPackage.BLOCK: return createBlock();
-      case MiniJavaPackage.STATEMENT: return createStatement();
-      case MiniJavaPackage.PRINT_STATEMENT: return createPrintStatement();
-      case MiniJavaPackage.RETURN: return createReturn();
-      case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
-      case MiniJavaPackage.WHILE_STATEMENT: return createWhileStatement();
-      case MiniJavaPackage.FOR_STATEMENT: return createForStatement();
-      case MiniJavaPackage.TYPE_REF: return createTypeRef();
-      case MiniJavaPackage.SINGLE_TYPE_REF: return createSingleTypeRef();
-      case MiniJavaPackage.CLASS_REF: return createClassRef();
-      case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
-      case MiniJavaPackage.TYPED_DECLARATION: return createTypedDeclaration();
-      case MiniJavaPackage.SYMBOL: return createSymbol();
-      case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
-      case MiniJavaPackage.ASSIGNMENT: return createAssignment();
-      case MiniJavaPackage.ASSIGNEE: return createAssignee();
-      case MiniJavaPackage.EXPRESSION: return createExpression();
-      case MiniJavaPackage.ARRAY_TYPE_REF: return createArrayTypeRef();
-      case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
-      case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
-      case MiniJavaPackage.STRING_TYPE_REF: return createStringTypeRef();
-      case MiniJavaPackage.VOID_TYPE_REF: return createVoidTypeRef();
-      case MiniJavaPackage.OR: return createOr();
-      case MiniJavaPackage.AND: return createAnd();
-      case MiniJavaPackage.EQUALITY: return createEquality();
-      case MiniJavaPackage.INEQUALITY: return createInequality();
-      case MiniJavaPackage.SUPERIOR_OR_EQUAL: return createSuperiorOrEqual();
-      case MiniJavaPackage.INFERIOR_OR_EQUAL: return createInferiorOrEqual();
-      case MiniJavaPackage.SUPERIOR: return createSuperior();
-      case MiniJavaPackage.INFERIOR: return createInferior();
-      case MiniJavaPackage.PLUS: return createPlus();
-      case MiniJavaPackage.MINUS: return createMinus();
-      case MiniJavaPackage.MULTIPLICATION: return createMultiplication();
-      case MiniJavaPackage.DIVISION: return createDivision();
-      case MiniJavaPackage.NOT: return createNot();
-      case MiniJavaPackage.NEG: return createNeg();
-      case MiniJavaPackage.FIELD_ACCESS: return createFieldAccess();
-      case MiniJavaPackage.METHOD_CALL: return createMethodCall();
-      case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
-      case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
-      case MiniJavaPackage.BOOL_CONSTANT: return createBoolConstant();
-      case MiniJavaPackage.THIS: return createThis();
-      case MiniJavaPackage.SUPER: return createSuper();
-      case MiniJavaPackage.NULL: return createNull();
-      case MiniJavaPackage.NEW: return createNew();
-      case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
-      default:
-        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eClass.getClassifierID()) {
+			case MiniJavaPackage.PROGRAM: return createProgram();
+			case MiniJavaPackage.IMPORT: return createImport();
+			case MiniJavaPackage.CLASS: return createClass();
+			case MiniJavaPackage.MEMBER: return createMember();
+			case MiniJavaPackage.PARAMETER: return createParameter();
+			case MiniJavaPackage.FIELD: return createField();
+			case MiniJavaPackage.METHOD: return createMethod();
+			case MiniJavaPackage.BLOCK: return createBlock();
+			case MiniJavaPackage.STATEMENT: return createStatement();
+			case MiniJavaPackage.PRINT_STATEMENT: return createPrintStatement();
+			case MiniJavaPackage.RETURN: return createReturn();
+			case MiniJavaPackage.IF_STATEMENT: return createIfStatement();
+			case MiniJavaPackage.WHILE_STATEMENT: return createWhileStatement();
+			case MiniJavaPackage.FOR_STATEMENT: return createForStatement();
+			case MiniJavaPackage.TYPE_REF: return createTypeRef();
+			case MiniJavaPackage.SINGLE_TYPE_REF: return createSingleTypeRef();
+			case MiniJavaPackage.CLASS_REF: return createClassRef();
+			case MiniJavaPackage.NAMED_ELEMENT: return createNamedElement();
+			case MiniJavaPackage.TYPED_DECLARATION: return createTypedDeclaration();
+			case MiniJavaPackage.SYMBOL: return createSymbol();
+			case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
+			case MiniJavaPackage.ASSIGNMENT: return createAssignment();
+			case MiniJavaPackage.ASSIGNEE: return createAssignee();
+			case MiniJavaPackage.EXPRESSION: return createExpression();
+			case MiniJavaPackage.ARRAY_TYPE_REF: return createArrayTypeRef();
+			case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
+			case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
+			case MiniJavaPackage.STRING_TYPE_REF: return createStringTypeRef();
+			case MiniJavaPackage.VOID_TYPE_REF: return createVoidTypeRef();
+			case MiniJavaPackage.OR: return createOr();
+			case MiniJavaPackage.AND: return createAnd();
+			case MiniJavaPackage.EQUALITY: return createEquality();
+			case MiniJavaPackage.INEQUALITY: return createInequality();
+			case MiniJavaPackage.SUPERIOR_OR_EQUAL: return createSuperiorOrEqual();
+			case MiniJavaPackage.INFERIOR_OR_EQUAL: return createInferiorOrEqual();
+			case MiniJavaPackage.SUPERIOR: return createSuperior();
+			case MiniJavaPackage.INFERIOR: return createInferior();
+			case MiniJavaPackage.PLUS: return createPlus();
+			case MiniJavaPackage.MINUS: return createMinus();
+			case MiniJavaPackage.MULTIPLICATION: return createMultiplication();
+			case MiniJavaPackage.DIVISION: return createDivision();
+			case MiniJavaPackage.NOT: return createNot();
+			case MiniJavaPackage.NEG: return createNeg();
+			case MiniJavaPackage.FIELD_ACCESS: return createFieldAccess();
+			case MiniJavaPackage.METHOD_CALL: return createMethodCall();
+			case MiniJavaPackage.STRING_CONSTANT: return createStringConstant();
+			case MiniJavaPackage.INT_CONSTANT: return createIntConstant();
+			case MiniJavaPackage.BOOL_CONSTANT: return createBoolConstant();
+			case MiniJavaPackage.THIS: return createThis();
+			case MiniJavaPackage.SUPER: return createSuper();
+			case MiniJavaPackage.NULL: return createNull();
+			case MiniJavaPackage.NEW: return createNew();
+			case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object createFromString(EDataType eDataType, String initialValue)
   {
-    switch (eDataType.getClassifierID())
-    {
-      case MiniJavaPackage.ACCESS_LEVEL:
-        return createAccessLevelFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eDataType.getClassifierID()) {
+			case MiniJavaPackage.ACCESS_LEVEL:
+				return createAccessLevelFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String convertToString(EDataType eDataType, Object instanceValue)
   {
-    switch (eDataType.getClassifierID())
-    {
-      case MiniJavaPackage.ACCESS_LEVEL:
-        return convertAccessLevelToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eDataType.getClassifierID()) {
+			case MiniJavaPackage.ACCESS_LEVEL:
+				return convertAccessLevelToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Program createProgram()
   {
-    ProgramImpl program = new ProgramImpl();
-    return program;
-  }
+		ProgramImpl program = new ProgramImpl();
+		return program;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Import createImport()
   {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
-  }
+		ImportImpl import_ = new ImportImpl();
+		return import_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public org.tetrabox.minijava.xtext.miniJava.Class createClass()
   {
-    ClassImpl class_ = new ClassImpl();
-    return class_;
-  }
+		ClassImpl class_ = new ClassImpl();
+		return class_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Member createMember()
   {
-    MemberImpl member = new MemberImpl();
-    return member;
-  }
+		MemberImpl member = new MemberImpl();
+		return member;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Parameter createParameter()
   {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
-  }
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Field createField()
   {
-    FieldImpl field = new FieldImpl();
-    return field;
-  }
+		FieldImpl field = new FieldImpl();
+		return field;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Method createMethod()
   {
-    MethodImpl method = new MethodImpl();
-    return method;
-  }
+		MethodImpl method = new MethodImpl();
+		return method;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Block createBlock()
   {
-    BlockImpl block = new BlockImpl();
-    return block;
-  }
+		BlockImpl block = new BlockImpl();
+		return block;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Statement createStatement()
   {
-    StatementImpl statement = new StatementImpl();
-    return statement;
-  }
+		StatementImpl statement = new StatementImpl();
+		return statement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public PrintStatement createPrintStatement()
   {
-    PrintStatementImpl printStatement = new PrintStatementImpl();
-    return printStatement;
-  }
+		PrintStatementImpl printStatement = new PrintStatementImpl();
+		return printStatement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Return createReturn()
   {
-    ReturnImpl return_ = new ReturnImpl();
-    return return_;
-  }
+		ReturnImpl return_ = new ReturnImpl();
+		return return_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public IfStatement createIfStatement()
   {
-    IfStatementImpl ifStatement = new IfStatementImpl();
-    return ifStatement;
-  }
+		IfStatementImpl ifStatement = new IfStatementImpl();
+		return ifStatement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public WhileStatement createWhileStatement()
   {
-    WhileStatementImpl whileStatement = new WhileStatementImpl();
-    return whileStatement;
-  }
+		WhileStatementImpl whileStatement = new WhileStatementImpl();
+		return whileStatement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ForStatement createForStatement()
   {
-    ForStatementImpl forStatement = new ForStatementImpl();
-    return forStatement;
-  }
+		ForStatementImpl forStatement = new ForStatementImpl();
+		return forStatement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public TypeRef createTypeRef()
   {
-    TypeRefImpl typeRef = new TypeRefImpl();
-    return typeRef;
-  }
+		TypeRefImpl typeRef = new TypeRefImpl();
+		return typeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public SingleTypeRef createSingleTypeRef()
   {
-    SingleTypeRefImpl singleTypeRef = new SingleTypeRefImpl();
-    return singleTypeRef;
-  }
+		SingleTypeRefImpl singleTypeRef = new SingleTypeRefImpl();
+		return singleTypeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ClassRef createClassRef()
   {
-    ClassRefImpl classRef = new ClassRefImpl();
-    return classRef;
-  }
+		ClassRefImpl classRef = new ClassRefImpl();
+		return classRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NamedElement createNamedElement()
   {
-    NamedElementImpl namedElement = new NamedElementImpl();
-    return namedElement;
-  }
+		NamedElementImpl namedElement = new NamedElementImpl();
+		return namedElement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public TypedDeclaration createTypedDeclaration()
   {
-    TypedDeclarationImpl typedDeclaration = new TypedDeclarationImpl();
-    return typedDeclaration;
-  }
+		TypedDeclarationImpl typedDeclaration = new TypedDeclarationImpl();
+		return typedDeclaration;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Symbol createSymbol()
   {
-    SymbolImpl symbol = new SymbolImpl();
-    return symbol;
-  }
+		SymbolImpl symbol = new SymbolImpl();
+		return symbol;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public VariableDeclaration createVariableDeclaration()
   {
-    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
-    return variableDeclaration;
-  }
+		VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+		return variableDeclaration;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Assignment createAssignment()
   {
-    AssignmentImpl assignment = new AssignmentImpl();
-    return assignment;
-  }
+		AssignmentImpl assignment = new AssignmentImpl();
+		return assignment;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Assignee createAssignee()
   {
-    AssigneeImpl assignee = new AssigneeImpl();
-    return assignee;
-  }
+		AssigneeImpl assignee = new AssigneeImpl();
+		return assignee;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Expression createExpression()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
-  }
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ArrayTypeRef createArrayTypeRef()
   {
-    ArrayTypeRefImpl arrayTypeRef = new ArrayTypeRefImpl();
-    return arrayTypeRef;
-  }
+		ArrayTypeRefImpl arrayTypeRef = new ArrayTypeRefImpl();
+		return arrayTypeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public IntegerTypeRef createIntegerTypeRef()
   {
-    IntegerTypeRefImpl integerTypeRef = new IntegerTypeRefImpl();
-    return integerTypeRef;
-  }
+		IntegerTypeRefImpl integerTypeRef = new IntegerTypeRefImpl();
+		return integerTypeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public BooleanTypeRef createBooleanTypeRef()
   {
-    BooleanTypeRefImpl booleanTypeRef = new BooleanTypeRefImpl();
-    return booleanTypeRef;
-  }
+		BooleanTypeRefImpl booleanTypeRef = new BooleanTypeRefImpl();
+		return booleanTypeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public StringTypeRef createStringTypeRef()
   {
-    StringTypeRefImpl stringTypeRef = new StringTypeRefImpl();
-    return stringTypeRef;
-  }
+		StringTypeRefImpl stringTypeRef = new StringTypeRefImpl();
+		return stringTypeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public VoidTypeRef createVoidTypeRef()
   {
-    VoidTypeRefImpl voidTypeRef = new VoidTypeRefImpl();
-    return voidTypeRef;
-  }
+		VoidTypeRefImpl voidTypeRef = new VoidTypeRefImpl();
+		return voidTypeRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Or createOr()
   {
-    OrImpl or = new OrImpl();
-    return or;
-  }
+		OrImpl or = new OrImpl();
+		return or;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public And createAnd()
   {
-    AndImpl and = new AndImpl();
-    return and;
-  }
+		AndImpl and = new AndImpl();
+		return and;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Equality createEquality()
   {
-    EqualityImpl equality = new EqualityImpl();
-    return equality;
-  }
+		EqualityImpl equality = new EqualityImpl();
+		return equality;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Inequality createInequality()
   {
-    InequalityImpl inequality = new InequalityImpl();
-    return inequality;
-  }
+		InequalityImpl inequality = new InequalityImpl();
+		return inequality;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public SuperiorOrEqual createSuperiorOrEqual()
   {
-    SuperiorOrEqualImpl superiorOrEqual = new SuperiorOrEqualImpl();
-    return superiorOrEqual;
-  }
+		SuperiorOrEqualImpl superiorOrEqual = new SuperiorOrEqualImpl();
+		return superiorOrEqual;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public InferiorOrEqual createInferiorOrEqual()
   {
-    InferiorOrEqualImpl inferiorOrEqual = new InferiorOrEqualImpl();
-    return inferiorOrEqual;
-  }
+		InferiorOrEqualImpl inferiorOrEqual = new InferiorOrEqualImpl();
+		return inferiorOrEqual;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Superior createSuperior()
   {
-    SuperiorImpl superior = new SuperiorImpl();
-    return superior;
-  }
+		SuperiorImpl superior = new SuperiorImpl();
+		return superior;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Inferior createInferior()
   {
-    InferiorImpl inferior = new InferiorImpl();
-    return inferior;
-  }
+		InferiorImpl inferior = new InferiorImpl();
+		return inferior;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Plus createPlus()
   {
-    PlusImpl plus = new PlusImpl();
-    return plus;
-  }
+		PlusImpl plus = new PlusImpl();
+		return plus;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Minus createMinus()
   {
-    MinusImpl minus = new MinusImpl();
-    return minus;
-  }
+		MinusImpl minus = new MinusImpl();
+		return minus;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Multiplication createMultiplication()
   {
-    MultiplicationImpl multiplication = new MultiplicationImpl();
-    return multiplication;
-  }
+		MultiplicationImpl multiplication = new MultiplicationImpl();
+		return multiplication;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Division createDivision()
   {
-    DivisionImpl division = new DivisionImpl();
-    return division;
-  }
+		DivisionImpl division = new DivisionImpl();
+		return division;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Not createNot()
   {
-    NotImpl not = new NotImpl();
-    return not;
-  }
+		NotImpl not = new NotImpl();
+		return not;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Neg createNeg()
   {
-    NegImpl neg = new NegImpl();
-    return neg;
-  }
+		NegImpl neg = new NegImpl();
+		return neg;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public FieldAccess createFieldAccess()
   {
-    FieldAccessImpl fieldAccess = new FieldAccessImpl();
-    return fieldAccess;
-  }
+		FieldAccessImpl fieldAccess = new FieldAccessImpl();
+		return fieldAccess;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public MethodCall createMethodCall()
   {
-    MethodCallImpl methodCall = new MethodCallImpl();
-    return methodCall;
-  }
+		MethodCallImpl methodCall = new MethodCallImpl();
+		return methodCall;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public StringConstant createStringConstant()
   {
-    StringConstantImpl stringConstant = new StringConstantImpl();
-    return stringConstant;
-  }
+		StringConstantImpl stringConstant = new StringConstantImpl();
+		return stringConstant;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public IntConstant createIntConstant()
   {
-    IntConstantImpl intConstant = new IntConstantImpl();
-    return intConstant;
-  }
+		IntConstantImpl intConstant = new IntConstantImpl();
+		return intConstant;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public BoolConstant createBoolConstant()
   {
-    BoolConstantImpl boolConstant = new BoolConstantImpl();
-    return boolConstant;
-  }
+		BoolConstantImpl boolConstant = new BoolConstantImpl();
+		return boolConstant;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public This createThis()
   {
-    ThisImpl this_ = new ThisImpl();
-    return this_;
-  }
+		ThisImpl this_ = new ThisImpl();
+		return this_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Super createSuper()
   {
-    SuperImpl super_ = new SuperImpl();
-    return super_;
-  }
+		SuperImpl super_ = new SuperImpl();
+		return super_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Null createNull()
   {
-    NullImpl null_ = new NullImpl();
-    return null_;
-  }
+		NullImpl null_ = new NullImpl();
+		return null_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public New createNew()
   {
-    NewImpl new_ = new NewImpl();
-    return new_;
-  }
+		NewImpl new_ = new NewImpl();
+		return new_;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public SymbolRef createSymbolRef()
   {
-    SymbolRefImpl symbolRef = new SymbolRefImpl();
-    return symbolRef;
-  }
+		SymbolRefImpl symbolRef = new SymbolRefImpl();
+		return symbolRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public AccessLevel createAccessLevelFromString(EDataType eDataType, String initialValue)
   {
-    AccessLevel result = AccessLevel.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
+		AccessLevel result = AccessLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String convertAccessLevelToString(EDataType eDataType, Object instanceValue)
   {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public MiniJavaPackage getMiniJavaPackage()
   {
-    return (MiniJavaPackage)getEPackage();
-  }
+		return (MiniJavaPackage)getEPackage();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @deprecated
-   * @generated
-   */
+	 * @deprecated
+	 * @generated
+	 */
   @Deprecated
   public static MiniJavaPackage getPackage()
   {
-    return MiniJavaPackage.eINSTANCE;
-  }
+		return MiniJavaPackage.eINSTANCE;
+	}
 
 } //MiniJavaFactoryImpl

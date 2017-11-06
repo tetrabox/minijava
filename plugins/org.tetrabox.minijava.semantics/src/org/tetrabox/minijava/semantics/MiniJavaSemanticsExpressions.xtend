@@ -11,6 +11,8 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
 import org.tetrabox.minijava.xtext.miniJava.And
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant
+import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.ClassRef
 import org.tetrabox.minijava.xtext.miniJava.Division
 import org.tetrabox.minijava.xtext.miniJava.Equality
 import org.tetrabox.minijava.xtext.miniJava.Expression
@@ -19,6 +21,7 @@ import org.tetrabox.minijava.xtext.miniJava.Inequality
 import org.tetrabox.minijava.xtext.miniJava.Inferior
 import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual
 import org.tetrabox.minijava.xtext.miniJava.IntConstant
+import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.Minus
 import org.tetrabox.minijava.xtext.miniJava.Multiplication
@@ -27,16 +30,21 @@ import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.Not
 import org.tetrabox.minijava.xtext.miniJava.Null
 import org.tetrabox.minijava.xtext.miniJava.Or
+import org.tetrabox.minijava.xtext.miniJava.Parameter
 import org.tetrabox.minijava.xtext.miniJava.Plus
 import org.tetrabox.minijava.xtext.miniJava.StringConstant
 import org.tetrabox.minijava.xtext.miniJava.Superior
 import org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef
 import org.tetrabox.minijava.xtext.miniJava.This
+import org.tetrabox.minijava.xtext.miniJava.TypeRef
 
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
+import static extension org.tetrabox.minijava.semantics.MethodAspect.*
+import static extension org.tetrabox.minijava.semantics.ParameterAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
+import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 
 @Aspect(className=Expression)
@@ -264,14 +272,69 @@ class InequalityAspect extends ExpressionAspect {
 	}
 }
 
+@Aspect(className=TypeRef)
+class TypeRefAspect {
+	def boolean compare(TypeRef other) { return _self.eClass == other.eClass }
+}
+
+@Aspect(className=ClassRef)
+class ClassRefAspect extends TypeRefAspect {
+	@OverrideAspectMethod
+	def boolean compare(TypeRef other) {
+		if (other instanceof ClassRef) {
+			return _self.referencedClass == other.referencedClass
+		} else {
+			return false;
+		}
+	}
+}
+
+@Aspect(className=Parameter)
+class ParameterAspect {
+	def boolean compare(Parameter other) {
+		return _self.name == other.name && _self.typeRef.compare(other.typeRef)
+	}
+}
+
+@Aspect(className=Method)
+class MethodAspect {
+
+	def Method findOverride(Class c) {
+		
+		if (c.members.contains(_self)) {
+			return _self
+		}
+		
+		val candidate = c.members.filter(Method).findFirst [
+			it.name == _self.name && 
+			it.params.size == _self.params.size && 
+			it.typeRef.compare(_self.typeRef) &&
+			it.params.forall [ p1 |
+				_self.params.exists [ p2 |
+					p1.compare(p2)
+				]
+			]
+		]
+
+		if (candidate !== null) {
+			return candidate
+		} else if (c.superclass !== null) {
+			return _self.findOverride(c.superclass)
+		} else {
+			return null
+		}
+	}
+}
+
 @Aspect(className=MethodCall)
 class MethodCallExpressionAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
+		val realMethod = _self.member.findOverride(realReceiver.type)
 		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		for (arg : _self.args) {
-			val param = _self.member.params.get(_self.args.indexOf(arg))
+			val param = realMethod.params.get(_self.args.indexOf(arg))
 			val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
 				symbol = param
 				value = arg.evaluateExpression(state)
@@ -279,8 +342,8 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 			newContext.bindings.add(binding)
 		}
 		state.pushNewFrame(realReceiver, _self, newContext)
-		_self.member.body.evaluateStatement(state)
-		val returnValue = state.currentFrame.returnValue
+		realMethod.body.evaluateStatement(state)
+		val returnValue = state.findCurrentFrame.returnValue
 		state.popCurrentFrame
 		return returnValue
 
@@ -300,7 +363,7 @@ class FieldAccessAspect extends ExpressionAspect {
 class ThisAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		val currentInstance = state.currentFrame.instance
+		val currentInstance = state.findCurrentFrame.instance
 		if (currentInstance === null) {
 			throw new RuntimeException('''"this" is not valid in the current context''')
 		} else {
@@ -313,7 +376,7 @@ class ThisAspect extends ExpressionAspect {
 class SymbolRefAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		state.currentContext.get(_self.symbol).value.copy
+		state.findCurrentContext.findBinding(_self.symbol).value.copy
 	}
 }
 

@@ -83,4 +83,12 @@ public interface Program extends EObject {
 	 */
 	EList<org.tetrabox.minijava.xminijavamt.miniJava.Class> getClasses();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	State execute();
+
 } // Program

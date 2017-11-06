@@ -19,20 +19,26 @@ import org.tetrabox.minijava.xminijavamt.miniJava.Assignment;
 import org.tetrabox.minijava.xminijavamt.miniJava.Block;
 import org.tetrabox.minijava.xminijavamt.miniJava.BoolConstant;
 import org.tetrabox.minijava.xminijavamt.miniJava.BooleanTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.BooleanValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.ClassRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.Context;
 import org.tetrabox.minijava.xminijavamt.miniJava.Division;
 import org.tetrabox.minijava.xminijavamt.miniJava.Equality;
 import org.tetrabox.minijava.xminijavamt.miniJava.Expression;
 import org.tetrabox.minijava.xminijavamt.miniJava.Field;
 import org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess;
+import org.tetrabox.minijava.xminijavamt.miniJava.FieldBinding;
 import org.tetrabox.minijava.xminijavamt.miniJava.ForStatement;
+import org.tetrabox.minijava.xminijavamt.miniJava.Frame;
 import org.tetrabox.minijava.xminijavamt.miniJava.IfStatement;
 import org.tetrabox.minijava.xminijavamt.miniJava.Import;
 import org.tetrabox.minijava.xminijavamt.miniJava.Inequality;
 import org.tetrabox.minijava.xminijavamt.miniJava.Inferior;
 import org.tetrabox.minijava.xminijavamt.miniJava.InferiorOrEqual;
+import org.tetrabox.minijava.xminijavamt.miniJava.Instance;
 import org.tetrabox.minijava.xminijavamt.miniJava.IntConstant;
 import org.tetrabox.minijava.xminijavamt.miniJava.IntegerTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.IntegerValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Member;
 import org.tetrabox.minijava.xminijavamt.miniJava.Method;
 import org.tetrabox.minijava.xminijavamt.miniJava.MethodCall;
@@ -45,24 +51,31 @@ import org.tetrabox.minijava.xminijavamt.miniJava.Neg;
 import org.tetrabox.minijava.xminijavamt.miniJava.New;
 import org.tetrabox.minijava.xminijavamt.miniJava.Not;
 import org.tetrabox.minijava.xminijavamt.miniJava.Null;
+import org.tetrabox.minijava.xminijavamt.miniJava.NullValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Or;
+import org.tetrabox.minijava.xminijavamt.miniJava.OutputStream;
 import org.tetrabox.minijava.xminijavamt.miniJava.Parameter;
 import org.tetrabox.minijava.xminijavamt.miniJava.Plus;
 import org.tetrabox.minijava.xminijavamt.miniJava.PrintStatement;
 import org.tetrabox.minijava.xminijavamt.miniJava.Program;
+import org.tetrabox.minijava.xminijavamt.miniJava.RefValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Return;
 import org.tetrabox.minijava.xminijavamt.miniJava.SingleTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.State;
 import org.tetrabox.minijava.xminijavamt.miniJava.Statement;
 import org.tetrabox.minijava.xminijavamt.miniJava.StringConstant;
 import org.tetrabox.minijava.xminijavamt.miniJava.StringTypeRef;
+import org.tetrabox.minijava.xminijavamt.miniJava.StringValue;
 import org.tetrabox.minijava.xminijavamt.miniJava.Super;
 import org.tetrabox.minijava.xminijavamt.miniJava.Superior;
 import org.tetrabox.minijava.xminijavamt.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.xminijavamt.miniJava.Symbol;
+import org.tetrabox.minijava.xminijavamt.miniJava.SymbolBinding;
 import org.tetrabox.minijava.xminijavamt.miniJava.SymbolRef;
 import org.tetrabox.minijava.xminijavamt.miniJava.This;
 import org.tetrabox.minijava.xminijavamt.miniJava.TypeRef;
 import org.tetrabox.minijava.xminijavamt.miniJava.TypedDeclaration;
+import org.tetrabox.minijava.xminijavamt.miniJava.Value;
 import org.tetrabox.minijava.xminijavamt.miniJava.VariableDeclaration;
 import org.tetrabox.minijava.xminijavamt.miniJava.VoidTypeRef;
 import org.tetrabox.minijava.xminijavamt.miniJava.WhileStatement;
@@ -164,6 +177,19 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 			case MiniJavaPackage.NULL: return createNull();
 			case MiniJavaPackage.NEW: return createNew();
 			case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
+			case MiniJavaPackage.CONTEXT: return createContext();
+			case MiniJavaPackage.VALUE: return createValue();
+			case MiniJavaPackage.INTEGER_VALUE: return createIntegerValue();
+			case MiniJavaPackage.INSTANCE: return createInstance();
+			case MiniJavaPackage.SYMBOL_BINDING: return createSymbolBinding();
+			case MiniJavaPackage.FIELD_BINDING: return createFieldBinding();
+			case MiniJavaPackage.STRING_VALUE: return createStringValue();
+			case MiniJavaPackage.BOOLEAN_VALUE: return createBooleanValue();
+			case MiniJavaPackage.OUTPUT_STREAM: return createOutputStream();
+			case MiniJavaPackage.REF_VALUE: return createRefValue();
+			case MiniJavaPackage.STATE: return createState();
+			case MiniJavaPackage.FRAME: return createFrame();
+			case MiniJavaPackage.NULL_VALUE: return createNullValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -205,7 +231,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Program createProgram() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ProgramImpl program = new ProgramImpl();
+		return program;
 	}
 
 	/**
@@ -214,7 +241,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Import createImport() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ImportImpl import_ = new ImportImpl();
+		return import_;
 	}
 
 	/**
@@ -223,7 +251,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public org.tetrabox.minijava.xminijavamt.miniJava.Class createClass() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ClassImpl class_ = new ClassImpl();
+		return class_;
 	}
 
 	/**
@@ -232,7 +261,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Member createMember() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		MemberImpl member = new MemberImpl();
+		return member;
 	}
 
 	/**
@@ -241,7 +271,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Parameter createParameter() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
 	}
 
 	/**
@@ -250,7 +281,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Field createField() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		FieldImpl field = new FieldImpl();
+		return field;
 	}
 
 	/**
@@ -259,7 +291,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Method createMethod() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		MethodImpl method = new MethodImpl();
+		return method;
 	}
 
 	/**
@@ -268,7 +301,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Block createBlock() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		BlockImpl block = new BlockImpl();
+		return block;
 	}
 
 	/**
@@ -277,7 +311,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Statement createStatement() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		StatementImpl statement = new StatementImpl();
+		return statement;
 	}
 
 	/**
@@ -286,7 +321,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public PrintStatement createPrintStatement() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		PrintStatementImpl printStatement = new PrintStatementImpl();
+		return printStatement;
 	}
 
 	/**
@@ -295,7 +331,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Return createReturn() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ReturnImpl return_ = new ReturnImpl();
+		return return_;
 	}
 
 	/**
@@ -304,7 +341,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public IfStatement createIfStatement() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		IfStatementImpl ifStatement = new IfStatementImpl();
+		return ifStatement;
 	}
 
 	/**
@@ -313,7 +351,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public WhileStatement createWhileStatement() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		WhileStatementImpl whileStatement = new WhileStatementImpl();
+		return whileStatement;
 	}
 
 	/**
@@ -322,7 +361,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public ForStatement createForStatement() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ForStatementImpl forStatement = new ForStatementImpl();
+		return forStatement;
 	}
 
 	/**
@@ -331,7 +371,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public TypeRef createTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		TypeRefImpl typeRef = new TypeRefImpl();
+		return typeRef;
 	}
 
 	/**
@@ -340,7 +381,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public SingleTypeRef createSingleTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		SingleTypeRefImpl singleTypeRef = new SingleTypeRefImpl();
+		return singleTypeRef;
 	}
 
 	/**
@@ -349,7 +391,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public ClassRef createClassRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ClassRefImpl classRef = new ClassRefImpl();
+		return classRef;
 	}
 
 	/**
@@ -358,7 +401,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public NamedElement createNamedElement() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		NamedElementImpl namedElement = new NamedElementImpl();
+		return namedElement;
 	}
 
 	/**
@@ -367,7 +411,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public TypedDeclaration createTypedDeclaration() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		TypedDeclarationImpl typedDeclaration = new TypedDeclarationImpl();
+		return typedDeclaration;
 	}
 
 	/**
@@ -376,7 +421,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Symbol createSymbol() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		SymbolImpl symbol = new SymbolImpl();
+		return symbol;
 	}
 
 	/**
@@ -385,7 +431,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public VariableDeclaration createVariableDeclaration() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+		return variableDeclaration;
 	}
 
 	/**
@@ -394,7 +441,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Assignment createAssignment() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		AssignmentImpl assignment = new AssignmentImpl();
+		return assignment;
 	}
 
 	/**
@@ -403,7 +451,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Assignee createAssignee() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		AssigneeImpl assignee = new AssigneeImpl();
+		return assignee;
 	}
 
 	/**
@@ -412,7 +461,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Expression createExpression() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
 	}
 
 	/**
@@ -421,7 +471,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public ArrayTypeRef createArrayTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ArrayTypeRefImpl arrayTypeRef = new ArrayTypeRefImpl();
+		return arrayTypeRef;
 	}
 
 	/**
@@ -430,7 +481,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public IntegerTypeRef createIntegerTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		IntegerTypeRefImpl integerTypeRef = new IntegerTypeRefImpl();
+		return integerTypeRef;
 	}
 
 	/**
@@ -439,7 +491,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public BooleanTypeRef createBooleanTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		BooleanTypeRefImpl booleanTypeRef = new BooleanTypeRefImpl();
+		return booleanTypeRef;
 	}
 
 	/**
@@ -448,7 +501,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public StringTypeRef createStringTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		StringTypeRefImpl stringTypeRef = new StringTypeRefImpl();
+		return stringTypeRef;
 	}
 
 	/**
@@ -457,7 +511,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public VoidTypeRef createVoidTypeRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		VoidTypeRefImpl voidTypeRef = new VoidTypeRefImpl();
+		return voidTypeRef;
 	}
 
 	/**
@@ -466,7 +521,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Or createOr() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		OrImpl or = new OrImpl();
+		return or;
 	}
 
 	/**
@@ -475,7 +531,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public And createAnd() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		AndImpl and = new AndImpl();
+		return and;
 	}
 
 	/**
@@ -484,7 +541,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Equality createEquality() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		EqualityImpl equality = new EqualityImpl();
+		return equality;
 	}
 
 	/**
@@ -493,7 +551,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Inequality createInequality() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		InequalityImpl inequality = new InequalityImpl();
+		return inequality;
 	}
 
 	/**
@@ -502,7 +561,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public SuperiorOrEqual createSuperiorOrEqual() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		SuperiorOrEqualImpl superiorOrEqual = new SuperiorOrEqualImpl();
+		return superiorOrEqual;
 	}
 
 	/**
@@ -511,7 +571,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public InferiorOrEqual createInferiorOrEqual() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		InferiorOrEqualImpl inferiorOrEqual = new InferiorOrEqualImpl();
+		return inferiorOrEqual;
 	}
 
 	/**
@@ -520,7 +581,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Superior createSuperior() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		SuperiorImpl superior = new SuperiorImpl();
+		return superior;
 	}
 
 	/**
@@ -529,7 +591,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Inferior createInferior() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		InferiorImpl inferior = new InferiorImpl();
+		return inferior;
 	}
 
 	/**
@@ -538,7 +601,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Plus createPlus() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		PlusImpl plus = new PlusImpl();
+		return plus;
 	}
 
 	/**
@@ -547,7 +611,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Minus createMinus() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		MinusImpl minus = new MinusImpl();
+		return minus;
 	}
 
 	/**
@@ -556,7 +621,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Multiplication createMultiplication() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		MultiplicationImpl multiplication = new MultiplicationImpl();
+		return multiplication;
 	}
 
 	/**
@@ -565,7 +631,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Division createDivision() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		DivisionImpl division = new DivisionImpl();
+		return division;
 	}
 
 	/**
@@ -574,7 +641,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Not createNot() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		NotImpl not = new NotImpl();
+		return not;
 	}
 
 	/**
@@ -583,7 +651,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Neg createNeg() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		NegImpl neg = new NegImpl();
+		return neg;
 	}
 
 	/**
@@ -592,7 +661,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public FieldAccess createFieldAccess() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		FieldAccessImpl fieldAccess = new FieldAccessImpl();
+		return fieldAccess;
 	}
 
 	/**
@@ -601,7 +671,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public MethodCall createMethodCall() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		MethodCallImpl methodCall = new MethodCallImpl();
+		return methodCall;
 	}
 
 	/**
@@ -610,7 +681,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public StringConstant createStringConstant() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		StringConstantImpl stringConstant = new StringConstantImpl();
+		return stringConstant;
 	}
 
 	/**
@@ -619,7 +691,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public IntConstant createIntConstant() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		IntConstantImpl intConstant = new IntConstantImpl();
+		return intConstant;
 	}
 
 	/**
@@ -628,7 +701,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public BoolConstant createBoolConstant() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		BoolConstantImpl boolConstant = new BoolConstantImpl();
+		return boolConstant;
 	}
 
 	/**
@@ -637,7 +711,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public This createThis() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		ThisImpl this_ = new ThisImpl();
+		return this_;
 	}
 
 	/**
@@ -646,7 +721,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Super createSuper() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		SuperImpl super_ = new SuperImpl();
+		return super_;
 	}
 
 	/**
@@ -655,7 +731,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public Null createNull() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		NullImpl null_ = new NullImpl();
+		return null_;
 	}
 
 	/**
@@ -664,7 +741,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public New createNew() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		NewImpl new_ = new NewImpl();
+		return new_;
 	}
 
 	/**
@@ -673,7 +751,138 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	 * @generated
 	 */
 	public SymbolRef createSymbolRef() {
-		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+		SymbolRefImpl symbolRef = new SymbolRefImpl();
+		return symbolRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Context createContext() {
+		ContextImpl context = new ContextImpl();
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value createValue() {
+		ValueImpl value = new ValueImpl();
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerValue createIntegerValue() {
+		IntegerValueImpl integerValue = new IntegerValueImpl();
+		return integerValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Instance createInstance() {
+		InstanceImpl instance = new InstanceImpl();
+		return instance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SymbolBinding createSymbolBinding() {
+		SymbolBindingImpl symbolBinding = new SymbolBindingImpl();
+		return symbolBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FieldBinding createFieldBinding() {
+		FieldBindingImpl fieldBinding = new FieldBindingImpl();
+		return fieldBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringValue createStringValue() {
+		StringValueImpl stringValue = new StringValueImpl();
+		return stringValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanValue createBooleanValue() {
+		BooleanValueImpl booleanValue = new BooleanValueImpl();
+		return booleanValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutputStream createOutputStream() {
+		OutputStreamImpl outputStream = new OutputStreamImpl();
+		return outputStream;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RefValue createRefValue() {
+		RefValueImpl refValue = new RefValueImpl();
+		return refValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State createState() {
+		StateImpl state = new StateImpl();
+		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Frame createFrame() {
+		FrameImpl frame = new FrameImpl();
+		return frame;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NullValue createNullValue() {
+		NullValueImpl nullValue = new NullValueImpl();
+		return nullValue;
 	}
 
 	/**

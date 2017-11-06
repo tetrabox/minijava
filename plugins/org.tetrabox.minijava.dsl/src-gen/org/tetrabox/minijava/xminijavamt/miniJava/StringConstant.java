@@ -46,4 +46,12 @@ public interface StringConstant extends Expression {
 	 */
 	void setValue(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // StringConstant

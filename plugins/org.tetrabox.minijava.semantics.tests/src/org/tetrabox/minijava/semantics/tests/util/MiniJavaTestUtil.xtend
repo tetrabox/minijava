@@ -104,11 +104,15 @@ class MiniJavaTestUtil {
 		val state = result.execute
 		oracle.accept(state)
 	}
+	
+	public def void genericPrintTest(String program, String... expected) {
+		genericTest(program, [State s|Assert::assertEquals(expected.toList, s.outputStream.stream)])
+	}
 
 	public def void genericExpressionTest(String preStatements, String type, String expression, Object expectedValue) {
 		val program = prepareTestProgram('''  «preStatements» «type» x = «expression»; ''')
 		genericTest(program, [ s |
-			val result = s.currentContext.get("x")
+			val result = s.findCurrentContext.get("x")
 			Assert::assertTrue('''«expectedValue» is different from «result»''', MiniJavaValueEquals::equals(
 				result,
 				expectedValue
@@ -131,10 +135,10 @@ class MiniJavaTestUtil {
 
 	public def void genericStatementBindingsTest(String statement, Map<String, Object> expectedBindings) {
 		genericStatementTest(statement, [ State s |
-			Assert::assertEquals(expectedBindings.size, s.currentFrame.rootContext.allSymbolBindings.size)
+			Assert::assertEquals(expectedBindings.size, s.findCurrentFrame.rootContext.allSymbolBindings.size)
 			for (symbol : expectedBindings.keySet) {
 				val expectedValue = expectedBindings.get(symbol)
-				val value = s.currentContext.get(symbol)
+				val value = s.findCurrentContext.get(symbol)
 				Assert::assertTrue(MiniJavaValueEquals::equals(value,expectedValue))
 			}
 		])

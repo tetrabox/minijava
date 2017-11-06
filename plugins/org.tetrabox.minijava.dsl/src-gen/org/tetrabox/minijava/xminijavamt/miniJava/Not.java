@@ -46,4 +46,12 @@ public interface Not extends Expression {
 	 */
 	void setExpression(Expression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Value evaluateExpression(State state);
+
 } // Not

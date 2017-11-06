@@ -32,7 +32,7 @@ class BlockAspect extends StatementAspect {
 
 	def void evaluateStatementKeepContext(State state) {
 		state.pushNewContext
-		val currentFrame = state.currentFrame
+		val currentFrame = state.findCurrentFrame
 		var i = _self.statements.iterator
 		while (i.hasNext && currentFrame.returnValue === null) {
 			i.next.evaluateStatement(state)
@@ -66,12 +66,12 @@ class PrintStatementAspect extends StatementAspect {
 class AssigmentAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluateStatement(State state) {
-		val context = state.currentContext
+		val context = state.findCurrentContext
 		val right = _self.value.evaluateExpression(state)
 		val assignee = _self.assignee
 		switch (assignee) {
 			SymbolRef: {
-				val existingBinding = context.get(assignee.symbol)
+				val existingBinding = context.findBinding(assignee.symbol)
 				existingBinding.value = right
 			}
 			VariableDeclaration: {
@@ -147,6 +147,6 @@ class ReturnAspect extends StatementAspect {
 	@OverrideAspectMethod
 	def void evaluateStatement(State state) {
 		val value = _self.expression.evaluateExpression(state);
-		state.currentFrame.returnValue = value
+		state.findCurrentFrame.returnValue = value
 	}
 }

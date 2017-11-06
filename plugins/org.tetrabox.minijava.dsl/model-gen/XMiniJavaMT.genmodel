@@ -26,6 +26,9 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Program/classes"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Program/execute"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Import"/>
@@ -74,21 +77,51 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Block/statements"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Block/evaluateStatementKeepContext"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Block/evaluateStatementKeepContext/state"/>
+        </genParameters>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Block/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Block/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Statement"/>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Statement/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Statement/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//PrintStatement"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//PrintStatement/expression"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//PrintStatement/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//PrintStatement/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Return"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Return/expression"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Return/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Return/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//IfStatement"/>
@@ -101,6 +134,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//IfStatement/elseBlock"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//IfStatement/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//IfStatement/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//WhileStatement"/>
@@ -110,6 +149,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//WhileStatement/block"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//WhileStatement/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//WhileStatement/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//ForStatement"/>
@@ -125,6 +170,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ForStatement/block"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//ForStatement/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//ForStatement/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//TypeRef"/>
@@ -164,12 +215,30 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Assignment/value"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Assignment/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Assignment/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Assignee"/>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Expression"/>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Expression/evaluateStatement"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Expression/evaluateStatement/state"/>
+        </genParameters>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Expression/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Expression/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//ArrayTypeRef"/>
@@ -197,6 +266,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Or/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Or/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Or/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//And"/>
@@ -206,6 +281,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//And/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//And/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//And/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Equality"/>
@@ -215,6 +296,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Equality/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Equality/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Equality/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Inequality"/>
@@ -224,6 +311,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Inequality/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Inequality/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Inequality/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//SuperiorOrEqual"/>
@@ -233,6 +326,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//SuperiorOrEqual/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//SuperiorOrEqual/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//SuperiorOrEqual/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//InferiorOrEqual"/>
@@ -242,6 +341,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//InferiorOrEqual/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//InferiorOrEqual/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//InferiorOrEqual/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Superior"/>
@@ -251,6 +356,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Superior/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Superior/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Superior/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Inferior"/>
@@ -260,6 +371,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Inferior/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Inferior/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Inferior/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Plus"/>
@@ -269,6 +386,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Plus/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Plus/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Plus/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Minus"/>
@@ -278,6 +401,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Minus/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Minus/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Minus/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Multiplication"/>
@@ -287,6 +416,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Multiplication/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Multiplication/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Multiplication/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Division"/>
@@ -296,18 +431,36 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Division/right"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Division/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Division/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Not"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Not/expression"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Not/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Not/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Neg"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Neg/expression"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Neg/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Neg/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//FieldAccess"/>
@@ -317,6 +470,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//FieldAccess/member"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//FieldAccess/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//FieldAccess/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//MethodCall"/>
@@ -329,45 +488,282 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//MethodCall/args"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//MethodCall/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//MethodCall/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//StringConstant"/>
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//StringConstant/value"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//StringConstant/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//StringConstant/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//IntConstant"/>
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//IntConstant/value"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//IntConstant/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//IntConstant/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//BoolConstant"/>
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//BoolConstant/value"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//BoolConstant/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//BoolConstant/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//This"/>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//This/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//This/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Super"/>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Null"/>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Null/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Null/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//New"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//New/type"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//New/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//New/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//SymbolRef"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//SymbolRef/symbol"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//SymbolRef/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//SymbolRef/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//Context"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Context/bindings"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Context/parentContext"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Context/childContext"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Context/createChildContext"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Context/findBinding"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Context/findBinding/symbol"/>
+        </genParameters>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Context/findCurrentContext"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//Value"/>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Value/customToString"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Value/copy"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//IntegerValue"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//IntegerValue/value"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//IntegerValue/copy"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//IntegerValue/customToString"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//Instance"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Instance/fieldbindings"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Instance/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//SymbolBinding"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//SymbolBinding/value"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//SymbolBinding/symbol"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//FieldBinding"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//FieldBinding/field"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//FieldBinding/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//StringValue"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//StringValue/value"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//StringValue/copy"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//StringValue/customToString"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//BooleanValue"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//BooleanValue/value"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//BooleanValue/customToString"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//BooleanValue/copy"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//OutputStream"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//OutputStream/stream"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//RefValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//RefValue/instance"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//RefValue/copy"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//RefValue/customToString"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//State"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/rootFrame"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/heap"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/outputStream"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/findCurrentFrame"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/findCurrentContext"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/println"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//State/println/string"/>
+        </genParameters>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/pushNewContext"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/popCurrentContext"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/pushNewFrame"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//State/pushNewFrame/receiver"/>
+        </genParameters>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//State/pushNewFrame/methodCall"/>
+        </genParameters>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//State/pushNewFrame/newContext"/>
+        </genParameters>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//State/popCurrentFrame"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//Frame"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Frame/methodcall"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Frame/instance"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Frame/childFrame"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Frame/parentFrame"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Frame/rootContext"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Frame/returnValue"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Frame/findCurrentFrame"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Frame/findCurrentContext"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//NullValue"/>
     </genClasses>
   </genPackages>
   <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>

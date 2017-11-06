@@ -25,6 +25,7 @@ import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
+import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -41,6 +42,7 @@ class MiniJavaTypeComputer {
 			IntegerTypeRef: INT_TYPE
 			BooleanTypeRef: BOOLEAN_TYPE
 			StringTypeRef: STRING_TYPE
+			VoidTypeRef : NULL_TYPE
 		}
 	}
 
