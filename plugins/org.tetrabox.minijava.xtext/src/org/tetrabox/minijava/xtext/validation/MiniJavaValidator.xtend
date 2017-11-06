@@ -26,6 +26,7 @@ import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
+import org.tetrabox.minijava.xtext.miniJava.Constructor
 
 /**
  * This class contains custom validation rules. 
@@ -51,6 +52,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	public static val REDUCED_ACCESSIBILITY = ISSUE_CODE_PREFIX + "ReducedAccessibility"
 	public static val ABSTRACT_METHOD_BODY = ISSUE_CODE_PREFIX + "AbstractMethodBody"
 	public static val ABSTRACT_METHOD_CLASS = ISSUE_CODE_PREFIX + "AbstractMethodClass"
+	public static val CONSTRUCTOR_CLASS = ISSUE_CODE_PREFIX + "ConstructorClass"
 
 	@Inject extension MiniJavaModelUtil
 	@Inject extension MiniJavaTypeComputer
@@ -151,20 +153,19 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			}
 		}
 	}
-	
+
 	@Check
 	def void checkMethodAbstract(Method method) {
 		if (method.abstract && method.body !== null) {
 			error('''The abstract method «method.name» cannot have a body.''', method,
-					MiniJavaPackage.eINSTANCE.method_Body, ABSTRACT_METHOD_BODY)
+				MiniJavaPackage.eINSTANCE.method_Body, ABSTRACT_METHOD_BODY)
 		}
-		
+
 		if (method.abstract && !(method.eContainer as Class).abstract) {
 			error('''The abstract method «method.name» must be contained in an abstract class.''', method,
-					MiniJavaPackage.eINSTANCE.method_Abstract, ABSTRACT_METHOD_CLASS)
+				MiniJavaPackage.eINSTANCE.method_Abstract, ABSTRACT_METHOD_CLASS)
 		}
 	}
-	
 
 	@Check def void checkAccessibility(FieldAccess sel) {
 		val member = sel.member
@@ -205,8 +206,16 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			s.eContainingFeature != MiniJavaPackage.eINSTANCE.fieldAccess_Receiver)
 			error("'super' can be used only as member selection receiver", null, WRONG_SUPER_USAGE)
 	}
-	
-	
+
+	@Check
+	def void checkConstructor(Constructor constructor) {
+		val parentClass = (constructor.eContainer as Class)
+		if (constructor.classRef.referencedClass !== parentClass) {
+			error("A constructor must be in the same class as its name.", constructor,
+				MiniJavaPackage.eINSTANCE.constructor_ClassRef, CONSTRUCTOR_CLASS)
+		}
+	}
+
 	def private void checkNoDuplicateElements(Iterable<? extends NamedElement> elements, String desc) {
 		val multiMap = HashMultimap.create()
 
