@@ -28,7 +28,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  *
  * @generated
  */
-public class FieldImpl extends TypedMemberImpl implements Field
+public class FieldImpl extends MemberImpl implements Field
 {
   /**
    * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' containment reference.

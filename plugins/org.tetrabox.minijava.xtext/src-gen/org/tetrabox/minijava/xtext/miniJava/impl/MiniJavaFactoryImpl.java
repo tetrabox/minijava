@@ -21,7 +21,6 @@ import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
 import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.ClassRef;
-import org.tetrabox.minijava.xtext.miniJava.Constructor;
 import org.tetrabox.minijava.xtext.miniJava.Division;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
@@ -65,7 +64,6 @@ import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
-import org.tetrabox.minijava.xtext.miniJava.TypedMember;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.WhileStatement;
@@ -126,8 +124,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.IMPORT: return createImport();
       case MiniJavaPackage.CLASS: return createClass();
       case MiniJavaPackage.MEMBER: return createMember();
-      case MiniJavaPackage.TYPED_MEMBER: return createTypedMember();
-      case MiniJavaPackage.CONSTRUCTOR: return createConstructor();
       case MiniJavaPackage.METHOD: return createMethod();
       case MiniJavaPackage.PARAMETER: return createParameter();
       case MiniJavaPackage.FIELD: return createField();
@@ -258,28 +254,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     MemberImpl member = new MemberImpl();
     return member;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypedMember createTypedMember()
-  {
-    TypedMemberImpl typedMember = new TypedMemberImpl();
-    return typedMember;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Constructor createConstructor()
-  {
-    ConstructorImpl constructor = new ConstructorImpl();
-    return constructor;
   }
 
   /**

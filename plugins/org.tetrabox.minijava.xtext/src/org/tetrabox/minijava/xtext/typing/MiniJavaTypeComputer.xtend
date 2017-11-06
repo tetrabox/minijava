@@ -11,7 +11,6 @@ import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
 import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
-import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.Null
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.StringConstant
@@ -26,7 +25,7 @@ import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef
-import org.tetrabox.minijava.xtext.miniJava.Constructor
+import org.tetrabox.minijava.xtext.miniJava.New
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -49,14 +48,12 @@ class MiniJavaTypeComputer {
 
 	def Class typeFor(Expression e) {
 		switch (e) {
-			New:
-				e.type
 			SymbolRef:
 				e.symbol.typeRef.type
 			FieldAccess:
-				e.member.typeRef.type
+				e.field.typeRef.type
 			MethodCall:
-				e.member.typeRef.type
+				e.method.typeRef.type
 			This:
 				e.getContainerOfType(Class)
 			Super:
@@ -98,11 +95,13 @@ class MiniJavaTypeComputer {
 			case f == ep.ifStatement_Expression:
 				BOOLEAN_TYPE
 			MethodCall case f == ep.methodCall_Args: {
-				if ((c.member as Method).params.size > c.args.indexOf(e))
-					(c.member as Method).params.get(c.args.indexOf(e)).typeRef.type
+				if (c.method !== null) {
+				if (c.method.params.size > c.args.indexOf(e))
+					c.method.params.get(c.args.indexOf(e)).typeRef.type
+				}
 			}
 			New case f == ep.new_Args: {
-				c.type.members.filter(Constructor).findFirst[it.params.size === c.args.size].params.get(c.args.indexOf(e)).typeRef.type
+				c.type.members.filter(Method).findFirst[it.name === null && it.params.size === c.args.size].params.get(c.args.indexOf(e)).typeRef.type
 			}
 		}
 	}

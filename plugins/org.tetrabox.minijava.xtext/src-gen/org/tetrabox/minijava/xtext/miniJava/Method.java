@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Method extends TypedMember
+public interface Method extends Member
 {
   /**
    * Returns the value of the '<em><b>Abstract</b></em>' attribute.

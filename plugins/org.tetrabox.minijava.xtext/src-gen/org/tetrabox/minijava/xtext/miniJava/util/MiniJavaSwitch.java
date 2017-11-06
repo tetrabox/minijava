@@ -16,7 +16,6 @@ import org.tetrabox.minijava.xtext.miniJava.Block;
 import org.tetrabox.minijava.xtext.miniJava.BoolConstant;
 import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.ClassRef;
-import org.tetrabox.minijava.xtext.miniJava.Constructor;
 import org.tetrabox.minijava.xtext.miniJava.Division;
 import org.tetrabox.minijava.xtext.miniJava.Equality;
 import org.tetrabox.minijava.xtext.miniJava.Expression;
@@ -59,7 +58,6 @@ import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
-import org.tetrabox.minijava.xtext.miniJava.TypedMember;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.WhileStatement;
@@ -153,24 +151,8 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Member member = (Member)theEObject;
         T result = caseMember(member);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.TYPED_MEMBER:
-      {
-        TypedMember typedMember = (TypedMember)theEObject;
-        T result = caseTypedMember(typedMember);
-        if (result == null) result = caseMember(typedMember);
-        if (result == null) result = caseTypedDeclaration(typedMember);
-        if (result == null) result = caseNamedElement(typedMember);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MiniJavaPackage.CONSTRUCTOR:
-      {
-        Constructor constructor = (Constructor)theEObject;
-        T result = caseConstructor(constructor);
-        if (result == null) result = caseMember(constructor);
+        if (result == null) result = caseTypedDeclaration(member);
+        if (result == null) result = caseNamedElement(member);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -178,7 +160,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Method method = (Method)theEObject;
         T result = caseMethod(method);
-        if (result == null) result = caseTypedMember(method);
         if (result == null) result = caseMember(method);
         if (result == null) result = caseTypedDeclaration(method);
         if (result == null) result = caseNamedElement(method);
@@ -199,7 +180,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
       {
         Field field = (Field)theEObject;
         T result = caseField(field);
-        if (result == null) result = caseTypedMember(field);
         if (result == null) result = caseMember(field);
         if (result == null) result = caseTypedDeclaration(field);
         if (result == null) result = caseNamedElement(field);
@@ -692,38 +672,6 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMember(Member object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Member</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Member</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTypedMember(TypedMember object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Constructor</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constructor</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstructor(Constructor object)
   {
     return null;
   }

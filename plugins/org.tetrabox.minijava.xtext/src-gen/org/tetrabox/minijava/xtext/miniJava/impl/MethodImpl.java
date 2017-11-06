@@ -39,7 +39,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
  *
  * @generated
  */
-public class MethodImpl extends TypedMemberImpl implements Method
+public class MethodImpl extends MemberImpl implements Method
 {
   /**
    * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.

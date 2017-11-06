@@ -22,32 +22,21 @@ Class:
 	'}';
 
 Member:
-	TypedMember | Constructor ;
-	
-TypedMember:
-	Field | Method
-;
-
-Constructor:
-	access=AccessLevel? type=[Class] '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
-;
+	Field | Method;
 
 Method:
-	 access=AccessLevel? abstract?='abstract'? static?='static'? typeRef=TypeRef name=ID
+	access=AccessLevel? abstract?='abstract'? static?='static'? typeRef=TypeRef name=ID?
 	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
 	(body=Block | ';');
-
 
 Parameter:
 	typeRef=TypeRef name=ID;
 
 Field:
-	access=AccessLevel? typeRef=TypeRef name=ID (defaultValue=Assigned)? ';' ;
-	
-Assigned returns Expression:
-	'=' Expression
-;
+	access=AccessLevel? typeRef=TypeRef name=ID (defaultValue=Assigned)? ';';
 
+Assigned returns Expression:
+	'=' Expression;
 
 enum AccessLevel:
 	PRIVATE='private' | PROTECTED='protected' | PUBLIC='public';
@@ -62,9 +51,8 @@ Statement:
 	WhileStatement |
 	ForStatement |
 	PrintStatement ";" |
-	Block  |
-	SelectionExpression ';'
-;
+	Block |
+	SelectionExpression ';';
 
 PrintStatement:
 	"System" "." "out" "." "println" "(" expression=Expression ")";
@@ -100,12 +88,12 @@ NamedElement:
 	Class;
 
 TypedDeclaration:
-	Symbol | TypedMember;
+	Symbol | Member;
 
 	// here we need to set up an artificial priority with =>
 Symbol:
 	=> Parameter | VariableDeclaration;
-
+	
 VariableDeclaration:
 	typeRef=TypeRef name=ID;
 
@@ -114,13 +102,11 @@ Assignment:
 
 Assignee:
 	=> SelectionExpression |
-	VariableDeclaration
-;
+	VariableDeclaration;
 
 Expression:
-	Or
-;
-	
+	Or;
+
 Or returns Expression:
 	And ({Or.left=current} "||" right=And)*;
 
@@ -153,16 +139,10 @@ Primary returns Expression:
 
 SelectionExpression returns Expression:
 	TerminalExpression
-	(
-		(
-		{FieldAccess.receiver=current} '.'	member=[Field]
-		|
-		{MethodCall.receiver=current} '.'	member=[Method]
-			'('(args+=Expression (',' args+=Expression)*)? ')'
-		)
-	)*;
-	
-
+	(({FieldAccess.receiver=current} '.' field=[Field]
+	|
+	{MethodCall.receiver=current} '.' method=[Method]
+	'(' (args+=Expression (',' args+=Expression)*)? ')'))*;
 
 TerminalExpression returns Expression:
 	{StringConstant} value=STRING |
@@ -171,6 +151,6 @@ TerminalExpression returns Expression:
 	{This} 'this' |
 	{Super} 'super' |
 	{Null} 'null' |
-	{New} 'new' type=[Class|QualifiedName] '('(args+=Expression (',' args+=Expression)*)? ')' | //TODO possibility for non default constructors
+	{New} 'new' type=[Class|QualifiedName] '(' (args+=Expression (',' args+=Expression)*)? ')' |
 	{SymbolRef} symbol=[Symbol|ID];
 	

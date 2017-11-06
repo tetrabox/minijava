@@ -11,8 +11,6 @@ import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
 import org.tetrabox.minijava.xtext.miniJava.TypeRef
-import org.tetrabox.minijava.xtext.miniJava.TypedMember
-import org.tetrabox.minijava.xtext.miniJava.Constructor
 
 class MiniJavaModelUtil {
 
@@ -57,18 +55,16 @@ class MiniJavaModelUtil {
 	}
 
 	def memberAsString(Member m) {
-		if (m instanceof TypedMember) {
-			m.name + if (m instanceof Method)
+		if (m instanceof Member) {
+			(if(m.name === null) m.typeRef.name else m.name) + if (m instanceof Method)
 				"(" + m.params.map[typeRef.name].join(", ") + ")"
 			else
 				""
-		} else if (m instanceof Constructor) {
-			m.type.name + "(" + m.params.map[typeRef.name].join(", ") + ")"
 		}
 	}
 
 	def memberAsStringWithType(Member m) {
-		m.memberAsString + " : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.type.name
+		m.memberAsString + " : " + m.typeRef.name
 	}
 
 	def String getName(TypeRef r) {

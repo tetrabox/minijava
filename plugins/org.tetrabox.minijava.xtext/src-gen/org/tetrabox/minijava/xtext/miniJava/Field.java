@@ -20,7 +20,7 @@ package org.tetrabox.minijava.xtext.miniJava;
  * @model
  * @generated
  */
-public interface Field extends TypedMember
+public interface Field extends Member
 {
   /**
    * Returns the value of the '<em><b>Default Value</b></em>' containment reference.

@@ -14,6 +14,8 @@ import org.tetrabox.minijava.xtext.MiniJavaModelUtil
 import org.tetrabox.minijava.xtext.miniJava.Class
 import org.tetrabox.minijava.xtext.miniJava.Member
 import org.tetrabox.minijava.xtext.validation.MiniJavaAccessibility
+import org.tetrabox.minijava.xtext.miniJava.Method
+import org.tetrabox.minijava.xtext.miniJava.Field
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -31,10 +33,17 @@ class MiniJavaProposalProvider extends AbstractMiniJavaProposalProvider {
 			super.getStyledDisplayString(element, qualifiedNameAsString, shortName)
 	}
 
-	override void completeSelectionExpression_Member(EObject model, Assignment a, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+	override void completeSelectionExpression_Method(EObject model, Assignment a, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(a.getTerminal() as CrossReference, context, acceptor) [ description |
-			(description.getEObjectOrProxy as Member).isAccessibleFrom(model)
+			(description.getEObjectOrProxy as Method).isAccessibleFrom(model)
+		]
+	}
+
+	override void completeSelectionExpression_Field(EObject model, Assignment a, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(a.getTerminal() as CrossReference, context, acceptor) [ description |
+			(description.getEObjectOrProxy as Field).isAccessibleFrom(model)
 		]
 	}
 }

@@ -397,14 +397,16 @@ class NewAspect extends ExpressionAspect {
 				])
 			}
 		}
+		
+		state.pushNewFrame(result,)
 
-//		for (arg : _self.args) {
-//			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))
-//			val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding
-//			binding.field = field
-//			binding.value = (arg as Expression).evaluate(context)
-//			result.fieldbindings.add(binding)
-//		}
+		for (arg : _self.args) {
+			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))
+			val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding
+			binding.field = field
+			binding.value = (arg as Expression).evaluate(context)
+			result.fieldbindings.add(binding)
+		}
 		return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = result]
 	}
 }

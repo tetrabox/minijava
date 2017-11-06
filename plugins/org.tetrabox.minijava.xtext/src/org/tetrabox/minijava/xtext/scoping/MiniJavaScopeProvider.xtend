@@ -65,7 +65,7 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 		}
 	}
 
-	//TODO simplify?
+	// TODO simplify?
 	def IScope scopeForFieldAccess(FieldAccess sel) {
 		val type = sel.receiver.typeFor
 
@@ -81,8 +81,8 @@ class MiniJavaScopeProvider extends AbstractMiniJavaScopeProvider {
 			Scopes.scopeFor(inheritedFields + inheritedMethods)
 		)
 	}
-	
-	//TODO simplify?
+
+	// TODO simplify?
 	def IScope scopeForMethodCall(MethodCall sel) {
 		val type = sel.receiver.typeFor
 

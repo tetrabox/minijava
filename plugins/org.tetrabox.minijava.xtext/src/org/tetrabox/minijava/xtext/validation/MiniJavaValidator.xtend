@@ -26,8 +26,8 @@ import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
-import org.tetrabox.minijava.xtext.miniJava.Constructor
 import org.tetrabox.minijava.xtext.miniJava.New
+import org.tetrabox.minijava.xtext.miniJava.ClassRef
 
 /**
  * This class contains custom validation rules. 
@@ -85,21 +85,23 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 	@Check
 	def void checkReturn(Method method) {
-		if (method.typeRef.eClass !== MiniJavaPackage::eINSTANCE.voidTypeRef) {
-			if (method.returnStatement === null) {
-				error(
-					"Method must end with a return statement",
-					MiniJavaPackage.eINSTANCE.method_Body,
-					MISSING_FINAL_RETURN
-				)
-			}
-		} else {
-			if (method.returnStatement !== null) {
-				error(
-					"Void method must not end with a return statement",
-					MiniJavaPackage.eINSTANCE.method_Body,
-					EXTRA_FINAL_RETURN
-				)
+		if (method.name !== null) {
+			if (method.typeRef.eClass !== MiniJavaPackage::eINSTANCE.voidTypeRef) {
+				if (method.returnStatement === null) {
+					error(
+						"Method must end with a return statement",
+						MiniJavaPackage.eINSTANCE.method_Body,
+						MISSING_FINAL_RETURN
+					)
+				}
+			} else {
+				if (method.returnStatement !== null) {
+					error(
+						"Void method must not end with a return statement",
+						MiniJavaPackage.eINSTANCE.method_Body,
+						EXTRA_FINAL_RETURN
+					)
+				}
 			}
 		}
 	}
@@ -110,7 +112,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 	@Check def void checkNoDuplicateMembers(Class c) {
 		checkNoDuplicateElements(c.fields, "field")
-		checkNoDuplicateElements(c.methods, "method")
+		checkNoDuplicateElements(c.methods.filter[it.name !== null], "method")
 	}
 
 	@Check def void checkNoDuplicateSymbols(Method m) {
@@ -130,24 +132,16 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	}
 
 	@Check def void checkMethodInvocationArguments(MethodCall sel) {
-		val method = sel.member
+		val method = sel.method
 		if (method instanceof Method) {
 			if (method.params.size != sel.args.size) {
 				error("Invalid number of arguments: expected " + method.params.size + " but was " + sel.args.size,
-					MiniJavaPackage.eINSTANCE.methodCall_Member, INVALID_ARGS)
+					MiniJavaPackage.eINSTANCE.methodCall_Method, INVALID_ARGS)
 			}
 		}
 	}
 
-	@Check def void checkConstructorInvocationArguments(New n) {
-		if (! n.args.isEmpty) {
-			val Constructor constructor = n.type.members.filter(Constructor).findFirst[it.params.size === n.args.size]
-			if (constructor === null) {
-				error('''There is no constructor in class «n.type.name» with «n.args.size» parameters.''',
-					MiniJavaPackage.eINSTANCE.new_Args, INVALID_ARGS)
-			}
-		} else {}
-	}
+
 
 	@Check def void checkMethodOverride(Class c) {
 		val hierarchyMethods = c.classHierarchyMethods
@@ -178,28 +172,39 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		}
 	}
 
+	@Check
+	def void checkConstructor(Method constructor) {
+		if (constructor.name === null) {
+			val parentClass = (constructor.eContainer as Class)
+			if ((constructor.typeRef as ClassRef).referencedClass !== parentClass) {
+				error("A constructor must be in the same class as its name.", constructor,
+					MiniJavaPackage.eINSTANCE.typedDeclaration_TypeRef, CONSTRUCTOR_CLASS)
+			}
+		}
+	}
+
 	@Check def void checkAccessibility(FieldAccess sel) {
-		val member = sel.member
-		if (member.name !== null && !member.isAccessibleFrom(sel))
+		val field = sel.field
+		if (field.name !== null && !field.isAccessibleFrom(sel))
 			error(
-				'''The «member.access» member «member.name» is not accessible here''',
-				MiniJavaPackage.eINSTANCE.fieldAccess_Member,
+				'''The «field.access» member «field.name» is not accessible here''',
+				MiniJavaPackage.eINSTANCE.fieldAccess_Field,
 				MEMBER_NOT_ACCESSIBLE
 			)
 	}
 
 	@Check def void checkAccessibility(MethodCall sel) {
-		val member = sel.member
-		if (member.name !== null && !member.isAccessibleFrom(sel))
+		val method = sel.method
+		if (method.name !== null && !method.isAccessibleFrom(sel))
 			error(
-				'''The «member.access» member «member.name» is not accessible here''',
-				MiniJavaPackage.eINSTANCE.methodCall_Member,
+				'''The «method.access» member «method.name» is not accessible here''',
+				MiniJavaPackage.eINSTANCE.methodCall_Method,
 				MEMBER_NOT_ACCESSIBLE
 			)
 	}
-	
+
 	@Check def void checkAccessibility(New n) {
-		val constructor = n.type.members.filter(Constructor).findFirst[it.params.size === n.args.size]
+		val constructor = n.type.members.filter(Method).findFirst[it.name === null && it.params.size === n.args.size]
 		if (!constructor.isAccessibleFrom(n))
 			error(
 				'''This constructor is not accessible here.''',
@@ -226,15 +231,6 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		if (s.eContainingFeature != MiniJavaPackage.eINSTANCE.methodCall_Receiver &&
 			s.eContainingFeature != MiniJavaPackage.eINSTANCE.fieldAccess_Receiver)
 			error("'super' can be used only as member selection receiver", null, WRONG_SUPER_USAGE)
-	}
-
-	@Check
-	def void checkConstructor(Constructor constructor) {
-		val parentClass = (constructor.eContainer as Class)
-		if (constructor.type !== parentClass) {
-			error("A constructor must be in the same class as its name.", constructor,
-				MiniJavaPackage.eINSTANCE.constructor_Type, CONSTRUCTOR_CLASS)
-		}
 	}
 
 	def private void checkNoDuplicateElements(Iterable<? extends NamedElement> elements, String desc) {
