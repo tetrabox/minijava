@@ -444,7 +444,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSelectionExpressionParserRuleCall_7_0 = (RuleCall)cGroup_7.eContents().get(0);
 		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		
-		//// TODO enable method calls as statements
 		//Statement:
 		//	Return ';' |
 		//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block | SelectionExpression
@@ -966,9 +965,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariableDeclarationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Assignee:
-		//	=> SelectionExpression | VariableDeclaration //|
-		//	//{SymbolRef}symbol=[Symbol|ID]
-		//;
+		//	=> SelectionExpression | VariableDeclaration;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//=> SelectionExpression | VariableDeclaration
@@ -1908,7 +1905,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockAccess().getRule();
 	}
 	
-	//// TODO enable method calls as statements
 	//Statement:
 	//	Return ';' |
 	//	=> Assignment ';' | IfStatement | WhileStatement | ForStatement | PrintStatement ";" | Block | SelectionExpression
@@ -2053,9 +2049,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Assignee:
-	//	=> SelectionExpression | VariableDeclaration //|
-	//	//{SymbolRef}symbol=[Symbol|ID]
-	//;
+	//	=> SelectionExpression | VariableDeclaration;
 	public AssigneeElements getAssigneeAccess() {
 		return pAssignee;
 	}

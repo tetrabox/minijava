@@ -5,7 +5,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
@@ -28,15 +27,18 @@ import org.tetrabox.minijava.xtext.miniJava.Inferior
 import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual
 import org.tetrabox.minijava.xtext.miniJava.IntConstant
 import org.tetrabox.minijava.xtext.miniJava.Method
+import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.Minus
 import org.tetrabox.minijava.xtext.miniJava.Multiplication
 import org.tetrabox.minijava.xtext.miniJava.Neg
 import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.Not
+import org.tetrabox.minijava.xtext.miniJava.Null
 import org.tetrabox.minijava.xtext.miniJava.Or
 import org.tetrabox.minijava.xtext.miniJava.Plus
 import org.tetrabox.minijava.xtext.miniJava.PrintStatement
 import org.tetrabox.minijava.xtext.miniJava.Program
+import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.Statement
 import org.tetrabox.minijava.xtext.miniJava.StringConstant
 import org.tetrabox.minijava.xtext.miniJava.Superior
@@ -48,13 +50,8 @@ import org.tetrabox.minijava.xtext.miniJava.WhileStatement
 
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
-import static extension org.tetrabox.minijava.semantics.MiniJavaSemanticsUtil.*
-import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
-import org.tetrabox.minijava.xtext.miniJava.MethodCall
-import org.tetrabox.minijava.xtext.miniJava.Return
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
-import org.eclipse.emf.ecore.util.EcoreUtil
-import org.tetrabox.minijava.xtext.miniJava.Null
+import static extension org.tetrabox.minijava.semantics.util.MiniJavaSemanticsUtil.*
+import static extension org.tetrabox.minijava.semantics.util.ValueToStringAspect.*
 
 @Aspect(className=Program)
 class ProgramAspect {

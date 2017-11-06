@@ -16,7 +16,7 @@ import org.tetrabox.minijava.xtext.miniJava.Program
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
-import static extension org.tetrabox.minijava.semantics.MiniJavaSemanticsUtil.*
+import static extension org.tetrabox.minijava.semantics.util.MiniJavaSemanticsUtil.*
 
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaTestUtil {

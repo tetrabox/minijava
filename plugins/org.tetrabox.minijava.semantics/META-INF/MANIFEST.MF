@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: org.tetrabox.minijava.semantics;singleton:=true
-Export-Package: org.tetrabox.minijava.semantics
+Export-Package: org.tetrabox.minijava.semantics,
+ org.tetrabox.minijava.semantics.util
 Bundle-Name: %pluginName
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Localization: plugin
 Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="3.0.0";visibility:=reexport,
  org.eclipse.xtend.lib;bundle-version="2.6.0";visibility:=private,
  org.eclipse.xtext.xbase.lib;bundle-version="2.6.0";visibility:=private,

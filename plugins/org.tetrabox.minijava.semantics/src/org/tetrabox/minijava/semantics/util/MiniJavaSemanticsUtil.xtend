@@ -1,4 +1,4 @@
-package org.tetrabox.minijava.semantics
+package org.tetrabox.minijava.semantics.util
 
 import java.util.function.BiFunction
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
