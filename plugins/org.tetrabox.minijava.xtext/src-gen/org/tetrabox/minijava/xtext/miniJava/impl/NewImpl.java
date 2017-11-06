@@ -29,138 +29,144 @@ import org.tetrabox.minijava.xtext.miniJava.New;
 public class NewImpl extends ExpressionImpl implements New
 {
   /**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
   protected org.tetrabox.minijava.xtext.miniJava.Class type;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected NewImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return MiniJavaPackage.Literals.NEW;
-	}
+    return MiniJavaPackage.Literals.NEW;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public org.tetrabox.minijava.xtext.miniJava.Class getType()
   {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.NEW__TYPE, oldType, type));
-			}
-		}
-		return type;
-	}
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.NEW__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public org.tetrabox.minijava.xtext.miniJava.Class basicGetType()
   {
-		return type;
-	}
+    return type;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setType(org.tetrabox.minijava.xtext.miniJava.Class newType)
   {
-		org.tetrabox.minijava.xtext.miniJava.Class oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.NEW__TYPE, oldType, type));
-	}
+    org.tetrabox.minijava.xtext.miniJava.Class oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.NEW__TYPE, oldType, type));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case MiniJavaPackage.NEW__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.NEW__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case MiniJavaPackage.NEW__TYPE:
-				setType((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.NEW__TYPE:
+        setType((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case MiniJavaPackage.NEW__TYPE:
-				setType((org.tetrabox.minijava.xtext.miniJava.Class)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.NEW__TYPE:
+        setType((org.tetrabox.minijava.xtext.miniJava.Class)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case MiniJavaPackage.NEW__TYPE:
-				return type != null;
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.NEW__TYPE:
+        return type != null;
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //NewImpl

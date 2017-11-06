@@ -49,22 +49,21 @@ class Main  {
 		]
 		genericPrintTest('''
 			
-			public class Statelike {
-			   public void writeName(StateContext context, String name) {}
+			public abstract class Statelike {
+			   public abstract void writeName(StateContext context, String name);
 			}
-			 
+			
 			public class StateNormal extends Statelike {
 			    public void writeName(StateContext context, String name) {
 			        System.out.println(name);
 			        StateHello hello = new StateHello();
-			        hello.count = 0;
 			        context.setState(hello);
 			    } 
 			}
 			
 			public class StateHello extends Statelike {
 			    /** Counter local to this state */
-			    public int count;
+			    public int count = 0;
 			
 			    public void writeName(StateContext context, String name) {
 			        System.out.println("hello! it is " + name);
@@ -75,7 +74,6 @@ class Main  {
 			        }
 			    }
 			}
-			
 			
 			public class StateContext {
 			    private Statelike myState;
@@ -93,7 +91,6 @@ class Main  {
 			        this.myState.writeName(this, name);
 			    }
 			}
-			
 			
 			public class DemoOfClientState {
 			    public static void main(String[] args) {

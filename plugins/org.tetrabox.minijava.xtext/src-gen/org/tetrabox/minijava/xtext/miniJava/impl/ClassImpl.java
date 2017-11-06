@@ -31,6 +31,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getAccessLevel <em>Access Level</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getMembers <em>Members</em>}</li>
  * </ul>
@@ -40,258 +41,321 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava.xtext.miniJava.Class
 {
   /**
-	 * The default value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getAccessLevel()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getAccessLevel()
+   * @generated
+   * @ordered
+   */
   protected static final AccessLevel ACCESS_LEVEL_EDEFAULT = AccessLevel.PRIVATE;
 
   /**
-	 * The cached value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getAccessLevel()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getAccessLevel()
+   * @generated
+   * @ordered
+   */
   protected AccessLevel accessLevel = ACCESS_LEVEL_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getSuperclass() <em>Superclass</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getSuperclass()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ABSTRACT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected boolean abstract_ = ABSTRACT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSuperclass() <em>Superclass</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuperclass()
+   * @generated
+   * @ordered
+   */
   protected org.tetrabox.minijava.xtext.miniJava.Class superclass;
 
   /**
-	 * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getMembers()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getMembers()
+   * @generated
+   * @ordered
+   */
   protected EList<Member> members;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected ClassImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return MiniJavaPackage.Literals.CLASS;
-	}
+    return MiniJavaPackage.Literals.CLASS;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public AccessLevel getAccessLevel()
   {
-		return accessLevel;
-	}
+    return accessLevel;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setAccessLevel(AccessLevel newAccessLevel)
   {
-		AccessLevel oldAccessLevel = accessLevel;
-		accessLevel = newAccessLevel == null ? ACCESS_LEVEL_EDEFAULT : newAccessLevel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__ACCESS_LEVEL, oldAccessLevel, accessLevel));
-	}
+    AccessLevel oldAccessLevel = accessLevel;
+    accessLevel = newAccessLevel == null ? ACCESS_LEVEL_EDEFAULT : newAccessLevel;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__ACCESS_LEVEL, oldAccessLevel, accessLevel));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
+  public boolean isAbstract()
+  {
+    return abstract_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstract(boolean newAbstract)
+  {
+    boolean oldAbstract = abstract_;
+    abstract_ = newAbstract;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__ABSTRACT, oldAbstract, abstract_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public org.tetrabox.minijava.xtext.miniJava.Class getSuperclass()
   {
-		if (superclass != null && superclass.eIsProxy()) {
-			InternalEObject oldSuperclass = (InternalEObject)superclass;
-			superclass = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldSuperclass);
-			if (superclass != oldSuperclass) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
-			}
-		}
-		return superclass;
-	}
+    if (superclass != null && superclass.eIsProxy())
+    {
+      InternalEObject oldSuperclass = (InternalEObject)superclass;
+      superclass = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldSuperclass);
+      if (superclass != oldSuperclass)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
+      }
+    }
+    return superclass;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public org.tetrabox.minijava.xtext.miniJava.Class basicGetSuperclass()
   {
-		return superclass;
-	}
+    return superclass;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setSuperclass(org.tetrabox.minijava.xtext.miniJava.Class newSuperclass)
   {
-		org.tetrabox.minijava.xtext.miniJava.Class oldSuperclass = superclass;
-		superclass = newSuperclass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
-	}
+    org.tetrabox.minijava.xtext.miniJava.Class oldSuperclass = superclass;
+    superclass = newSuperclass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public EList<Member> getMembers()
   {
-		if (members == null) {
-			members = new EObjectContainmentEList<Member>(Member.class, this, MiniJavaPackage.CLASS__MEMBERS);
-		}
-		return members;
-	}
+    if (members == null)
+    {
+      members = new EObjectContainmentEList<Member>(Member.class, this, MiniJavaPackage.CLASS__MEMBERS);
+    }
+    return members;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case MiniJavaPackage.CLASS__MEMBERS:
-				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.CLASS__MEMBERS:
+        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-				return getAccessLevel();
-			case MiniJavaPackage.CLASS__SUPERCLASS:
-				if (resolve) return getSuperclass();
-				return basicGetSuperclass();
-			case MiniJavaPackage.CLASS__MEMBERS:
-				return getMembers();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
+        return getAccessLevel();
+      case MiniJavaPackage.CLASS__ABSTRACT:
+        return isAbstract();
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        if (resolve) return getSuperclass();
+        return basicGetSuperclass();
+      case MiniJavaPackage.CLASS__MEMBERS:
+        return getMembers();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-				setAccessLevel((AccessLevel)newValue);
-				return;
-			case MiniJavaPackage.CLASS__SUPERCLASS:
-				setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
-				return;
-			case MiniJavaPackage.CLASS__MEMBERS:
-				getMembers().clear();
-				getMembers().addAll((Collection<? extends Member>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
+        setAccessLevel((AccessLevel)newValue);
+        return;
+      case MiniJavaPackage.CLASS__ABSTRACT:
+        setAbstract((Boolean)newValue);
+        return;
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
+        return;
+      case MiniJavaPackage.CLASS__MEMBERS:
+        getMembers().clear();
+        getMembers().addAll((Collection<? extends Member>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-				setAccessLevel(ACCESS_LEVEL_EDEFAULT);
-				return;
-			case MiniJavaPackage.CLASS__SUPERCLASS:
-				setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)null);
-				return;
-			case MiniJavaPackage.CLASS__MEMBERS:
-				getMembers().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
+        setAccessLevel(ACCESS_LEVEL_EDEFAULT);
+        return;
+      case MiniJavaPackage.CLASS__ABSTRACT:
+        setAbstract(ABSTRACT_EDEFAULT);
+        return;
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)null);
+        return;
+      case MiniJavaPackage.CLASS__MEMBERS:
+        getMembers().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-				return accessLevel != ACCESS_LEVEL_EDEFAULT;
-			case MiniJavaPackage.CLASS__SUPERCLASS:
-				return superclass != null;
-			case MiniJavaPackage.CLASS__MEMBERS:
-				return members != null && !members.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
+        return accessLevel != ACCESS_LEVEL_EDEFAULT;
+      case MiniJavaPackage.CLASS__ABSTRACT:
+        return abstract_ != ABSTRACT_EDEFAULT;
+      case MiniJavaPackage.CLASS__SUPERCLASS:
+        return superclass != null;
+      case MiniJavaPackage.CLASS__MEMBERS:
+        return members != null && !members.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (accessLevel: ");
-		result.append(accessLevel);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (accessLevel: ");
+    result.append(accessLevel);
+    result.append(", abstract: ");
+    result.append(abstract_);
+    result.append(')');
+    return result.toString();
+  }
 
 } //ClassImpl

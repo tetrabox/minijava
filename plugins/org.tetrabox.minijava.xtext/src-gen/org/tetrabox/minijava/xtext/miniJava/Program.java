@@ -28,61 +28,61 @@ import org.eclipse.emf.ecore.EObject;
 public interface Program extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Name()
-	 * @model
-	 * @generated
-	 */
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Name()
+   * @model
+   * @generated
+   */
   String getName();
 
   /**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Program#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Program#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
   void setName(String value);
 
   /**
-	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Import}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Import}.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Imports</em>' containment reference list.
-	 * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Imports()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Imports</em>' containment reference list.
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Imports()
+   * @model containment="true"
+   * @generated
+   */
   EList<Import> getImports();
 
   /**
-	 * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Class}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
+   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Class}.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Classes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classes</em>' containment reference list.
-	 * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Classes()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Classes</em>' containment reference list.
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getProgram_Classes()
+   * @model containment="true"
+   * @generated
+   */
   EList<org.tetrabox.minijava.xtext.miniJava.Class> getClasses();
 
 } // Program

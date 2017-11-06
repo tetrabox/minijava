@@ -49,6 +49,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	public static val DUPLICATE_CLASS = ISSUE_CODE_PREFIX + "DuplicateClass"
 	public static val WRONG_SUPER_USAGE = ISSUE_CODE_PREFIX + "WrongSuperUsage"
 	public static val REDUCED_ACCESSIBILITY = ISSUE_CODE_PREFIX + "ReducedAccessibility"
+	public static val ABSTRACT_METHOD_BODY = ISSUE_CODE_PREFIX + "AbstractMethodBody"
+	public static val ABSTRACT_METHOD_CLASS = ISSUE_CODE_PREFIX + "AbstractMethodClass"
 
 	@Inject extension MiniJavaModelUtil
 	@Inject extension MiniJavaTypeComputer
@@ -149,6 +151,20 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			}
 		}
 	}
+	
+	@Check
+	def void checkMethodAbstract(Method method) {
+		if (method.abstract && method.body !== null) {
+			error('''The abstract method «method.name» cannot have a body.''', method,
+					MiniJavaPackage.eINSTANCE.method_Body, ABSTRACT_METHOD_BODY)
+		}
+		
+		if (method.abstract && !(method.eContainer as Class).abstract) {
+			error('''The abstract method «method.name» must be contained in an abstract class.''', method,
+					MiniJavaPackage.eINSTANCE.method_Abstract, ABSTRACT_METHOD_CLASS)
+		}
+	}
+	
 
 	@Check def void checkAccessibility(FieldAccess sel) {
 		val member = sel.member
@@ -189,7 +205,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			s.eContainingFeature != MiniJavaPackage.eINSTANCE.fieldAccess_Receiver)
 			error("'super' can be used only as member selection receiver", null, WRONG_SUPER_USAGE)
 	}
-
+	
+	
 	def private void checkNoDuplicateElements(Iterable<? extends NamedElement> elements, String desc) {
 		val multiMap = HashMultimap.create()
 

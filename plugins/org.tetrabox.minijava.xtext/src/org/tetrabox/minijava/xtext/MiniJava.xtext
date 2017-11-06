@@ -17,7 +17,7 @@ QualifiedNameWithWildcard:
 	QualifiedName '.*'?;
 
 Class:
-	accessLevel=AccessLevel? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
 	members+=Member*
 	'}';
 
@@ -28,12 +28,16 @@ Parameter:
 	typeRef=TypeRef name=ID;
 
 Field:
-	access=AccessLevel? typeRef=TypeRef name=ID ';';
+	access=AccessLevel? typeRef=TypeRef name=ID (defaultValue=Assigned)? ';' ;
+	
+Assigned returns Expression:
+	'=' Expression
+;
 
 Method:
-	access=AccessLevel? static?='static'? typeRef=TypeRef name=ID
+	 access=AccessLevel? abstract?='abstract'? static?='static'? typeRef=TypeRef name=ID
 	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
-	body=Block;
+	(body=Block | ';');
 
 enum AccessLevel:
 	PRIVATE='private' | PROTECTED='protected' | PUBLIC='public';
@@ -96,7 +100,7 @@ VariableDeclaration:
 	typeRef=TypeRef name=ID;
 
 Assignment:
-	assignee=Assignee '=' value=Expression;
+	assignee=Assignee value=Assigned;
 
 Assignee:
 	=> SelectionExpression |

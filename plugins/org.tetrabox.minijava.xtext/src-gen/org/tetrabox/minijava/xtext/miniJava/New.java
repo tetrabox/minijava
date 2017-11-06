@@ -23,29 +23,29 @@ package org.tetrabox.minijava.xtext.miniJava;
 public interface New extends Expression
 {
   /**
-	 * Returns the value of the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(org.tetrabox.minijava.xtext.miniJava.Class)
-	 * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew_Type()
-	 * @model
-	 * @generated
-	 */
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(org.tetrabox.minijava.xtext.miniJava.Class)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getNew_Type()
+   * @model
+   * @generated
+   */
   org.tetrabox.minijava.xtext.miniJava.Class getType();
 
   /**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' reference.
-	 * @see #getType()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
+   * @generated
+   */
   void setType(org.tetrabox.minijava.xtext.miniJava.Class value);
 
 } // New

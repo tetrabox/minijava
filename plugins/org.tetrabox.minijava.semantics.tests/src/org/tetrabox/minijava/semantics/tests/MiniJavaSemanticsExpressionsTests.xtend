@@ -336,7 +336,7 @@ class MiniJavaSemanticsExpressionsTests {
 
 	@Test
 	def void methodCall_getter() {
-		genericExpressionTest('''X test = new X(); test.i = 47; ''', "boolean", ''' test.getI() ''', 47)
+		genericExpressionTest('''X test = new X(); test.i = 47; ''', "int", ''' test.getI() ''', 47)
 	}
 
 	@Test

@@ -17,6 +17,8 @@ import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
+import org.eclipse.emf.ecore.util.Diagnostician
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
 
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaTestUtil {
@@ -97,10 +99,10 @@ class MiniJavaTestUtil {
 	public static val factory = MinijavadynamicdataFactory::eINSTANCE
 
 	public def void genericTest(String program, Consumer<State> oracle) {
+		val helper = new ValidationTestHelper();
 		val Program result = parseHelper.parse(program)
 		Assert.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assert.assertTrue(errors.isEmpty)
+		helper.assertNoErrors(result)
 		val state = result.execute
 		oracle.accept(state)
 	}

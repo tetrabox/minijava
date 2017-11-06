@@ -46,6 +46,7 @@ import static extension org.tetrabox.minijava.semantics.ParameterAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
+import org.tetrabox.minijava.xtext.miniJava.Field
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -300,20 +301,18 @@ class ParameterAspect {
 class MethodAspect {
 
 	def Method findOverride(Class c) {
-		
+
 		if (c.members.contains(_self)) {
 			return _self
 		}
-		
+
 		val candidate = c.members.filter(Method).findFirst [
-			it.name == _self.name && 
-			it.params.size == _self.params.size && 
-			it.typeRef.compare(_self.typeRef) &&
-			it.params.forall [ p1 |
-				_self.params.exists [ p2 |
-					p1.compare(p2)
+			it.name == _self.name && it.params.size == _self.params.size && it.typeRef.compare(_self.typeRef) &&
+				it.params.forall [ p1 |
+					_self.params.exists [ p2 |
+						p1.compare(p2)
+					]
 				]
-			]
 		]
 
 		if (candidate !== null) {
@@ -388,6 +387,16 @@ class NewAspect extends ExpressionAspect {
 			type = _self.type
 		]
 		state.heap.add(result)
+
+		for (f : result.type.members.filter(Field)) {
+			if (f.defaultValue !== null) {
+				val v = f.defaultValue.evaluateExpression(state)
+				result.fieldbindings.add(MinijavadynamicdataFactory::eINSTANCE.createFieldBinding => [
+					field = f;
+					value = v
+				])
+			}
+		}
 
 //		for (arg : _self.args) {
 //			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))

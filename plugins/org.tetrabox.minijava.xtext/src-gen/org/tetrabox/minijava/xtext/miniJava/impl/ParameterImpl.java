@@ -18,24 +18,24 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
 public class ParameterImpl extends SymbolImpl implements Parameter
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected ParameterImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return MiniJavaPackage.Literals.PARAMETER;
-	}
+    return MiniJavaPackage.Literals.PARAMETER;
+  }
 
 } //ParameterImpl

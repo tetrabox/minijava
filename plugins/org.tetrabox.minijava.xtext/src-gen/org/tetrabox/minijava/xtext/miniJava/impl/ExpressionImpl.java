@@ -18,24 +18,24 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 public class ExpressionImpl extends StatementImpl implements Expression
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected ExpressionImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return MiniJavaPackage.Literals.EXPRESSION;
-	}
+    return MiniJavaPackage.Literals.EXPRESSION;
+  }
 
 } //ExpressionImpl

@@ -31,6 +31,7 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#isStatic <em>Static</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.MethodImpl#getBody <em>Body</em>}</li>
@@ -41,264 +42,327 @@ import org.tetrabox.minijava.xtext.miniJava.Parameter;
 public class MethodImpl extends MemberImpl implements Method
 {
   /**
-	 * The default value of the '{@link #isStatic() <em>Static</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #isStatic()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ABSTRACT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected boolean abstract_ = ABSTRACT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isStatic() <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStatic()
+   * @generated
+   * @ordered
+   */
   protected static final boolean STATIC_EDEFAULT = false;
 
   /**
-	 * The cached value of the '{@link #isStatic() <em>Static</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #isStatic() <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #isStatic()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isStatic()
+   * @generated
+   * @ordered
+   */
   protected boolean static_ = STATIC_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getParams()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getParams()
+   * @generated
+   * @ordered
+   */
   protected EList<Parameter> params;
 
   /**
-	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBody()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
   protected Block body;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected MethodImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return MiniJavaPackage.Literals.METHOD;
-	}
+    return MiniJavaPackage.Literals.METHOD;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
+  public boolean isAbstract()
+  {
+    return abstract_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstract(boolean newAbstract)
+  {
+    boolean oldAbstract = abstract_;
+    abstract_ = newAbstract;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__ABSTRACT, oldAbstract, abstract_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isStatic()
   {
-		return static_;
-	}
+    return static_;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setStatic(boolean newStatic)
   {
-		boolean oldStatic = static_;
-		static_ = newStatic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__STATIC, oldStatic, static_));
-	}
+    boolean oldStatic = static_;
+    static_ = newStatic;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__STATIC, oldStatic, static_));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public EList<Parameter> getParams()
   {
-		if (params == null) {
-			params = new EObjectContainmentEList<Parameter>(Parameter.class, this, MiniJavaPackage.METHOD__PARAMS);
-		}
-		return params;
-	}
+    if (params == null)
+    {
+      params = new EObjectContainmentEList<Parameter>(Parameter.class, this, MiniJavaPackage.METHOD__PARAMS);
+    }
+    return params;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public Block getBody()
   {
-		return body;
-	}
+    return body;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public NotificationChain basicSetBody(Block newBody, NotificationChain msgs)
   {
-		Block oldBody = body;
-		body = newBody;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__BODY, oldBody, newBody);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+    Block oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__BODY, oldBody, newBody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setBody(Block newBody)
   {
-		if (newBody != body) {
-			NotificationChain msgs = null;
-			if (body != null)
-				msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.METHOD__BODY, null, msgs);
-			if (newBody != null)
-				msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.METHOD__BODY, null, msgs);
-			msgs = basicSetBody(newBody, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__BODY, newBody, newBody));
-	}
+    if (newBody != body)
+    {
+      NotificationChain msgs = null;
+      if (body != null)
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.METHOD__BODY, null, msgs);
+      if (newBody != null)
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.METHOD__BODY, null, msgs);
+      msgs = basicSetBody(newBody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.METHOD__BODY, newBody, newBody));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case MiniJavaPackage.METHOD__PARAMS:
-				return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
-			case MiniJavaPackage.METHOD__BODY:
-				return basicSetBody(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.METHOD__PARAMS:
+        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+      case MiniJavaPackage.METHOD__BODY:
+        return basicSetBody(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case MiniJavaPackage.METHOD__STATIC:
-				return isStatic();
-			case MiniJavaPackage.METHOD__PARAMS:
-				return getParams();
-			case MiniJavaPackage.METHOD__BODY:
-				return getBody();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.METHOD__ABSTRACT:
+        return isAbstract();
+      case MiniJavaPackage.METHOD__STATIC:
+        return isStatic();
+      case MiniJavaPackage.METHOD__PARAMS:
+        return getParams();
+      case MiniJavaPackage.METHOD__BODY:
+        return getBody();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case MiniJavaPackage.METHOD__STATIC:
-				setStatic((Boolean)newValue);
-				return;
-			case MiniJavaPackage.METHOD__PARAMS:
-				getParams().clear();
-				getParams().addAll((Collection<? extends Parameter>)newValue);
-				return;
-			case MiniJavaPackage.METHOD__BODY:
-				setBody((Block)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.METHOD__ABSTRACT:
+        setAbstract((Boolean)newValue);
+        return;
+      case MiniJavaPackage.METHOD__STATIC:
+        setStatic((Boolean)newValue);
+        return;
+      case MiniJavaPackage.METHOD__PARAMS:
+        getParams().clear();
+        getParams().addAll((Collection<? extends Parameter>)newValue);
+        return;
+      case MiniJavaPackage.METHOD__BODY:
+        setBody((Block)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case MiniJavaPackage.METHOD__STATIC:
-				setStatic(STATIC_EDEFAULT);
-				return;
-			case MiniJavaPackage.METHOD__PARAMS:
-				getParams().clear();
-				return;
-			case MiniJavaPackage.METHOD__BODY:
-				setBody((Block)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.METHOD__ABSTRACT:
+        setAbstract(ABSTRACT_EDEFAULT);
+        return;
+      case MiniJavaPackage.METHOD__STATIC:
+        setStatic(STATIC_EDEFAULT);
+        return;
+      case MiniJavaPackage.METHOD__PARAMS:
+        getParams().clear();
+        return;
+      case MiniJavaPackage.METHOD__BODY:
+        setBody((Block)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case MiniJavaPackage.METHOD__STATIC:
-				return static_ != STATIC_EDEFAULT;
-			case MiniJavaPackage.METHOD__PARAMS:
-				return params != null && !params.isEmpty();
-			case MiniJavaPackage.METHOD__BODY:
-				return body != null;
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case MiniJavaPackage.METHOD__ABSTRACT:
+        return abstract_ != ABSTRACT_EDEFAULT;
+      case MiniJavaPackage.METHOD__STATIC:
+        return static_ != STATIC_EDEFAULT;
+      case MiniJavaPackage.METHOD__PARAMS:
+        return params != null && !params.isEmpty();
+      case MiniJavaPackage.METHOD__BODY:
+        return body != null;
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (static: ");
-		result.append(static_);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (abstract: ");
+    result.append(abstract_);
+    result.append(", static: ");
+    result.append(static_);
+    result.append(')');
+    return result.toString();
+  }
 
 } //MethodImpl
