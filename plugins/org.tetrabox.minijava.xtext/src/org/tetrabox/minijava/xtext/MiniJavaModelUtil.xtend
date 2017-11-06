@@ -11,9 +11,10 @@ import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
 import org.tetrabox.minijava.xtext.miniJava.TypeRef
+import org.tetrabox.minijava.xtext.miniJava.TypedMember
+import org.tetrabox.minijava.xtext.miniJava.Constructor
 
 class MiniJavaModelUtil {
-
 
 	def fields(Class c) {
 		c.members.filter(Field)
@@ -40,7 +41,6 @@ class MiniJavaModelUtil {
 			current = current.superclass
 		}
 
-
 		visited
 	}
 
@@ -49,8 +49,7 @@ class MiniJavaModelUtil {
 		// will be added later to the map, thus overriding
 		// the one already present in the superclasses
 		// if the methods have the same name
-		c.classHierarchy.toList.reverseView.
-			map[methods].flatten.toMap[name]
+		c.classHierarchy.toList.reverseView.map[methods].flatten.toMap[name]
 	}
 
 	def classHierarchyMembers(Class c) {
@@ -58,22 +57,26 @@ class MiniJavaModelUtil {
 	}
 
 	def memberAsString(Member m) {
-		m.name +
-		if (m instanceof Method)
-			"(" + m.params.map[typeRef.name].join(", ") + ")"
-		else ""
+		if (m instanceof TypedMember) {
+			m.name + if (m instanceof Method)
+				"(" + m.params.map[typeRef.name].join(", ") + ")"
+			else
+				""
+		} else if (m instanceof Constructor) {
+			m.classRef.name + "(" + m.params.map[typeRef.name].join(", ") + ")"
+		}
 	}
 
 	def memberAsStringWithType(Member m) {
-		m.memberAsString + " : " + m.typeRef.name
+		m.memberAsString + " : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.classRef.name
 	}
-	
+
 	def String getName(TypeRef r) {
 		val test = switch r {
-			ClassRef:r.referencedClass.name
-			IntegerTypeRef:"int"
-			StringTypeRef:"String"
-			BooleanTypeRef:"boolean"
+			ClassRef: r.referencedClass.name
+			IntegerTypeRef: "int"
+			StringTypeRef: "String"
+			BooleanTypeRef: "boolean"
 		}
 		return test
 	}

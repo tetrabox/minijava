@@ -60,6 +60,33 @@ public interface MiniJavaFactory extends EFactory
   Member createMember();
 
   /**
+   * Returns a new object of class '<em>Typed Member</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Member</em>'.
+   * @generated
+   */
+  TypedMember createTypedMember();
+
+  /**
+   * Returns a new object of class '<em>Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constructor</em>'.
+   * @generated
+   */
+  Constructor createConstructor();
+
+  /**
+   * Returns a new object of class '<em>Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method</em>'.
+   * @generated
+   */
+  Method createMethod();
+
+  /**
    * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,15 +112,6 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method</em>'.
-   * @generated
-   */
-  Method createMethod();
 
   /**
    * Returns a new object of class '<em>Block</em>'.

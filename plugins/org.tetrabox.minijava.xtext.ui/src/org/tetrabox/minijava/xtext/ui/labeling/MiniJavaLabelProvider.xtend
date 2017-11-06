@@ -9,9 +9,11 @@ import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
 import org.tetrabox.minijava.xtext.miniJava.Class
+import org.tetrabox.minijava.xtext.miniJava.Constructor
 import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.Member
 import org.tetrabox.minijava.xtext.miniJava.Method
+import org.tetrabox.minijava.xtext.miniJava.TypedMember
 
 /**
  * Provides labels for EObjects.
@@ -28,7 +30,7 @@ class MiniJavaLabelProvider extends DefaultEObjectLabelProvider {
 	@Inject extension MiniJavaModelUtil
 
 	def text(Member m) {
-		new StyledString(m.memberAsString).append(new StyledString(" : " + m.typeRef.name,
+		new StyledString(m.memberAsString).append(new StyledString(" : " + if (m instanceof TypedMember) m.typeRef.name else if (m instanceof Constructor) m.classRef.name,
 			StyledString.DECORATIONS_STYLER))
 	}
 

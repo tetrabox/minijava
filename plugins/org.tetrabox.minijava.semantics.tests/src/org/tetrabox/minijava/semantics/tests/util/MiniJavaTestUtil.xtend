@@ -6,6 +6,7 @@ import java.util.Set
 import java.util.function.Consumer
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.util.ParseHelper
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.Assert
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
@@ -17,8 +18,6 @@ import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
-import org.eclipse.emf.ecore.util.Diagnostician
-import org.eclipse.xtext.testing.validation.ValidationTestHelper
 
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaTestUtil {

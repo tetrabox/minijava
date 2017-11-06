@@ -22,7 +22,21 @@ Class:
 	'}';
 
 Member:
-	Field | Method;
+	TypedMember | Constructor ;
+	
+TypedMember:
+	Field | Method
+;
+
+Constructor:
+	access=AccessLevel? classRef=ClassRef '(' (params+=Parameter (',' params+=Parameter)*)? ')' body=Block
+;
+
+Method:
+	 access=AccessLevel? abstract?='abstract'? static?='static'? typeRef=TypeRef name=ID
+	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
+	(body=Block | ';');
+
 
 Parameter:
 	typeRef=TypeRef name=ID;
@@ -34,10 +48,6 @@ Assigned returns Expression:
 	'=' Expression
 ;
 
-Method:
-	 access=AccessLevel? abstract?='abstract'? static?='static'? typeRef=TypeRef name=ID
-	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
-	(body=Block | ';');
 
 enum AccessLevel:
 	PRIVATE='private' | PROTECTED='protected' | PUBLIC='public';
@@ -90,7 +100,7 @@ NamedElement:
 	Class;
 
 TypedDeclaration:
-	Symbol | Member;
+	Symbol | TypedMember;
 
 	// here we need to set up an artificial priority with =>
 Symbol:

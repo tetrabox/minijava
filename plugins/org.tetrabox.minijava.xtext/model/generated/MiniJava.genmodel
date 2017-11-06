@@ -28,17 +28,23 @@
     <genClasses ecoreClass="MiniJava.ecore#//Member">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Member/access"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Parameter"/>
-    <genClasses ecoreClass="MiniJava.ecore#//Field">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Field/defaultValue"/>
+    <genClasses ecoreClass="MiniJava.ecore#//TypedMember"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Constructor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Constructor/classRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Constructor/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Constructor/body"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
     <genClasses ecoreClass="MiniJava.ecore#//Method">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Method/abstract"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//Method/static"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Method/body"/>
     </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Parameter"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Field">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Field/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
     <genClasses ecoreClass="MiniJava.ecore#//Block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Block/statements"/>
     </genClasses>
