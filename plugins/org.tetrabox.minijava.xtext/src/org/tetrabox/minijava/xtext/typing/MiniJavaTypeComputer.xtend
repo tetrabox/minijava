@@ -37,7 +37,7 @@ class MiniJavaTypeComputer {
 
 	def getType(TypeRef r) {
 		switch r {
-			ClassRef: r.class_
+			ClassRef: r.referencedClass
 			IntegerTypeRef: INT_TYPE
 			BooleanTypeRef: BOOLEAN_TYPE
 			StringTypeRef: STRING_TYPE

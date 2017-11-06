@@ -1,20 +1,58 @@
 package org.tetrabox.minijava
 
 external language MiniJava {
-	// Melange generates an extended ecore in a language runtime project (packageName.myLanguage) 
-	// that copies everything needed for the  execution (abstract syntax and aspects), 	
-	// in the SingleLanguage approach, the editor and animator must be written using this generated ecore and not the original one.
-// syntax "platform:/resource/ecoreFilePath"
-	
-//	with qualified.class.name
-
 	syntax "platform:/resource/org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore"
-
-
 }
 
-language XMiniJava {
+language XMiniJava inherits MiniJava {
 	syntax "platform:/resource/org.tetrabox.minijava.semantics.modelstate/model/MiniJavaDynamicData.ecore"
-	with org.tetrabox.minijava.semantics.*
+	with org.tetrabox.minijava.semantics.BooleanValueToStringAspect
+	with org.tetrabox.minijava.semantics.ExpressionStatementAspect
+	with org.tetrabox.minijava.semantics.ValueAspect
+	with org.tetrabox.minijava.semantics.DivisionAspect
+	with org.tetrabox.minijava.semantics.NegAspect
+	with org.tetrabox.minijava.semantics.PrintStatementAspect
+	with org.tetrabox.minijava.semantics.InequalityAspect
+	with org.tetrabox.minijava.semantics.RefValueAspect
+	with org.tetrabox.minijava.semantics.MinusAspect
+	with org.tetrabox.minijava.semantics.AssigmentAspect
+	with org.tetrabox.minijava.semantics.StatementAspect
+	with org.tetrabox.minijava.semantics.FieldAccessAspect
+	with org.tetrabox.minijava.semantics.FrameAspect
+	with org.tetrabox.minijava.semantics.NewAspect
+	with org.tetrabox.minijava.semantics.ProgramAspect
+	with org.tetrabox.minijava.semantics.BoolConstantAspect
+	with org.tetrabox.minijava.semantics.StringValueToStringAspect
+	with org.tetrabox.minijava.semantics.ContextAspect
+	with org.tetrabox.minijava.semantics.SymbolRefAspect
+	with org.tetrabox.minijava.semantics.StringValueAspect
+	with org.tetrabox.minijava.semantics.PlusAspect
+	with org.tetrabox.minijava.semantics.SuperiorOrEqualAspect
+	with org.tetrabox.minijava.semantics.StringConstantAspect
+	with org.tetrabox.minijava.semantics.StateAspect
+	with org.tetrabox.minijava.semantics.BooleanValueAspect
+	with org.tetrabox.minijava.semantics.SuperiorAspect
+	with org.tetrabox.minijava.semantics.ForStatementAspect
+	with org.tetrabox.minijava.semantics.EqualityAspect
+	with org.tetrabox.minijava.semantics.InferiorOrEqualAspect
+	with org.tetrabox.minijava.semantics.WhileStatementAspect
+	with org.tetrabox.minijava.semantics.OrAspect
+	with org.tetrabox.minijava.semantics.ExpressionAspect
+	with org.tetrabox.minijava.semantics.ValueToStringAspect
+	with org.tetrabox.minijava.semantics.BlockAspect
+	with org.tetrabox.minijava.semantics.ThisAspect
+	with org.tetrabox.minijava.semantics.NullAspect
+	with org.tetrabox.minijava.semantics.RefValueToStringAspect
+	with org.tetrabox.minijava.semantics.MultiplicationAspect
+	with org.tetrabox.minijava.semantics.NotAspect
+	with org.tetrabox.minijava.semantics.IfStatementAspect
+	with org.tetrabox.minijava.semantics.IntegerValueAspect
+	with org.tetrabox.minijava.semantics.InferiorAspect
+	with org.tetrabox.minijava.semantics.IntegerValueToStringAspect
+	with org.tetrabox.minijava.semantics.AndAspect
+	with org.tetrabox.minijava.semantics.IntConstantAspect
+	with org.tetrabox.minijava.semantics.MethodCallExpressionAspect
+	with org.tetrabox.minijava.semantics.ReturnAspect
 
+	
 }

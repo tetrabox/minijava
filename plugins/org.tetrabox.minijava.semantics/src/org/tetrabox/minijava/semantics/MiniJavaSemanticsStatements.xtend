@@ -19,10 +19,13 @@ import org.tetrabox.minijava.xtext.miniJava.SymbolRef
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 import org.tetrabox.minijava.xtext.miniJava.WhileStatement
 
+
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
-import static extension org.tetrabox.minijava.semantics.util.MiniJavaSemanticsUtil.*
-import static extension org.tetrabox.minijava.semantics.util.ValueToStringAspect.*
+import static extension org.tetrabox.minijava.semantics.ContextAspect.*
+import static extension org.tetrabox.minijava.semantics.StateAspect.*
+import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
 
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
@@ -72,7 +75,7 @@ class AssigmentAspect extends StatementAspect {
 				existingBinding.value = right
 			}
 			VariableDeclaration: {
-				val binding = factory.createSymbolBinding => [
+				val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
 					symbol = assignee
 					value = right
 				]
@@ -85,7 +88,7 @@ class AssigmentAspect extends StatementAspect {
 				if (existingBinding !== null) {
 					existingBinding.value = right
 				} else {
-					val binding = factory.createFieldBinding => [
+					val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding => [
 						field = f
 						value = right
 					]

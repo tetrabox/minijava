@@ -1,25 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.minijava.XMiniJava" xdsmlFilePath="/org.tetrabox.minijava.dsl/bin/org/tetrabox/minijava/dsl/MiniJava.melange" />
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.minijava.XMiniJava" xdsmlFilePath="/org.tetrabox.minijava.dsl/bin/org/tetrabox/minijava/dsl/MiniJava.melange"/>
   </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <!-- @generated XMiniJavaMT -->
-    <package class="org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage" genModel="model-gen/XMiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.xminijavamt/miniJava/" />
+    <package class="org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage" genModel="model-gen/XMiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.xminijavamt/miniJava/"/>
   </extension>
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <!-- @generated XMiniJavaMT -->
-    <package class="org.tetrabox.minijava.xminijavamt.minijavadynamicdata.MinijavadynamicdataPackage" genModel="model-gen/XMiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.xminijavamt/minijavadynamicdata/" />
-  </extension>
-  <extension point="fr.inria.diverse.melange.modeltype">
-    <modeltype id="org.tetrabox.minijava.MiniJavaMT" uri="http://org.tetrabox.minijava.minijavamt/" />
-    <modeltype id="org.tetrabox.minijava.XMiniJavaMT" uri="http://org.tetrabox.minijava.xminijavamt/">
-      <subtyping modeltypeId="org.tetrabox.minijava.MiniJavaMT" />
-    </modeltype>
+  
+<extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="org.tetrabox.minijava.MiniJavaMT" uri="http://org.tetrabox.minijava.minijavamt/"/>
+    <modeltype id="org.tetrabox.minijava.XMiniJavaMT" uri="http://org.tetrabox.minijava.xminijavamt/"/>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
-    <language aspects="" entryPoints="" exactType="org.tetrabox.minijava.MiniJavaMT" id="org.tetrabox.minijava.MiniJava" uri="http://www.tetrabox.org/minijava/xtext/MiniJava" />
-    <language aspects="Cast:org.tetrabox.minijava.xminijava.aspects.CastAspect;BoolConstant:org.tetrabox.minijava.xminijava.aspects.BoolConstantAspect;New:org.tetrabox.minijava.xminijava.aspects.NewAspect;Program:org.tetrabox.minijava.xminijava.aspects.ProgramAspect;Variable:org.tetrabox.minijava.xminijava.aspects.VariableAspect;Message:org.tetrabox.minijava.xminijava.aspects.MessageAspect;Instance:org.tetrabox.minijava.xminijava.aspects.InstanceToStringAspect;Selection:org.tetrabox.minijava.xminijava.aspects.SelectionAspect;IntegerValue:org.tetrabox.minijava.xminijava.aspects.IntegerValueToStringAspect;MethodCall:org.tetrabox.minijava.xminijava.aspects.MethodCallAspect;Expression:org.tetrabox.minijava.xminijava.aspects.ExpressionAspect;BooleanValue:org.tetrabox.minijava.xminijava.aspects.BooleanValueToStringAspect;Value:org.tetrabox.minijava.xminijava.aspects.ValueToStringAspect;This:org.tetrabox.minijava.xminijava.aspects.ThisAspect;IntConstant:org.tetrabox.minijava.xminijava.aspects.IntConstantAspect;StringValue:org.tetrabox.minijava.xminijava.aspects.StringValueToStringAspect;StringConstant:org.tetrabox.minijava.xminijava.aspects.StringConstantAspect;FieldSelection:org.tetrabox.minijava.xminijava.aspects.FieldSelectionAspect" entryPoints="org.tetrabox.minijava.xminijava.aspects.ProgramAspect.execute(org.tetrabox.minijava.xminijava.miniJava.Program)" exactType="org.tetrabox.minijava.XMiniJavaMT" id="org.tetrabox.minijava.XMiniJava" uri="http://org.tetrabox.minijava.xminijava/miniJava/" />
+    <language aspects="" entryPoints="" exactType="org.tetrabox.minijava.MiniJavaMT" id="org.tetrabox.minijava.MiniJava" uri="http://www.example.org/minijava/MiniJava"/>
+    <language aspects="" entryPoints="" exactType="org.tetrabox.minijava.XMiniJavaMT" id="org.tetrabox.minijava.XMiniJava" uri="http://org.tetrabox.minijava.xminijava/miniJava/"/>
   </extension>
 </plugin>

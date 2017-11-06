@@ -1420,7 +1420,7 @@ ruleClassRef returns [EObject current=null]
 				}
 			}
 			{
-				newCompositeNode(grammarAccess.getClassRefAccess().getClassClassCrossReference_0());
+				newCompositeNode(grammarAccess.getClassRefAccess().getReferencedClassClassCrossReference_0());
 			}
 			ruleQualifiedName
 			{

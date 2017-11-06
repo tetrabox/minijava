@@ -79,7 +79,7 @@ SingleTypeRef:
 	{VoidTypeRef} 'void';
 
 ClassRef:
-	class=[Class|QualifiedName];
+	referencedClass=[Class|QualifiedName];
 
 NamedElement:
 	TypedDeclaration |

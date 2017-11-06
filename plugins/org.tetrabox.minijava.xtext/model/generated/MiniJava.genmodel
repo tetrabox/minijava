@@ -62,7 +62,7 @@
     <genClasses ecoreClass="MiniJava.ecore#//TypeRef"/>
     <genClasses ecoreClass="MiniJava.ecore#//SingleTypeRef"/>
     <genClasses ecoreClass="MiniJava.ecore#//ClassRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ClassRef/class"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ClassRef/referencedClass"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniJava.ecore#//NamedElement/name"/>

@@ -74,7 +74,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypeRef"/>
   <eClassifiers xsi:type="ecore:EClass" name="SingleTypeRef" eSuperTypes="#//TypeRef"/>
   <eClassifiers xsi:type="ecore:EClass" name="ClassRef" eSuperTypes="#//SingleTypeRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedClass" eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

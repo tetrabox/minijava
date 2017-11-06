@@ -35,7 +35,9 @@ import org.tetrabox.minijava.xtext.miniJava.SymbolRef
 import org.tetrabox.minijava.xtext.miniJava.This
 
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
-import static extension org.tetrabox.minijava.semantics.util.MiniJavaSemanticsUtil.*
+import static extension org.tetrabox.minijava.semantics.ContextAspect.*
+import static extension org.tetrabox.minijava.semantics.StateAspect.*
+import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -49,7 +51,7 @@ class NegAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		val intabsvalue = (_self.expression.evaluateExpression(state) as IntegerValue).value
-		return factory.createIntegerValue => [value = -intabsvalue]
+		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [value = -intabsvalue]
 	}
 }
 
@@ -57,7 +59,7 @@ class NegAspect extends ExpressionAspect {
 class NullAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		return factory.createNullValue
+		return MinijavadynamicdataFactory::eINSTANCE.createNullValue
 	}
 }
 
@@ -67,7 +69,7 @@ class MinusAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return factory.createIntegerValue => [value = left - right]
+		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [value = left - right]
 	}
 }
 
@@ -77,7 +79,7 @@ class MultiplicationAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return factory.createIntegerValue => [value = left * right]
+		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [value = left * right]
 	}
 }
 
@@ -87,7 +89,7 @@ class DivisionAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return factory.createIntegerValue => [value = left / right]
+		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [value = left / right]
 	}
 }
 
@@ -99,14 +101,14 @@ class PlusAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 		if (left instanceof StringValue) {
 			if (right instanceof StringValue) {
-				return factory.createStringValue => [
+				return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [
 					value = left.value + right.value
 				]
 			}
 
 		} else if (left instanceof IntegerValue) {
 			if (right instanceof IntegerValue) {
-				return factory.createIntegerValue => [
+				return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [
 					value = left.value + right.value
 				]
 			}
@@ -123,7 +125,7 @@ class OrAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 		if (left instanceof BooleanValue) {
 			if (right instanceof BooleanValue) {
-				return factory.createBooleanValue => [
+				return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 					value = left.value || right.value
 				]
 			}
@@ -141,7 +143,7 @@ class AndAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 		if (left instanceof BooleanValue) {
 			if (right instanceof BooleanValue) {
-				return factory.createBooleanValue => [
+				return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 					value = left.value && right.value
 				]
 			}
@@ -220,13 +222,13 @@ class EqualityAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 
 		val boolean result = if (left instanceof IntegerValue) {
-				genericEqualityTest(left, right, [l, r|l.value === r.value])
+				left.value === (right as IntegerValue).value
 			} else if (left instanceof StringValue) {
-				genericEqualityTest(left, right, [l, r|l.value == r.value])
+				left.value == (right as StringValue).value
 			} else if (left instanceof BooleanValue) {
-				genericEqualityTest(left, right, [l, r|l.value === r.value])
+				left.value === (right as BooleanValue).value
 			} else if (left instanceof RefValue) {
-				genericEqualityTest(left, right, [l, r|l.instance === r.instance])
+				left.instance === (right as RefValue).instance
 			} else {
 				throw new RuntimeException('''Type unsupported for equality operator: «left.class»''')
 			}
@@ -246,17 +248,16 @@ class InequalityAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 
 		val boolean result = if (left instanceof IntegerValue) {
-				genericEqualityTest(left, right, [l, r|l.value !== r.value])
+				left.value !== (right as IntegerValue).value
 			} else if (left instanceof StringValue) {
-				genericEqualityTest(left, right, [l, r|l.value != r.value])
+				left.value != (right as StringValue).value
 			} else if (left instanceof BooleanValue) {
-				genericEqualityTest(left, right, [l, r|l.value !== r.value])
+				left.value !== (right as BooleanValue).value
 			} else if (left instanceof RefValue) {
-				genericEqualityTest(left, right, [l, r|l.instance !== r.instance])
+				left.instance !== (right as RefValue).instance
 			} else {
-				throw new RuntimeException('''Type unsupported for equality operator: «left.class»''')
+				throw new RuntimeException('''Type unsupported for inequality operator: «left.class»''')
 			}
-
 		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [
 			value = result
 		]
@@ -303,7 +304,7 @@ class ThisAspect extends ExpressionAspect {
 		if (currentInstance === null) {
 			throw new RuntimeException('''"this" is not valid in the current context''')
 		} else {
-			return factory.createRefValue => [instance = currentInstance]
+			return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = currentInstance]
 		}
 	}
 }
@@ -320,7 +321,7 @@ class SymbolRefAspect extends ExpressionAspect {
 class NewAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		val result = factory.createInstance => [
+		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance => [
 			type = _self.type
 		]
 		state.heap.add(result)
@@ -332,7 +333,7 @@ class NewAspect extends ExpressionAspect {
 //			binding.value = (arg as Expression).evaluate(context)
 //			result.fieldbindings.add(binding)
 //		}
-		return factory.createRefValue => [instance = result]
+		return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = result]
 	}
 }
 

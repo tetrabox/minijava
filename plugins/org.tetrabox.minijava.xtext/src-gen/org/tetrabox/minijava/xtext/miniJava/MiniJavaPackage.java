@@ -781,13 +781,13 @@ public interface MiniJavaPackage extends EPackage
   int CLASS_REF = 16;
 
   /**
-   * The feature id for the '<em><b>Class</b></em>' reference.
+   * The feature id for the '<em><b>Referenced Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_REF__CLASS = SINGLE_TYPE_REF_FEATURE_COUNT + 0;
+  int CLASS_REF__REFERENCED_CLASS = SINGLE_TYPE_REF_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Class Ref</em>' class.
@@ -2229,15 +2229,15 @@ public interface MiniJavaPackage extends EPackage
   EClass getClassRef();
 
   /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.ClassRef#getClass_ <em>Class</em>}'.
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.ClassRef#getReferencedClass <em>Referenced Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Class</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.ClassRef#getClass_()
+   * @return the meta object for the reference '<em>Referenced Class</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.ClassRef#getReferencedClass()
    * @see #getClassRef()
    * @generated
    */
-  EReference getClassRef_Class();
+  EReference getClassRef_ReferencedClass();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.NamedElement <em>Named Element</em>}'.
@@ -3438,12 +3438,12 @@ public interface MiniJavaPackage extends EPackage
     EClass CLASS_REF = eINSTANCE.getClassRef();
 
     /**
-     * The meta object literal for the '<em><b>Class</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Referenced Class</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS_REF__CLASS = eINSTANCE.getClassRef_Class();
+    EReference CLASS_REF__REFERENCED_CLASS = eINSTANCE.getClassRef_ReferencedClass();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NamedElementImpl <em>Named Element</em>}' class.

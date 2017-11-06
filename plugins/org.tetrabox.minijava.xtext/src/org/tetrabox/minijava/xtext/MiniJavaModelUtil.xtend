@@ -70,7 +70,7 @@ class MiniJavaModelUtil {
 	
 	def String getName(TypeRef r) {
 		val test = switch r {
-			ClassRef:r.class_.name
+			ClassRef:r.referencedClass.name
 			IntegerTypeRef:"int"
 			StringTypeRef:"String"
 			BooleanTypeRef:"boolean"

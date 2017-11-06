@@ -825,22 +825,22 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ClassRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.ClassRef");
-		private final Assignment cClassAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cClassClassCrossReference_0 = (CrossReference)cClassAssignment.eContents().get(0);
-		private final RuleCall cClassClassQualifiedNameParserRuleCall_0_1 = (RuleCall)cClassClassCrossReference_0.eContents().get(1);
+		private final Assignment cReferencedClassAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cReferencedClassClassCrossReference_0 = (CrossReference)cReferencedClassAssignment.eContents().get(0);
+		private final RuleCall cReferencedClassClassQualifiedNameParserRuleCall_0_1 = (RuleCall)cReferencedClassClassCrossReference_0.eContents().get(1);
 		
 		//ClassRef:
-		//	class=[Class|QualifiedName];
+		//	referencedClass=[Class|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//class=[Class|QualifiedName]
-		public Assignment getClassAssignment() { return cClassAssignment; }
+		//referencedClass=[Class|QualifiedName]
+		public Assignment getReferencedClassAssignment() { return cReferencedClassAssignment; }
 		
 		//[Class|QualifiedName]
-		public CrossReference getClassClassCrossReference_0() { return cClassClassCrossReference_0; }
+		public CrossReference getReferencedClassClassCrossReference_0() { return cReferencedClassClassCrossReference_0; }
 		
 		//QualifiedName
-		public RuleCall getClassClassQualifiedNameParserRuleCall_0_1() { return cClassClassQualifiedNameParserRuleCall_0_1; }
+		public RuleCall getReferencedClassClassQualifiedNameParserRuleCall_0_1() { return cReferencedClassClassQualifiedNameParserRuleCall_0_1; }
 	}
 	public class NamedElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.NamedElement");
@@ -1988,7 +1988,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ClassRef:
-	//	class=[Class|QualifiedName];
+	//	referencedClass=[Class|QualifiedName];
 	public ClassRefElements getClassRefAccess() {
 		return pClassRef;
 	}
