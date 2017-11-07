@@ -617,9 +617,19 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeDeclaration_Members()
+  public EReference getTypeDeclaration_SuperType()
   {
     return (EReference)typeDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeDeclaration_Members()
+  {
+    return (EReference)typeDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -647,19 +657,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Superclass()
-  {
-    return (EReference)classEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getClass_Implements()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(2);
+    return (EReference)classEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -670,16 +670,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
   public EClass getInterface()
   {
     return interfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getInterface_Superinterface()
-  {
-    return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1842,15 +1832,14 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     typeDeclarationEClass = createEClass(TYPE_DECLARATION);
     createEAttribute(typeDeclarationEClass, TYPE_DECLARATION__ACCESS_LEVEL);
+    createEReference(typeDeclarationEClass, TYPE_DECLARATION__SUPER_TYPE);
     createEReference(typeDeclarationEClass, TYPE_DECLARATION__MEMBERS);
 
     classEClass = createEClass(CLASS);
     createEAttribute(classEClass, CLASS__ABSTRACT);
-    createEReference(classEClass, CLASS__SUPERCLASS);
     createEReference(classEClass, CLASS__IMPLEMENTS);
 
     interfaceEClass = createEClass(INTERFACE);
-    createEReference(interfaceEClass, INTERFACE__SUPERINTERFACE);
 
     memberEClass = createEClass(MEMBER);
     createEAttribute(memberEClass, MEMBER__ACCESS);
@@ -2109,15 +2098,14 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(typeDeclarationEClass, TypeDeclaration.class, "TypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeDeclaration_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, TypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeDeclaration_SuperType(), this.getTypeDeclaration(), null, "superType", null, 0, 1, TypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeDeclaration_Members(), this.getMember(), null, "members", null, 0, -1, TypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(classEClass, org.tetrabox.minijava.xtext.miniJava.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Superclass(), this.getClass_(), null, "superclass", null, 0, 1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Implements(), this.getInterface(), null, "implements", null, 0, -1, org.tetrabox.minijava.xtext.miniJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInterface_Superinterface(), this.getInterface(), null, "superinterface", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMember_Access(), this.getAccessLevel(), "access", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

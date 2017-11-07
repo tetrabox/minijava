@@ -180,9 +180,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cSuperclassAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cSuperclassClassCrossReference_4_1_0 = (CrossReference)cSuperclassAssignment_4_1.eContents().get(0);
-		private final RuleCall cSuperclassClassQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cSuperclassClassCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cSuperTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSuperTypeTypeDeclarationCrossReference_4_1_0 = (CrossReference)cSuperTypeAssignment_4_1.eContents().get(0);
+		private final RuleCall cSuperTypeTypeDeclarationQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cSuperTypeTypeDeclarationCrossReference_4_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cImplementsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cImplementsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -199,13 +199,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Class:
-		//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])?
+		//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])?
 		//	('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)? '{'
 		//	members+=Member*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])?
+		//accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])?
 		//('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)? '{' members+=Member*
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -231,20 +231,20 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
-		//('extends' superclass=[Class|QualifiedName])?
+		//('extends' superType=[TypeDeclaration|QualifiedName])?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'extends'
 		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
 		
-		//superclass=[Class|QualifiedName]
-		public Assignment getSuperclassAssignment_4_1() { return cSuperclassAssignment_4_1; }
+		//superType=[TypeDeclaration|QualifiedName]
+		public Assignment getSuperTypeAssignment_4_1() { return cSuperTypeAssignment_4_1; }
 		
-		//[Class|QualifiedName]
-		public CrossReference getSuperclassClassCrossReference_4_1_0() { return cSuperclassClassCrossReference_4_1_0; }
+		//[TypeDeclaration|QualifiedName]
+		public CrossReference getSuperTypeTypeDeclarationCrossReference_4_1_0() { return cSuperTypeTypeDeclarationCrossReference_4_1_0; }
 		
 		//QualifiedName
-		public RuleCall getSuperclassClassQualifiedNameParserRuleCall_4_1_0_1() { return cSuperclassClassQualifiedNameParserRuleCall_4_1_0_1; }
+		public RuleCall getSuperTypeTypeDeclarationQualifiedNameParserRuleCall_4_1_0_1() { return cSuperTypeTypeDeclarationQualifiedNameParserRuleCall_4_1_0_1; }
 		
 		//('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -298,21 +298,21 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSuperinterfaceAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cSuperinterfaceInterfaceCrossReference_3_1_0 = (CrossReference)cSuperinterfaceAssignment_3_1.eContents().get(0);
-		private final RuleCall cSuperinterfaceInterfaceQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSuperinterfaceInterfaceCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cSuperTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cSuperTypeTypeDeclarationCrossReference_3_1_0 = (CrossReference)cSuperTypeAssignment_3_1.eContents().get(0);
+		private final RuleCall cSuperTypeTypeDeclarationQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSuperTypeTypeDeclarationCrossReference_3_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cMembersAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cMembersMemberParserRuleCall_5_0 = (RuleCall)cMembersAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Interface:
-		//	accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{'
+		//	accessLevel=AccessLevel? 'interface' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])? '{'
 		//	members+=Member*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{' members+=Member*
+		//accessLevel=AccessLevel? 'interface' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])? '{' members+=Member*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -331,20 +331,20 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//('extends' superinterface=[Interface|QualifiedName])?
+		//('extends' superType=[TypeDeclaration|QualifiedName])?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'extends'
 		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
 		
-		//superinterface=[Interface|QualifiedName]
-		public Assignment getSuperinterfaceAssignment_3_1() { return cSuperinterfaceAssignment_3_1; }
+		//superType=[TypeDeclaration|QualifiedName]
+		public Assignment getSuperTypeAssignment_3_1() { return cSuperTypeAssignment_3_1; }
 		
-		//[Interface|QualifiedName]
-		public CrossReference getSuperinterfaceInterfaceCrossReference_3_1_0() { return cSuperinterfaceInterfaceCrossReference_3_1_0; }
+		//[TypeDeclaration|QualifiedName]
+		public CrossReference getSuperTypeTypeDeclarationCrossReference_3_1_0() { return cSuperTypeTypeDeclarationCrossReference_3_1_0; }
 		
 		//QualifiedName
-		public RuleCall getSuperinterfaceInterfaceQualifiedNameParserRuleCall_3_1_0_1() { return cSuperinterfaceInterfaceQualifiedNameParserRuleCall_3_1_0_1; }
+		public RuleCall getSuperTypeTypeDeclarationQualifiedNameParserRuleCall_3_1_0_1() { return cSuperTypeTypeDeclarationQualifiedNameParserRuleCall_3_1_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
@@ -2056,7 +2056,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Class:
-	//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])?
+	//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])?
 	//	('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)? '{'
 	//	members+=Member*
 	//	'}';
@@ -2069,7 +2069,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Interface:
-	//	accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{'
+	//	accessLevel=AccessLevel? 'interface' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])? '{'
 	//	members+=Member*
 	//	'}';
 	public InterfaceElements getInterfaceAccess() {

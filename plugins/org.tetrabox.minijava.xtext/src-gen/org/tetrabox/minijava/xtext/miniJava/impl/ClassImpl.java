@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -28,7 +27,6 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getImplements <em>Implements</em>}</li>
  * </ul>
  *
@@ -55,16 +53,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
    * @ordered
    */
   protected boolean abstract_ = ABSTRACT_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getSuperclass() <em>Superclass</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSuperclass()
-   * @generated
-   * @ordered
-   */
-  protected org.tetrabox.minijava.xtext.miniJava.Class superclass;
 
   /**
    * The cached value of the '{@link #getImplements() <em>Implements</em>}' reference list.
@@ -125,49 +113,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.tetrabox.minijava.xtext.miniJava.Class getSuperclass()
-  {
-    if (superclass != null && superclass.eIsProxy())
-    {
-      InternalEObject oldSuperclass = (InternalEObject)superclass;
-      superclass = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldSuperclass);
-      if (superclass != oldSuperclass)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
-      }
-    }
-    return superclass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public org.tetrabox.minijava.xtext.miniJava.Class basicGetSuperclass()
-  {
-    return superclass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSuperclass(org.tetrabox.minijava.xtext.miniJava.Class newSuperclass)
-  {
-    org.tetrabox.minijava.xtext.miniJava.Class oldSuperclass = superclass;
-    superclass = newSuperclass;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__SUPERCLASS, oldSuperclass, superclass));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Interface> getImplements()
   {
     if (implements_ == null)
@@ -189,9 +134,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
     {
       case MiniJavaPackage.CLASS__ABSTRACT:
         return isAbstract();
-      case MiniJavaPackage.CLASS__SUPERCLASS:
-        if (resolve) return getSuperclass();
-        return basicGetSuperclass();
       case MiniJavaPackage.CLASS__IMPLEMENTS:
         return getImplements();
     }
@@ -211,9 +153,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
     {
       case MiniJavaPackage.CLASS__ABSTRACT:
         setAbstract((Boolean)newValue);
-        return;
-      case MiniJavaPackage.CLASS__SUPERCLASS:
-        setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
         return;
       case MiniJavaPackage.CLASS__IMPLEMENTS:
         getImplements().clear();
@@ -236,9 +175,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
       case MiniJavaPackage.CLASS__ABSTRACT:
         setAbstract(ABSTRACT_EDEFAULT);
         return;
-      case MiniJavaPackage.CLASS__SUPERCLASS:
-        setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)null);
-        return;
       case MiniJavaPackage.CLASS__IMPLEMENTS:
         getImplements().clear();
         return;
@@ -258,8 +194,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
     {
       case MiniJavaPackage.CLASS__ABSTRACT:
         return abstract_ != ABSTRACT_EDEFAULT;
-      case MiniJavaPackage.CLASS__SUPERCLASS:
-        return superclass != null;
       case MiniJavaPackage.CLASS__IMPLEMENTS:
         return implements_ != null && !implements_.isEmpty();
     }

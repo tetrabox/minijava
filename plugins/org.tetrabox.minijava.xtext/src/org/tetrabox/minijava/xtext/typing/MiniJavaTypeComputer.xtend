@@ -62,7 +62,7 @@ class MiniJavaTypeComputer {
 			This:
 				e.getContainerOfType(Class)
 			Super:
-				e.getContainerOfType(Class).getSuperclassOrObject
+				e.getContainerOfType(Class).superType
 			Null:
 				NULL_TYPE
 			StringConstant:
@@ -74,13 +74,6 @@ class MiniJavaTypeComputer {
 		}
 	}
 
-	def dispatch getSuperclassOrObject(Class c) {
-		c.superclass
-	}
-	
-	def dispatch getSuperclassOrObject(Interface i) {
-		i.superinterface
-	}
 
 	def isPrimitive(TypeDeclaration c) {
 		c.eResource === null

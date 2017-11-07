@@ -21,12 +21,12 @@ TypeDeclaration:
 ;
 
 Class:
-	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? ('implements'implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])* )? '{'
+	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])? ('implements'implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])* )? '{'
 	members+=Member*
 	'}';
 
 Interface:
-	accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{'
+	accessLevel=AccessLevel? 'interface' name=ID ('extends' superType=[TypeDeclaration|QualifiedName])? '{'
 	members+=Member*
 	'}';
 

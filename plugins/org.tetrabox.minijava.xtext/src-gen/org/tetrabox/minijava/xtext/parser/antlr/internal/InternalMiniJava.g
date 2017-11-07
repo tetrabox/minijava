@@ -389,7 +389,7 @@ ruleClass returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getClassAccess().getSuperclassClassCrossReference_4_1_0());
+						newCompositeNode(grammarAccess.getClassAccess().getSuperTypeTypeDeclarationCrossReference_4_1_0());
 					}
 					ruleQualifiedName
 					{
@@ -542,7 +542,7 @@ ruleInterface returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getInterfaceAccess().getSuperinterfaceInterfaceCrossReference_3_1_0());
+						newCompositeNode(grammarAccess.getInterfaceAccess().getSuperTypeTypeDeclarationCrossReference_3_1_0());
 					}
 					ruleQualifiedName
 					{

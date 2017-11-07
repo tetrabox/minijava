@@ -66,8 +66,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	@Check
 	def checkClassHierarchy(Class c) {
 		if (c.classHierarchy.contains(c)) {
-			error("cycle in hierarchy of class '" + c.name + "'", MiniJavaPackage.eINSTANCE.class_Superclass,
-				HIERARCHY_CYCLE, c.superclass.name)
+			error("cycle in hierarchy of class '" + c.name + "'", MiniJavaPackage.eINSTANCE.typeDeclaration_SuperType,
+				HIERARCHY_CYCLE, c.superType.name)
 		}
 	}
 

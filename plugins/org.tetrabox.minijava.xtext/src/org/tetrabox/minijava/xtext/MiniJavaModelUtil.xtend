@@ -38,9 +38,6 @@ class MiniJavaModelUtil {
 		block.statements.filter(Return).head
 	}
 	
-	def static TypeDeclaration getSuperType(TypeDeclaration c) {
-		if (c instanceof Class) c.superclass else if (c instanceof Interface) c.superinterface
-	}
 
 	def classHierarchy(TypeDeclaration c) {
 		val visited = newLinkedHashSet()

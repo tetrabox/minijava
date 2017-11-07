@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getImplements <em>Implements</em>}</li>
  * </ul>
  *
@@ -50,32 +49,6 @@ public interface Class extends TypeDeclaration
    * @generated
    */
   void setAbstract(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Superclass</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Superclass</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Superclass</em>' reference.
-   * @see #setSuperclass(Class)
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Superclass()
-   * @model
-   * @generated
-   */
-  Class getSuperclass();
-
-  /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperclass <em>Superclass</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Superclass</em>' reference.
-   * @see #getSuperclass()
-   * @generated
-   */
-  void setSuperclass(Class value);
 
   /**
    * Returns the value of the '<em><b>Implements</b></em>' reference list.

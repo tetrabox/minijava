@@ -47,6 +47,7 @@ import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 import org.tetrabox.minijava.xtext.miniJava.Field
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -300,7 +301,7 @@ class ParameterAspect {
 @Aspect(className=Method)
 class MethodAspect {
 
-	def Method findOverride(Class c) {
+	def Method findOverride(TypeDeclaration c) {
 
 		if (c.members.contains(_self)) {
 			return _self
@@ -317,8 +318,8 @@ class MethodAspect {
 
 		if (candidate !== null) {
 			return candidate
-		} else if (c.superclass !== null) {
-			return _self.findOverride(c.superclass)
+		} else if (c.superType !== null) {
+			return _self.findOverride(c.superType)
 		} else {
 			return null
 		}
