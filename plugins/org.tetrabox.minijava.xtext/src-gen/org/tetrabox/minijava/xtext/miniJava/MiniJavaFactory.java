@@ -42,6 +42,15 @@ public interface MiniJavaFactory extends EFactory
   Import createImport();
 
   /**
+   * Returns a new object of class '<em>Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Declaration</em>'.
+   * @generated
+   */
+  TypeDeclaration createTypeDeclaration();
+
+  /**
    * Returns a new object of class '<em>Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +58,15 @@ public interface MiniJavaFactory extends EFactory
    * @generated
    */
   Class createClass();
+
+  /**
+   * Returns a new object of class '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface</em>'.
+   * @generated
+   */
+  Interface createInterface();
 
   /**
    * Returns a new object of class '<em>Member</em>'.

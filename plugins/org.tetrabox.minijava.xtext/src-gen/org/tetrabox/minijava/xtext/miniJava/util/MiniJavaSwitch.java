@@ -29,6 +29,7 @@ import org.tetrabox.minijava.xtext.miniJava.Inferior;
 import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.Interface;
 import org.tetrabox.minijava.xtext.miniJava.Member;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MethodCall;
@@ -56,6 +57,7 @@ import org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
@@ -139,11 +141,29 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniJavaPackage.TYPE_DECLARATION:
+      {
+        TypeDeclaration typeDeclaration = (TypeDeclaration)theEObject;
+        T result = caseTypeDeclaration(typeDeclaration);
+        if (result == null) result = caseNamedElement(typeDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniJavaPackage.CLASS:
       {
         org.tetrabox.minijava.xtext.miniJava.Class class_ = (org.tetrabox.minijava.xtext.miniJava.Class)theEObject;
         T result = caseClass(class_);
+        if (result == null) result = caseTypeDeclaration(class_);
         if (result == null) result = caseNamedElement(class_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.INTERFACE:
+      {
+        Interface interface_ = (Interface)theEObject;
+        T result = caseInterface(interface_);
+        if (result == null) result = caseTypeDeclaration(interface_);
+        if (result == null) result = caseNamedElement(interface_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -645,6 +665,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeDeclaration(TypeDeclaration object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -656,6 +692,22 @@ public class MiniJavaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClass(org.tetrabox.minijava.xtext.miniJava.Class object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterface(Interface object)
   {
     return null;
   }

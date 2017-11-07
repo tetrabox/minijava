@@ -6,7 +6,6 @@ package org.tetrabox.minijava.xtext.miniJava.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,11 +14,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
-import org.tetrabox.minijava.xtext.miniJava.Member;
+import org.tetrabox.minijava.xtext.miniJava.Interface;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 
 /**
@@ -30,36 +27,15 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getAccessLevel <em>Access Level</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getSuperclass <em>Superclass</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getImplements <em>Implements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava.xtext.miniJava.Class
+public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minijava.xtext.miniJava.Class
 {
-  /**
-   * The default value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccessLevel()
-   * @generated
-   * @ordered
-   */
-  protected static final AccessLevel ACCESS_LEVEL_EDEFAULT = AccessLevel.PRIVATE;
-
-  /**
-   * The cached value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccessLevel()
-   * @generated
-   * @ordered
-   */
-  protected AccessLevel accessLevel = ACCESS_LEVEL_EDEFAULT;
-
   /**
    * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -91,14 +67,14 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
   protected org.tetrabox.minijava.xtext.miniJava.Class superclass;
 
   /**
-   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * The cached value of the '{@link #getImplements() <em>Implements</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMembers()
+   * @see #getImplements()
    * @generated
    * @ordered
    */
-  protected EList<Member> members;
+  protected EList<Interface> implements_;
 
   /**
    * <!-- begin-user-doc -->
@@ -119,29 +95,6 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
   protected EClass eStaticClass()
   {
     return MiniJavaPackage.Literals.CLASS;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AccessLevel getAccessLevel()
-  {
-    return accessLevel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAccessLevel(AccessLevel newAccessLevel)
-  {
-    AccessLevel oldAccessLevel = accessLevel;
-    accessLevel = newAccessLevel == null ? ACCESS_LEVEL_EDEFAULT : newAccessLevel;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__ACCESS_LEVEL, oldAccessLevel, accessLevel));
   }
 
   /**
@@ -215,29 +168,13 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Member> getMembers()
+  public EList<Interface> getImplements()
   {
-    if (members == null)
+    if (implements_ == null)
     {
-      members = new EObjectContainmentEList<Member>(Member.class, this, MiniJavaPackage.CLASS__MEMBERS);
+      implements_ = new EObjectResolvingEList<Interface>(Interface.class, this, MiniJavaPackage.CLASS__IMPLEMENTS);
     }
-    return members;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MiniJavaPackage.CLASS__MEMBERS:
-        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return implements_;
   }
 
   /**
@@ -250,15 +187,13 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-        return getAccessLevel();
       case MiniJavaPackage.CLASS__ABSTRACT:
         return isAbstract();
       case MiniJavaPackage.CLASS__SUPERCLASS:
         if (resolve) return getSuperclass();
         return basicGetSuperclass();
-      case MiniJavaPackage.CLASS__MEMBERS:
-        return getMembers();
+      case MiniJavaPackage.CLASS__IMPLEMENTS:
+        return getImplements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -274,18 +209,15 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-        setAccessLevel((AccessLevel)newValue);
-        return;
       case MiniJavaPackage.CLASS__ABSTRACT:
         setAbstract((Boolean)newValue);
         return;
       case MiniJavaPackage.CLASS__SUPERCLASS:
         setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
         return;
-      case MiniJavaPackage.CLASS__MEMBERS:
-        getMembers().clear();
-        getMembers().addAll((Collection<? extends Member>)newValue);
+      case MiniJavaPackage.CLASS__IMPLEMENTS:
+        getImplements().clear();
+        getImplements().addAll((Collection<? extends Interface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -301,17 +233,14 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-        setAccessLevel(ACCESS_LEVEL_EDEFAULT);
-        return;
       case MiniJavaPackage.CLASS__ABSTRACT:
         setAbstract(ABSTRACT_EDEFAULT);
         return;
       case MiniJavaPackage.CLASS__SUPERCLASS:
         setSuperclass((org.tetrabox.minijava.xtext.miniJava.Class)null);
         return;
-      case MiniJavaPackage.CLASS__MEMBERS:
-        getMembers().clear();
+      case MiniJavaPackage.CLASS__IMPLEMENTS:
+        getImplements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -327,14 +256,12 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
   {
     switch (featureID)
     {
-      case MiniJavaPackage.CLASS__ACCESS_LEVEL:
-        return accessLevel != ACCESS_LEVEL_EDEFAULT;
       case MiniJavaPackage.CLASS__ABSTRACT:
         return abstract_ != ABSTRACT_EDEFAULT;
       case MiniJavaPackage.CLASS__SUPERCLASS:
         return superclass != null;
-      case MiniJavaPackage.CLASS__MEMBERS:
-        return members != null && !members.isEmpty();
+      case MiniJavaPackage.CLASS__IMPLEMENTS:
+        return implements_ != null && !implements_.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -350,9 +277,7 @@ public class ClassImpl extends NamedElementImpl implements org.tetrabox.minijava
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (accessLevel: ");
-    result.append(accessLevel);
-    result.append(", abstract: ");
+    result.append(" (abstract: ");
     result.append(abstract_);
     result.append(')');
     return result.toString();

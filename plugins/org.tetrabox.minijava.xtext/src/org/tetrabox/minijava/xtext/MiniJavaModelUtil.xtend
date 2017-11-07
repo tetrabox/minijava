@@ -11,14 +11,22 @@ import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
 import org.tetrabox.minijava.xtext.miniJava.TypeRef
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
+import org.tetrabox.minijava.xtext.miniJava.Interface
 
 class MiniJavaModelUtil {
+	
+	
 
-	def fields(Class c) {
+	def dispatch fields(Class c) {
 		c.members.filter(Field)
 	}
+	
+	def dispatch fields(Interface i) {
+		#[]
+	}
 
-	def methods(Class c) {
+	def methods(TypeDeclaration c) {
 		c.members.filter(Method)
 	}
 
@@ -29,14 +37,18 @@ class MiniJavaModelUtil {
 	def returnStatement(Block block) {
 		block.statements.filter(Return).head
 	}
+	
+	def static TypeDeclaration getSuperType(TypeDeclaration c) {
+		if (c instanceof Class) c.superclass else if (c instanceof Interface) c.superinterface
+	}
 
-	def classHierarchy(Class c) {
+	def classHierarchy(TypeDeclaration c) {
 		val visited = newLinkedHashSet()
 
-		var current = c.superclass
+		var current = c.superType
 		while (current !== null && !visited.contains(current)) {
 			visited.add(current)
-			current = current.superclass
+			current = current.superType
 		}
 
 		visited
@@ -50,7 +62,7 @@ class MiniJavaModelUtil {
 		c.classHierarchy.toList.reverseView.map[methods].flatten.toMap[name]
 	}
 
-	def classHierarchyMembers(Class c) {
+	def classHierarchyMembers(TypeDeclaration c) {
 		c.classHierarchy.map[members].flatten
 	}
 

@@ -62,6 +62,12 @@ class MiniJavaTestUtil {
 				
 		}
 		
+		class Y extends X {
+			
+			
+			
+		}
+		
 		class Main  {
 			public static void main(String[] args) {
 				«mainContent»

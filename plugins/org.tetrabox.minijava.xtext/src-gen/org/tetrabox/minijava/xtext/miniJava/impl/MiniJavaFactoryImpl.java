@@ -34,6 +34,7 @@ import org.tetrabox.minijava.xtext.miniJava.Inferior;
 import org.tetrabox.minijava.xtext.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.IntConstant;
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef;
+import org.tetrabox.minijava.xtext.miniJava.Interface;
 import org.tetrabox.minijava.xtext.miniJava.Member;
 import org.tetrabox.minijava.xtext.miniJava.Method;
 import org.tetrabox.minijava.xtext.miniJava.MethodCall;
@@ -62,6 +63,7 @@ import org.tetrabox.minijava.xtext.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.xtext.miniJava.Symbol;
 import org.tetrabox.minijava.xtext.miniJava.SymbolRef;
 import org.tetrabox.minijava.xtext.miniJava.This;
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.TypeRef;
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration;
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration;
@@ -122,7 +124,9 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
     {
       case MiniJavaPackage.PROGRAM: return createProgram();
       case MiniJavaPackage.IMPORT: return createImport();
+      case MiniJavaPackage.TYPE_DECLARATION: return createTypeDeclaration();
       case MiniJavaPackage.CLASS: return createClass();
+      case MiniJavaPackage.INTERFACE: return createInterface();
       case MiniJavaPackage.MEMBER: return createMember();
       case MiniJavaPackage.METHOD: return createMethod();
       case MiniJavaPackage.PARAMETER: return createParameter();
@@ -239,10 +243,32 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypeDeclaration createTypeDeclaration()
+  {
+    TypeDeclarationImpl typeDeclaration = new TypeDeclarationImpl();
+    return typeDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public org.tetrabox.minijava.xtext.miniJava.Class createClass()
   {
     ClassImpl class_ = new ClassImpl();
     return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Interface createInterface()
+  {
+    InterfaceImpl interface_ = new InterfaceImpl();
+    return interface_;
   }
 
   /**

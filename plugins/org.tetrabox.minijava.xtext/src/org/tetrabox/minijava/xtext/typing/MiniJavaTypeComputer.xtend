@@ -26,6 +26,9 @@ import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef
 import org.tetrabox.minijava.xtext.miniJava.New
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
+import org.tetrabox.minijava.xtext.miniJava.Interface
+import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -36,7 +39,7 @@ class MiniJavaTypeComputer {
 
 	static val ep = MiniJavaPackage.eINSTANCE
 
-	def getType(TypeRef r) {
+	def TypeDeclaration getType(TypeRef r) {
 		switch r {
 			ClassRef: r.referencedClass
 			IntegerTypeRef: INT_TYPE
@@ -46,7 +49,7 @@ class MiniJavaTypeComputer {
 		}
 	}
 
-	def Class typeFor(Expression e) {
+	def TypeDeclaration typeFor(Expression e) {
 		switch (e) {
 			SymbolRef:
 				e.symbol.typeRef.type
@@ -71,15 +74,19 @@ class MiniJavaTypeComputer {
 		}
 	}
 
-	def getSuperclassOrObject(Class c) {
+	def dispatch getSuperclassOrObject(Class c) {
 		c.superclass
 	}
+	
+	def dispatch getSuperclassOrObject(Interface i) {
+		i.superinterface
+	}
 
-	def isPrimitive(Class c) {
+	def isPrimitive(TypeDeclaration c) {
 		c.eResource === null
 	}
 
-	def Class expectedType(Expression e) {
+	def TypeDeclaration expectedType(Expression e) {
 		val c = e.eContainer
 		val f = e.eContainingFeature
 		switch (c) {

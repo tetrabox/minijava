@@ -14,47 +14,17 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getAccessLevel <em>Access Level</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperclass <em>Superclass</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getImplements <em>Implements</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_()
  * @model
  * @generated
  */
-public interface Class extends NamedElement
+public interface Class extends TypeDeclaration
 {
-  /**
-   * Returns the value of the '<em><b>Access Level</b></em>' attribute.
-   * The literals are from the enumeration {@link org.tetrabox.minijava.xtext.miniJava.AccessLevel}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Access Level</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Access Level</em>' attribute.
-   * @see org.tetrabox.minijava.xtext.miniJava.AccessLevel
-   * @see #setAccessLevel(AccessLevel)
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_AccessLevel()
-   * @model
-   * @generated
-   */
-  AccessLevel getAccessLevel();
-
-  /**
-   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getAccessLevel <em>Access Level</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Access Level</em>' attribute.
-   * @see org.tetrabox.minijava.xtext.miniJava.AccessLevel
-   * @see #getAccessLevel()
-   * @generated
-   */
-  void setAccessLevel(AccessLevel value);
-
   /**
    * Returns the value of the '<em><b>Abstract</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -108,19 +78,19 @@ public interface Class extends NamedElement
   void setSuperclass(Class value);
 
   /**
-   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Member}.
+   * Returns the value of the '<em><b>Implements</b></em>' reference list.
+   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Interface}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Implements</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Members</em>' containment reference list.
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Members()
-   * @model containment="true"
+   * @return the value of the '<em>Implements</em>' reference list.
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Implements()
+   * @model
    * @generated
    */
-  EList<Member> getMembers();
+  EList<Interface> getImplements();
 
 } // Class

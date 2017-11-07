@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.tetrabox.minijava.xtext.miniJava.Import;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xtext.miniJava.Program;
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,7 +79,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @generated
    * @ordered
    */
-  protected EList<org.tetrabox.minijava.xtext.miniJava.Class> classes;
+  protected EList<TypeDeclaration> classes;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,11 +144,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<org.tetrabox.minijava.xtext.miniJava.Class> getClasses()
+  public EList<TypeDeclaration> getClasses()
   {
     if (classes == null)
     {
-      classes = new EObjectContainmentEList<org.tetrabox.minijava.xtext.miniJava.Class>(org.tetrabox.minijava.xtext.miniJava.Class.class, this, MiniJavaPackage.PROGRAM__CLASSES);
+      classes = new EObjectContainmentEList<TypeDeclaration>(TypeDeclaration.class, this, MiniJavaPackage.PROGRAM__CLASSES);
     }
     return classes;
   }
@@ -210,7 +211,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return;
       case MiniJavaPackage.PROGRAM__CLASSES:
         getClasses().clear();
-        getClasses().addAll((Collection<? extends org.tetrabox.minijava.xtext.miniJava.Class>)newValue);
+        getClasses().addAll((Collection<? extends TypeDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

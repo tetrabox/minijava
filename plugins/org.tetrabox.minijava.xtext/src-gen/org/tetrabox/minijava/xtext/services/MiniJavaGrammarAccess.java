@@ -38,15 +38,15 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cImportsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportsImportParserRuleCall_1_0 = (RuleCall)cImportsAssignment_1.eContents().get(0);
 		private final Assignment cClassesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cClassesClassParserRuleCall_2_0 = (RuleCall)cClassesAssignment_2.eContents().get(0);
+		private final RuleCall cClassesTypeDeclarationParserRuleCall_2_0 = (RuleCall)cClassesAssignment_2.eContents().get(0);
 		
 		//Program:
 		//	('package' name=QualifiedName ';')?
 		//	imports+=Import*
-		//	classes+=Class*;
+		//	classes+=TypeDeclaration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('package' name=QualifiedName ';')? imports+=Import* classes+=Class*
+		//('package' name=QualifiedName ';')? imports+=Import* classes+=TypeDeclaration*
 		public Group getGroup() { return cGroup; }
 		
 		//('package' name=QualifiedName ';')?
@@ -70,11 +70,11 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_1_0() { return cImportsImportParserRuleCall_1_0; }
 		
-		//classes+=Class*
+		//classes+=TypeDeclaration*
 		public Assignment getClassesAssignment_2() { return cClassesAssignment_2; }
 		
-		//Class
-		public RuleCall getClassesClassParserRuleCall_2_0() { return cClassesClassParserRuleCall_2_0; }
+		//TypeDeclaration
+		public RuleCall getClassesTypeDeclarationParserRuleCall_2_0() { return cClassesTypeDeclarationParserRuleCall_2_0; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Import");
@@ -149,6 +149,25 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//'.*'?
 		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
 	}
+	public class TypeDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.TypeDeclaration");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cClassParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cInterfaceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//TypeDeclaration:
+		//	Class | Interface;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Class | Interface
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Class
+		public RuleCall getClassParserRuleCall_0() { return cClassParserRuleCall_0; }
+		
+		//Interface
+		public RuleCall getInterfaceParserRuleCall_1() { return cInterfaceParserRuleCall_1; }
+	}
 	public class ClassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Class");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -164,19 +183,31 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSuperclassAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final CrossReference cSuperclassClassCrossReference_4_1_0 = (CrossReference)cSuperclassAssignment_4_1.eContents().get(0);
 		private final RuleCall cSuperclassClassQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cSuperclassClassCrossReference_4_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cMembersAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cMembersMemberParserRuleCall_6_0 = (RuleCall)cMembersAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cImplementsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cImplementsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cImplementsInterfaceCrossReference_5_1_0 = (CrossReference)cImplementsAssignment_5_1.eContents().get(0);
+		private final RuleCall cImplementsInterfaceQualifiedNameParserRuleCall_5_1_0_1 = (RuleCall)cImplementsInterfaceCrossReference_5_1_0.eContents().get(1);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cImplementsAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final CrossReference cImplementsInterfaceCrossReference_5_2_1_0 = (CrossReference)cImplementsAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cImplementsInterfaceQualifiedNameParserRuleCall_5_2_1_0_1 = (RuleCall)cImplementsInterfaceCrossReference_5_2_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cMembersAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMembersMemberParserRuleCall_7_0 = (RuleCall)cMembersAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Class:
-		//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+		//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])?
+		//	('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)? '{'
 		//	members+=Member*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
-		//members+=Member* '}'
+		//accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])?
+		//('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)? '{' members+=Member*
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//accessLevel=AccessLevel?
@@ -215,17 +246,117 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getSuperclassClassQualifiedNameParserRuleCall_4_1_0_1() { return cSuperclassClassQualifiedNameParserRuleCall_4_1_0_1; }
 		
+		//('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'implements'
+		public Keyword getImplementsKeyword_5_0() { return cImplementsKeyword_5_0; }
+		
+		//implements+=[Interface|QualifiedName]
+		public Assignment getImplementsAssignment_5_1() { return cImplementsAssignment_5_1; }
+		
+		//[Interface|QualifiedName]
+		public CrossReference getImplementsInterfaceCrossReference_5_1_0() { return cImplementsInterfaceCrossReference_5_1_0; }
+		
+		//QualifiedName
+		public RuleCall getImplementsInterfaceQualifiedNameParserRuleCall_5_1_0_1() { return cImplementsInterfaceQualifiedNameParserRuleCall_5_1_0_1; }
+		
+		//(',' implements+=[Interface|QualifiedName])*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+		
+		//','
+		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
+		
+		//implements+=[Interface|QualifiedName]
+		public Assignment getImplementsAssignment_5_2_1() { return cImplementsAssignment_5_2_1; }
+		
+		//[Interface|QualifiedName]
+		public CrossReference getImplementsInterfaceCrossReference_5_2_1_0() { return cImplementsInterfaceCrossReference_5_2_1_0; }
+		
+		//QualifiedName
+		public RuleCall getImplementsInterfaceQualifiedNameParserRuleCall_5_2_1_0_1() { return cImplementsInterfaceQualifiedNameParserRuleCall_5_2_1_0_1; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
 		//members+=Member*
-		public Assignment getMembersAssignment_6() { return cMembersAssignment_6; }
+		public Assignment getMembersAssignment_7() { return cMembersAssignment_7; }
 		
 		//Member
-		public RuleCall getMembersMemberParserRuleCall_6_0() { return cMembersMemberParserRuleCall_6_0; }
+		public RuleCall getMembersMemberParserRuleCall_7_0() { return cMembersMemberParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class InterfaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Interface");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cAccessLevelAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cAccessLevelAccessLevelEnumRuleCall_0_0 = (RuleCall)cAccessLevelAssignment_0.eContents().get(0);
+		private final Keyword cInterfaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cSuperinterfaceAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cSuperinterfaceInterfaceCrossReference_3_1_0 = (CrossReference)cSuperinterfaceAssignment_3_1.eContents().get(0);
+		private final RuleCall cSuperinterfaceInterfaceQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSuperinterfaceInterfaceCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cMembersAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMembersMemberParserRuleCall_5_0 = (RuleCall)cMembersAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Interface:
+		//	accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{'
+		//	members+=Member*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{' members+=Member*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//accessLevel=AccessLevel?
+		public Assignment getAccessLevelAssignment_0() { return cAccessLevelAssignment_0; }
+		
+		//AccessLevel
+		public RuleCall getAccessLevelAccessLevelEnumRuleCall_0_0() { return cAccessLevelAccessLevelEnumRuleCall_0_0; }
+		
+		//'interface'
+		public Keyword getInterfaceKeyword_1() { return cInterfaceKeyword_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
+		//('extends' superinterface=[Interface|QualifiedName])?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'extends'
+		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
+		
+		//superinterface=[Interface|QualifiedName]
+		public Assignment getSuperinterfaceAssignment_3_1() { return cSuperinterfaceAssignment_3_1; }
+		
+		//[Interface|QualifiedName]
+		public CrossReference getSuperinterfaceInterfaceCrossReference_3_1_0() { return cSuperinterfaceInterfaceCrossReference_3_1_0; }
+		
+		//QualifiedName
+		public RuleCall getSuperinterfaceInterfaceQualifiedNameParserRuleCall_3_1_0_1() { return cSuperinterfaceInterfaceQualifiedNameParserRuleCall_3_1_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//members+=Member*
+		public Assignment getMembersAssignment_5() { return cMembersAssignment_5; }
+		
+		//Member
+		public RuleCall getMembersMemberParserRuleCall_5_0() { return cMembersMemberParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class MemberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Member");
@@ -877,40 +1008,40 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	public class ClassRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.ClassRef");
 		private final Assignment cReferencedClassAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cReferencedClassClassCrossReference_0 = (CrossReference)cReferencedClassAssignment.eContents().get(0);
-		private final RuleCall cReferencedClassClassQualifiedNameParserRuleCall_0_1 = (RuleCall)cReferencedClassClassCrossReference_0.eContents().get(1);
+		private final CrossReference cReferencedClassTypeDeclarationCrossReference_0 = (CrossReference)cReferencedClassAssignment.eContents().get(0);
+		private final RuleCall cReferencedClassTypeDeclarationQualifiedNameParserRuleCall_0_1 = (RuleCall)cReferencedClassTypeDeclarationCrossReference_0.eContents().get(1);
 		
 		//ClassRef:
-		//	referencedClass=[Class|QualifiedName];
+		//	referencedClass=[TypeDeclaration|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//referencedClass=[Class|QualifiedName]
+		//referencedClass=[TypeDeclaration|QualifiedName]
 		public Assignment getReferencedClassAssignment() { return cReferencedClassAssignment; }
 		
-		//[Class|QualifiedName]
-		public CrossReference getReferencedClassClassCrossReference_0() { return cReferencedClassClassCrossReference_0; }
+		//[TypeDeclaration|QualifiedName]
+		public CrossReference getReferencedClassTypeDeclarationCrossReference_0() { return cReferencedClassTypeDeclarationCrossReference_0; }
 		
 		//QualifiedName
-		public RuleCall getReferencedClassClassQualifiedNameParserRuleCall_0_1() { return cReferencedClassClassQualifiedNameParserRuleCall_0_1; }
+		public RuleCall getReferencedClassTypeDeclarationQualifiedNameParserRuleCall_0_1() { return cReferencedClassTypeDeclarationQualifiedNameParserRuleCall_0_1; }
 	}
 	public class NamedElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.NamedElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTypedDeclarationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cClassParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTypeDeclarationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//NamedElement:
-		//	TypedDeclaration | Class;
+		//	TypedDeclaration | TypeDeclaration;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TypedDeclaration | Class
+		//TypedDeclaration | TypeDeclaration
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//TypedDeclaration
 		public RuleCall getTypedDeclarationParserRuleCall_0() { return cTypedDeclarationParserRuleCall_0; }
 		
-		//Class
-		public RuleCall getClassParserRuleCall_1() { return cClassParserRuleCall_1; }
+		//TypeDeclaration
+		public RuleCall getTypeDeclarationParserRuleCall_1() { return cTypeDeclarationParserRuleCall_1; }
 	}
 	public class TypedDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.TypedDeclaration");
@@ -1759,7 +1890,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	private final ImportElements pImport;
 	private final QualifiedNameElements pQualifiedName;
 	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private final TypeDeclarationElements pTypeDeclaration;
 	private final ClassElements pClass;
+	private final InterfaceElements pInterface;
 	private final MemberElements pMember;
 	private final MethodElements pMethod;
 	private final ParameterElements pParameter;
@@ -1806,7 +1939,9 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pImport = new ImportElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
+		this.pTypeDeclaration = new TypeDeclarationElements();
 		this.pClass = new ClassElements();
+		this.pInterface = new InterfaceElements();
 		this.pMember = new MemberElements();
 		this.pMethod = new MethodElements();
 		this.pParameter = new ParameterElements();
@@ -1871,7 +2006,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	//Program:
 	//	('package' name=QualifiedName ';')?
 	//	imports+=Import*
-	//	classes+=Class*;
+	//	classes+=TypeDeclaration*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -1910,8 +2045,19 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		return getQualifiedNameWithWildcardAccess().getRule();
 	}
 	
+	//TypeDeclaration:
+	//	Class | Interface;
+	public TypeDeclarationElements getTypeDeclarationAccess() {
+		return pTypeDeclaration;
+	}
+	
+	public ParserRule getTypeDeclarationRule() {
+		return getTypeDeclarationAccess().getRule();
+	}
+	
 	//Class:
-	//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])? '{'
+	//	accessLevel=AccessLevel? abstract?='abstract'? 'class' name=ID ('extends' superclass=[Class|QualifiedName])?
+	//	('implements' implements+=[Interface|QualifiedName] (',' implements+=[Interface|QualifiedName])*)? '{'
 	//	members+=Member*
 	//	'}';
 	public ClassElements getClassAccess() {
@@ -1920,6 +2066,18 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getClassRule() {
 		return getClassAccess().getRule();
+	}
+	
+	//Interface:
+	//	accessLevel=AccessLevel? 'interface' name=ID ('extends' superinterface=[Interface|QualifiedName])? '{'
+	//	members+=Member*
+	//	'}';
+	public InterfaceElements getInterfaceAccess() {
+		return pInterface;
+	}
+	
+	public ParserRule getInterfaceRule() {
+		return getInterfaceAccess().getRule();
 	}
 	
 	//Member:
@@ -2076,7 +2234,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ClassRef:
-	//	referencedClass=[Class|QualifiedName];
+	//	referencedClass=[TypeDeclaration|QualifiedName];
 	public ClassRefElements getClassRefAccess() {
 		return pClassRef;
 	}
@@ -2086,7 +2244,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NamedElement:
-	//	TypedDeclaration | Class;
+	//	TypedDeclaration | TypeDeclaration;
 	public NamedElementElements getNamedElementAccess() {
 		return pNamedElement;
 	}
