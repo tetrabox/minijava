@@ -3,19 +3,13 @@
  */
 package org.tetrabox.minijava.xtext.miniJava.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.tetrabox.minijava.xtext.miniJava.Interface;
 import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
 
 /**
@@ -27,7 +21,7 @@ import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getImplements <em>Implements</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.impl.ClassImpl#getSuperClass <em>Super Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,14 +49,14 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
   protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getImplements() <em>Implements</em>}' reference list.
+   * The cached value of the '{@link #getSuperClass() <em>Super Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImplements()
+   * @see #getSuperClass()
    * @generated
    * @ordered
    */
-  protected EList<Interface> implements_;
+  protected org.tetrabox.minijava.xtext.miniJava.Class superClass;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,13 +107,42 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Interface> getImplements()
+  public org.tetrabox.minijava.xtext.miniJava.Class getSuperClass()
   {
-    if (implements_ == null)
+    if (superClass != null && superClass.eIsProxy())
     {
-      implements_ = new EObjectResolvingEList<Interface>(Interface.class, this, MiniJavaPackage.CLASS__IMPLEMENTS);
+      InternalEObject oldSuperClass = (InternalEObject)superClass;
+      superClass = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldSuperClass);
+      if (superClass != oldSuperClass)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.CLASS__SUPER_CLASS, oldSuperClass, superClass));
+      }
     }
-    return implements_;
+    return superClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.tetrabox.minijava.xtext.miniJava.Class basicGetSuperClass()
+  {
+    return superClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSuperClass(org.tetrabox.minijava.xtext.miniJava.Class newSuperClass)
+  {
+    org.tetrabox.minijava.xtext.miniJava.Class oldSuperClass = superClass;
+    superClass = newSuperClass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.CLASS__SUPER_CLASS, oldSuperClass, superClass));
   }
 
   /**
@@ -134,8 +157,9 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
     {
       case MiniJavaPackage.CLASS__ABSTRACT:
         return isAbstract();
-      case MiniJavaPackage.CLASS__IMPLEMENTS:
-        return getImplements();
+      case MiniJavaPackage.CLASS__SUPER_CLASS:
+        if (resolve) return getSuperClass();
+        return basicGetSuperClass();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -145,7 +169,6 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -154,9 +177,8 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
       case MiniJavaPackage.CLASS__ABSTRACT:
         setAbstract((Boolean)newValue);
         return;
-      case MiniJavaPackage.CLASS__IMPLEMENTS:
-        getImplements().clear();
-        getImplements().addAll((Collection<? extends Interface>)newValue);
+      case MiniJavaPackage.CLASS__SUPER_CLASS:
+        setSuperClass((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -175,8 +197,8 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
       case MiniJavaPackage.CLASS__ABSTRACT:
         setAbstract(ABSTRACT_EDEFAULT);
         return;
-      case MiniJavaPackage.CLASS__IMPLEMENTS:
-        getImplements().clear();
+      case MiniJavaPackage.CLASS__SUPER_CLASS:
+        setSuperClass((org.tetrabox.minijava.xtext.miniJava.Class)null);
         return;
     }
     super.eUnset(featureID);
@@ -194,8 +216,8 @@ public class ClassImpl extends TypeDeclarationImpl implements org.tetrabox.minij
     {
       case MiniJavaPackage.CLASS__ABSTRACT:
         return abstract_ != ABSTRACT_EDEFAULT;
-      case MiniJavaPackage.CLASS__IMPLEMENTS:
-        return implements_ != null && !implements_.isEmpty();
+      case MiniJavaPackage.CLASS__SUPER_CLASS:
+        return superClass != null;
     }
     return super.eIsSet(featureID);
   }

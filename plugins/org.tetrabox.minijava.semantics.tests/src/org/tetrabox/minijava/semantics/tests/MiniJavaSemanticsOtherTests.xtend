@@ -49,11 +49,11 @@ class Main  {
 		]
 		genericPrintTest('''
 			
-			public abstract class Statelike {
-			   public abstract void writeName(StateContext context, String name);
+			interface Statelike {
+			   public void writeName(StateContext context, String name);
 			}
 			
-			public class StateNormal extends Statelike {
+			public class StateNormal implements Statelike {
 			    public void writeName(StateContext context, String name) {
 			        System.out.println(name);
 			        StateHello hello = new StateHello();
@@ -61,7 +61,7 @@ class Main  {
 			    } 
 			}
 			
-			public class StateHello extends Statelike {
+			public class StateHello implements Statelike {
 			    /** Counter local to this state */
 			    public int count = 0;
 			

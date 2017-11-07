@@ -28,6 +28,10 @@ import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.ClassRef
+import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
+import org.tetrabox.minijava.xtext.miniJava.Interface
+import org.tetrabox.minijava.xtext.miniJava.Field
+import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
 
 /**
  * This class contains custom validation rules. 
@@ -55,6 +59,9 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	public static val ABSTRACT_METHOD_CLASS = ISSUE_CODE_PREFIX + "AbstractMethodClass"
 	public static val CONSTRUCTOR_CLASS = ISSUE_CODE_PREFIX + "ConstructorClass"
 	public static val CONSTRUCTOR_ABSTRACT = ISSUE_CODE_PREFIX + "ConstructorAbstract"
+	public static val INTERFACE_MEMBERS = ISSUE_CODE_PREFIX + "InterfaceMembers"
+	public static val INTERFACE_SUPERTYPE = ISSUE_CODE_PREFIX + "InterfaceSuperType"
+	public static val CLASS_SUPERTYPE = ISSUE_CODE_PREFIX + "ClassSuperType"
 
 	@Inject extension MiniJavaModelUtil
 	@Inject extension MiniJavaTypeComputer
@@ -64,10 +71,10 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	@Inject extension IQualifiedNameProvider
 
 	@Check
-	def checkClassHierarchy(Class c) {
+	def checkClassHierarchy(TypeDeclaration c) {
 		if (c.classHierarchy.contains(c)) {
-			error("cycle in hierarchy of class '" + c.name + "'", MiniJavaPackage.eINSTANCE.typeDeclaration_SuperType,
-				HIERARCHY_CYCLE, c.superType.name)
+			error("Cycle in hierarchy of class '" + c.name + "'.", MiniJavaPackage.eINSTANCE.namedElement_Name ,
+				HIERARCHY_CYCLE, c.name)
 		}
 	}
 
@@ -142,8 +149,8 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 	@Check def void checkConstructorAbstractClass(New n) {
 		if (n.type.abstract) {
-			error("Cannot construct an instance of an abstract class.",
-				MiniJavaPackage.eINSTANCE.new_Type, CONSTRUCTOR_ABSTRACT)
+			error("Cannot construct an instance of an abstract class.", MiniJavaPackage.eINSTANCE.new_Type,
+				CONSTRUCTOR_ABSTRACT)
 		}
 	}
 
@@ -163,6 +170,15 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		}
 	}
 
+	static def boolean isAbstractOrInterface(TypeDeclaration t) {
+		if (t instanceof Class) {
+			return t.abstract
+		} else if (t instanceof Interface) {
+			return true
+		}
+		return false;
+	}
+
 	@Check
 	def void checkMethodAbstract(Method method) {
 		if (method.abstract && method.body !== null) {
@@ -170,10 +186,20 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 				MiniJavaPackage.eINSTANCE.method_Body, ABSTRACT_METHOD_BODY)
 		}
 
-		if (method.abstract && !(method.eContainer as Class).abstract) {
-			error('''The abstract method «method.name» must be contained in an abstract class.''', method,
-				MiniJavaPackage.eINSTANCE.method_Abstract, ABSTRACT_METHOD_CLASS)
+		if (method.abstract && !(method.eContainer as TypeDeclaration).isAbstractOrInterface) {
+			error('''The abstract method «method.name» must be contained in an abstract class or in an interface.''',
+				method, MiniJavaPackage.eINSTANCE.method_Abstract, ABSTRACT_METHOD_CLASS)
 		}
+	}
+
+
+	@Check
+	def void checkInterfaceMembers(Interface i) {
+		if (i.members.exists[it instanceof Field]) {
+			error("An interface cannot contain a field.", i, MiniJavaPackage.eINSTANCE.typeDeclaration_Members,
+				INTERFACE_MEMBERS)
+		}
+
 	}
 
 	@Check

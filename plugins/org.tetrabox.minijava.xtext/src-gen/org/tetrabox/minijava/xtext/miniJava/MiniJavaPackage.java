@@ -189,13 +189,13 @@ public interface MiniJavaPackage extends EPackage
   int TYPE_DECLARATION__ACCESS_LEVEL = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Super Type</b></em>' reference.
+   * The feature id for the '<em><b>Implements</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_DECLARATION__SUPER_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE_DECLARATION__IMPLEMENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -244,13 +244,13 @@ public interface MiniJavaPackage extends EPackage
   int CLASS__ACCESS_LEVEL = TYPE_DECLARATION__ACCESS_LEVEL;
 
   /**
-   * The feature id for the '<em><b>Super Type</b></em>' reference.
+   * The feature id for the '<em><b>Implements</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__SUPER_TYPE = TYPE_DECLARATION__SUPER_TYPE;
+  int CLASS__IMPLEMENTS = TYPE_DECLARATION__IMPLEMENTS;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -271,13 +271,13 @@ public interface MiniJavaPackage extends EPackage
   int CLASS__ABSTRACT = TYPE_DECLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Implements</b></em>' reference list.
+   * The feature id for the '<em><b>Super Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__IMPLEMENTS = TYPE_DECLARATION_FEATURE_COUNT + 1;
+  int CLASS__SUPER_CLASS = TYPE_DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Class</em>' class.
@@ -317,13 +317,13 @@ public interface MiniJavaPackage extends EPackage
   int INTERFACE__ACCESS_LEVEL = TYPE_DECLARATION__ACCESS_LEVEL;
 
   /**
-   * The feature id for the '<em><b>Super Type</b></em>' reference.
+   * The feature id for the '<em><b>Implements</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE__SUPER_TYPE = TYPE_DECLARATION__SUPER_TYPE;
+  int INTERFACE__IMPLEMENTS = TYPE_DECLARATION__IMPLEMENTS;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -2046,15 +2046,15 @@ public interface MiniJavaPackage extends EPackage
   EAttribute getTypeDeclaration_AccessLevel();
 
   /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.TypeDeclaration#getSuperType <em>Super Type</em>}'.
+   * Returns the meta object for the reference list '{@link org.tetrabox.minijava.xtext.miniJava.TypeDeclaration#getImplements <em>Implements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Type</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.TypeDeclaration#getSuperType()
+   * @return the meta object for the reference list '<em>Implements</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.TypeDeclaration#getImplements()
    * @see #getTypeDeclaration()
    * @generated
    */
-  EReference getTypeDeclaration_SuperType();
+  EReference getTypeDeclaration_Implements();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.TypeDeclaration#getMembers <em>Members</em>}'.
@@ -2089,15 +2089,15 @@ public interface MiniJavaPackage extends EPackage
   EAttribute getClass_Abstract();
 
   /**
-   * Returns the meta object for the reference list '{@link org.tetrabox.minijava.xtext.miniJava.Class#getImplements <em>Implements</em>}'.
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperClass <em>Super Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Implements</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.Class#getImplements()
+   * @return the meta object for the reference '<em>Super Class</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.Class#getSuperClass()
    * @see #getClass_()
    * @generated
    */
-  EReference getClass_Implements();
+  EReference getClass_SuperClass();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Interface <em>Interface</em>}'.
@@ -3384,12 +3384,12 @@ public interface MiniJavaPackage extends EPackage
     EAttribute TYPE_DECLARATION__ACCESS_LEVEL = eINSTANCE.getTypeDeclaration_AccessLevel();
 
     /**
-     * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Implements</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE_DECLARATION__SUPER_TYPE = eINSTANCE.getTypeDeclaration_SuperType();
+    EReference TYPE_DECLARATION__IMPLEMENTS = eINSTANCE.getTypeDeclaration_Implements();
 
     /**
      * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
@@ -3418,12 +3418,12 @@ public interface MiniJavaPackage extends EPackage
     EAttribute CLASS__ABSTRACT = eINSTANCE.getClass_Abstract();
 
     /**
-     * The meta object literal for the '<em><b>Implements</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Super Class</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__IMPLEMENTS = eINSTANCE.getClass_Implements();
+    EReference CLASS__SUPER_CLASS = eINSTANCE.getClass_SuperClass();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.InterfaceImpl <em>Interface</em>}' class.

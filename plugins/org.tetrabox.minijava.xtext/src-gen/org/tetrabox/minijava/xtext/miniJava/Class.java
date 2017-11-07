@@ -3,7 +3,6 @@
  */
 package org.tetrabox.minijava.xtext.miniJava;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getImplements <em>Implements</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperClass <em>Super Class</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_()
@@ -51,19 +50,29 @@ public interface Class extends TypeDeclaration
   void setAbstract(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Implements</b></em>' reference list.
-   * The list contents are of type {@link org.tetrabox.minijava.xtext.miniJava.Interface}.
+   * Returns the value of the '<em><b>Super Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Implements</em>' reference list isn't clear,
+   * If the meaning of the '<em>Super Class</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Implements</em>' reference list.
-   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_Implements()
+   * @return the value of the '<em>Super Class</em>' reference.
+   * @see #setSuperClass(Class)
+   * @see org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage#getClass_SuperClass()
    * @model
    * @generated
    */
-  EList<Interface> getImplements();
+  Class getSuperClass();
+
+  /**
+   * Sets the value of the '{@link org.tetrabox.minijava.xtext.miniJava.Class#getSuperClass <em>Super Class</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Super Class</em>' reference.
+   * @see #getSuperClass()
+   * @generated
+   */
+  void setSuperClass(Class value);
 
 } // Class

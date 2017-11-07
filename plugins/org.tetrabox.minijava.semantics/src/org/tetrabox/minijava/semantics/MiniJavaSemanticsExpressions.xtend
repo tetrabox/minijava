@@ -301,7 +301,7 @@ class ParameterAspect {
 @Aspect(className=Method)
 class MethodAspect {
 
-	def Method findOverride(TypeDeclaration c) {
+	def Method findOverride(Class c) {
 
 		if (c.members.contains(_self)) {
 			return _self
@@ -318,8 +318,8 @@ class MethodAspect {
 
 		if (candidate !== null) {
 			return candidate
-		} else if (c.superType !== null) {
-			return _self.findOverride(c.superType)
+		} else if (c.superClass !== null) {
+			return _self.findOverride(c.superClass)
 		} else {
 			return null
 		}

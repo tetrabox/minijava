@@ -13,15 +13,15 @@ import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
 import org.tetrabox.minijava.xtext.miniJava.TypeRef
 import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
 import org.tetrabox.minijava.xtext.miniJava.Interface
+import java.util.Set
+import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
 
 class MiniJavaModelUtil {
-	
-	
 
 	def dispatch fields(Class c) {
 		c.members.filter(Field)
 	}
-	
+
 	def dispatch fields(Interface i) {
 		#[]
 	}
@@ -37,21 +37,33 @@ class MiniJavaModelUtil {
 	def returnStatement(Block block) {
 		block.statements.filter(Return).head
 	}
-	
 
-	def classHierarchy(TypeDeclaration c) {
-		val visited = newLinkedHashSet()
+	def Set<TypeDeclaration> getSuperTypes(TypeDeclaration c) {
+		val Set<TypeDeclaration> current = newLinkedHashSet()
+		if (c instanceof Class) {
+			if (c.superClass !== null) {
+				current.add(c.superClass)
+			}
+		}
+		current.addAll(c.implements)
+		return current
+	}
 
-		var current = c.superType
-		while (current !== null && !visited.contains(current)) {
-			visited.add(current)
-			current = current.superType
+	def Set<TypeDeclaration> classHierarchy(TypeDeclaration c) {
+		val Set<TypeDeclaration> visited = newLinkedHashSet()
+
+		val current = c.superTypes
+
+		while (! current.isEmpty && !visited.exists[current.contains(it)]) {
+			visited.addAll(current)
+			current.clear
+			current.addAll(c.superTypes)
 		}
 
 		visited
 	}
 
-	def classHierarchyMethods(Class c) {
+	def classHierarchyMethods(TypeDeclaration c) {
 		// reverse the list so that methods in subclasses
 		// will be added later to the map, thus overriding
 		// the one already present in the superclasses

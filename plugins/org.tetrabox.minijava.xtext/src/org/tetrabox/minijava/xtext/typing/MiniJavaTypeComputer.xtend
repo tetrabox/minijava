@@ -62,7 +62,7 @@ class MiniJavaTypeComputer {
 			This:
 				e.getContainerOfType(Class)
 			Super:
-				e.getContainerOfType(Class).superType
+				e.getContainerOfType(Class).superClass
 			Null:
 				NULL_TYPE
 			StringConstant:
