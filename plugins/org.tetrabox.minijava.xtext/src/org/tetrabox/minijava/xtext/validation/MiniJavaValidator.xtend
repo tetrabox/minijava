@@ -54,6 +54,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	public static val ABSTRACT_METHOD_BODY = ISSUE_CODE_PREFIX + "AbstractMethodBody"
 	public static val ABSTRACT_METHOD_CLASS = ISSUE_CODE_PREFIX + "AbstractMethodClass"
 	public static val CONSTRUCTOR_CLASS = ISSUE_CODE_PREFIX + "ConstructorClass"
+	public static val CONSTRUCTOR_ABSTRACT = ISSUE_CODE_PREFIX + "ConstructorAbstract"
 
 	@Inject extension MiniJavaModelUtil
 	@Inject extension MiniJavaTypeComputer
@@ -133,15 +134,18 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 	@Check def void checkMethodInvocationArguments(MethodCall sel) {
 		val method = sel.method
-		if (method instanceof Method) {
-			if (method.params.size != sel.args.size) {
-				error("Invalid number of arguments: expected " + method.params.size + " but was " + sel.args.size,
-					MiniJavaPackage.eINSTANCE.methodCall_Method, INVALID_ARGS)
-			}
+		if (method.params.size != sel.args.size) {
+			error("Invalid number of arguments: expected " + method.params.size + " but was " + sel.args.size,
+				MiniJavaPackage.eINSTANCE.methodCall_Method, INVALID_ARGS)
 		}
 	}
 
-
+	@Check def void checkConstructorAbstractClass(New n) {
+		if (n.type.abstract) {
+			error("Cannot construct an instance of an abstract class.",
+				MiniJavaPackage.eINSTANCE.new_Type, CONSTRUCTOR_ABSTRACT)
+		}
+	}
 
 	@Check def void checkMethodOverride(Class c) {
 		val hierarchyMethods = c.classHierarchyMethods
