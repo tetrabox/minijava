@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getValue()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Value extends EObject {

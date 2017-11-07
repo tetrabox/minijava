@@ -57,6 +57,7 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case MinijavadynamicdataPackage.CONTEXT: return createContext();
+			case MinijavadynamicdataPackage.VALUE: return createValue();
 			case MinijavadynamicdataPackage.INTEGER_VALUE: return createIntegerValue();
 			case MinijavadynamicdataPackage.INSTANCE: return createInstance();
 			case MinijavadynamicdataPackage.SYMBOL_BINDING: return createSymbolBinding();
@@ -68,6 +69,8 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 			case MinijavadynamicdataPackage.STATE: return createState();
 			case MinijavadynamicdataPackage.FRAME: return createFrame();
 			case MinijavadynamicdataPackage.NULL_VALUE: return createNullValue();
+			case MinijavadynamicdataPackage.NEW_CALL: return createNewCall();
+			case MinijavadynamicdataPackage.METHOD_CALL2: return createMethodCall2();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,6 +84,16 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public Context createContext() {
 		ContextImpl context = new ContextImpl();
 		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value createValue() {
+		ValueImpl value = new ValueImpl();
+		return value;
 	}
 
 	/**
@@ -191,6 +204,26 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public NullValue createNullValue() {
 		NullValueImpl nullValue = new NullValueImpl();
 		return nullValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NewCall createNewCall() {
+		NewCallImpl newCall = new NewCallImpl();
+		return newCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodCall2 createMethodCall2() {
+		MethodCall2Impl methodCall2 = new MethodCall2Impl();
+		return methodCall2;
 	}
 
 	/**

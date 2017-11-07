@@ -18,6 +18,7 @@ import org.tetrabox.minijava.xtext.miniJava.Symbol
 
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
 import static extension org.tetrabox.minijava.semantics.FrameAspect.*
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call
 
 @Aspect(className=Context)
 class ContextAspect {
@@ -78,10 +79,10 @@ class StateAspect {
 		_self.findCurrentContext.parentContext = null
 	}
 
-	def void pushNewFrame(Instance receiver, MethodCall methodCall, Context newContext) {
+	def void pushNewFrame(Instance receiver, Call c, Context newContext) {
 		_self.findCurrentFrame.childFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
 			instance = receiver
-			methodcall = methodCall
+			call = c
 			rootContext = newContext
 		]
 	}

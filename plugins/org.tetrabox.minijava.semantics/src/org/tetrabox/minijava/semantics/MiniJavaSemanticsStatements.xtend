@@ -82,7 +82,7 @@ class AssigmentAspect extends StatementAspect {
 				context.bindings.add(binding)
 			}
 			FieldAccess: {
-				val f = assignee.member as Field
+				val f = assignee.field as Field
 				val realReceiver = (assignee.receiver.evaluateExpression(state) as RefValue).instance
 				val existingBinding = realReceiver.fieldbindings.findFirst[it.field === f]
 				if (existingBinding !== null) {

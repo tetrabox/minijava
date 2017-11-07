@@ -13,13 +13,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
-
-import org.tetrabox.minijava.xtext.miniJava.MethodCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl#getMethodcall <em>Methodcall</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl#getCall <em>Call</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl#getInstance <em>Instance</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl#getChildFrame <em>Child Frame</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl#getParentFrame <em>Parent Frame</em>}</li>
@@ -41,14 +40,14 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  */
 public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	/**
-	 * The cached value of the '{@link #getMethodcall() <em>Methodcall</em>}' reference.
+	 * The cached value of the '{@link #getCall() <em>Call</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMethodcall()
+	 * @see #getCall()
 	 * @generated
 	 * @ordered
 	 */
-	protected MethodCall methodcall;
+	protected Call call;
 
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference.
@@ -114,16 +113,23 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodCall getMethodcall() {
-		if (methodcall != null && methodcall.eIsProxy()) {
-			InternalEObject oldMethodcall = (InternalEObject)methodcall;
-			methodcall = (MethodCall)eResolveProxy(oldMethodcall);
-			if (methodcall != oldMethodcall) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.FRAME__METHODCALL, oldMethodcall, methodcall));
-			}
+	public Call getCall() {
+		return call;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCall(Call newCall, NotificationChain msgs) {
+		Call oldCall = call;
+		call = newCall;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.FRAME__CALL, oldCall, newCall);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return methodcall;
+		return msgs;
 	}
 
 	/**
@@ -131,20 +137,18 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodCall basicGetMethodcall() {
-		return methodcall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMethodcall(MethodCall newMethodcall) {
-		MethodCall oldMethodcall = methodcall;
-		methodcall = newMethodcall;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.FRAME__METHODCALL, oldMethodcall, methodcall));
+	public void setCall(Call newCall) {
+		if (newCall != call) {
+			NotificationChain msgs = null;
+			if (call != null)
+				msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.FRAME__CALL, null, msgs);
+			if (newCall != null)
+				msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinijavadynamicdataPackage.FRAME__CALL, null, msgs);
+			msgs = basicSetCall(newCall, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.FRAME__CALL, newCall, newCall));
 	}
 
 	/**
@@ -383,6 +387,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case MinijavadynamicdataPackage.FRAME__CALL:
+				return basicSetCall(null, msgs);
 			case MinijavadynamicdataPackage.FRAME__CHILD_FRAME:
 				return basicSetChildFrame(null, msgs);
 			case MinijavadynamicdataPackage.FRAME__PARENT_FRAME:
@@ -417,9 +423,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.FRAME__METHODCALL:
-				if (resolve) return getMethodcall();
-				return basicGetMethodcall();
+			case MinijavadynamicdataPackage.FRAME__CALL:
+				return getCall();
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
 				if (resolve) return getInstance();
 				return basicGetInstance();
@@ -443,8 +448,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.FRAME__METHODCALL:
-				setMethodcall((MethodCall)newValue);
+			case MinijavadynamicdataPackage.FRAME__CALL:
+				setCall((Call)newValue);
 				return;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
 				setInstance((Instance)newValue);
@@ -473,8 +478,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.FRAME__METHODCALL:
-				setMethodcall((MethodCall)null);
+			case MinijavadynamicdataPackage.FRAME__CALL:
+				setCall((Call)null);
 				return;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
 				setInstance((Instance)null);
@@ -503,8 +508,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.FRAME__METHODCALL:
-				return methodcall != null;
+			case MinijavadynamicdataPackage.FRAME__CALL:
+				return call != null;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
 				return instance != null;
 			case MinijavadynamicdataPackage.FRAME__CHILD_FRAME:

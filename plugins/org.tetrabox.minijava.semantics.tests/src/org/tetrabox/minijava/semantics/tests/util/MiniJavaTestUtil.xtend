@@ -36,6 +36,10 @@ class MiniJavaTestUtil {
 			public boolean b;
 			public String s;
 			
+			public X(int j) {
+				this.i = j;
+			}
+			
 			public int identity(int j) {
 				return j;
 			}

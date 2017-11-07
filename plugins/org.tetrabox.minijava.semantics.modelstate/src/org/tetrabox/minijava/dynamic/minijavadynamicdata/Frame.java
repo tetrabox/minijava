@@ -4,8 +4,6 @@ package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.tetrabox.minijava.xtext.miniJava.MethodCall;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Frame</b></em>'.
@@ -15,7 +13,7 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getMethodcall <em>Methodcall</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getCall <em>Call</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getInstance <em>Instance</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getChildFrame <em>Child Frame</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getParentFrame <em>Parent Frame</em>}</li>
@@ -29,30 +27,30 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall;
  */
 public interface Frame extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Methodcall</b></em>' reference.
+	 * Returns the value of the '<em><b>Call</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Methodcall</em>' reference isn't clear,
+	 * If the meaning of the '<em>Call</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Methodcall</em>' reference.
-	 * @see #setMethodcall(MethodCall)
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFrame_Methodcall()
-	 * @model
+	 * @return the value of the '<em>Call</em>' containment reference.
+	 * @see #setCall(Call)
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFrame_Call()
+	 * @model containment="true"
 	 * @generated
 	 */
-	MethodCall getMethodcall();
+	Call getCall();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getMethodcall <em>Methodcall</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getCall <em>Call</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Methodcall</em>' reference.
-	 * @see #getMethodcall()
+	 * @param value the new value of the '<em>Call</em>' containment reference.
+	 * @see #getCall()
 	 * @generated
 	 */
-	void setMethodcall(MethodCall value);
+	void setCall(Call value);
 
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' reference.

@@ -10,13 +10,16 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MethodCall2;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue;
@@ -124,6 +127,27 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * @generated
 	 */
 	private EClass nullValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass newCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodCall2EClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -455,7 +479,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFrame_Methodcall() {
+	public EReference getFrame_Call() {
 		return (EReference)frameEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -511,6 +535,51 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 */
 	public EClass getNullValue() {
 		return nullValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCall() {
+		return callEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNewCall() {
+		return newCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNewCall_New() {
+		return (EReference)newCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMethodCall2() {
+		return methodCall2EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMethodCall2_Methodcall() {
+		return (EReference)methodCall2EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -581,7 +650,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(stateEClass, STATE__OUTPUT_STREAM);
 
 		frameEClass = createEClass(FRAME);
-		createEReference(frameEClass, FRAME__METHODCALL);
+		createEReference(frameEClass, FRAME__CALL);
 		createEReference(frameEClass, FRAME__INSTANCE);
 		createEReference(frameEClass, FRAME__CHILD_FRAME);
 		createEReference(frameEClass, FRAME__PARENT_FRAME);
@@ -589,6 +658,14 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(frameEClass, FRAME__RETURN_VALUE);
 
 		nullValueEClass = createEClass(NULL_VALUE);
+
+		callEClass = createEClass(CALL);
+
+		newCallEClass = createEClass(NEW_CALL);
+		createEReference(newCallEClass, NEW_CALL__NEW);
+
+		methodCall2EClass = createEClass(METHOD_CALL2);
+		createEReference(methodCall2EClass, METHOD_CALL2__METHODCALL);
 	}
 
 	/**
@@ -627,6 +704,8 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		booleanValueEClass.getESuperTypes().add(this.getValue());
 		refValueEClass.getESuperTypes().add(this.getValue());
 		nullValueEClass.getESuperTypes().add(this.getValue());
+		newCallEClass.getESuperTypes().add(this.getCall());
+		methodCall2EClass.getESuperTypes().add(this.getCall());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -634,7 +713,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildContext(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ChildContext(), this.getContext(), this.getContext_ParentContext(), "childContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerValue_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -669,7 +748,7 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getState_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(frameEClass, Frame.class, "Frame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFrame_Methodcall(), theMiniJavaPackage.getMethodCall(), null, "methodcall", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFrame_Call(), this.getCall(), null, "call", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_Instance(), this.getInstance(), null, "instance", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_ChildFrame(), this.getFrame(), this.getFrame_ParentFrame(), "childFrame", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_ParentFrame(), this.getFrame(), this.getFrame_ChildFrame(), "parentFrame", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -677,6 +756,14 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getFrame_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(callEClass, Call.class, "Call", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(newCallEClass, NewCall.class, "NewCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNewCall_New(), theMiniJavaPackage.getNew(), null, "new", null, 0, 1, NewCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(methodCall2EClass, MethodCall2.class, "MethodCall2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMethodCall2_Methodcall(), theMiniJavaPackage.getMethodCall(), null, "methodcall", null, 0, 1, MethodCall2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

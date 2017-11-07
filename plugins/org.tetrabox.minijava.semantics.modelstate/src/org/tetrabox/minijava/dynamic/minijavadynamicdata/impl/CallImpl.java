@@ -3,26 +3,25 @@
 package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Value</b></em>'.
+ * An implementation of the model object '<em><b>Call</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ValueImpl extends MinimalEObjectImpl.Container implements Value {
+public abstract class CallImpl extends MinimalEObjectImpl.Container implements Call {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ValueImpl() {
+	protected CallImpl() {
 		super();
 	}
 
@@ -33,7 +32,7 @@ public class ValueImpl extends MinimalEObjectImpl.Container implements Value {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.VALUE;
+		return MinijavadynamicdataPackage.Literals.CALL;
 	}
 
-} //ValueImpl
+} //CallImpl

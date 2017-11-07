@@ -531,13 +531,13 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int FRAME = 11;
 
 	/**
-	 * The feature id for the '<em><b>Methodcall</b></em>' reference.
+	 * The feature id for the '<em><b>Call</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAME__METHODCALL = 0;
+	int FRAME__CALL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference.
@@ -630,6 +630,110 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @ordered
 	 */
 	int NULL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.CallImpl <em>Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.CallImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getCall()
+	 * @generated
+	 */
+	int CALL = 13;
+
+	/**
+	 * The number of structural features of the '<em>Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewCallImpl <em>New Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewCallImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewCall()
+	 * @generated
+	 */
+	int NEW_CALL = 14;
+
+	/**
+	 * The feature id for the '<em><b>New</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEW_CALL__NEW = CALL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>New Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEW_CALL_FEATURE_COUNT = CALL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>New Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEW_CALL_OPERATION_COUNT = CALL_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MethodCall2Impl <em>Method Call2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MethodCall2Impl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getMethodCall2()
+	 * @generated
+	 */
+	int METHOD_CALL2 = 15;
+
+	/**
+	 * The feature id for the '<em><b>Methodcall</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL2__METHODCALL = CALL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Method Call2</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL2_FEATURE_COUNT = CALL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Method Call2</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL2_OPERATION_COUNT = CALL_OPERATION_COUNT + 0;
 
 
 	/**
@@ -940,15 +1044,15 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EClass getFrame();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getMethodcall <em>Methodcall</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getCall <em>Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Methodcall</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getMethodcall()
+	 * @return the meta object for the containment reference '<em>Call</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getCall()
 	 * @see #getFrame()
 	 * @generated
 	 */
-	EReference getFrame_Methodcall();
+	EReference getFrame_Call();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getInstance <em>Instance</em>}'.
@@ -1014,6 +1118,58 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNullValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Call <em>Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Call</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Call
+	 * @generated
+	 */
+	EClass getCall();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall <em>New Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>New Call</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall
+	 * @generated
+	 */
+	EClass getNewCall();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall#getNew <em>New</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>New</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall#getNew()
+	 * @see #getNewCall()
+	 * @generated
+	 */
+	EReference getNewCall_New();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.MethodCall2 <em>Method Call2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Call2</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MethodCall2
+	 * @generated
+	 */
+	EClass getMethodCall2();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.MethodCall2#getMethodcall <em>Methodcall</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Methodcall</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MethodCall2#getMethodcall()
+	 * @see #getMethodCall2()
+	 * @generated
+	 */
+	EReference getMethodCall2_Methodcall();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1295,12 +1451,12 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		EClass FRAME = eINSTANCE.getFrame();
 
 		/**
-		 * The meta object literal for the '<em><b>Methodcall</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Call</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FRAME__METHODCALL = eINSTANCE.getFrame_Methodcall();
+		EReference FRAME__CALL = eINSTANCE.getFrame_Call();
 
 		/**
 		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
@@ -1351,6 +1507,52 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NULL_VALUE = eINSTANCE.getNullValue();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.CallImpl <em>Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.CallImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getCall()
+		 * @generated
+		 */
+		EClass CALL = eINSTANCE.getCall();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewCallImpl <em>New Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewCallImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewCall()
+		 * @generated
+		 */
+		EClass NEW_CALL = eINSTANCE.getNewCall();
+
+		/**
+		 * The meta object literal for the '<em><b>New</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEW_CALL__NEW = eINSTANCE.getNewCall_New();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MethodCall2Impl <em>Method Call2</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MethodCall2Impl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getMethodCall2()
+		 * @generated
+		 */
+		EClass METHOD_CALL2 = eINSTANCE.getMethodCall2();
+
+		/**
+		 * The meta object literal for the '<em><b>Methodcall</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_CALL2__METHODCALL = eINSTANCE.getMethodCall2_Methodcall();
 
 	}
 

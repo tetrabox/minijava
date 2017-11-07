@@ -31,6 +31,15 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	Context createContext();
 
 	/**
+	 * Returns a new object of class '<em>Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value</em>'.
+	 * @generated
+	 */
+	Value createValue();
+
+	/**
 	 * Returns a new object of class '<em>Integer Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +137,24 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	 * @generated
 	 */
 	NullValue createNullValue();
+
+	/**
+	 * Returns a new object of class '<em>New Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>New Call</em>'.
+	 * @generated
+	 */
+	NewCall createNewCall();
+
+	/**
+	 * Returns a new object of class '<em>Method Call2</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Call2</em>'.
+	 * @generated
+	 */
+	MethodCall2 createMethodCall2();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -330,7 +330,7 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
-		val realMethod = _self.member.findOverride(realReceiver.type)
+		val realMethod = _self.method.findOverride(realReceiver.type)
 		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		for (arg : _self.args) {
 			val param = realMethod.params.get(_self.args.indexOf(arg))
@@ -340,7 +340,9 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 			]
 			newContext.bindings.add(binding)
 		}
-		state.pushNewFrame(realReceiver, _self, newContext)
+
+		val call = MinijavadynamicdataFactory::eINSTANCE.createMethodCall2 => [methodcall = _self]
+		state.pushNewFrame(realReceiver, call, newContext)
 		realMethod.body.evaluateStatement(state)
 		val returnValue = state.findCurrentFrame.returnValue
 		state.popCurrentFrame
@@ -354,7 +356,7 @@ class FieldAccessAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
-		return realReceiver.fieldbindings.findFirst[it.field === _self.member].value
+		return realReceiver.fieldbindings.findFirst[it.field === _self.field].value
 	}
 }
 
@@ -383,11 +385,10 @@ class SymbolRefAspect extends ExpressionAspect {
 class NewAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance => [
-			type = _self.type
-		]
-		state.heap.add(result)
 
+		// Creating instance with default bindings
+		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance => [type = _self.type]
+		state.heap.add(result)
 		for (f : result.type.members.filter(Field)) {
 			if (f.defaultValue !== null) {
 				val v = f.defaultValue.evaluateExpression(state)
@@ -397,16 +398,35 @@ class NewAspect extends ExpressionAspect {
 				])
 			}
 		}
-		
-		state.pushNewFrame(result,)
 
-		for (arg : _self.args) {
-			val Field field = (_self.type as ClassType).classref.fields.get(_self.args.indexOf(arg))
-			val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding
-			binding.field = field
-			binding.value = (arg as Expression).evaluate(context)
-			result.fieldbindings.add(binding)
+		// Find constructor
+		val Method constructor = _self.type.members.filter(Method).findFirst [
+			it.name === null && it.params.size === _self.args.size
+		]
+
+		// If any, call it
+		if (constructor !== null) {
+
+			// Create a context with constructor parameters bindings
+			val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+			for (arg : _self.args) {
+				val Parameter param = constructor.params.get(_self.args.indexOf(arg))
+				val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
+					symbol = param;
+					value = (arg as Expression).evaluateExpression(state)
+				]
+				newContext.bindings.add(binding)
+			}
+
+			// Make the constructor call in new frame
+			val call = MinijavadynamicdataFactory::eINSTANCE.createNewCall => [^new = _self]
+			state.pushNewFrame(result, call, newContext)
+			constructor.body.evaluateStatement(state)
+			state.popCurrentFrame
+
 		}
+
+		// Return constructed instance
 		return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = result]
 	}
 }

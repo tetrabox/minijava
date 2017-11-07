@@ -345,8 +345,13 @@ class MiniJavaSemanticsExpressionsTests {
 	}
 
 	@Test
-	def void new_1() {
+	def void new_default() {
 		genericExpressionTest("X", ''' new X() ''', new ObjectTemplate("X", new HashMap))
+	}
+	
+	@Test
+	def void new_param() {
+		genericExpressionTest("X", ''' new X(12) ''', new ObjectTemplate("X", #{"i"->12}))
 	}
 
 	@Test
@@ -358,5 +363,7 @@ class MiniJavaSemanticsExpressionsTests {
 	def void symbolRef_parameter() {
 		genericExpressionTest("int", ''' new X().identity(1337) ''', 1337)
 	}
+	
+	
 
 }

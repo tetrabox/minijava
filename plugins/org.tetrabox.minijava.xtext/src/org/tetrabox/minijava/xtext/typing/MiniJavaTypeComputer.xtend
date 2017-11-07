@@ -54,6 +54,8 @@ class MiniJavaTypeComputer {
 				e.field.typeRef.type
 			MethodCall:
 				e.method.typeRef.type
+			New:
+				e.type
 			This:
 				e.getContainerOfType(Class)
 			Super:
