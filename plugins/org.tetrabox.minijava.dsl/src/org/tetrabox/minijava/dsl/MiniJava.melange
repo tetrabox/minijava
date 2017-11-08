@@ -8,6 +8,8 @@ package org.tetrabox.minijava
 
 language XMiniJava inherits MiniJava {
 	
-	syntax "platform:/resource/org.tetrabox.minijava.semantics.modelstate/model/MiniJavaDynamicData.ecore"
+	syntax "platform:/resource/org.tetrabox.minijava.semantics.modelstate/model/MiniJavaDynamicData.ecore" renaming {
+		"minijavadynamicdata" to "miniJava"
+	}
 	with  org.tetrabox.minijava.semantics.* 
 }
