@@ -32,6 +32,8 @@ import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
 import org.tetrabox.minijava.xtext.miniJava.Interface
 import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
+import java.util.HashSet
+import java.util.Set
 
 /**
  * This class contains custom validation rules. 
@@ -73,8 +75,63 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	@Check
 	def checkClassHierarchy(TypeDeclaration c) {
 		if (c.classHierarchy.contains(c)) {
-			error("Cycle in hierarchy of class '" + c.name + "'.", MiniJavaPackage.eINSTANCE.namedElement_Name ,
+			error("Cycle in hierarchy of class '" + c.name + "'.", MiniJavaPackage.eINSTANCE.namedElement_Name,
 				HIERARCHY_CYCLE, c.name)
+		}
+	}
+
+	def boolean isAnImplementionOf(Method m1, Method m2) {
+		val c = m1.eContainer as Class
+		val t = m2.eContainer as TypeDeclaration
+		val conforms = c.isConformant(t)
+		val returnConforms = m1.typeRef.type.isConformant(m2.typeRef.type)
+		val m1paramtypes = m1.params.map[typeRef].map[type]
+		val m2paramtypes = m2.params.map[typeRef].map[type]
+
+		return (conforms && m1.name == m2.name && returnConforms && m1paramtypes.elementsEqual(m2paramtypes))
+	}
+
+	// TODO improve localization of error highlighting
+	@Check def checkAllMethodsImplemented(Class c) {
+		if (! c.abstract) {
+			// store implemented methods
+			val nonAbstract = new HashSet<Method>
+			nonAbstract.addAll(c.methods.filter[!it.abstract])
+			val abstract = new HashSet<Method>
+
+			val Set<TypeDeclaration> visited = newLinkedHashSet()
+			val current = c.superTypes
+
+			while (! current.isEmpty) {
+				// Analyze super types
+				val int i = 0;
+				val superTypesMethods = current.map[members].flatten.filter(Method).toSet
+				val sorting = superTypesMethods.groupBy[it.abstract || it.eContainer instanceof Interface]
+				val Set<Method> superTypeAbstractMethods = if (sorting.containsKey(true))
+						sorting.get(true).toSet
+					else
+						#{}
+				val Set<Method> superTypeNonAbstractMethods = if (sorting.containsKey(false))
+						sorting.get(false).toSet
+					else
+						#{}
+				nonAbstract.addAll(superTypeNonAbstractMethods)
+
+				abstract.addAll(superTypeAbstractMethods)
+
+				// Continue visiting
+				visited.addAll(current)
+				val copy = newLinkedHashSet()
+				copy.addAll(current)
+				current.clear
+				current.addAll(copy.map[superTypes].flatten.filter[!visited.contains(it)])
+			}
+
+			if (abstract.exists[a|!nonAbstract.exists[na|na.isAnImplementionOf(a)]]) {
+				error('''All abstract methods must be implemented, or the class must be made abstract.''', c,
+					MiniJavaPackage.eINSTANCE.class_SuperClass, ABSTRACT_METHOD_CLASS);
+			}
+
 		}
 	}
 
@@ -159,8 +216,9 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 		for (m : c.methods) {
 			val overridden = hierarchyMethods.get(m.name)
-			if (overridden !== null && (!m.typeRef.type.isConformant(overridden.typeRef.type) ||
-				!m.params.map[typeRef].map[type].elementsEqual(overridden.params.map[typeRef].map[type]))) {
+			if (overridden !== null && (!m.typeRef.type.isConformant(overridden.typeRef.type) || !m.params.map [
+				typeRef
+			].map[type].elementsEqual(overridden.params.map[typeRef].map[type]))) {
 				error("The method '" + m.name + "' must override a superclass method", m,
 					MiniJavaPackage.eINSTANCE.namedElement_Name, WRONG_METHOD_OVERRIDE)
 			} else if (m.access < overridden.access) {
@@ -191,7 +249,6 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 				method, MiniJavaPackage.eINSTANCE.method_Abstract, ABSTRACT_METHOD_CLASS)
 		}
 	}
-
 
 	@Check
 	def void checkInterfaceMembers(Interface i) {
@@ -234,7 +291,9 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 	}
 
 	@Check def void checkAccessibility(New n) {
-		val constructor = n.type.members.filter(Method).findFirst[it.name === null && it.params.size === n.args.size]
+		val constructor = n.type.members.filter(Method).findFirst [
+			it.name === null && it.params.size === n.args.size
+		]
 		if (!constructor.isAccessibleFrom(n))
 			error(
 				'''This constructor is not accessible here.''',
@@ -243,7 +302,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			)
 	}
 
-	// perform this check only on file save
+// perform this check only on file save
 	@Check(CheckType.NORMAL)
 	def checkDuplicateClassesInFiles(Program p) {
 		val externalClasses = p.getVisibleExternalClassesDescriptions

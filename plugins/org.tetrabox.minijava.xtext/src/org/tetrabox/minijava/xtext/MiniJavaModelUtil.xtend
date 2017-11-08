@@ -54,10 +54,13 @@ class MiniJavaModelUtil {
 
 		val current = c.superTypes
 
-		while (! current.isEmpty && !visited.exists[current.contains(it)]) {
+		while (! current.isEmpty) {
+			// Continue visiting
 			visited.addAll(current)
+			val copy = newLinkedHashSet()
+			copy.addAll(current)
 			current.clear
-			current.addAll(c.superTypes)
+			current.addAll(copy.map[superTypes].flatten.filter[!visited.contains(it)])
 		}
 
 		visited
