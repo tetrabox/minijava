@@ -1,32 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?eclipse version="3.4"?><plugin>
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.minijava.XMiniJava" xdsmlFilePath="/org.tetrabox.minijava.dsl/bin/org/tetrabox/minijava/dsl/MiniJava.melange"/>
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.minijava.XMiniJava" xdsmlFilePath="/org.tetrabox.minijava.dsl/bin/org/tetrabox/minijava/dsl/MiniJava.melange" />
   </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <!-- @generated XMiniJavaMT -->
-    <package class="org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage" genModel="model-gen/XMiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.xminijavamt/miniJava/"/>
-  </extension>
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <!-- @generated XMiniJavaMT -->
-    <package class="org.tetrabox.minijava.xminijavamt.minijavadynamicdata.MinijavadynamicdataPackage" genModel="model-gen/XMiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.xminijavamt/minijavadynamicdata/"/>
+    <package uri="http://org.tetrabox.minijava.xminijavamt/miniJava/" class="org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage" genModel="model-gen/XMiniJavaMT.genmodel" />
   </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <!-- @generated MiniJavaMT -->
-    <package class="org.tetrabox.minijava.minijavamt.miniJava.MiniJavaPackage" genModel="model-gen/MiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.minijavamt/miniJava/"/>
+    <package class="org.tetrabox.minijava.minijavamt.miniJava.MiniJavaPackage" genModel="model-gen/MiniJavaMT.genmodel" uri="http://org.tetrabox.minijava.minijavamt/miniJava/" />
   </extension>
-  
-<extension point="fr.inria.diverse.melange.modeltype">
-    <modeltype id="org.tetrabox.minijava.MiniJavaMT" uri="http://org.tetrabox.minijava.minijavamt/"/>
+  <extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="org.tetrabox.minijava.MiniJavaMT" uri="http://org.tetrabox.minijava.minijavamt/" />
     <modeltype id="org.tetrabox.minijava.XMiniJavaMT" uri="http://org.tetrabox.minijava.xminijavamt/">
-      <subtyping modeltypeId="org.tetrabox.minijava.MiniJavaMT"/>
+      <subtyping modeltypeId="org.tetrabox.minijava.MiniJavaMT" />
     </modeltype>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
-    <language aspects="" entryPoints="" exactType="org.tetrabox.minijava.MiniJavaMT" id="org.tetrabox.minijava.MiniJava" uri="http://www.example.org/minijava/MiniJava"/>
+    <language aspects="" entryPoints="" exactType="org.tetrabox.minijava.MiniJavaMT" id="org.tetrabox.minijava.MiniJava" uri="http://www.example.org/minijava/MiniJava" />
     <language aspects="New:org.tetrabox.minijava.xminijava.aspects.NewAspect;Null:org.tetrabox.minijava.xminijava.aspects.NullAspect;Multiplication:org.tetrabox.minijava.xminijava.aspects.MultiplicationAspect;Frame:org.tetrabox.minijava.xminijava.aspects.FrameAspect;Or:org.tetrabox.minijava.xminijava.aspects.OrAspect;ClassRef:org.tetrabox.minijava.xminijava.aspects.ClassRefAspect;TypeRef:org.tetrabox.minijava.xminijava.aspects.TypeRefAspect;WhileStatement:org.tetrabox.minijava.xminijava.aspects.WhileStatementAspect;MethodCall:org.tetrabox.minijava.xminijava.aspects.MethodCallExpressionAspect;Superior:org.tetrabox.minijava.xminijava.aspects.SuperiorAspect;Assignment:org.tetrabox.minijava.xminijava.aspects.AssigmentAspect;IfStatement:org.tetrabox.minijava.xminijava.aspects.IfStatementAspect;RefValue:org.tetrabox.minijava.xminijava.aspects.RefValueAspect,org.tetrabox.minijava.xminijava.aspects.RefValueToStringAspect;SymbolRef:org.tetrabox.minijava.xminijava.aspects.SymbolRefAspect;BooleanValue:org.tetrabox.minijava.xminijava.aspects.BooleanValueToStringAspect,org.tetrabox.minijava.xminijava.aspects.BooleanValueAspect;PrintStatement:org.tetrabox.minijava.xminijava.aspects.PrintStatementAspect;This:org.tetrabox.minijava.xminijava.aspects.ThisAspect;IntConstant:org.tetrabox.minijava.xminijava.aspects.IntConstantAspect;Division:org.tetrabox.minijava.xminijava.aspects.DivisionAspect;Equality:org.tetrabox.minijava.xminijava.aspects.EqualityAspect;StringValue:org.tetrabox.minijava.xminijava.aspects.StringValueAspect,org.tetrabox.minijava.xminijava.aspects.StringValueToStringAspect;ForStatement:org.tetrabox.minijava.xminijava.aspects.ForStatementAspect;Plus:org.tetrabox.minijava.xminijava.aspects.PlusAspect;Context:org.tetrabox.minijava.xminijava.aspects.ContextAspect;BoolConstant:org.tetrabox.minijava.xminijava.aspects.BoolConstantAspect;Return:org.tetrabox.minijava.xminijava.aspects.ReturnAspect;Program:org.tetrabox.minijava.xminijava.aspects.ProgramAspect;Statement:org.tetrabox.minijava.xminijava.aspects.StatementAspect;IntegerValue:org.tetrabox.minijava.xminijava.aspects.IntegerValueAspect,org.tetrabox.minijava.xminijava.aspects.IntegerValueToStringAspect;Inferior:org.tetrabox.minijava.xminijava.aspects.InferiorAspect;SuperiorOrEqual:org.tetrabox.minijava.xminijava.aspects.SuperiorOrEqualAspect;Method:org.tetrabox.minijava.xminijava.aspects.MethodAspect;Neg:org.tetrabox.minijava.xminijava.aspects.NegAspect;Not:org.tetrabox.minijava.xminijava.aspects.NotAspect;Expression:org.tetrabox.minijava.xminijava.aspects.ExpressionStatementAspect,org.tetrabox.minijava.xminijava.aspects.ExpressionAspect;And:org.tetrabox.minijava.xminijava.aspects.AndAspect;State:org.tetrabox.minijava.xminijava.aspects.StateAspect;Value:org.tetrabox.minijava.xminijava.aspects.ValueToStringAspect,org.tetrabox.minijava.xminijava.aspects.ValueAspect;Block:org.tetrabox.minijava.xminijava.aspects.BlockAspect;Parameter:org.tetrabox.minijava.xminijava.aspects.ParameterAspect;InferiorOrEqual:org.tetrabox.minijava.xminijava.aspects.InferiorOrEqualAspect;FieldAccess:org.tetrabox.minijava.xminijava.aspects.FieldAccessAspect;StringConstant:org.tetrabox.minijava.xminijava.aspects.StringConstantAspect;Minus:org.tetrabox.minijava.xminijava.aspects.MinusAspect;Inequality:org.tetrabox.minijava.xminijava.aspects.InequalityAspect" entryPoints="org.tetrabox.minijava.xminijava.aspects.ProgramAspect.execute(org.tetrabox.minijava.xminijava.miniJava.Program);org.tetrabox.minijava.xminijava.aspects.ExpressionAspect.fakeMain(org.tetrabox.minijava.xminijava.miniJava.Expression)" exactType="org.tetrabox.minijava.XMiniJavaMT" id="org.tetrabox.minijava.XMiniJava" uri="http://org.tetrabox.minijava.xminijava/minijavadynamicdata/">
-      <adapter class="org.tetrabox.minijava.xminijava.adapters.minijavamt.XMiniJavaAdapter" modeltypeId="org.tetrabox.minijava.MiniJavaMT"/>
-      <adapter class="org.tetrabox.minijava.xminijava.adapters.xminijavamt.XMiniJavaAdapter" modeltypeId="org.tetrabox.minijava.XMiniJavaMT"/>
+      <adapter class="org.tetrabox.minijava.xminijava.adapters.minijavamt.XMiniJavaAdapter" modeltypeId="org.tetrabox.minijava.MiniJavaMT" />
+      <adapter class="org.tetrabox.minijava.xminijava.adapters.xminijavamt.XMiniJavaAdapter" modeltypeId="org.tetrabox.minijava.XMiniJavaMT" />
     </language>
   </extension>
 </plugin>
