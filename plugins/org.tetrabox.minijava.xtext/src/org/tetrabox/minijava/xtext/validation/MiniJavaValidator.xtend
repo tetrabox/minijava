@@ -28,7 +28,6 @@ import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.ClassRef
-import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
 import org.tetrabox.minijava.xtext.miniJava.Interface
 import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
@@ -104,7 +103,6 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 			while (! current.isEmpty) {
 				// Analyze super types
-				val int i = 0;
 				val superTypesMethods = current.map[members].flatten.filter(Method).toSet
 				val sorting = superTypesMethods.groupBy[it.abstract || it.eContainer instanceof Interface]
 				val Set<Method> superTypeAbstractMethods = if (sorting.containsKey(true))

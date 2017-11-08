@@ -31,7 +31,12 @@ class MiniJavaTestUtil {
 
 	public def static String prepareTestProgram(String mainContent) {
 		'''
-		class X {
+		
+		interface I {
+			public void hello();
+		}
+		
+		class X implements I{
 			public int i;
 			public boolean b;
 			public String s;
@@ -59,13 +64,23 @@ class MiniJavaTestUtil {
 			public int getI() {
 				return this.i;
 			}
-				
 		}
 		
-		class Y extends X {
+		abstract class Y extends X {
 			
+			public abstract void ymethod();
 			
+			// Override
+			public int identity(int j) {
+				return j+1;
+			}
+		}
+		
+		class Z extends Y {
 			
+			public void ymethod() {
+				System.out.println("ymethod");
+			}
 		}
 		
 		class Main  {
