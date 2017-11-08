@@ -2,8 +2,6 @@ package org.tetrabox.minijava
 
  external language MiniJava { 
 	syntax "platform:/resource/org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore"
-		
-	// with org.tetrabox.minijava.semantics.ExpressionAspect
 }
 
 language XMiniJava inherits MiniJava {
