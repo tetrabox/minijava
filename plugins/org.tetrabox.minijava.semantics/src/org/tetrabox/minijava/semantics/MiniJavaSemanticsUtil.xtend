@@ -3,6 +3,7 @@ package org.tetrabox.minijava.semantics
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
@@ -13,12 +14,10 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
-import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.Symbol
 
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
 import static extension org.tetrabox.minijava.semantics.FrameAspect.*
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call
 
 @Aspect(className=Context)
 class ContextAspect {

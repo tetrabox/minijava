@@ -47,14 +47,9 @@ import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
-import fr.inria.diverse.k3.al.annotationprocessor.Main
 
 @Aspect(className=Expression)
 class ExpressionAspect {
-	
-	@Main
-	def void fakeMain(){}
 	
 	def Value evaluateExpression(State state) {
 		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
