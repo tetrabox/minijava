@@ -69,7 +69,7 @@ public interface Program extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.xminijavamt.miniJava.Class}.
+	 * The list contents are of type {@link org.tetrabox.minijava.xminijavamt.miniJava.TypeDeclaration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Classes</em>' containment reference list isn't clear,
@@ -81,7 +81,7 @@ public interface Program extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<org.tetrabox.minijava.xminijavamt.miniJava.Class> getClasses();
+	EList<TypeDeclaration> getClasses();
 
 	/**
 	 * <!-- begin-user-doc -->

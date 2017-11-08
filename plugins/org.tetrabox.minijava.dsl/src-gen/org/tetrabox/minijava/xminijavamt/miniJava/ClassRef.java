@@ -29,12 +29,12 @@ public interface ClassRef extends SingleTypeRef {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Referenced Class</em>' reference.
-	 * @see #setReferencedClass(org.tetrabox.minijava.xminijavamt.miniJava.Class)
+	 * @see #setReferencedClass(TypeDeclaration)
 	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClassRef_ReferencedClass()
 	 * @model
 	 * @generated
 	 */
-	org.tetrabox.minijava.xminijavamt.miniJava.Class getReferencedClass();
+	TypeDeclaration getReferencedClass();
 
 	/**
 	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.ClassRef#getReferencedClass <em>Referenced Class</em>}' reference.
@@ -44,6 +44,14 @@ public interface ClassRef extends SingleTypeRef {
 	 * @see #getReferencedClass()
 	 * @generated
 	 */
-	void setReferencedClass(org.tetrabox.minijava.xminijavamt.miniJava.Class value);
+	void setReferencedClass(TypeDeclaration value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean compare(TypeRef other);
 
 } // ClassRef

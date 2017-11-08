@@ -28,6 +28,14 @@ public interface Expression extends Statement, Assignee {
 	 * @model
 	 * @generated
 	 */
+	void fakeMain();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Value evaluateExpression(State state);
 
 } // Expression

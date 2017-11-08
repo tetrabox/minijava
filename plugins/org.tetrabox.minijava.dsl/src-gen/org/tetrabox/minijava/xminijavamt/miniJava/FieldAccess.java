@@ -13,7 +13,7 @@ package org.tetrabox.minijava.xminijavamt.miniJava;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess#getReceiver <em>Receiver</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess#getMember <em>Member</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess#getField <em>Field</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getFieldAccess()
@@ -48,30 +48,30 @@ public interface FieldAccess extends Expression {
 	void setReceiver(Expression value);
 
 	/**
-	 * Returns the value of the '<em><b>Member</b></em>' reference.
+	 * Returns the value of the '<em><b>Field</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Member</em>' reference isn't clear,
+	 * If the meaning of the '<em>Field</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member</em>' reference.
-	 * @see #setMember(Field)
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getFieldAccess_Member()
+	 * @return the value of the '<em>Field</em>' reference.
+	 * @see #setField(Field)
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getFieldAccess_Field()
 	 * @model
 	 * @generated
 	 */
-	Field getMember();
+	Field getField();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess#getMember <em>Member</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.FieldAccess#getField <em>Field</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Member</em>' reference.
-	 * @see #getMember()
+	 * @param value the new value of the '<em>Field</em>' reference.
+	 * @see #getField()
 	 * @generated
 	 */
-	void setMember(Field value);
+	void setField(Field value);
 
 	/**
 	 * <!-- begin-user-doc -->

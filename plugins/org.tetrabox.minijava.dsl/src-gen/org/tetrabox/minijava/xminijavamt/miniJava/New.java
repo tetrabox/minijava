@@ -2,6 +2,7 @@
  */
 package org.tetrabox.minijava.xminijavamt.miniJava;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ package org.tetrabox.minijava.xminijavamt.miniJava;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.New#getType <em>Type</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.New#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getNew()
@@ -45,6 +47,22 @@ public interface New extends Expression {
 	 * @generated
 	 */
 	void setType(org.tetrabox.minijava.xminijavamt.miniJava.Class value);
+
+	/**
+	 * Returns the value of the '<em><b>Args</b></em>' containment reference list.
+	 * The list contents are of type {@link org.tetrabox.minijava.xminijavamt.miniJava.Expression}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Args</em>' containment reference list.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getNew_Args()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Expression> getArgs();
 
 	/**
 	 * <!-- begin-user-doc -->

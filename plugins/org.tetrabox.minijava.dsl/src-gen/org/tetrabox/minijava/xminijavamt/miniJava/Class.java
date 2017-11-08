@@ -2,7 +2,6 @@
  */
 package org.tetrabox.minijava.xminijavamt.miniJava;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,85 +12,65 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getAccessLevel <em>Access Level</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getSuperclass <em>Superclass</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getSuperClass <em>Super Class</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClass_()
  * @model
  * @generated
  */
-public interface Class extends NamedElement {
+public interface Class extends TypeDeclaration {
 	/**
-	 * Returns the value of the '<em><b>Access Level</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.tetrabox.minijava.xminijavamt.miniJava.AccessLevel}.
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Access Level</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Access Level</em>' attribute.
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.AccessLevel
-	 * @see #setAccessLevel(AccessLevel)
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClass_AccessLevel()
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(boolean)
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClass_Abstract()
 	 * @model
 	 * @generated
 	 */
-	AccessLevel getAccessLevel();
+	boolean isAbstract();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getAccessLevel <em>Access Level</em>}' attribute.
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#isAbstract <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Access Level</em>' attribute.
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.AccessLevel
-	 * @see #getAccessLevel()
+	 * @param value the new value of the '<em>Abstract</em>' attribute.
+	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setAccessLevel(AccessLevel value);
+	void setAbstract(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Superclass</b></em>' reference.
+	 * Returns the value of the '<em><b>Super Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Superclass</em>' reference isn't clear,
+	 * If the meaning of the '<em>Super Class</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Superclass</em>' reference.
-	 * @see #setSuperclass(Class)
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClass_Superclass()
+	 * @return the value of the '<em>Super Class</em>' reference.
+	 * @see #setSuperClass(Class)
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClass_SuperClass()
 	 * @model
 	 * @generated
 	 */
-	Class getSuperclass();
+	Class getSuperClass();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getSuperclass <em>Superclass</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.Class#getSuperClass <em>Super Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Superclass</em>' reference.
-	 * @see #getSuperclass()
+	 * @param value the new value of the '<em>Super Class</em>' reference.
+	 * @see #getSuperClass()
 	 * @generated
 	 */
-	void setSuperclass(Class value);
-
-	/**
-	 * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.xminijavamt.miniJava.Member}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Members</em>' containment reference list.
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getClass_Members()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Member> getMembers();
+	void setSuperClass(Class value);
 
 } // Class

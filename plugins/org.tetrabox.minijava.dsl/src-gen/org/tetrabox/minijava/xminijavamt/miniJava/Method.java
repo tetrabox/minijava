@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Method#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Method#isStatic <em>Static</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Method#getParams <em>Params</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.Method#getBody <em>Body</em>}</li>
@@ -23,6 +24,32 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Method extends Member {
+	/**
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(boolean)
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getMethod_Abstract()
+	 * @model
+	 * @generated
+	 */
+	boolean isAbstract();
+
+	/**
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.Method#isAbstract <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Abstract</em>' attribute.
+	 * @see #isAbstract()
+	 * @generated
+	 */
+	void setAbstract(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Static</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,5 +117,13 @@ public interface Method extends Member {
 	 * @generated
 	 */
 	void setBody(Block value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Method findOverride(org.tetrabox.minijava.xminijavamt.miniJava.Class c);
 
 } // Method

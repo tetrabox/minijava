@@ -1,8 +1,12 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: org.tetrabox.minijava.dsl;singleton:=true
-Export-Package: org.tetrabox.minijava.xminijavamt.miniJava.impl,
+Export-Package: org.tetrabox.minijava.xminijavamt.minijavadynamicdata.util,
+ org.tetrabox.minijava.xminijavamt.miniJava.impl,
  org.tetrabox.minijava.xminijavamt.miniJava,
- org.tetrabox.minijava.xminijavamt.miniJava.util
+ org.tetrabox.minijava.xminijavamt.minijavadynamicdata.impl,
+ org.tetrabox.minijava.xminijavamt.minijavadynamicdata,
+ org.tetrabox.minijava.xminijavamt.miniJava.util,
+ org.tetrabox.minijava
 Bundle-Name: %pluginName
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -31,3 +35,4 @@ Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
+

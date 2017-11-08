@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.MethodCall#getReceiver <em>Receiver</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.MethodCall#getMember <em>Member</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.MethodCall#getMethod <em>Method</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijavamt.miniJava.MethodCall#getArgs <em>Args</em>}</li>
  * </ul>
  *
@@ -50,30 +50,30 @@ public interface MethodCall extends Expression {
 	void setReceiver(Expression value);
 
 	/**
-	 * Returns the value of the '<em><b>Member</b></em>' reference.
+	 * Returns the value of the '<em><b>Method</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Member</em>' reference isn't clear,
+	 * If the meaning of the '<em>Method</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member</em>' reference.
-	 * @see #setMember(Method)
-	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getMethodCall_Member()
+	 * @return the value of the '<em>Method</em>' reference.
+	 * @see #setMethod(Method)
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage#getMethodCall_Method()
 	 * @model
 	 * @generated
 	 */
-	Method getMember();
+	Method getMethod();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.MethodCall#getMember <em>Member</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.miniJava.MethodCall#getMethod <em>Method</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Member</em>' reference.
-	 * @see #getMember()
+	 * @param value the new value of the '<em>Method</em>' reference.
+	 * @see #getMethod()
 	 * @generated
 	 */
-	void setMember(Method value);
+	void setMethod(Method value);
 
 	/**
 	 * Returns the value of the '<em><b>Args</b></em>' containment reference list.

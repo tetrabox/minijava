@@ -1,12 +1,13 @@
 package org.tetrabox.minijava
 
-external language MiniJava {
+ external language MiniJava { 
 	syntax "platform:/resource/org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore"
+		
+	// with org.tetrabox.minijava.semantics.ExpressionAspect
 }
 
 language XMiniJava inherits MiniJava {
-	syntax "platform:/resource/org.tetrabox.minijava.semantics.modelstate/model/MiniJavaDynamicData.ecore" renaming {
-		"minijavadynamicdata" to "miniJava"
-	}
-	with  org.tetrabox.minijava.semantics.*
+	
+	syntax "platform:/resource/org.tetrabox.minijava.semantics.modelstate/model/MiniJavaDynamicData.ecore"
+	with  org.tetrabox.minijava.semantics.* 
 }

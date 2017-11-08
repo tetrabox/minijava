@@ -1,0 +1,50 @@
+/**
+ */
+package org.tetrabox.minijava.xminijavamt.minijavadynamicdata;
+
+import org.tetrabox.minijava.xminijavamt.miniJava.New;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>New Call</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.tetrabox.minijava.xminijavamt.minijavadynamicdata.NewCall#getNew <em>New</em>}</li>
+ * </ul>
+ *
+ * @see org.tetrabox.minijava.xminijavamt.minijavadynamicdata.MinijavadynamicdataPackage#getNewCall()
+ * @model
+ * @generated
+ */
+public interface NewCall extends Call {
+	/**
+	 * Returns the value of the '<em><b>New</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>New</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>New</em>' reference.
+	 * @see #setNew(New)
+	 * @see org.tetrabox.minijava.xminijavamt.minijavadynamicdata.MinijavadynamicdataPackage#getNewCall_New()
+	 * @model
+	 * @generated
+	 */
+	New getNew();
+
+	/**
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijavamt.minijavadynamicdata.NewCall#getNew <em>New</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>New</em>' reference.
+	 * @see #getNew()
+	 * @generated
+	 */
+	void setNew(New value);
+
+} // NewCall

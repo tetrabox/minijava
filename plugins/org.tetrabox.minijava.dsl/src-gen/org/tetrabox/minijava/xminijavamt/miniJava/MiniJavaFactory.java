@@ -40,6 +40,15 @@ public interface MiniJavaFactory extends EFactory {
 	Import createImport();
 
 	/**
+	 * Returns a new object of class '<em>Type Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Declaration</em>'.
+	 * @generated
+	 */
+	TypeDeclaration createTypeDeclaration();
+
+	/**
 	 * Returns a new object of class '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +58,15 @@ public interface MiniJavaFactory extends EFactory {
 	Class createClass();
 
 	/**
+	 * Returns a new object of class '<em>Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interface</em>'.
+	 * @generated
+	 */
+	Interface createInterface();
+
+	/**
 	 * Returns a new object of class '<em>Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +74,15 @@ public interface MiniJavaFactory extends EFactory {
 	 * @generated
 	 */
 	Member createMember();
+
+	/**
+	 * Returns a new object of class '<em>Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method</em>'.
+	 * @generated
+	 */
+	Method createMethod();
 
 	/**
 	 * Returns a new object of class '<em>Parameter</em>'.
@@ -76,13 +103,13 @@ public interface MiniJavaFactory extends EFactory {
 	Field createField();
 
 	/**
-	 * Returns a new object of class '<em>Method</em>'.
+	 * Returns a new object of class '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Method</em>'.
+	 * @return a new object of class '<em>Expression</em>'.
 	 * @generated
 	 */
-	Method createMethod();
+	Expression createExpression();
 
 	/**
 	 * Returns a new object of class '<em>Block</em>'.
@@ -227,15 +254,6 @@ public interface MiniJavaFactory extends EFactory {
 	 * @generated
 	 */
 	Assignee createAssignee();
-
-	/**
-	 * Returns a new object of class '<em>Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Expression</em>'.
-	 * @generated
-	 */
-	Expression createExpression();
 
 	/**
 	 * Returns a new object of class '<em>Array Type Ref</em>'.
@@ -499,96 +517,6 @@ public interface MiniJavaFactory extends EFactory {
 	SymbolRef createSymbolRef();
 
 	/**
-	 * Returns a new object of class '<em>Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Context</em>'.
-	 * @generated
-	 */
-	Context createContext();
-
-	/**
-	 * Returns a new object of class '<em>Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value</em>'.
-	 * @generated
-	 */
-	Value createValue();
-
-	/**
-	 * Returns a new object of class '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Value</em>'.
-	 * @generated
-	 */
-	IntegerValue createIntegerValue();
-
-	/**
-	 * Returns a new object of class '<em>Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instance</em>'.
-	 * @generated
-	 */
-	Instance createInstance();
-
-	/**
-	 * Returns a new object of class '<em>Symbol Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Symbol Binding</em>'.
-	 * @generated
-	 */
-	SymbolBinding createSymbolBinding();
-
-	/**
-	 * Returns a new object of class '<em>Field Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Field Binding</em>'.
-	 * @generated
-	 */
-	FieldBinding createFieldBinding();
-
-	/**
-	 * Returns a new object of class '<em>String Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Value</em>'.
-	 * @generated
-	 */
-	StringValue createStringValue();
-
-	/**
-	 * Returns a new object of class '<em>Boolean Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Value</em>'.
-	 * @generated
-	 */
-	BooleanValue createBooleanValue();
-
-	/**
-	 * Returns a new object of class '<em>Output Stream</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Output Stream</em>'.
-	 * @generated
-	 */
-	OutputStream createOutputStream();
-
-	/**
-	 * Returns a new object of class '<em>Ref Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ref Value</em>'.
-	 * @generated
-	 */
-	RefValue createRefValue();
-
-	/**
 	 * Returns a new object of class '<em>State</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,22 +526,13 @@ public interface MiniJavaFactory extends EFactory {
 	State createState();
 
 	/**
-	 * Returns a new object of class '<em>Frame</em>'.
+	 * Returns a new object of class '<em>Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Frame</em>'.
+	 * @return a new object of class '<em>Value</em>'.
 	 * @generated
 	 */
-	Frame createFrame();
-
-	/**
-	 * Returns a new object of class '<em>Null Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Null Value</em>'.
-	 * @generated
-	 */
-	NullValue createNullValue();
+	Value createValue();
 
 	/**
 	 * Returns the package supported by this factory.
