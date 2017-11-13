@@ -16,6 +16,7 @@ import org.tetrabox.minijava.xtext.miniJava.ClassRef
 import org.tetrabox.minijava.xtext.miniJava.Division
 import org.tetrabox.minijava.xtext.miniJava.Equality
 import org.tetrabox.minijava.xtext.miniJava.Expression
+import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.Inequality
 import org.tetrabox.minijava.xtext.miniJava.Inferior
@@ -46,11 +47,11 @@ import static extension org.tetrabox.minijava.semantics.ParameterAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
-import org.tetrabox.minijava.xtext.miniJava.Field
+import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 
 @Aspect(className=Expression)
 class ExpressionAspect {
-	
+
 	def Value evaluateExpression(State state) {
 		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
 	}
@@ -109,20 +110,28 @@ class PlusAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = _self.left.evaluateExpression(state)
 		val right = _self.right.evaluateExpression(state)
-		if (left instanceof StringValue) {
-			if (right instanceof StringValue) {
-				return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [
-					value = left.value + right.value
-				]
-			}
+		val expressions = #{left, right}
 
-		} else if (left instanceof IntegerValue) {
-			if (right instanceof IntegerValue) {
+		val stringExpression = expressions.filter(StringValue).head
+		val IntegerValue intExpression = expressions.filter(IntegerValue).head
+		if (stringExpression !== null) {
+			val otherExpr = expressions.findFirst[it !== stringExpression]
+			return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [
+				value = if (left === stringExpression)
+					stringExpression.customToString + otherExpr.customToString
+				else
+					otherExpr.customToString + stringExpression.customToString
+			]
+
+		} else if (intExpression !== null) {
+			val otherExpr = expressions.findFirst[it !== intExpression]
+			if (otherExpr instanceof IntegerValue) {
 				return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [
-					value = left.value + right.value
+					value = intExpression.value + otherExpr.value
 				]
 			}
 		}
+
 		throw new RuntimeException('''Unsupported plus operands: «left» + «right».''')
 	}
 }

@@ -234,18 +234,33 @@ class MiniJavaSemanticsExpressionsTests {
 	}
 
 	@Test
-	def void plus_1() {
+	def void plus_int_1() {
 		genericExpressionTest("int", ''' 12 + 5 ''', 17)
 	}
 
 	@Test
-	def void plus_2() {
+	def void plus_int_2() {
 		genericExpressionTest("int", ''' 150 + 0 ''', 150)
 	}
 
 	@Test
-	def void plus_3() {
+	def void plus_int_3() {
 		genericExpressionTest("int", ''' 150 + 16 ''', 166)
+	}
+
+	@Test
+	def void plus_String_1() {
+		genericExpressionTest("String", ''' "hello" + "world"''', "helloworld")
+	}
+
+	@Test
+	def void plus_String_2() {
+		genericExpressionTest("String", ''' "hello" + "" ''', "hello")
+	}
+
+	@Test
+	def void plus_String__int() {
+		genericExpressionTest("String", ''' "hello" + 12 ''', "hello12")
 	}
 
 	@Test
@@ -348,22 +363,20 @@ class MiniJavaSemanticsExpressionsTests {
 	def void new_default() {
 		genericExpressionTest("X", ''' new X() ''', new ObjectTemplate("X", new HashMap))
 	}
-	
+
 	@Test
 	def void new_param() {
-		genericExpressionTest("X", ''' new X(12) ''', new ObjectTemplate("X", #{"i"->12}))
+		genericExpressionTest("X", ''' new X(12) ''', new ObjectTemplate("X", #{"i" -> 12}))
 	}
 
 	@Test
 	def void symbolRef_variable() {
 		genericExpressionTest("int g = 13;", "int", ''' g ''', 13)
 	}
-	
+
 	@Test
 	def void symbolRef_parameter() {
 		genericExpressionTest("int", ''' new X().identity(1337) ''', 1337)
 	}
-	
-	
 
 }
