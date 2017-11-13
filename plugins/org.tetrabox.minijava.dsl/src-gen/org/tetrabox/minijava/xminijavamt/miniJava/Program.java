@@ -89,6 +89,14 @@ public interface Program extends EObject {
 	 * @model
 	 * @generated
 	 */
+	void main();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	State execute();
 
 } // Program

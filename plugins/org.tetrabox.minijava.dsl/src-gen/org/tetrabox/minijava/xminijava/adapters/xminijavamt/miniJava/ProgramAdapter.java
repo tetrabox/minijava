@@ -52,6 +52,11 @@ public class ProgramAdapter extends EObjectAdapter<Program> implements org.tetra
     return (State) adaptersFactory.createAdapter(org.tetrabox.minijava.xminijava.aspects.ProgramAspect.execute(adaptee), eResource);
   }
   
+  @Override
+  public void main() {
+    org.tetrabox.minijava.xminijava.aspects.ProgramAspect.main(adaptee);
+  }
+  
   protected final static String NAME_EDEFAULT = null;
   
   @Override

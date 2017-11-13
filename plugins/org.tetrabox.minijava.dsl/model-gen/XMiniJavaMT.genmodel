@@ -27,6 +27,9 @@
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Program/classes"/>
       </genFeatures>
       <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//Program/main"/>
+      </genOperations>
+      <genOperations>
         <ecoreOperation href="XMiniJavaMT.ecore#//Program/execute"/>
       </genOperations>
     </genClasses>

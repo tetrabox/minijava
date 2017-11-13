@@ -2526,6 +2526,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getProgram_Imports(), this.getImport(), null, "imports", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Classes(), this.getTypeDeclaration(), null, "classes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		addEOperation(programEClass, null, "main", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(programEClass, this.getState(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2947,6 +2949,11 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		String source = "aspect";	
 		addAnnotation
 		  (programEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (programEClass.getEOperations().get(1), 
 		   source, 
 		   new String[] {
 		   });	
