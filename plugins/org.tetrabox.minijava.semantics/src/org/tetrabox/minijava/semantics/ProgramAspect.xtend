@@ -12,6 +12,8 @@ import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 
 @Aspect(className=Program)
 class ProgramAspect {
+	
+	public State state 
 
 	@Main
 	@Step	
@@ -21,13 +23,13 @@ class ProgramAspect {
 
 	def State execute() {
 		val main = _self.classes.map[members].flatten.filter(Method).findFirst[it.name == "main" && it.static]
-		val state = MinijavadynamicdataFactory::eINSTANCE.createState => [
+		_self.state = MinijavadynamicdataFactory::eINSTANCE.createState => [
 			outputStream = MinijavadynamicdataFactory::eINSTANCE.createOutputStream
 			rootFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame
 		]
 		if (main !== null) {
-			main.body.evaluateStatementKeepContext(state)
-			return state
+			main.body.evaluateStatementKeepContext(_self.state)
+			return _self.state
 		} else
 			throw new RuntimeException("No main method found.")
 	}

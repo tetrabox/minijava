@@ -26,6 +26,9 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Program/classes"/>
       </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Program/state"/>
+      </genFeatures>
       <genOperations>
         <ecoreOperation href="XMiniJavaMT.ecore#//Program/main"/>
       </genOperations>

@@ -702,6 +702,15 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProgram_State() {
+		return (EReference)programEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImport() {
 		return importEClass;
 	}
@@ -2196,6 +2205,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		createEAttribute(programEClass, PROGRAM__NAME);
 		createEReference(programEClass, PROGRAM__IMPORTS);
 		createEReference(programEClass, PROGRAM__CLASSES);
+		createEReference(programEClass, PROGRAM__STATE);
 
 		importEClass = createEClass(IMPORT);
 		createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -2525,6 +2535,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Imports(), this.getImport(), null, "imports", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Classes(), this.getTypeDeclaration(), null, "classes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_State(), this.getState(), null, "state", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(programEClass, null, "main", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2954,6 +2965,11 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   });	
 		addAnnotation
 		  (programEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getProgram_State(), 
 		   source, 
 		   new String[] {
 		   });	

@@ -94,13 +94,22 @@ public interface MiniJavaPackage extends EPackage {
 	int PROGRAM__CLASSES = 2;
 
 	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__STATE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_FEATURE_COUNT = 3;
+	int PROGRAM_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.ImportImpl <em>Import</em>}' class.
@@ -2531,6 +2540,17 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getProgram_Classes();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.xminijavamt.miniJava.Program#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>State</em>'.
+	 * @see org.tetrabox.minijava.xminijavamt.miniJava.Program#getState()
+	 * @see #getProgram()
+	 * @generated
+	 */
+	EReference getProgram_State();
+
+	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.xminijavamt.miniJava.Import <em>Import</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4307,6 +4327,14 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROGRAM__CLASSES = eINSTANCE.getProgram_Classes();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAM__STATE = eINSTANCE.getProgram_State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.xminijavamt.miniJava.impl.ImportImpl <em>Import</em>}' class.

@@ -57,6 +57,17 @@ public class ProgramAdapter extends EObjectAdapter<Program> implements org.tetra
     org.tetrabox.minijava.xminijava.aspects.ProgramAspect.main(adaptee);
   }
   
+  @Override
+  public State getState() {
+    return (State) adaptersFactory.createAdapter(org.tetrabox.minijava.xminijava.aspects.ProgramAspect.state(adaptee), eResource);
+  }
+  
+  @Override
+  public void setState(final State state) {
+    org.tetrabox.minijava.xminijava.aspects.ProgramAspect.state(adaptee, (org.tetrabox.minijava.xminijava.miniJava.State)((EObjectAdapter)state).getAdaptee()
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
   
   @Override
@@ -73,6 +84,8 @@ public class ProgramAdapter extends EObjectAdapter<Program> implements org.tetra
     		return getImports();
     	case org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage.PROGRAM__CLASSES:
     		return getClasses();
+    	case org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage.PROGRAM__STATE:
+    		return getState();
     }
     
     return super.eGet(featureID, resolve, coreType);
@@ -87,6 +100,8 @@ public class ProgramAdapter extends EObjectAdapter<Program> implements org.tetra
     		return getImports() != null && !getImports().isEmpty();
     	case org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage.PROGRAM__CLASSES:
     		return getClasses() != null && !getClasses().isEmpty();
+    	case org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage.PROGRAM__STATE:
+    		return getState() != null;
     }
     
     return super.eIsSet(featureID);
@@ -107,6 +122,11 @@ public class ProgramAdapter extends EObjectAdapter<Program> implements org.tetra
     	case org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage.PROGRAM__CLASSES:
     		getClasses().clear();
     		getClasses().addAll((Collection) newValue);
+    		return;
+    	case org.tetrabox.minijava.xminijavamt.miniJava.MiniJavaPackage.PROGRAM__STATE:
+    		setState(
+    		(org.tetrabox.minijava.xminijavamt.miniJava.State)
+    		 newValue);
     		return;
     }
     
