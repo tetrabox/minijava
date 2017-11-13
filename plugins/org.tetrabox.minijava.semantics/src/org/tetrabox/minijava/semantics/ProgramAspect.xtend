@@ -14,7 +14,11 @@ import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 class ProgramAspect {
 
 	@Main
-	@Step
+	@Step	
+	def void main() {
+		_self.execute
+	}
+
 	def State execute() {
 		val main = _self.classes.map[members].flatten.filter(Method).findFirst[it.name == "main" && it.static]
 		val state = MinijavadynamicdataFactory::eINSTANCE.createState => [
