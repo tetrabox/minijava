@@ -26,6 +26,7 @@ import static extension org.tetrabox.minijava.semantics.ContextAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
+import fr.inria.diverse.k3.al.annotationprocessor.Step
 
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
@@ -48,6 +49,7 @@ class BlockAspect extends StatementAspect {
 
 @Aspect(className=Statement)
 class StatementAspect {
+	@Step
 	def void evaluateStatement(State state) {
 		throw new RuntimeException('''evaluate should be overriden for type «_self.class.name»''')
 	}
@@ -56,6 +58,7 @@ class StatementAspect {
 @Aspect(className=PrintStatement)
 class PrintStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		val string = _self.expression.evaluateExpression(state).customToString
 		state.println(string)
@@ -65,6 +68,7 @@ class PrintStatementAspect extends StatementAspect {
 @Aspect(className=Assignment)
 class AssigmentAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		val context = state.findCurrentContext
 		val right = _self.value.evaluateExpression(state)
@@ -102,6 +106,7 @@ class AssigmentAspect extends StatementAspect {
 @Aspect(className=ForStatement)
 class ForStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		state.pushNewContext
 		for (_self.declaration.evaluateStatement(state); (_self.condition.evaluateExpression(state) as BooleanValue).
@@ -115,6 +120,7 @@ class ForStatementAspect extends StatementAspect {
 @Aspect(className=IfStatement)
 class IfStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		if ((_self.expression.evaluateExpression(state) as BooleanValue).value) {
 			_self.thenBlock.evaluateStatement(state)
@@ -127,6 +133,7 @@ class IfStatementAspect extends StatementAspect {
 @Aspect(className=WhileStatement)
 class WhileStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		while ((_self.condition.evaluateExpression(state) as BooleanValue).value) {
 			_self.block.evaluateStatement(state)
@@ -137,6 +144,7 @@ class WhileStatementAspect extends StatementAspect {
 @Aspect(className=Expression)
 class ExpressionStatementAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		_self.evaluateExpression(state)
 	}
@@ -145,6 +153,7 @@ class ExpressionStatementAspect extends StatementAspect {
 @Aspect(className=Return)
 class ReturnAspect extends StatementAspect {
 	@OverrideAspectMethod
+	@Step
 	def void evaluateStatement(State state) {
 		val value = _self.expression.evaluateExpression(state);
 		state.findCurrentFrame.returnValue = value
