@@ -31,9 +31,15 @@
       </genFeatures>
       <genOperations>
         <ecoreOperation href="XMiniJavaMT.ecore#//Program/main"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Program/main/args"/>
+        </genParameters>
       </genOperations>
       <genOperations>
         <ecoreOperation href="XMiniJavaMT.ecore#//Program/execute"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//Program/execute/args"/>
+        </genParameters>
       </genOperations>
     </genClasses>
     <genClasses>
@@ -487,6 +493,33 @@
       </genOperations>
     </genClasses>
     <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//ArrayAccess"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ArrayAccess/object"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ArrayAccess/index"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//ArrayAccess/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//ArrayAccess/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//ArrayLength"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ArrayLength/array"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//ArrayLength/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//ArrayLength/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Not"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Not/expression"/>
@@ -601,17 +634,32 @@
       </genOperations>
     </genClasses>
     <genClasses>
-      <ecoreClass href="XMiniJavaMT.ecore#//New"/>
+      <ecoreClass href="XMiniJavaMT.ecore#//NewObject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//New/type"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//NewObject/type"/>
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//New/args"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//NewObject/args"/>
       </genFeatures>
       <genOperations>
-        <ecoreOperation href="XMiniJavaMT.ecore#//New/evaluateExpression"/>
+        <ecoreOperation href="XMiniJavaMT.ecore#//NewObject/evaluateExpression"/>
         <genParameters>
-          <ecoreParameter href="XMiniJavaMT.ecore#//New/evaluateExpression/state"/>
+          <ecoreParameter href="XMiniJavaMT.ecore#//NewObject/evaluateExpression/state"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//NewArray"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//NewArray/type"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//NewArray/size"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//NewArray/evaluateExpression"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJavaMT.ecore#//NewArray/evaluateExpression/state"/>
         </genParameters>
       </genOperations>
     </genClasses>
@@ -673,15 +721,6 @@
       </genOperations>
     </genClasses>
     <genClasses>
-      <ecoreClass href="XMiniJavaMT.ecore#//Instance"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Instance/fieldbindings"/>
-      </genFeatures>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//Instance/type"/>
-      </genFeatures>
-    </genClasses>
-    <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//SymbolBinding"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//SymbolBinding/value"/>
@@ -730,27 +769,18 @@
       </genFeatures>
     </genClasses>
     <genClasses>
-      <ecoreClass href="XMiniJavaMT.ecore#//RefValue"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//RefValue/instance"/>
-      </genFeatures>
-      <genOperations>
-        <ecoreOperation href="XMiniJavaMT.ecore#//RefValue/copy"/>
-      </genOperations>
-      <genOperations>
-        <ecoreOperation href="XMiniJavaMT.ecore#//RefValue/customToString"/>
-      </genOperations>
-    </genClasses>
-    <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//State"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/rootFrame"/>
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/heap"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/objectsHeap"/>
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/outputStream"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//State/arraysHeap"/>
       </genFeatures>
       <genOperations>
         <ecoreOperation href="XMiniJavaMT.ecore#//State/findCurrentFrame"/>
@@ -815,6 +845,9 @@
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//NullValue"/>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//NullValue/copy"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJavaMT.ecore#//Call"/>
@@ -830,6 +863,45 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//MethodCall2/methodcall"/>
       </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//ObjectInstance"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ObjectInstance/fieldbindings"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ObjectInstance/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//ArrayInstance"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ArrayInstance/value"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJavaMT.ecore#//ArrayInstance/size"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//ObjectRefValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ObjectRefValue/instance"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//ObjectRefValue/copy"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//ObjectRefValue/customToString"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XMiniJavaMT.ecore#//ArrayRefValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XMiniJavaMT.ecore#//ArrayRefValue/instance"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XMiniJavaMT.ecore#//ArrayRefValue/copy"/>
+      </genOperations>
     </genClasses>
   </genPackages>
   <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>

@@ -1,15 +1,5 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: org.tetrabox.minijava.dsl;singleton:=true
-Export-Package: org.tetrabox.minijava.xminijavamt.miniJava.impl,
- org.tetrabox.minijava.xminijavamt.miniJava,
- org.tetrabox.minijava.xminijavamt.miniJava.util,
- org.tetrabox.minijava.xminijava.adapters.xminijavamt.minijava,
- org.tetrabox.minijava.xminijava.adapters.xminijavamt.miniJava,
- org.tetrabox.minijava.xminijava.adapters.minijavamt,
- org.tetrabox.minijava,
- org.tetrabox.minijava.xminijava.adapters.xminijavamt,
- org.tetrabox.minijava.xminijava.adapters.minijavamt.minijava,
- org.tetrabox.minijava.xminijava.adapters.minijavamt.miniJava
 Bundle-Name: %pluginName
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -32,9 +22,9 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,
  org.tetrabox.minijava.xtext;bundle-version="0.0.0";visibility:="reexport",
  org.tetrabox.minijava.semantics;bundle-version="0.0.0";visibility:="reexport",
- org.tetrabox.minijava.semantics.modelstate;bundle-version="0.1.0",
- org.tetrabox.minijava.xminijava
+ org.tetrabox.minijava.semantics.modelstate;bundle-version="0.1.0"
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
+
