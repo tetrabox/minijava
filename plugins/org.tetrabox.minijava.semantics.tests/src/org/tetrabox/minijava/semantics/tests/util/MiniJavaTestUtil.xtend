@@ -18,6 +18,7 @@ import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
+import java.util.List
 
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaTestUtil {
@@ -122,22 +123,22 @@ class MiniJavaTestUtil {
 
 	public static val factory = MinijavadynamicdataFactory::eINSTANCE
 
-	public def void genericTest(String program, Consumer<State> oracle) {
+	public def void genericTest(String program, List<String> args, Consumer<State> oracle) {
 		val helper = new ValidationTestHelper();
 		val Program result = parseHelper.parse(program)
 		Assert.assertNotNull(result)
 		helper.assertNoErrors(result)
-		val state = result.execute
+		val state = result.execute(args)
 		oracle.accept(state)
 	}
-	
+
 	public def void genericPrintTest(String program, String... expected) {
-		genericTest(program, [State s|Assert::assertEquals(expected.toList, s.outputStream.stream)])
+		genericTest(program, #[], [State s|Assert::assertEquals(expected.toList, s.outputStream.stream)])
 	}
 
-	public def void genericExpressionTest(String preStatements, String type, String expression, Object expectedValue) {
+	public def void genericExpressionTest(List<String> args, String preStatements,  String type, String expression, Object expectedValue) {
 		val program = prepareTestProgram('''  «preStatements» «type» x = «expression»; ''')
-		genericTest(program, [ s |
+		genericTest(program, args, [ s |
 			val result = s.findCurrentContext.get("x")
 			Assert::assertTrue('''«expectedValue» is different from «result»''', MiniJavaValueEquals::equals(
 				result,
@@ -145,14 +146,22 @@ class MiniJavaTestUtil {
 			))
 		])
 	}
+	
+	public def void genericExpressionTest(String preStatements,  String type, String expression, Object expectedValue) {
+		genericExpressionTest(#[],preStatements,type,expression,expectedValue)
+	}
 
 	public def void genericExpressionTest(String type, String expression, Object expectedValue) {
 		genericExpressionTest("", type, expression, expectedValue)
 	}
+	
+	public def void genericExpressionTest(List<String> args, String type, String expression, Object expectedValue) {
+		genericExpressionTest(args, "", type, expression, expectedValue)
+	}
 
 	public def void genericStatementTest(String statement, Consumer<State> oracle) {
 		val program = prepareTestProgram(statement)
-		genericTest(program, oracle)
+		genericTest(program, #[], oracle)
 	}
 
 	public def void genericStatementPrintTest(String statement, String... expected) {
@@ -161,11 +170,12 @@ class MiniJavaTestUtil {
 
 	public def void genericStatementBindingsTest(String statement, Map<String, Object> expectedBindings) {
 		genericStatementTest(statement, [ State s |
-			Assert::assertEquals(expectedBindings.size, s.findCurrentFrame.rootContext.allSymbolBindings.size)
+			Assert::assertEquals(expectedBindings.size,
+				s.findCurrentFrame.rootContext.childContext.allSymbolBindings.size)
 			for (symbol : expectedBindings.keySet) {
 				val expectedValue = expectedBindings.get(symbol)
 				val value = s.findCurrentContext.get(symbol)
-				Assert::assertTrue(MiniJavaValueEquals::equals(value,expectedValue))
+				Assert::assertTrue(MiniJavaValueEquals::equals(value, expectedValue))
 			}
 		])
 	}
