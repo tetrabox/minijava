@@ -85,12 +85,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MinijavadynamicdataPackage.INSTANCE: {
-				Instance instance = (Instance)theEObject;
-				T result = caseInstance(instance);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MinijavadynamicdataPackage.SYMBOL_BINDING: {
 				SymbolBinding symbolBinding = (SymbolBinding)theEObject;
 				T result = caseSymbolBinding(symbolBinding);
@@ -120,13 +114,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 			case MinijavadynamicdataPackage.OUTPUT_STREAM: {
 				OutputStream outputStream = (OutputStream)theEObject;
 				T result = caseOutputStream(outputStream);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MinijavadynamicdataPackage.REF_VALUE: {
-				RefValue refValue = (RefValue)theEObject;
-				T result = caseRefValue(refValue);
-				if (result == null) result = caseValue(refValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,6 +153,32 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 				MethodCall2 methodCall2 = (MethodCall2)theEObject;
 				T result = caseMethodCall2(methodCall2);
 				if (result == null) result = caseCall(methodCall2);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE: {
+				ObjectInstance objectInstance = (ObjectInstance)theEObject;
+				T result = caseObjectInstance(objectInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.ARRAY_INSTANCE: {
+				ArrayInstance arrayInstance = (ArrayInstance)theEObject;
+				T result = caseArrayInstance(arrayInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.OBJECT_REF_VALUE: {
+				ObjectRefValue objectRefValue = (ObjectRefValue)theEObject;
+				T result = caseObjectRefValue(objectRefValue);
+				if (result == null) result = caseValue(objectRefValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MinijavadynamicdataPackage.ARRAY_REF_VALUE: {
+				ArrayRefValue arrayRefValue = (ArrayRefValue)theEObject;
+				T result = caseArrayRefValue(arrayRefValue);
+				if (result == null) result = caseValue(arrayRefValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -215,21 +228,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIntegerValue(IntegerValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Instance</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInstance(Instance object) {
 		return null;
 	}
 
@@ -305,21 +303,6 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOutputStream(OutputStream object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ref Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ref Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRefValue(RefValue object) {
 		return null;
 	}
 
@@ -410,6 +393,66 @@ public class MinijavadynamicdataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMethodCall2(MethodCall2 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectInstance(ObjectInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Array Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Array Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArrayInstance(ArrayInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Ref Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Ref Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectRefValue(ObjectRefValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Array Ref Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Array Ref Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArrayRefValue(ArrayRefValue object) {
 		return null;
 	}
 

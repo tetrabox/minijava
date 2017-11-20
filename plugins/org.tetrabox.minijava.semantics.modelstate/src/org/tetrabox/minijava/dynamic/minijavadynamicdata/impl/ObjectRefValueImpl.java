@@ -9,24 +9,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ref Value</b></em>'.
+ * An implementation of the model object '<em><b>Object Ref Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.RefValueImpl#getInstance <em>Instance</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectRefValueImpl#getInstance <em>Instance</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RefValueImpl extends ValueImpl implements RefValue {
+public class ObjectRefValueImpl extends ValueImpl implements ObjectRefValue {
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -35,14 +35,14 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Instance instance;
+	protected ObjectInstance instance;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RefValueImpl() {
+	protected ObjectRefValueImpl() {
 		super();
 	}
 
@@ -53,7 +53,7 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.REF_VALUE;
+		return MinijavadynamicdataPackage.Literals.OBJECT_REF_VALUE;
 	}
 
 	/**
@@ -61,13 +61,13 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instance getInstance() {
+	public ObjectInstance getInstance() {
 		if (instance != null && instance.eIsProxy()) {
 			InternalEObject oldInstance = (InternalEObject)instance;
-			instance = (Instance)eResolveProxy(oldInstance);
+			instance = (ObjectInstance)eResolveProxy(oldInstance);
 			if (instance != oldInstance) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.REF_VALUE__INSTANCE, oldInstance, instance));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.OBJECT_REF_VALUE__INSTANCE, oldInstance, instance));
 			}
 		}
 		return instance;
@@ -78,7 +78,7 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instance basicGetInstance() {
+	public ObjectInstance basicGetInstance() {
 		return instance;
 	}
 
@@ -87,11 +87,11 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInstance(Instance newInstance) {
-		Instance oldInstance = instance;
+	public void setInstance(ObjectInstance newInstance) {
+		ObjectInstance oldInstance = instance;
 		instance = newInstance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.REF_VALUE__INSTANCE, oldInstance, instance));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.OBJECT_REF_VALUE__INSTANCE, oldInstance, instance));
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.REF_VALUE__INSTANCE:
+			case MinijavadynamicdataPackage.OBJECT_REF_VALUE__INSTANCE:
 				if (resolve) return getInstance();
 				return basicGetInstance();
 		}
@@ -117,8 +117,8 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.REF_VALUE__INSTANCE:
-				setInstance((Instance)newValue);
+			case MinijavadynamicdataPackage.OBJECT_REF_VALUE__INSTANCE:
+				setInstance((ObjectInstance)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,8 +132,8 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.REF_VALUE__INSTANCE:
-				setInstance((Instance)null);
+			case MinijavadynamicdataPackage.OBJECT_REF_VALUE__INSTANCE:
+				setInstance((ObjectInstance)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -147,10 +147,10 @@ public class RefValueImpl extends ValueImpl implements RefValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.REF_VALUE__INSTANCE:
+			case MinijavadynamicdataPackage.OBJECT_REF_VALUE__INSTANCE:
 				return instance != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //RefValueImpl
+} //ObjectRefValueImpl

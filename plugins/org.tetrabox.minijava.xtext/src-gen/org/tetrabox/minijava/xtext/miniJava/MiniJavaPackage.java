@@ -1605,6 +1605,71 @@ public interface MiniJavaPackage extends EPackage
   int DIVISION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ArrayAccessImpl <em>Array Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.ArrayAccessImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getArrayAccess()
+   * @generated
+   */
+  int ARRAY_ACCESS = 43;
+
+  /**
+   * The feature id for the '<em><b>Object</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS__OBJECT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS__INDEX = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Array Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ArrayLengthImpl <em>Array Length</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.ArrayLengthImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getArrayLength()
+   * @generated
+   */
+  int ARRAY_LENGTH = 44;
+
+  /**
+   * The feature id for the '<em><b>Array</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_LENGTH__ARRAY = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Array Length</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_LENGTH_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NotImpl <em>Not</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1612,7 +1677,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 43;
+  int NOT = 45;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1640,7 +1705,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNeg()
    * @generated
    */
-  int NEG = 44;
+  int NEG = 46;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1668,7 +1733,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getFieldAccess()
    * @generated
    */
-  int FIELD_ACCESS = 45;
+  int FIELD_ACCESS = 47;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1705,7 +1770,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getMethodCall()
    * @generated
    */
-  int METHOD_CALL = 46;
+  int METHOD_CALL = 48;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1751,7 +1816,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 47;
+  int STRING_CONSTANT = 49;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1779,7 +1844,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 48;
+  int INT_CONSTANT = 50;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1807,7 +1872,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 49;
+  int BOOL_CONSTANT = 51;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1835,7 +1900,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getThis()
    * @generated
    */
-  int THIS = 50;
+  int THIS = 52;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -1854,7 +1919,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSuper()
    * @generated
    */
-  int SUPER = 51;
+  int SUPER = 53;
 
   /**
    * The number of structural features of the '<em>Super</em>' class.
@@ -1873,7 +1938,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNull()
    * @generated
    */
-  int NULL = 52;
+  int NULL = 54;
 
   /**
    * The number of structural features of the '<em>Null</em>' class.
@@ -1885,14 +1950,14 @@ public interface MiniJavaPackage extends EPackage
   int NULL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NewImpl <em>New</em>}' class.
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NewObjectImpl <em>New Object</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.NewImpl
-   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNew()
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.NewObjectImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNewObject()
    * @generated
    */
-  int NEW = 53;
+  int NEW_OBJECT = 55;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1901,7 +1966,7 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NEW__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+  int NEW_OBJECT__TYPE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -1910,16 +1975,53 @@ public interface MiniJavaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NEW__ARGS = EXPRESSION_FEATURE_COUNT + 1;
+  int NEW_OBJECT__ARGS = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>New</em>' class.
+   * The number of structural features of the '<em>New Object</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NEW_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int NEW_OBJECT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NewArrayImpl <em>New Array</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.NewArrayImpl
+   * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNewArray()
+   * @generated
+   */
+  int NEW_ARRAY = 56;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_ARRAY__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Size</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_ARRAY__SIZE = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>New Array</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_ARRAY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
@@ -1929,7 +2031,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 54;
+  int SYMBOL_REF = 57;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -1957,7 +2059,7 @@ public interface MiniJavaPackage extends EPackage
    * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 55;
+  int ACCESS_LEVEL = 58;
 
 
   /**
@@ -3018,6 +3120,59 @@ public interface MiniJavaPackage extends EPackage
   EReference getDivision_Right();
 
   /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.ArrayAccess <em>Array Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Access</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayAccess
+   * @generated
+   */
+  EClass getArrayAccess();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.ArrayAccess#getObject <em>Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Object</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayAccess#getObject()
+   * @see #getArrayAccess()
+   * @generated
+   */
+  EReference getArrayAccess_Object();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.ArrayAccess#getIndex <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Index</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayAccess#getIndex()
+   * @see #getArrayAccess()
+   * @generated
+   */
+  EReference getArrayAccess_Index();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.ArrayLength <em>Array Length</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Length</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayLength
+   * @generated
+   */
+  EClass getArrayLength();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.ArrayLength#getArray <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayLength#getArray()
+   * @see #getArrayLength()
+   * @generated
+   */
+  EReference getArrayLength_Array();
+
+  /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.Not <em>Not</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3228,36 +3383,68 @@ public interface MiniJavaPackage extends EPackage
   EClass getNull();
 
   /**
-   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.New <em>New</em>}'.
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.NewObject <em>New Object</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>New</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.New
+   * @return the meta object for class '<em>New Object</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.NewObject
    * @generated
    */
-  EClass getNew();
+  EClass getNewObject();
 
   /**
-   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.New#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link org.tetrabox.minijava.xtext.miniJava.NewObject#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Type</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.New#getType()
-   * @see #getNew()
+   * @see org.tetrabox.minijava.xtext.miniJava.NewObject#getType()
+   * @see #getNewObject()
    * @generated
    */
-  EReference getNew_Type();
+  EReference getNewObject_Type();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.New#getArgs <em>Args</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.xtext.miniJava.NewObject#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Args</em>'.
-   * @see org.tetrabox.minijava.xtext.miniJava.New#getArgs()
-   * @see #getNew()
+   * @see org.tetrabox.minijava.xtext.miniJava.NewObject#getArgs()
+   * @see #getNewObject()
    * @generated
    */
-  EReference getNew_Args();
+  EReference getNewObject_Args();
+
+  /**
+   * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.NewArray <em>New Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>New Array</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.NewArray
+   * @generated
+   */
+  EClass getNewArray();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.NewArray#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.NewArray#getType()
+   * @see #getNewArray()
+   * @generated
+   */
+  EReference getNewArray_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.xtext.miniJava.NewArray#getSize <em>Size</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Size</em>'.
+   * @see org.tetrabox.minijava.xtext.miniJava.NewArray#getSize()
+   * @see #getNewArray()
+   * @generated
+   */
+  EReference getNewArray_Size();
 
   /**
    * Returns the meta object for class '{@link org.tetrabox.minijava.xtext.miniJava.SymbolRef <em>Symbol Ref</em>}'.
@@ -4200,6 +4387,50 @@ public interface MiniJavaPackage extends EPackage
     EReference DIVISION__RIGHT = eINSTANCE.getDivision_Right();
 
     /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ArrayAccessImpl <em>Array Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.ArrayAccessImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getArrayAccess()
+     * @generated
+     */
+    EClass ARRAY_ACCESS = eINSTANCE.getArrayAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Object</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_ACCESS__OBJECT = eINSTANCE.getArrayAccess_Object();
+
+    /**
+     * The meta object literal for the '<em><b>Index</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_ACCESS__INDEX = eINSTANCE.getArrayAccess_Index();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.ArrayLengthImpl <em>Array Length</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.ArrayLengthImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getArrayLength()
+     * @generated
+     */
+    EClass ARRAY_LENGTH = eINSTANCE.getArrayLength();
+
+    /**
+     * The meta object literal for the '<em><b>Array</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_LENGTH__ARRAY = eINSTANCE.getArrayLength_Array();
+
+    /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NotImpl <em>Not</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4380,14 +4611,14 @@ public interface MiniJavaPackage extends EPackage
     EClass NULL = eINSTANCE.getNull();
 
     /**
-     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NewImpl <em>New</em>}' class.
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NewObjectImpl <em>New Object</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.NewImpl
-     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNew()
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.NewObjectImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNewObject()
      * @generated
      */
-    EClass NEW = eINSTANCE.getNew();
+    EClass NEW_OBJECT = eINSTANCE.getNewObject();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -4395,7 +4626,7 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NEW__TYPE = eINSTANCE.getNew_Type();
+    EReference NEW_OBJECT__TYPE = eINSTANCE.getNewObject_Type();
 
     /**
      * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
@@ -4403,7 +4634,33 @@ public interface MiniJavaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NEW__ARGS = eINSTANCE.getNew_Args();
+    EReference NEW_OBJECT__ARGS = eINSTANCE.getNewObject_Args();
+
+    /**
+     * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.NewArrayImpl <em>New Array</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.NewArrayImpl
+     * @see org.tetrabox.minijava.xtext.miniJava.impl.MiniJavaPackageImpl#getNewArray()
+     * @generated
+     */
+    EClass NEW_ARRAY = eINSTANCE.getNewArray();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEW_ARRAY__TYPE = eINSTANCE.getNewArray_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEW_ARRAY__SIZE = eINSTANCE.getNewArray_Size();
 
     /**
      * The meta object literal for the '{@link org.tetrabox.minijava.xtext.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.

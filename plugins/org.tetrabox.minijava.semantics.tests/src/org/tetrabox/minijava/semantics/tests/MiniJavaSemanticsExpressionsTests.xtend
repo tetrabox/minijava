@@ -14,6 +14,7 @@ import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 import static org.tetrabox.minijava.semantics.tests.util.MiniJavaTestUtil.*
 import org.tetrabox.minijava.semantics.tests.util.MiniJavaValueEquals.ObjectTemplate
 import java.util.HashMap
+import org.tetrabox.minijava.semantics.tests.util.MiniJavaValueEquals.ArrayTemplate
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)
@@ -377,6 +378,32 @@ class MiniJavaSemanticsExpressionsTests {
 	@Test
 	def void symbolRef_parameter() {
 		genericExpressionTest("int", ''' new X().identity(1337) ''', 1337)
+	}
+
+	@Test
+	def void newArray_primitive() {
+		genericExpressionTest("int[]", ''' new int[7] ''', new ArrayTemplate(7, "int", #[0,0,0,0,0,0,0]))
+	}
+
+	@Test
+	def void newArray_objects() {
+		genericExpressionTest("X[]", ''' new X[3] ''', new ArrayTemplate(3, "X", #[factory.createNullValue,factory.createNullValue,factory.createNullValue]))
+	}
+
+	@Test
+	def void arrayAccess_int() {
+		genericExpressionTest("int[] array = new int[3]; array[2] = 3;", "int", '''array[2]''', 3)
+	}
+
+	@Test
+	def void arrayAccess_ref() {
+		genericExpressionTest("X[] array = new X[4]; array[1] = new X(15);", "X", '''array[1]''',
+			new ObjectTemplate("X", #{"i" -> 15}))
+	}
+
+	@Test
+	def void length() {
+		genericExpressionTest("X[] array = new X[9];", "int", '''array.length''', 9)
 	}
 
 }

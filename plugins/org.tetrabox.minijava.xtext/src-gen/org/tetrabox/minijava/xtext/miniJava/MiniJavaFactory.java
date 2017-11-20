@@ -411,6 +411,24 @@ public interface MiniJavaFactory extends EFactory
   Division createDivision();
 
   /**
+   * Returns a new object of class '<em>Array Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Access</em>'.
+   * @generated
+   */
+  ArrayAccess createArrayAccess();
+
+  /**
+   * Returns a new object of class '<em>Array Length</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Length</em>'.
+   * @generated
+   */
+  ArrayLength createArrayLength();
+
+  /**
    * Returns a new object of class '<em>Not</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -501,13 +519,22 @@ public interface MiniJavaFactory extends EFactory
   Null createNull();
 
   /**
-   * Returns a new object of class '<em>New</em>'.
+   * Returns a new object of class '<em>New Object</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>New</em>'.
+   * @return a new object of class '<em>New Object</em>'.
    * @generated
    */
-  New createNew();
+  NewObject createNewObject();
+
+  /**
+   * Returns a new object of class '<em>New Array</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>New Array</em>'.
+   * @generated
+   */
+  NewArray createNewArray();
 
   /**
    * Returns a new object of class '<em>Symbol Ref</em>'.

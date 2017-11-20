@@ -61,7 +61,7 @@ public interface SymbolBinding extends EObject {
 	 * @return the value of the '<em>Symbol</em>' reference.
 	 * @see #setSymbol(Symbol)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getSymbolBinding_Symbol()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Symbol getSymbol();

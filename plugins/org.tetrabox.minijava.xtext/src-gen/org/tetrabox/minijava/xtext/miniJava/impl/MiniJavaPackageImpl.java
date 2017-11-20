@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess;
+import org.tetrabox.minijava.xtext.miniJava.ArrayLength;
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignee;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
@@ -43,7 +45,8 @@ import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.Multiplication;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.Neg;
-import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.NewArray;
+import org.tetrabox.minijava.xtext.miniJava.NewObject;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
@@ -383,6 +386,20 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass arrayAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayLengthEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass notEClass = null;
 
   /**
@@ -453,7 +470,14 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass newEClass = null;
+  private EClass newObjectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass newArrayEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1537,6 +1561,56 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getArrayAccess()
+  {
+    return arrayAccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayAccess_Object()
+  {
+    return (EReference)arrayAccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayAccess_Index()
+  {
+    return (EReference)arrayAccessEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArrayLength()
+  {
+    return arrayLengthEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayLength_Array()
+  {
+    return (EReference)arrayLengthEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNot()
   {
     return notEClass;
@@ -1737,9 +1811,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getNew()
+  public EClass getNewObject()
   {
-    return newEClass;
+    return newObjectEClass;
   }
 
   /**
@@ -1747,9 +1821,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNew_Type()
+  public EReference getNewObject_Type()
   {
-    return (EReference)newEClass.getEStructuralFeatures().get(0);
+    return (EReference)newObjectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1757,9 +1831,39 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNew_Args()
+  public EReference getNewObject_Args()
   {
-    return (EReference)newEClass.getEStructuralFeatures().get(1);
+    return (EReference)newObjectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNewArray()
+  {
+    return newArrayEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNewArray_Type()
+  {
+    return (EReference)newArrayEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNewArray_Size()
+  {
+    return (EReference)newArrayEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1965,6 +2069,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     createEReference(divisionEClass, DIVISION__LEFT);
     createEReference(divisionEClass, DIVISION__RIGHT);
 
+    arrayAccessEClass = createEClass(ARRAY_ACCESS);
+    createEReference(arrayAccessEClass, ARRAY_ACCESS__OBJECT);
+    createEReference(arrayAccessEClass, ARRAY_ACCESS__INDEX);
+
+    arrayLengthEClass = createEClass(ARRAY_LENGTH);
+    createEReference(arrayLengthEClass, ARRAY_LENGTH__ARRAY);
+
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
 
@@ -1995,9 +2106,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     nullEClass = createEClass(NULL);
 
-    newEClass = createEClass(NEW);
-    createEReference(newEClass, NEW__TYPE);
-    createEReference(newEClass, NEW__ARGS);
+    newObjectEClass = createEClass(NEW_OBJECT);
+    createEReference(newObjectEClass, NEW_OBJECT__TYPE);
+    createEReference(newObjectEClass, NEW_OBJECT__ARGS);
+
+    newArrayEClass = createEClass(NEW_ARRAY);
+    createEReference(newArrayEClass, NEW_ARRAY__TYPE);
+    createEReference(newArrayEClass, NEW_ARRAY__SIZE);
 
     symbolRefEClass = createEClass(SYMBOL_REF);
     createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
@@ -2074,6 +2189,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     minusEClass.getESuperTypes().add(this.getExpression());
     multiplicationEClass.getESuperTypes().add(this.getExpression());
     divisionEClass.getESuperTypes().add(this.getExpression());
+    arrayAccessEClass.getESuperTypes().add(this.getExpression());
+    arrayLengthEClass.getESuperTypes().add(this.getExpression());
     notEClass.getESuperTypes().add(this.getExpression());
     negEClass.getESuperTypes().add(this.getExpression());
     fieldAccessEClass.getESuperTypes().add(this.getExpression());
@@ -2084,7 +2201,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     thisEClass.getESuperTypes().add(this.getExpression());
     superEClass.getESuperTypes().add(this.getExpression());
     nullEClass.getESuperTypes().add(this.getExpression());
-    newEClass.getESuperTypes().add(this.getExpression());
+    newObjectEClass.getESuperTypes().add(this.getExpression());
+    newArrayEClass.getESuperTypes().add(this.getExpression());
     symbolRefEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
@@ -2231,6 +2349,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEReference(getDivision_Left(), this.getExpression(), null, "left", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDivision_Right(), this.getExpression(), null, "right", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(arrayAccessEClass, ArrayAccess.class, "ArrayAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayAccess_Object(), this.getExpression(), null, "object", null, 0, 1, ArrayAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayAccess_Index(), this.getExpression(), null, "index", null, 0, 1, ArrayAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayLengthEClass, ArrayLength.class, "ArrayLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayLength_Array(), this.getExpression(), null, "array", null, 0, 1, ArrayLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2261,9 +2386,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
     initEClass(nullEClass, Null.class, "Null", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(newEClass, New.class, "New", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNew_Type(), this.getClass_(), null, "type", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNew_Args(), this.getExpression(), null, "args", null, 0, -1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(newObjectEClass, NewObject.class, "NewObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNewObject_Type(), this.getClass_(), null, "type", null, 0, 1, NewObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNewObject_Args(), this.getExpression(), null, "args", null, 0, -1, NewObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(newArrayEClass, NewArray.class, "NewArray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNewArray_Type(), this.getTypeRef(), null, "type", null, 0, 1, NewArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNewArray_Size(), this.getExpression(), null, "size", null, 0, 1, NewArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

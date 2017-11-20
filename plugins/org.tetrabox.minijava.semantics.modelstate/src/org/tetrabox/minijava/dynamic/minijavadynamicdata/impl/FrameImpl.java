@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value;
 
 /**
@@ -57,7 +57,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * @generated
 	 * @ordered
 	 */
-	protected Instance instance;
+	protected ObjectInstance instance;
 
 	/**
 	 * The cached value of the '{@link #getChildFrame() <em>Child Frame</em>}' containment reference.
@@ -156,10 +156,10 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instance getInstance() {
+	public ObjectInstance getInstance() {
 		if (instance != null && instance.eIsProxy()) {
 			InternalEObject oldInstance = (InternalEObject)instance;
-			instance = (Instance)eResolveProxy(oldInstance);
+			instance = (ObjectInstance)eResolveProxy(oldInstance);
 			if (instance != oldInstance) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.FRAME__INSTANCE, oldInstance, instance));
@@ -173,7 +173,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instance basicGetInstance() {
+	public ObjectInstance basicGetInstance() {
 		return instance;
 	}
 
@@ -182,8 +182,8 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInstance(Instance newInstance) {
-		Instance oldInstance = instance;
+	public void setInstance(ObjectInstance newInstance) {
+		ObjectInstance oldInstance = instance;
 		instance = newInstance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.FRAME__INSTANCE, oldInstance, instance));
@@ -452,7 +452,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 				setCall((Call)newValue);
 				return;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
-				setInstance((Instance)newValue);
+				setInstance((ObjectInstance)newValue);
 				return;
 			case MinijavadynamicdataPackage.FRAME__CHILD_FRAME:
 				setChildFrame((Frame)newValue);
@@ -482,7 +482,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 				setCall((Call)null);
 				return;
 			case MinijavadynamicdataPackage.FRAME__INSTANCE:
-				setInstance((Instance)null);
+				setInstance((ObjectInstance)null);
 				return;
 			case MinijavadynamicdataPackage.FRAME__CHILD_FRAME:
 				setChildFrame((Frame)null);

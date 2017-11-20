@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getRootFrame <em>Root Frame</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getHeap <em>Heap</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getObjectsHeap <em>Objects Heap</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getOutputStream <em>Output Stream</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getArraysHeap <em>Arrays Heap</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getState()
@@ -52,20 +53,20 @@ public interface State extends EObject {
 	void setRootFrame(Frame value);
 
 	/**
-	 * Returns the value of the '<em><b>Heap</b></em>' containment reference list.
-	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance}.
+	 * Returns the value of the '<em><b>Objects Heap</b></em>' containment reference list.
+	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Heap</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Objects Heap</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Heap</em>' containment reference list.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getState_Heap()
+	 * @return the value of the '<em>Objects Heap</em>' containment reference list.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getState_ObjectsHeap()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Instance> getHeap();
+	EList<ObjectInstance> getObjectsHeap();
 
 	/**
 	 * Returns the value of the '<em><b>Output Stream</b></em>' containment reference.
@@ -92,5 +93,21 @@ public interface State extends EObject {
 	 * @generated
 	 */
 	void setOutputStream(OutputStream value);
+
+	/**
+	 * Returns the value of the '<em><b>Arrays Heap</b></em>' containment reference list.
+	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Arrays Heap</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Arrays Heap</em>' containment reference list.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getState_ArraysHeap()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ArrayInstance> getArraysHeap();
 
 } // State

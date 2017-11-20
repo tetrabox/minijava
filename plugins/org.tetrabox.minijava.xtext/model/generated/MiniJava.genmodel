@@ -141,6 +141,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Division/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Division/right"/>
     </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//ArrayAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ArrayAccess/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ArrayAccess/index"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//ArrayLength">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ArrayLength/array"/>
+    </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Not/expression"/>
     </genClasses>
@@ -168,9 +175,13 @@
     <genClasses ecoreClass="MiniJava.ecore#//This"/>
     <genClasses ecoreClass="MiniJava.ecore#//Super"/>
     <genClasses ecoreClass="MiniJava.ecore#//Null"/>
-    <genClasses ecoreClass="MiniJava.ecore#//New">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//New/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//New/args"/>
+    <genClasses ecoreClass="MiniJava.ecore#//NewObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//NewObject/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//NewObject/args"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniJava.ecore#//NewArray">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//NewArray/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//NewArray/size"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//SymbolRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniJava.ecore#//SymbolRef/symbol"/>

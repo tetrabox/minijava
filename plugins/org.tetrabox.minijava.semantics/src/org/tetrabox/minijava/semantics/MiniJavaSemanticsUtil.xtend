@@ -6,10 +6,8 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
@@ -18,6 +16,10 @@ import org.tetrabox.minijava.xtext.miniJava.Symbol
 
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
 import static extension org.tetrabox.minijava.semantics.FrameAspect.*
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue
 
 @Aspect(className=Context)
 class ContextAspect {
@@ -36,7 +38,7 @@ class ContextAspect {
 		} else if (_self.parentContext !== null) {
 			return _self.parentContext.findBinding(symbol)
 		} else {
-			return null
+			throw new Exception("No binding for symbol "+symbol)
 		}
 	}
 
@@ -78,7 +80,7 @@ class StateAspect {
 		_self.findCurrentContext.parentContext = null
 	}
 
-	def void pushNewFrame(Instance receiver, Call c, Context newContext) {
+	def void pushNewFrame(ObjectInstance receiver, Call c, Context newContext) {
 		_self.findCurrentFrame.childFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
 			instance = receiver
 			call = c
@@ -117,7 +119,7 @@ class FrameAspect {
 
 @Aspect(className=Value)
 class ValueAspect {
-	def Value copy() {}
+	def Value copy() {throw new Exception("Must provide a copy method for "+_self)}
 }
 
 @Aspect(className=IntegerValue)
@@ -145,10 +147,27 @@ class StringValueAspect extends ValueAspect {
 
 }
 
-@Aspect(className=RefValue)
-class RefValueAspect extends ValueAspect {
+@Aspect(className=ObjectRefValue)
+class ObjectRefValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = _self.instance]
+		return MinijavadynamicdataFactory::eINSTANCE.createObjectRefValue => [instance = _self.instance]
+	}
+}
+
+@Aspect(className=ArrayRefValue)
+class ArrayRefValueAspect extends ValueAspect {
+	@OverrideAspectMethod
+	def Value copy() {
+		return MinijavadynamicdataFactory::eINSTANCE.createArrayRefValue => [instance = _self.instance]
+	}
+}
+
+
+@Aspect(className=NullValue)
+class NullValueAspect extends ValueAspect {
+	@OverrideAspectMethod
+	def Value copy() {
+		return MinijavadynamicdataFactory::eINSTANCE.createNullValue
 	}
 }

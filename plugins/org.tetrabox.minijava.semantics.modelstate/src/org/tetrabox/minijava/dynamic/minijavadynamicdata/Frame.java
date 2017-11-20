@@ -61,12 +61,12 @@ public interface Frame extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Instance</em>' reference.
-	 * @see #setInstance(Instance)
+	 * @see #setInstance(ObjectInstance)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getFrame_Instance()
 	 * @model
 	 * @generated
 	 */
-	Instance getInstance();
+	ObjectInstance getInstance();
 
 	/**
 	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame#getInstance <em>Instance</em>}' reference.
@@ -76,7 +76,7 @@ public interface Frame extends EObject {
 	 * @see #getInstance()
 	 * @generated
 	 */
-	void setInstance(Instance value);
+	void setInstance(ObjectInstance value);
 
 	/**
 	 * Returns the value of the '<em><b>Child Frame</b></em>' containment reference.

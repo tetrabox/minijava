@@ -32,7 +32,7 @@ public interface MethodCall2 extends Call {
 	 * @return the value of the '<em>Methodcall</em>' reference.
 	 * @see #setMethodcall(MethodCall)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getMethodCall2_Methodcall()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	MethodCall getMethodcall();

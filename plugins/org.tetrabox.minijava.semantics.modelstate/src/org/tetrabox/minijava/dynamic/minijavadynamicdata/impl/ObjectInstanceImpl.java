@@ -13,30 +13,30 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Instance</b></em>'.
+ * An implementation of the model object '<em><b>Object Instance</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.InstanceImpl#getFieldbindings <em>Fieldbindings</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.InstanceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectInstanceImpl#getFieldbindings <em>Fieldbindings</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectInstanceImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InstanceImpl extends MinimalEObjectImpl.Container implements Instance {
+public class ObjectInstanceImpl extends MinimalEObjectImpl.Container implements ObjectInstance {
 	/**
 	 * The cached value of the '{@link #getFieldbindings() <em>Fieldbindings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InstanceImpl() {
+	protected ObjectInstanceImpl() {
 		super();
 	}
 
@@ -73,7 +73,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.INSTANCE;
+		return MinijavadynamicdataPackage.Literals.OBJECT_INSTANCE;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 */
 	public EList<FieldBinding> getFieldbindings() {
 		if (fieldbindings == null) {
-			fieldbindings = new EObjectContainmentEList<FieldBinding>(FieldBinding.class, this, MinijavadynamicdataPackage.INSTANCE__FIELDBINDINGS);
+			fieldbindings = new EObjectContainmentEList<FieldBinding>(FieldBinding.class, this, MinijavadynamicdataPackage.OBJECT_INSTANCE__FIELDBINDINGS);
 		}
 		return fieldbindings;
 	}
@@ -99,7 +99,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 			type = (org.tetrabox.minijava.xtext.miniJava.Class)eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.INSTANCE__TYPE, oldType, type));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.OBJECT_INSTANCE__TYPE, oldType, type));
 			}
 		}
 		return type;
@@ -123,7 +123,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 		org.tetrabox.minijava.xtext.miniJava.Class oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.INSTANCE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.OBJECT_INSTANCE__TYPE, oldType, type));
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INSTANCE__FIELDBINDINGS:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__FIELDBINDINGS:
 				return ((InternalEList<?>)getFieldbindings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -148,9 +148,9 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INSTANCE__FIELDBINDINGS:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__FIELDBINDINGS:
 				return getFieldbindings();
-			case MinijavadynamicdataPackage.INSTANCE__TYPE:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
 		}
@@ -166,11 +166,11 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INSTANCE__FIELDBINDINGS:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__FIELDBINDINGS:
 				getFieldbindings().clear();
 				getFieldbindings().addAll((Collection<? extends FieldBinding>)newValue);
 				return;
-			case MinijavadynamicdataPackage.INSTANCE__TYPE:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__TYPE:
 				setType((org.tetrabox.minijava.xtext.miniJava.Class)newValue);
 				return;
 		}
@@ -185,10 +185,10 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INSTANCE__FIELDBINDINGS:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__FIELDBINDINGS:
 				getFieldbindings().clear();
 				return;
-			case MinijavadynamicdataPackage.INSTANCE__TYPE:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__TYPE:
 				setType((org.tetrabox.minijava.xtext.miniJava.Class)null);
 				return;
 		}
@@ -203,12 +203,12 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.INSTANCE__FIELDBINDINGS:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__FIELDBINDINGS:
 				return fieldbindings != null && !fieldbindings.isEmpty();
-			case MinijavadynamicdataPackage.INSTANCE__TYPE:
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE__TYPE:
 				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //InstanceImpl
+} //ObjectInstanceImpl

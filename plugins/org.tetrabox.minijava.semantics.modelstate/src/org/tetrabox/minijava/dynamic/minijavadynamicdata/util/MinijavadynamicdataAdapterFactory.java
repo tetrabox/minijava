@@ -80,10 +80,6 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 				return createIntegerValueAdapter();
 			}
 			@Override
-			public Adapter caseInstance(Instance object) {
-				return createInstanceAdapter();
-			}
-			@Override
 			public Adapter caseSymbolBinding(SymbolBinding object) {
 				return createSymbolBindingAdapter();
 			}
@@ -102,10 +98,6 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOutputStream(OutputStream object) {
 				return createOutputStreamAdapter();
-			}
-			@Override
-			public Adapter caseRefValue(RefValue object) {
-				return createRefValueAdapter();
 			}
 			@Override
 			public Adapter caseState(State object) {
@@ -130,6 +122,22 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMethodCall2(MethodCall2 object) {
 				return createMethodCall2Adapter();
+			}
+			@Override
+			public Adapter caseObjectInstance(ObjectInstance object) {
+				return createObjectInstanceAdapter();
+			}
+			@Override
+			public Adapter caseArrayInstance(ArrayInstance object) {
+				return createArrayInstanceAdapter();
+			}
+			@Override
+			public Adapter caseObjectRefValue(ObjectRefValue object) {
+				return createObjectRefValueAdapter();
+			}
+			@Override
+			public Adapter caseArrayRefValue(ArrayRefValue object) {
+				return createArrayRefValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -190,20 +198,6 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIntegerValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance <em>Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
-	 * @generated
-	 */
-	public Adapter createInstanceAdapter() {
 		return null;
 	}
 
@@ -274,20 +268,6 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputStreamAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue <em>Ref Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
-	 * @generated
-	 */
-	public Adapter createRefValueAdapter() {
 		return null;
 	}
 
@@ -372,6 +352,62 @@ public class MinijavadynamicdataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodCall2Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance <em>Object Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance
+	 * @generated
+	 */
+	public Adapter createObjectInstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance <em>Array Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance
+	 * @generated
+	 */
+	public Adapter createArrayInstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue <em>Object Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+	 * @generated
+	 */
+	public Adapter createObjectRefValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue <em>Array Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
+	 * @generated
+	 */
+	public Adapter createArrayRefValueAdapter() {
 		return null;
 	}
 

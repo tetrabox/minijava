@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.OutputStream;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.State;
 
@@ -33,8 +34,9 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.State;
  * </p>
  * <ul>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getRootFrame <em>Root Frame</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getHeap <em>Heap</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getObjectsHeap <em>Objects Heap</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getOutputStream <em>Output Stream</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getArraysHeap <em>Arrays Heap</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +53,14 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	protected Frame rootFrame;
 
 	/**
-	 * The cached value of the '{@link #getHeap() <em>Heap</em>}' containment reference list.
+	 * The cached value of the '{@link #getObjectsHeap() <em>Objects Heap</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHeap()
+	 * @see #getObjectsHeap()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Instance> heap;
+	protected EList<ObjectInstance> objectsHeap;
 
 	/**
 	 * The cached value of the '{@link #getOutputStream() <em>Output Stream</em>}' containment reference.
@@ -69,6 +71,16 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @ordered
 	 */
 	protected OutputStream outputStream;
+
+	/**
+	 * The cached value of the '{@link #getArraysHeap() <em>Arrays Heap</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArraysHeap()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ArrayInstance> arraysHeap;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,11 +149,11 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Instance> getHeap() {
-		if (heap == null) {
-			heap = new EObjectContainmentEList<Instance>(Instance.class, this, MinijavadynamicdataPackage.STATE__HEAP);
+	public EList<ObjectInstance> getObjectsHeap() {
+		if (objectsHeap == null) {
+			objectsHeap = new EObjectContainmentEList<ObjectInstance>(ObjectInstance.class, this, MinijavadynamicdataPackage.STATE__OBJECTS_HEAP);
 		}
-		return heap;
+		return objectsHeap;
 	}
 
 	/**
@@ -192,15 +204,29 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ArrayInstance> getArraysHeap() {
+		if (arraysHeap == null) {
+			arraysHeap = new EObjectContainmentEList<ArrayInstance>(ArrayInstance.class, this, MinijavadynamicdataPackage.STATE__ARRAYS_HEAP);
+		}
+		return arraysHeap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.STATE__ROOT_FRAME:
 				return basicSetRootFrame(null, msgs);
-			case MinijavadynamicdataPackage.STATE__HEAP:
-				return ((InternalEList<?>)getHeap()).basicRemove(otherEnd, msgs);
+			case MinijavadynamicdataPackage.STATE__OBJECTS_HEAP:
+				return ((InternalEList<?>)getObjectsHeap()).basicRemove(otherEnd, msgs);
 			case MinijavadynamicdataPackage.STATE__OUTPUT_STREAM:
 				return basicSetOutputStream(null, msgs);
+			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
+				return ((InternalEList<?>)getArraysHeap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -215,10 +241,12 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.STATE__ROOT_FRAME:
 				return getRootFrame();
-			case MinijavadynamicdataPackage.STATE__HEAP:
-				return getHeap();
+			case MinijavadynamicdataPackage.STATE__OBJECTS_HEAP:
+				return getObjectsHeap();
 			case MinijavadynamicdataPackage.STATE__OUTPUT_STREAM:
 				return getOutputStream();
+			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
+				return getArraysHeap();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,12 +263,16 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MinijavadynamicdataPackage.STATE__ROOT_FRAME:
 				setRootFrame((Frame)newValue);
 				return;
-			case MinijavadynamicdataPackage.STATE__HEAP:
-				getHeap().clear();
-				getHeap().addAll((Collection<? extends Instance>)newValue);
+			case MinijavadynamicdataPackage.STATE__OBJECTS_HEAP:
+				getObjectsHeap().clear();
+				getObjectsHeap().addAll((Collection<? extends ObjectInstance>)newValue);
 				return;
 			case MinijavadynamicdataPackage.STATE__OUTPUT_STREAM:
 				setOutputStream((OutputStream)newValue);
+				return;
+			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
+				getArraysHeap().clear();
+				getArraysHeap().addAll((Collection<? extends ArrayInstance>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -257,11 +289,14 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MinijavadynamicdataPackage.STATE__ROOT_FRAME:
 				setRootFrame((Frame)null);
 				return;
-			case MinijavadynamicdataPackage.STATE__HEAP:
-				getHeap().clear();
+			case MinijavadynamicdataPackage.STATE__OBJECTS_HEAP:
+				getObjectsHeap().clear();
 				return;
 			case MinijavadynamicdataPackage.STATE__OUTPUT_STREAM:
 				setOutputStream((OutputStream)null);
+				return;
+			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
+				getArraysHeap().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -277,10 +312,12 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case MinijavadynamicdataPackage.STATE__ROOT_FRAME:
 				return rootFrame != null;
-			case MinijavadynamicdataPackage.STATE__HEAP:
-				return heap != null && !heap.isEmpty();
+			case MinijavadynamicdataPackage.STATE__OBJECTS_HEAP:
+				return objectsHeap != null && !objectsHeap.isEmpty();
 			case MinijavadynamicdataPackage.STATE__OUTPUT_STREAM:
 				return outputStream != null;
+			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
+				return arraysHeap != null && !arraysHeap.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

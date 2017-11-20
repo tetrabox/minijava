@@ -5,7 +5,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
@@ -27,7 +26,6 @@ import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.Minus
 import org.tetrabox.minijava.xtext.miniJava.Multiplication
 import org.tetrabox.minijava.xtext.miniJava.Neg
-import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.Not
 import org.tetrabox.minijava.xtext.miniJava.Null
 import org.tetrabox.minijava.xtext.miniJava.Or
@@ -48,6 +46,16 @@ import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+import org.tetrabox.minijava.xtext.miniJava.NewObject
+import org.tetrabox.minijava.xtext.miniJava.NewArray
+import org.tetrabox.minijava.xtext.miniJava.ArrayLength
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess
+import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
+import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef
+import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -246,8 +254,8 @@ class EqualityAspect extends ExpressionAspect {
 				left.value == (right as StringValue).value
 			} else if (left instanceof BooleanValue) {
 				left.value === (right as BooleanValue).value
-			} else if (left instanceof RefValue) {
-				left.instance === (right as RefValue).instance
+			} else if (left instanceof ObjectRefValue) {
+				left.instance === (right as ObjectRefValue).instance
 			} else {
 				throw new RuntimeException('''Type unsupported for equality operator: «left.class»''')
 			}
@@ -272,8 +280,8 @@ class InequalityAspect extends ExpressionAspect {
 				left.value != (right as StringValue).value
 			} else if (left instanceof BooleanValue) {
 				left.value !== (right as BooleanValue).value
-			} else if (left instanceof RefValue) {
-				left.instance !== (right as RefValue).instance
+			} else if (left instanceof ObjectRefValue) {
+				left.instance !== (right as ObjectRefValue).instance
 			} else {
 				throw new RuntimeException('''Type unsupported for inequality operator: «left.class»''')
 			}
@@ -339,8 +347,8 @@ class MethodAspect {
 class MethodCallExpressionAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
-		val realMethod = _self.method.findOverride(realReceiver.type)
+		val realReceiver = (_self.receiver.evaluateExpression(state) as ObjectRefValue).instance
+		val realMethod = _self.method.findOverride(realReceiver.type as Class)
 		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
 		for (arg : _self.args) {
 			val param = realMethod.params.get(_self.args.indexOf(arg))
@@ -365,7 +373,7 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 class FieldAccessAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		val realReceiver = (_self.receiver.evaluateExpression(state) as RefValue).instance
+		val realReceiver = (_self.receiver.evaluateExpression(state) as ObjectRefValue).instance as ObjectInstance
 		return realReceiver.fieldbindings.findFirst[it.field === _self.field].value
 	}
 }
@@ -378,7 +386,7 @@ class ThisAspect extends ExpressionAspect {
 		if (currentInstance === null) {
 			throw new RuntimeException('''"this" is not valid in the current context''')
 		} else {
-			return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = currentInstance]
+			return MinijavadynamicdataFactory::eINSTANCE.createObjectRefValue => [instance = currentInstance]
 		}
 	}
 }
@@ -391,14 +399,14 @@ class SymbolRefAspect extends ExpressionAspect {
 	}
 }
 
-@Aspect(className=New)
-class NewAspect extends ExpressionAspect {
+@Aspect(className=NewObject)
+class NewObjectAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 
 		// Creating instance with default bindings
-		val result = MinijavadynamicdataFactory::eINSTANCE.createInstance => [type = _self.type]
-		state.heap.add(result)
+		val result = MinijavadynamicdataFactory::eINSTANCE.createObjectInstance => [type = _self.type]
+		state.objectsHeap.add(result)
 		for (f : result.type.members.filter(Field)) {
 			if (f.defaultValue !== null) {
 				val v = f.defaultValue.evaluateExpression(state)
@@ -437,17 +445,35 @@ class NewAspect extends ExpressionAspect {
 		}
 
 		// Return constructed instance
-		return MinijavadynamicdataFactory::eINSTANCE.createRefValue => [instance = result]
+		return MinijavadynamicdataFactory::eINSTANCE.createObjectRefValue => [instance = result]
 	}
 }
 
-//@Aspect(className=Cast)
-//class CastAspect extends ExpressionAspect {
-//	@OverrideAspectMethod
-//	def Value evaluateExpression(State state) {
-//		return _self.object.evaluate(context)
-//	}
-//}
+@Aspect(className=NewArray)
+class NewArrayAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluateExpression(State state) {
+		// Creating array with size
+		val result = MinijavadynamicdataFactory::eINSTANCE.createArrayInstance
+		result.size = (_self.size.evaluateExpression(state) as IntegerValue).value
+		state.arraysHeap.add(result)
+
+		// Filling array with default values
+		val defaultValue = switch (_self.type) {
+			IntegerTypeRef: MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [value = 0]
+			BooleanTypeRef: MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [value = false]
+			StringTypeRef: MinijavadynamicdataFactory::eINSTANCE.createNullValue
+			ClassRef: MinijavadynamicdataFactory::eINSTANCE.createNullValue
+		}
+		for (i : 1 .. result.size) {
+			result.value.add(defaultValue.copy)
+		}
+
+		// Return constructed array
+		return MinijavadynamicdataFactory::eINSTANCE.createArrayRefValue => [instance = result]
+	}
+}
+
 @Aspect(className=StringConstant)
 class StringConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
@@ -476,4 +502,27 @@ class BoolConstantAspect extends ExpressionAspect {
 			value = _self.value.equalsIgnoreCase("true")
 		]
 	}
+}
+
+@Aspect(className=ArrayLength)
+class ArrayLengthAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluateExpression(State state) {
+		val arrayRef = _self.array.evaluateExpression(state) as ArrayRefValue
+		val size = arrayRef.instance.size
+		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [
+			value = size
+		]
+	}
+}
+
+@Aspect(className=ArrayAccess)
+class ArrayAccessAspect extends ExpressionAspect {
+	@OverrideAspectMethod
+	def Value evaluateExpression(State state) {
+		val array = (_self.object.evaluateExpression(state) as ArrayRefValue).instance
+		val index = (_self.index.evaluateExpression(state) as IntegerValue).value
+		return array.value.get(index).copy
+	}
+
 }

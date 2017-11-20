@@ -59,18 +59,20 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 			case MinijavadynamicdataPackage.CONTEXT: return createContext();
 			case MinijavadynamicdataPackage.VALUE: return createValue();
 			case MinijavadynamicdataPackage.INTEGER_VALUE: return createIntegerValue();
-			case MinijavadynamicdataPackage.INSTANCE: return createInstance();
 			case MinijavadynamicdataPackage.SYMBOL_BINDING: return createSymbolBinding();
 			case MinijavadynamicdataPackage.FIELD_BINDING: return createFieldBinding();
 			case MinijavadynamicdataPackage.STRING_VALUE: return createStringValue();
 			case MinijavadynamicdataPackage.BOOLEAN_VALUE: return createBooleanValue();
 			case MinijavadynamicdataPackage.OUTPUT_STREAM: return createOutputStream();
-			case MinijavadynamicdataPackage.REF_VALUE: return createRefValue();
 			case MinijavadynamicdataPackage.STATE: return createState();
 			case MinijavadynamicdataPackage.FRAME: return createFrame();
 			case MinijavadynamicdataPackage.NULL_VALUE: return createNullValue();
 			case MinijavadynamicdataPackage.NEW_CALL: return createNewCall();
 			case MinijavadynamicdataPackage.METHOD_CALL2: return createMethodCall2();
+			case MinijavadynamicdataPackage.OBJECT_INSTANCE: return createObjectInstance();
+			case MinijavadynamicdataPackage.ARRAY_INSTANCE: return createArrayInstance();
+			case MinijavadynamicdataPackage.OBJECT_REF_VALUE: return createObjectRefValue();
+			case MinijavadynamicdataPackage.ARRAY_REF_VALUE: return createArrayRefValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,16 +106,6 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public IntegerValue createIntegerValue() {
 		IntegerValueImpl integerValue = new IntegerValueImpl();
 		return integerValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Instance createInstance() {
-		InstanceImpl instance = new InstanceImpl();
-		return instance;
 	}
 
 	/**
@@ -171,16 +163,6 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RefValue createRefValue() {
-		RefValueImpl refValue = new RefValueImpl();
-		return refValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public State createState() {
 		StateImpl state = new StateImpl();
 		return state;
@@ -224,6 +206,46 @@ public class MinijavadynamicdataFactoryImpl extends EFactoryImpl implements Mini
 	public MethodCall2 createMethodCall2() {
 		MethodCall2Impl methodCall2 = new MethodCall2Impl();
 		return methodCall2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectInstance createObjectInstance() {
+		ObjectInstanceImpl objectInstance = new ObjectInstanceImpl();
+		return objectInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArrayInstance createArrayInstance() {
+		ArrayInstanceImpl arrayInstance = new ArrayInstanceImpl();
+		return arrayInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectRefValue createObjectRefValue() {
+		ObjectRefValueImpl objectRefValue = new ObjectRefValueImpl();
+		return objectRefValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArrayRefValue createArrayRefValue() {
+		ArrayRefValueImpl arrayRefValue = new ArrayRefValueImpl();
+		return arrayRefValue;
 	}
 
 	/**

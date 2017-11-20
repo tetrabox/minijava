@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.tetrabox.minijava.xtext.miniJava.AccessLevel;
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess;
+import org.tetrabox.minijava.xtext.miniJava.ArrayLength;
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignee;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
@@ -44,7 +46,8 @@ import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.Multiplication;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.Neg;
-import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.NewArray;
+import org.tetrabox.minijava.xtext.miniJava.NewObject;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
@@ -165,6 +168,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.MINUS: return createMinus();
       case MiniJavaPackage.MULTIPLICATION: return createMultiplication();
       case MiniJavaPackage.DIVISION: return createDivision();
+      case MiniJavaPackage.ARRAY_ACCESS: return createArrayAccess();
+      case MiniJavaPackage.ARRAY_LENGTH: return createArrayLength();
       case MiniJavaPackage.NOT: return createNot();
       case MiniJavaPackage.NEG: return createNeg();
       case MiniJavaPackage.FIELD_ACCESS: return createFieldAccess();
@@ -175,7 +180,8 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.THIS: return createThis();
       case MiniJavaPackage.SUPER: return createSuper();
       case MiniJavaPackage.NULL: return createNull();
-      case MiniJavaPackage.NEW: return createNew();
+      case MiniJavaPackage.NEW_OBJECT: return createNewObject();
+      case MiniJavaPackage.NEW_ARRAY: return createNewArray();
       case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -694,6 +700,28 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ArrayAccess createArrayAccess()
+  {
+    ArrayAccessImpl arrayAccess = new ArrayAccessImpl();
+    return arrayAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayLength createArrayLength()
+  {
+    ArrayLengthImpl arrayLength = new ArrayLengthImpl();
+    return arrayLength;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Not createNot()
   {
     NotImpl not = new NotImpl();
@@ -804,10 +832,21 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public New createNew()
+  public NewObject createNewObject()
   {
-    NewImpl new_ = new NewImpl();
-    return new_;
+    NewObjectImpl newObject = new NewObjectImpl();
+    return newObject;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NewArray createNewArray()
+  {
+    NewArrayImpl newArray = new NewArrayImpl();
+    return newArray;
   }
 
   /**

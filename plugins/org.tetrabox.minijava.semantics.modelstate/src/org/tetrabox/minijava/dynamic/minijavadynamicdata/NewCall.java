@@ -2,7 +2,7 @@
  */
 package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
-import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.NewObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,12 +30,12 @@ public interface NewCall extends Call {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>New</em>' reference.
-	 * @see #setNew(New)
+	 * @see #setNew(NewObject)
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getNewCall_New()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	New getNew();
+	NewObject getNew();
 
 	/**
 	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall#getNew <em>New</em>}' reference.
@@ -45,6 +45,6 @@ public interface NewCall extends Call {
 	 * @see #getNew()
 	 * @generated
 	 */
-	void setNew(New value);
+	void setNew(NewObject value);
 
 } // NewCall

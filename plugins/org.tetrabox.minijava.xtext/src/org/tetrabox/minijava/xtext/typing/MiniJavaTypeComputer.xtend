@@ -25,10 +25,10 @@ import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.MethodCall
 import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef
-import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
 import org.tetrabox.minijava.xtext.miniJava.Interface
 import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
+import org.tetrabox.minijava.xtext.miniJava.NewObject
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -57,7 +57,7 @@ class MiniJavaTypeComputer {
 				e.field.typeRef.type
 			MethodCall:
 				e.method.typeRef.type
-			New:
+			NewObject:
 				e.type
 			This:
 				e.getContainerOfType(Class)
@@ -102,7 +102,7 @@ class MiniJavaTypeComputer {
 					c.method.params.get(c.args.indexOf(e)).typeRef.type
 				}
 			}
-			New case f == ep.new_Args: {
+			NewObject case f == ep.newObject_Args: {
 				c.type.members.filter(Method).findFirst[it.name === null && it.params.size === c.args.size].params.get(c.args.indexOf(e)).typeRef.type
 			}
 		}

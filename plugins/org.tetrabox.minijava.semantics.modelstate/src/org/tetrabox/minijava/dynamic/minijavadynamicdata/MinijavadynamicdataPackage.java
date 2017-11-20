@@ -177,52 +177,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int INTEGER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.InstanceImpl <em>Instance</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.InstanceImpl
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getInstance()
-	 * @generated
-	 */
-	int INSTANCE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Fieldbindings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE__FIELDBINDINGS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE__TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Instance</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Instance</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,7 +184,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getSymbolBinding()
 	 * @generated
 	 */
-	int SYMBOL_BINDING = 4;
+	int SYMBOL_BINDING = 3;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -276,7 +230,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getFieldBinding()
 	 * @generated
 	 */
-	int FIELD_BINDING = 5;
+	int FIELD_BINDING = 4;
 
 	/**
 	 * The feature id for the '<em><b>Field</b></em>' reference.
@@ -322,7 +276,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getStringValue()
 	 * @generated
 	 */
-	int STRING_VALUE = 6;
+	int STRING_VALUE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -359,7 +313,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getBooleanValue()
 	 * @generated
 	 */
-	int BOOLEAN_VALUE = 7;
+	int BOOLEAN_VALUE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -396,7 +350,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getOutputStream()
 	 * @generated
 	 */
-	int OUTPUT_STREAM = 8;
+	int OUTPUT_STREAM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Stream</b></em>' attribute list.
@@ -425,45 +379,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 */
 	int OUTPUT_STREAM_OPERATION_COUNT = 0;
 
-
-	/**
-	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.RefValueImpl <em>Ref Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.RefValueImpl
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getRefValue()
-	 * @generated
-	 */
-	int REF_VALUE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Instance</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_VALUE__INSTANCE = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Ref Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Ref Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
-
-
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl <em>State</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -472,7 +387,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 10;
+	int STATE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Root Frame</b></em>' containment reference.
@@ -484,13 +399,13 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int STATE__ROOT_FRAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Heap</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Objects Heap</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__HEAP = 1;
+	int STATE__OBJECTS_HEAP = 1;
 
 	/**
 	 * The feature id for the '<em><b>Output Stream</b></em>' containment reference.
@@ -502,13 +417,22 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int STATE__OUTPUT_STREAM = 2;
 
 	/**
+	 * The feature id for the '<em><b>Arrays Heap</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ARRAYS_HEAP = 3;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 3;
+	int STATE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -519,7 +443,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 */
 	int STATE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl <em>Frame</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -528,7 +451,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getFrame()
 	 * @generated
 	 */
-	int FRAME = 11;
+	int FRAME = 9;
 
 	/**
 	 * The feature id for the '<em><b>Call</b></em>' containment reference.
@@ -602,7 +525,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 */
 	int FRAME_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NullValueImpl <em>Null Value</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -611,7 +533,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNullValue()
 	 * @generated
 	 */
-	int NULL_VALUE = 12;
+	int NULL_VALUE = 10;
 
 	/**
 	 * The number of structural features of the '<em>Null Value</em>' class.
@@ -631,7 +553,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 */
 	int NULL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.CallImpl <em>Call</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -640,7 +561,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getCall()
 	 * @generated
 	 */
-	int CALL = 13;
+	int CALL = 11;
 
 	/**
 	 * The number of structural features of the '<em>Call</em>' class.
@@ -660,7 +581,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 */
 	int CALL_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewCallImpl <em>New Call</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -669,7 +589,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getNewCall()
 	 * @generated
 	 */
-	int NEW_CALL = 14;
+	int NEW_CALL = 12;
 
 	/**
 	 * The feature id for the '<em><b>New</b></em>' reference.
@@ -706,7 +626,7 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getMethodCall2()
 	 * @generated
 	 */
-	int METHOD_CALL2 = 15;
+	int METHOD_CALL2 = 13;
 
 	/**
 	 * The feature id for the '<em><b>Methodcall</b></em>' reference.
@@ -734,6 +654,172 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD_CALL2_OPERATION_COUNT = CALL_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectInstanceImpl <em>Object Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectInstanceImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getObjectInstance()
+	 * @generated
+	 */
+	int OBJECT_INSTANCE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Fieldbindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_INSTANCE__FIELDBINDINGS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_INSTANCE__TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Object Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_INSTANCE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Object Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_INSTANCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayInstanceImpl <em>Array Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayInstanceImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getArrayInstance()
+	 * @generated
+	 */
+	int ARRAY_INSTANCE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_INSTANCE__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_INSTANCE__SIZE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Array Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_INSTANCE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Array Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_INSTANCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectRefValueImpl <em>Object Ref Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectRefValueImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getObjectRefValue()
+	 * @generated
+	 */
+	int OBJECT_REF_VALUE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_REF_VALUE__INSTANCE = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Object Ref Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_REF_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Object Ref Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_REF_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayRefValueImpl <em>Array Ref Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayRefValueImpl
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getArrayRefValue()
+	 * @generated
+	 */
+	int ARRAY_REF_VALUE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_REF_VALUE__INSTANCE = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Array Ref Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_REF_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Array Ref Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_REF_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -809,38 +895,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntegerValue_Value();
-
-	/**
-	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance <em>Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Instance</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance
-	 * @generated
-	 */
-	EClass getInstance();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getFieldbindings <em>Fieldbindings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fieldbindings</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getFieldbindings()
-	 * @see #getInstance()
-	 * @generated
-	 */
-	EReference getInstance_Fieldbindings();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getType()
-	 * @see #getInstance()
-	 * @generated
-	 */
-	EReference getInstance_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding <em>Symbol Binding</em>}'.
@@ -970,27 +1024,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EAttribute getOutputStream_Stream();
 
 	/**
-	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue <em>Ref Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ref Value</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
-	 * @generated
-	 */
-	EClass getRefValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue#getInstance <em>Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Instance</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue#getInstance()
-	 * @see #getRefValue()
-	 * @generated
-	 */
-	EReference getRefValue_Instance();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1012,15 +1045,15 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EReference getState_RootFrame();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getHeap <em>Heap</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getObjectsHeap <em>Objects Heap</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Heap</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getHeap()
+	 * @return the meta object for the containment reference list '<em>Objects Heap</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getObjectsHeap()
 	 * @see #getState()
 	 * @generated
 	 */
-	EReference getState_Heap();
+	EReference getState_ObjectsHeap();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getOutputStream <em>Output Stream</em>}'.
@@ -1032,6 +1065,17 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_OutputStream();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getArraysHeap <em>Arrays Heap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Arrays Heap</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getArraysHeap()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_ArraysHeap();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame <em>Frame</em>}'.
@@ -1172,6 +1216,112 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EReference getMethodCall2_Methodcall();
 
 	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance <em>Object Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Instance</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance
+	 * @generated
+	 */
+	EClass getObjectInstance();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getFieldbindings <em>Fieldbindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Fieldbindings</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getFieldbindings()
+	 * @see #getObjectInstance()
+	 * @generated
+	 */
+	EReference getObjectInstance_Fieldbindings();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getType()
+	 * @see #getObjectInstance()
+	 * @generated
+	 */
+	EReference getObjectInstance_Type();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance <em>Array Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Array Instance</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance
+	 * @generated
+	 */
+	EClass getArrayInstance();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Value</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance#getValue()
+	 * @see #getArrayInstance()
+	 * @generated
+	 */
+	EReference getArrayInstance_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance#getSize()
+	 * @see #getArrayInstance()
+	 * @generated
+	 */
+	EAttribute getArrayInstance_Size();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue <em>Object Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Ref Value</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+	 * @generated
+	 */
+	EClass getObjectRefValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instance</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue#getInstance()
+	 * @see #getObjectRefValue()
+	 * @generated
+	 */
+	EReference getObjectRefValue_Instance();
+
+	/**
+	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue <em>Array Ref Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Array Ref Value</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
+	 * @generated
+	 */
+	EClass getArrayRefValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instance</em>'.
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue#getInstance()
+	 * @see #getArrayRefValue()
+	 * @generated
+	 */
+	EReference getArrayRefValue_Instance();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1255,32 +1405,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTEGER_VALUE__VALUE = eINSTANCE.getIntegerValue_Value();
-
-		/**
-		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.InstanceImpl <em>Instance</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.InstanceImpl
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getInstance()
-		 * @generated
-		 */
-		EClass INSTANCE = eINSTANCE.getInstance();
-
-		/**
-		 * The meta object literal for the '<em><b>Fieldbindings</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INSTANCE__FIELDBINDINGS = eINSTANCE.getInstance_Fieldbindings();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INSTANCE__TYPE = eINSTANCE.getInstance_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
@@ -1389,24 +1513,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		EAttribute OUTPUT_STREAM__STREAM = eINSTANCE.getOutputStream_Stream();
 
 		/**
-		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.RefValueImpl <em>Ref Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.RefValueImpl
-		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getRefValue()
-		 * @generated
-		 */
-		EClass REF_VALUE = eINSTANCE.getRefValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REF_VALUE__INSTANCE = eINSTANCE.getRefValue_Instance();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1425,12 +1531,12 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		EReference STATE__ROOT_FRAME = eINSTANCE.getState_RootFrame();
 
 		/**
-		 * The meta object literal for the '<em><b>Heap</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Objects Heap</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__HEAP = eINSTANCE.getState_Heap();
+		EReference STATE__OBJECTS_HEAP = eINSTANCE.getState_ObjectsHeap();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Stream</b></em>' containment reference feature.
@@ -1439,6 +1545,14 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__OUTPUT_STREAM = eINSTANCE.getState_OutputStream();
+
+		/**
+		 * The meta object literal for the '<em><b>Arrays Heap</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ARRAYS_HEAP = eINSTANCE.getState_ArraysHeap();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl <em>Frame</em>}' class.
@@ -1553,6 +1667,94 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD_CALL2__METHODCALL = eINSTANCE.getMethodCall2_Methodcall();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectInstanceImpl <em>Object Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectInstanceImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getObjectInstance()
+		 * @generated
+		 */
+		EClass OBJECT_INSTANCE = eINSTANCE.getObjectInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Fieldbindings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_INSTANCE__FIELDBINDINGS = eINSTANCE.getObjectInstance_Fieldbindings();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_INSTANCE__TYPE = eINSTANCE.getObjectInstance_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayInstanceImpl <em>Array Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayInstanceImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getArrayInstance()
+		 * @generated
+		 */
+		EClass ARRAY_INSTANCE = eINSTANCE.getArrayInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARRAY_INSTANCE__VALUE = eINSTANCE.getArrayInstance_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARRAY_INSTANCE__SIZE = eINSTANCE.getArrayInstance_Size();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectRefValueImpl <em>Object Ref Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ObjectRefValueImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getObjectRefValue()
+		 * @generated
+		 */
+		EClass OBJECT_REF_VALUE = eINSTANCE.getObjectRefValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_REF_VALUE__INSTANCE = eINSTANCE.getObjectRefValue_Instance();
+
+		/**
+		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayRefValueImpl <em>Array Ref Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayRefValueImpl
+		 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.MinijavadynamicdataPackageImpl#getArrayRefValue()
+		 * @generated
+		 */
+		EClass ARRAY_REF_VALUE = eINSTANCE.getArrayRefValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARRAY_REF_VALUE__INSTANCE = eINSTANCE.getArrayRefValue_Instance();
 
 	}
 

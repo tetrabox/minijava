@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess;
+import org.tetrabox.minijava.xtext.miniJava.ArrayLength;
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignee;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
@@ -38,7 +40,8 @@ import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.Multiplication;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.Neg;
-import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.NewArray;
+import org.tetrabox.minijava.xtext.miniJava.NewObject;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
@@ -508,6 +511,26 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniJavaPackage.ARRAY_ACCESS:
+      {
+        ArrayAccess arrayAccess = (ArrayAccess)theEObject;
+        T result = caseArrayAccess(arrayAccess);
+        if (result == null) result = caseExpression(arrayAccess);
+        if (result == null) result = caseStatement(arrayAccess);
+        if (result == null) result = caseAssignee(arrayAccess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.ARRAY_LENGTH:
+      {
+        ArrayLength arrayLength = (ArrayLength)theEObject;
+        T result = caseArrayLength(arrayLength);
+        if (result == null) result = caseExpression(arrayLength);
+        if (result == null) result = caseStatement(arrayLength);
+        if (result == null) result = caseAssignee(arrayLength);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniJavaPackage.NOT:
       {
         Not not = (Not)theEObject;
@@ -608,13 +631,23 @@ public class MiniJavaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MiniJavaPackage.NEW:
+      case MiniJavaPackage.NEW_OBJECT:
       {
-        New new_ = (New)theEObject;
-        T result = caseNew(new_);
-        if (result == null) result = caseExpression(new_);
-        if (result == null) result = caseStatement(new_);
-        if (result == null) result = caseAssignee(new_);
+        NewObject newObject = (NewObject)theEObject;
+        T result = caseNewObject(newObject);
+        if (result == null) result = caseExpression(newObject);
+        if (result == null) result = caseStatement(newObject);
+        if (result == null) result = caseAssignee(newObject);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniJavaPackage.NEW_ARRAY:
+      {
+        NewArray newArray = (NewArray)theEObject;
+        T result = caseNewArray(newArray);
+        if (result == null) result = caseExpression(newArray);
+        if (result == null) result = caseStatement(newArray);
+        if (result == null) result = caseAssignee(newArray);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1321,6 +1354,38 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayAccess(ArrayAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Length</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Length</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayLength(ArrayLength object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1481,17 +1546,33 @@ public class MiniJavaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>New</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>New Object</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>New</em>'.
+   * @return the result of interpreting the object as an instance of '<em>New Object</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNew(New object)
+  public T caseNewObject(NewObject object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>New Array</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>New Array</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNewArray(NewArray object)
   {
     return null;
   }

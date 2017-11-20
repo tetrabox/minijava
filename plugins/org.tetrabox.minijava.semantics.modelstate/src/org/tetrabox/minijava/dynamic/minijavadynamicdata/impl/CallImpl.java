@@ -3,6 +3,7 @@
 package org.tetrabox.minijava.dynamic.minijavadynamicdata.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call;

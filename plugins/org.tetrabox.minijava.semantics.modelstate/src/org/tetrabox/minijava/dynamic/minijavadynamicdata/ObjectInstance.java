@@ -3,26 +3,27 @@
 package org.tetrabox.minijava.dynamic.minijavadynamicdata;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Instance</b></em>'.
+ * A representation of the model object '<em><b>Object Instance</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getFieldbindings <em>Fieldbindings</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getType <em>Type</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getFieldbindings <em>Fieldbindings</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getType <em>Type</em>}</li>
  * </ul>
  *
- * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getInstance()
+ * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getObjectInstance()
  * @model
  * @generated
  */
-public interface Instance extends EObject {
+public interface ObjectInstance extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Fieldbindings</b></em>' containment reference list.
 	 * The list contents are of type {@link org.tetrabox.minijava.dynamic.minijavadynamicdata.FieldBinding}.
@@ -33,7 +34,7 @@ public interface Instance extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fieldbindings</em>' containment reference list.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getInstance_Fieldbindings()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getObjectInstance_Fieldbindings()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -49,14 +50,14 @@ public interface Instance extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(org.tetrabox.minijava.xtext.miniJava.Class)
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getInstance_Type()
+	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage#getObjectInstance_Type()
 	 * @model required="true"
 	 * @generated
 	 */
 	org.tetrabox.minijava.xtext.miniJava.Class getType();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Instance#getType <em>Type</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance#getType <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' reference.
@@ -65,4 +66,4 @@ public interface Instance extends EObject {
 	 */
 	void setType(org.tetrabox.minijava.xtext.miniJava.Class value);
 
-} // Instance
+} // ObjectInstance

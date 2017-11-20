@@ -3,7 +3,6 @@ package org.tetrabox.minijava.semantics
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.RefValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
 import org.tetrabox.minijava.xtext.miniJava.Assignment
 import org.tetrabox.minijava.xtext.miniJava.Block
@@ -27,6 +26,10 @@ import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
 import fr.inria.diverse.k3.al.annotationprocessor.Step
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
@@ -87,7 +90,7 @@ class AssigmentAspect extends StatementAspect {
 			}
 			FieldAccess: {
 				val f = assignee.field as Field
-				val realReceiver = (assignee.receiver.evaluateExpression(state) as RefValue).instance
+				val realReceiver = (assignee.receiver.evaluateExpression(state) as ObjectRefValue).instance
 				val existingBinding = realReceiver.fieldbindings.findFirst[it.field === f]
 				if (existingBinding !== null) {
 					existingBinding.value = right
@@ -99,6 +102,12 @@ class AssigmentAspect extends StatementAspect {
 					realReceiver.fieldbindings.add(binding)
 				}
 			}
+			ArrayAccess: {
+				val array = (assignee.object.evaluateExpression(state) as ArrayRefValue).instance
+				val index = (assignee.index.evaluateExpression(state) as IntegerValue).value
+				array.value.set(index,right) 
+			}
+			default: throw new Exception("Cannot assign a value to "+assignee)
 		}
 	}
 }

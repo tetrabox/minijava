@@ -110,7 +110,7 @@ Assignment:
 	assignee=Assignee value=Assigned;
 
 Assignee:
-	=> SelectionExpression |
+	=> ArrayAccess |
 	VariableDeclaration;
 
 Expression:
@@ -137,8 +137,16 @@ PlusOrMinus returns Expression:
 	right=MulOrDiv)*;
 
 MulOrDiv returns Expression:
-	Primary (({Multiplication.left=current} '*' | {Division.left=current} '/')
-	right=Primary)*;
+	ArrayAccess (({Multiplication.left=current} '*' | {Division.left=current} '/')
+	right=ArrayAccess)*;
+	
+ArrayAccess returns Expression:
+	ArrayLength ( {ArrayAccess.object=current}'[' index=Expression ']')?
+;
+
+ArrayLength returns Expression:
+	Primary ({ArrayLength.array=current}'.' 'length')?
+;
 
 Primary returns Expression:
 	'(' Expression ')' |
@@ -160,6 +168,9 @@ TerminalExpression returns Expression:
 	{This} 'this' |
 	{Super} 'super' |
 	{Null} 'null' |
-	{New} 'new' type=[Class|QualifiedName] '(' (args+=Expression (',' args+=Expression)*)? ')' |
+	{NewObject} 'new' type=[Class] =>'(' (args+=Expression (',' args+=Expression)*)? ')' |
+	{NewArray}  'new' type=TypeRef =>'[' size=Expression ']' |
 	{SymbolRef} symbol=[Symbol|ID];
+	
+
 	

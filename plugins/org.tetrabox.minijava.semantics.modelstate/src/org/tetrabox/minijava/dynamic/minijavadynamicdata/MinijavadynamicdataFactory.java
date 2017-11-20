@@ -49,15 +49,6 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	IntegerValue createIntegerValue();
 
 	/**
-	 * Returns a new object of class '<em>Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instance</em>'.
-	 * @generated
-	 */
-	Instance createInstance();
-
-	/**
 	 * Returns a new object of class '<em>Symbol Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,15 +94,6 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	OutputStream createOutputStream();
 
 	/**
-	 * Returns a new object of class '<em>Ref Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ref Value</em>'.
-	 * @generated
-	 */
-	RefValue createRefValue();
-
-	/**
 	 * Returns a new object of class '<em>State</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +137,42 @@ public interface MinijavadynamicdataFactory extends EFactory {
 	 * @generated
 	 */
 	MethodCall2 createMethodCall2();
+
+	/**
+	 * Returns a new object of class '<em>Object Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Instance</em>'.
+	 * @generated
+	 */
+	ObjectInstance createObjectInstance();
+
+	/**
+	 * Returns a new object of class '<em>Array Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Array Instance</em>'.
+	 * @generated
+	 */
+	ArrayInstance createArrayInstance();
+
+	/**
+	 * Returns a new object of class '<em>Object Ref Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Ref Value</em>'.
+	 * @generated
+	 */
+	ObjectRefValue createObjectRefValue();
+
+	/**
+	 * Returns a new object of class '<em>Array Ref Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Array Ref Value</em>'.
+	 * @generated
+	 */
+	ArrayRefValue createArrayRefValue();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -9,41 +9,40 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayInstance;
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue;
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataPackage;
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.NewCall;
-
-import org.tetrabox.minijava.xtext.miniJava.NewObject;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>New Call</b></em>'.
+ * An implementation of the model object '<em><b>Array Ref Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.NewCallImpl#getNew <em>New</em>}</li>
+ *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.ArrayRefValueImpl#getInstance <em>Instance</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NewCallImpl extends CallImpl implements NewCall {
+public class ArrayRefValueImpl extends ValueImpl implements ArrayRefValue {
 	/**
-	 * The cached value of the '{@link #getNew() <em>New</em>}' reference.
+	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNew()
+	 * @see #getInstance()
 	 * @generated
 	 * @ordered
 	 */
-	protected NewObject new_;
+	protected ArrayInstance instance;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NewCallImpl() {
+	protected ArrayRefValueImpl() {
 		super();
 	}
 
@@ -54,7 +53,7 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MinijavadynamicdataPackage.Literals.NEW_CALL;
+		return MinijavadynamicdataPackage.Literals.ARRAY_REF_VALUE;
 	}
 
 	/**
@@ -62,16 +61,16 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NewObject getNew() {
-		if (new_ != null && new_.eIsProxy()) {
-			InternalEObject oldNew = (InternalEObject)new_;
-			new_ = (NewObject)eResolveProxy(oldNew);
-			if (new_ != oldNew) {
+	public ArrayInstance getInstance() {
+		if (instance != null && instance.eIsProxy()) {
+			InternalEObject oldInstance = (InternalEObject)instance;
+			instance = (ArrayInstance)eResolveProxy(oldInstance);
+			if (instance != oldInstance) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.NEW_CALL__NEW, oldNew, new_));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MinijavadynamicdataPackage.ARRAY_REF_VALUE__INSTANCE, oldInstance, instance));
 			}
 		}
-		return new_;
+		return instance;
 	}
 
 	/**
@@ -79,8 +78,8 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NewObject basicGetNew() {
-		return new_;
+	public ArrayInstance basicGetInstance() {
+		return instance;
 	}
 
 	/**
@@ -88,11 +87,11 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNew(NewObject newNew) {
-		NewObject oldNew = new_;
-		new_ = newNew;
+	public void setInstance(ArrayInstance newInstance) {
+		ArrayInstance oldInstance = instance;
+		instance = newInstance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.NEW_CALL__NEW, oldNew, new_));
+			eNotify(new ENotificationImpl(this, Notification.SET, MinijavadynamicdataPackage.ARRAY_REF_VALUE__INSTANCE, oldInstance, instance));
 	}
 
 	/**
@@ -103,9 +102,9 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.NEW_CALL__NEW:
-				if (resolve) return getNew();
-				return basicGetNew();
+			case MinijavadynamicdataPackage.ARRAY_REF_VALUE__INSTANCE:
+				if (resolve) return getInstance();
+				return basicGetInstance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,8 +117,8 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.NEW_CALL__NEW:
-				setNew((NewObject)newValue);
+			case MinijavadynamicdataPackage.ARRAY_REF_VALUE__INSTANCE:
+				setInstance((ArrayInstance)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +132,8 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.NEW_CALL__NEW:
-				setNew((NewObject)null);
+			case MinijavadynamicdataPackage.ARRAY_REF_VALUE__INSTANCE:
+				setInstance((ArrayInstance)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,10 +147,10 @@ public class NewCallImpl extends CallImpl implements NewCall {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinijavadynamicdataPackage.NEW_CALL__NEW:
-				return new_ != null;
+			case MinijavadynamicdataPackage.ARRAY_REF_VALUE__INSTANCE:
+				return instance != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //NewCallImpl
+} //ArrayRefValueImpl

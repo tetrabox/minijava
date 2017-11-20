@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.tetrabox.minijava.xtext.miniJava.And;
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess;
+import org.tetrabox.minijava.xtext.miniJava.ArrayLength;
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.xtext.miniJava.Assignee;
 import org.tetrabox.minijava.xtext.miniJava.Assignment;
@@ -40,7 +42,8 @@ import org.tetrabox.minijava.xtext.miniJava.Minus;
 import org.tetrabox.minijava.xtext.miniJava.Multiplication;
 import org.tetrabox.minijava.xtext.miniJava.NamedElement;
 import org.tetrabox.minijava.xtext.miniJava.Neg;
-import org.tetrabox.minijava.xtext.miniJava.New;
+import org.tetrabox.minijava.xtext.miniJava.NewArray;
+import org.tetrabox.minijava.xtext.miniJava.NewObject;
 import org.tetrabox.minijava.xtext.miniJava.Not;
 import org.tetrabox.minijava.xtext.miniJava.Null;
 import org.tetrabox.minijava.xtext.miniJava.Or;
@@ -345,6 +348,16 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createDivisionAdapter();
       }
       @Override
+      public Adapter caseArrayAccess(ArrayAccess object)
+      {
+        return createArrayAccessAdapter();
+      }
+      @Override
+      public Adapter caseArrayLength(ArrayLength object)
+      {
+        return createArrayLengthAdapter();
+      }
+      @Override
       public Adapter caseNot(Not object)
       {
         return createNotAdapter();
@@ -395,9 +408,14 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
         return createNullAdapter();
       }
       @Override
-      public Adapter caseNew(New object)
+      public Adapter caseNewObject(NewObject object)
       {
-        return createNewAdapter();
+        return createNewObjectAdapter();
+      }
+      @Override
+      public Adapter caseNewArray(NewArray object)
+      {
+        return createNewArrayAdapter();
       }
       @Override
       public Adapter caseSymbolRef(SymbolRef object)
@@ -1072,6 +1090,36 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.ArrayAccess <em>Array Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayAccess
+   * @generated
+   */
+  public Adapter createArrayAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.ArrayLength <em>Array Length</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.ArrayLength
+   * @generated
+   */
+  public Adapter createArrayLengthAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.Not <em>Not</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1222,16 +1270,31 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.New <em>New</em>}'.
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.NewObject <em>New Object</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.tetrabox.minijava.xtext.miniJava.New
+   * @see org.tetrabox.minijava.xtext.miniJava.NewObject
    * @generated
    */
-  public Adapter createNewAdapter()
+  public Adapter createNewObjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.xtext.miniJava.NewArray <em>New Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.tetrabox.minijava.xtext.miniJava.NewArray
+   * @generated
+   */
+  public Adapter createNewArrayAdapter()
   {
     return null;
   }

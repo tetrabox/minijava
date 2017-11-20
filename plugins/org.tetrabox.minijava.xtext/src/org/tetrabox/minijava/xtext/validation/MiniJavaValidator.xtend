@@ -26,13 +26,13 @@ import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
-import org.tetrabox.minijava.xtext.miniJava.New
 import org.tetrabox.minijava.xtext.miniJava.ClassRef
 import org.tetrabox.minijava.xtext.miniJava.Interface
 import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
 import java.util.HashSet
 import java.util.Set
+import org.tetrabox.minijava.xtext.miniJava.NewObject
 
 /**
  * This class contains custom validation rules. 
@@ -202,9 +202,9 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 		}
 	}
 
-	@Check def void checkConstructorAbstractClass(New n) {
+	@Check def void checkConstructorAbstractClass(NewObject n) {
 		if (n.type.abstract) {
-			error("Cannot construct an instance of an abstract class.", MiniJavaPackage.eINSTANCE.new_Type,
+			error("Cannot construct an instance of an abstract class.", MiniJavaPackage.eINSTANCE.newObject_Type,
 				CONSTRUCTOR_ABSTRACT)
 		}
 	}
@@ -288,14 +288,14 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 			)
 	}
 
-	@Check def void checkAccessibility(New n) {
+	@Check def void checkAccessibility(NewObject n) {
 		val constructor = n.type.members.filter(Method).findFirst [
 			it.name === null && it.params.size === n.args.size
 		]
 		if (!constructor.isAccessibleFrom(n))
 			error(
 				'''This constructor is not accessible here.''',
-				MiniJavaPackage.eINSTANCE.new_Type,
+				MiniJavaPackage.eINSTANCE.newObject_Type,
 				MEMBER_NOT_ACCESSIBLE
 			)
 	}
