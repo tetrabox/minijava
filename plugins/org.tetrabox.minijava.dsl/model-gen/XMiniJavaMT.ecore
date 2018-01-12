@@ -3,15 +3,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Program">
     <eOperations name="main">
       <eAnnotations source="aspect"/>
+    </eOperations>
+    <eOperations name="initialize">
+      <eAnnotations source="aspect"/>
       <eParameters name="args" upperBound="-1">
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eParameters>
     </eOperations>
     <eOperations name="execute" eType="//State">
       <eAnnotations source="aspect"/>
-      <eParameters name="args" upperBound="-1">
-        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -65,16 +65,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="//Member">
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="//Expression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="//Statement //Assignee">
-    <eOperations name="evaluateStatement">
-      <eAnnotations source="aspect"/>
-      <eParameters name="state" eType="//State"/>
-    </eOperations>
-    <eOperations name="evaluateExpression" eType="//Value">
-      <eAnnotations source="aspect"/>
-      <eParameters name="state" eType="//State"/>
-    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AccessLevel">
     <eLiterals name="PRIVATE" literal="private"/>
@@ -174,6 +164,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assignee"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="//Statement //Assignee">
+    <eOperations name="evaluateStatement">
+      <eAnnotations source="aspect"/>
+      <eParameters name="state" eType="//State"/>
+    </eOperations>
+    <eOperations name="evaluateExpression" eType="//Value">
+      <eAnnotations source="aspect"/>
+      <eParameters name="state" eType="//State"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayTypeRef" eSuperTypes="//TypeRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="//SingleTypeRef" containment="true"/>
   </eClassifiers>
@@ -491,6 +491,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectsHeap" upperBound="-1" eType="//ObjectInstance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="//OutputStream" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arraysHeap" upperBound="-1" eType="//ArrayInstance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" unique="false" upperBound="-1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame">
     <eOperations name="findCurrentFrame">
