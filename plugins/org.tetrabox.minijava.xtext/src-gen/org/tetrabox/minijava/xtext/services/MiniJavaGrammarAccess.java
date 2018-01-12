@@ -539,15 +539,17 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeRefTypeRefParserRuleCall_1_0 = (RuleCall)cTypeRefAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cDefaultValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDefaultValueAssignedParserRuleCall_3_0 = (RuleCall)cDefaultValueAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDefaultValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cDefaultValueExpressionParserRuleCall_3_1_0 = (RuleCall)cDefaultValueAssignment_3_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Field:
-		//	access=AccessLevel? typeRef=TypeRef name=ID defaultValue=Assigned? ';';
+		//	access=AccessLevel? typeRef=TypeRef name=ID ('=' defaultValue=Expression)? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//access=AccessLevel? typeRef=TypeRef name=ID defaultValue=Assigned? ';'
+		//access=AccessLevel? typeRef=TypeRef name=ID ('=' defaultValue=Expression)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//access=AccessLevel?
@@ -568,33 +570,20 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//defaultValue=Assigned?
-		public Assignment getDefaultValueAssignment_3() { return cDefaultValueAssignment_3; }
+		//('=' defaultValue=Expression)?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//Assigned
-		public RuleCall getDefaultValueAssignedParserRuleCall_3_0() { return cDefaultValueAssignedParserRuleCall_3_0; }
+		//'='
+		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
+		
+		//defaultValue=Expression
+		public Assignment getDefaultValueAssignment_3_1() { return cDefaultValueAssignment_3_1; }
+		
+		//Expression
+		public RuleCall getDefaultValueExpressionParserRuleCall_3_1_0() { return cDefaultValueExpressionParserRuleCall_3_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
-	}
-	public class AssignedElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Assigned");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		
-		//Assigned Expression:
-		//	'=' Expression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'=' Expression
-		public Group getGroup() { return cGroup; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_0() { return cEqualsSignKeyword_0; }
-		
-		//Expression
-		public RuleCall getExpressionParserRuleCall_1() { return cExpressionParserRuleCall_1; }
 	}
 	public class BlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Block");
@@ -1135,14 +1124,15 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAssigneeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAssigneeAssigneeParserRuleCall_0_0 = (RuleCall)cAssigneeAssignment_0.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueAssignedParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueExpressionParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Assignment:
-		//	assignee=Assignee value=Assigned;
+		//	assignee=Assignee '=' value=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//assignee=Assignee value=Assigned
+		//assignee=Assignee '=' value=Expression
 		public Group getGroup() { return cGroup; }
 		
 		//assignee=Assignee
@@ -1151,11 +1141,14 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		//Assignee
 		public RuleCall getAssigneeAssigneeParserRuleCall_0_0() { return cAssigneeAssigneeParserRuleCall_0_0; }
 		
-		//value=Assigned
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//Assigned
-		public RuleCall getValueAssignedParserRuleCall_1_0() { return cValueAssignedParserRuleCall_1_0; }
+		//value=Expression
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//Expression
+		public RuleCall getValueExpressionParserRuleCall_2_0() { return cValueExpressionParserRuleCall_2_0; }
 	}
 	public class AssigneeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.tetrabox.minijava.xtext.MiniJava.Assignee");
@@ -2024,7 +2017,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	private final MethodElements pMethod;
 	private final ParameterElements pParameter;
 	private final FieldElements pField;
-	private final AssignedElements pAssigned;
 	private final AccessLevelElements eAccessLevel;
 	private final BlockElements pBlock;
 	private final StatementElements pStatement;
@@ -2075,7 +2067,6 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMethod = new MethodElements();
 		this.pParameter = new ParameterElements();
 		this.pField = new FieldElements();
-		this.pAssigned = new AssignedElements();
 		this.eAccessLevel = new AccessLevelElements();
 		this.pBlock = new BlockElements();
 		this.pStatement = new StatementElements();
@@ -2244,23 +2235,13 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Field:
-	//	access=AccessLevel? typeRef=TypeRef name=ID defaultValue=Assigned? ';';
+	//	access=AccessLevel? typeRef=TypeRef name=ID ('=' defaultValue=Expression)? ';';
 	public FieldElements getFieldAccess() {
 		return pField;
 	}
 	
 	public ParserRule getFieldRule() {
 		return getFieldAccess().getRule();
-	}
-	
-	//Assigned Expression:
-	//	'=' Expression;
-	public AssignedElements getAssignedAccess() {
-		return pAssigned;
-	}
-	
-	public ParserRule getAssignedRule() {
-		return getAssignedAccess().getRule();
 	}
 	
 	//enum AccessLevel:
@@ -2417,7 +2398,7 @@ public class MiniJavaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Assignment:
-	//	assignee=Assignee value=Assigned;
+	//	assignee=Assignee '=' value=Expression;
 	public AssignmentElements getAssignmentAccess() {
 		return pAssignment;
 	}

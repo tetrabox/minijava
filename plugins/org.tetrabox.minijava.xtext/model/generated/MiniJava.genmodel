@@ -42,7 +42,6 @@
     <genClasses ecoreClass="MiniJava.ecore#//Field">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Field/defaultValue"/>
     </genClasses>
-    <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
     <genClasses ecoreClass="MiniJava.ecore#//Block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Block/statements"/>
     </genClasses>
@@ -86,6 +85,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//Assignment/value"/>
     </genClasses>
     <genClasses ecoreClass="MiniJava.ecore#//Assignee"/>
+    <genClasses ecoreClass="MiniJava.ecore#//Expression"/>
     <genClasses ecoreClass="MiniJava.ecore#//ArrayTypeRef">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniJava.ecore#//ArrayTypeRef/typeRef"/>
     </genClasses>

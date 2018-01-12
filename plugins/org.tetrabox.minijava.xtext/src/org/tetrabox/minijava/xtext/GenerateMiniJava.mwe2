@@ -33,25 +33,16 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "org.tetrabox.minijava.xtext.MiniJava"
-			fileExtensions = "minijava"//
-//			serializer = {
-//				generateStub = false
-//			}
-			validator = {
-			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-			}
-
-			//			newProjectWizardForEclipse = {
-			//				generate = true
-			//			}
+			fileExtensions = "minijava"
 			generator = {
 				generateStub = false
 				generateJavaMain = false
 				generateMwe = false
 				generateXtendStub = false
-				generateXtendStub = false
 			}
-
+			formatter = {
+				generateStub = true
+			}
 		}
 	}
 }

@@ -148,13 +148,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass blockEClass = null;
 
   /**
@@ -261,6 +254,13 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * @generated
    */
   private EClass assigneeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -801,16 +801,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExpression()
-  {
-    return expressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getBlock()
   {
     return blockEClass;
@@ -1134,6 +1124,16 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
   public EClass getAssignee()
   {
     return assigneeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpression()
+  {
+    return expressionEClass;
   }
 
   /**
@@ -1959,8 +1959,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     fieldEClass = createEClass(FIELD);
     createEReference(fieldEClass, FIELD__DEFAULT_VALUE);
 
-    expressionEClass = createEClass(EXPRESSION);
-
     blockEClass = createEClass(BLOCK);
     createEReference(blockEClass, BLOCK__STATEMENTS);
 
@@ -2009,6 +2007,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     createEReference(assignmentEClass, ASSIGNMENT__VALUE);
 
     assigneeEClass = createEClass(ASSIGNEE);
+
+    expressionEClass = createEClass(EXPRESSION);
 
     arrayTypeRefEClass = createEClass(ARRAY_TYPE_REF);
     createEReference(arrayTypeRefEClass, ARRAY_TYPE_REF__TYPE_REF);
@@ -2157,8 +2157,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     methodEClass.getESuperTypes().add(this.getMember());
     parameterEClass.getESuperTypes().add(this.getSymbol());
     fieldEClass.getESuperTypes().add(this.getMember());
-    expressionEClass.getESuperTypes().add(this.getStatement());
-    expressionEClass.getESuperTypes().add(this.getAssignee());
     blockEClass.getESuperTypes().add(this.getStatement());
     printStatementEClass.getESuperTypes().add(this.getStatement());
     returnEClass.getESuperTypes().add(this.getStatement());
@@ -2172,6 +2170,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     variableDeclarationEClass.getESuperTypes().add(this.getSymbol());
     variableDeclarationEClass.getESuperTypes().add(this.getAssignee());
     assignmentEClass.getESuperTypes().add(this.getStatement());
+    expressionEClass.getESuperTypes().add(this.getStatement());
+    expressionEClass.getESuperTypes().add(this.getAssignee());
     arrayTypeRefEClass.getESuperTypes().add(this.getTypeRef());
     integerTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());
     booleanTypeRefEClass.getESuperTypes().add(this.getSingleTypeRef());
@@ -2239,8 +2239,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getField_DefaultValue(), this.getExpression(), null, "defaultValue", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlock_Statements(), this.getStatement(), null, "statements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2289,6 +2287,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
     initEReference(getAssignment_Value(), this.getExpression(), null, "value", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assigneeEClass, Assignee.class, "Assignee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(arrayTypeRefEClass, ArrayTypeRef.class, "ArrayTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayTypeRef_TypeRef(), this.getSingleTypeRef(), null, "typeRef", null, 0, 1, ArrayTypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -951,58 +951,33 @@ ruleField returns [EObject current=null]
 			)
 		)
 		(
+			otherlv_3='='
+			{
+				newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getEqualsSignKeyword_3_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getFieldAccess().getDefaultValueAssignedParserRuleCall_3_0());
-				}
-				lv_defaultValue_3_0=ruleAssigned
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFieldRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldAccess().getDefaultValueExpressionParserRuleCall_3_1_0());
 					}
-					set(
-						$current,
-						"defaultValue",
-						lv_defaultValue_3_0,
-						"org.tetrabox.minijava.xtext.MiniJava.Assigned");
-					afterParserOrEnumRuleCall();
-				}
+					lv_defaultValue_4_0=ruleExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldRule());
+						}
+						set(
+							$current,
+							"defaultValue",
+							lv_defaultValue_4_0,
+							"org.tetrabox.minijava.xtext.MiniJava.Expression");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)?
-		otherlv_4=';'
+		otherlv_5=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getFieldAccess().getSemicolonKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleAssigned
-entryRuleAssigned returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAssignedRule()); }
-	iv_ruleAssigned=ruleAssigned
-	{ $current=$iv_ruleAssigned.current; }
-	EOF;
-
-// Rule Assigned
-ruleAssigned returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='='
-		{
-			newLeafNode(otherlv_0, grammarAccess.getAssignedAccess().getEqualsSignKeyword_0());
-		}
-		{
-			newCompositeNode(grammarAccess.getAssignedAccess().getExpressionParserRuleCall_1());
-		}
-		this_Expression_1=ruleExpression
-		{
-			$current = $this_Expression_1.current;
-			afterParserOrEnumRuleCall();
+			newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getSemicolonKeyword_4());
 		}
 	)
 ;
@@ -1892,12 +1867,16 @@ ruleAssignment returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_1='='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getAssignmentAccess().getEqualsSignKeyword_1());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAssignmentAccess().getValueAssignedParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAssignmentAccess().getValueExpressionParserRuleCall_2_0());
 				}
-				lv_value_1_0=ruleAssigned
+				lv_value_2_0=ruleExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssignmentRule());
@@ -1905,8 +1884,8 @@ ruleAssignment returns [EObject current=null]
 					set(
 						$current,
 						"value",
-						lv_value_1_0,
-						"org.tetrabox.minijava.xtext.MiniJava.Assigned");
+						lv_value_2_0,
+						"org.tetrabox.minijava.xtext.MiniJava.Expression");
 					afterParserOrEnumRuleCall();
 				}
 			)

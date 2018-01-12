@@ -42,10 +42,7 @@ Parameter:
 	typeRef=TypeRef name=ID;
 
 Field:
-	access=AccessLevel? typeRef=TypeRef name=ID (defaultValue=Assigned)? ';';
-
-Assigned returns Expression:
-	'=' Expression;
+	access=AccessLevel? typeRef=TypeRef name=ID ('=' defaultValue=Expression)? ';';
 
 enum AccessLevel:
 	PRIVATE='private' | PROTECTED='protected' | PUBLIC='public';
@@ -107,7 +104,7 @@ VariableDeclaration:
 	typeRef=TypeRef name=ID;
 
 Assignment:
-	assignee=Assignee value=Assigned;
+	assignee=Assignee '=' value=Expression;
 
 Assignee:
 	=> ArrayAccess |

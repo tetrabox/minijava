@@ -134,7 +134,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.METHOD: return createMethod();
       case MiniJavaPackage.PARAMETER: return createParameter();
       case MiniJavaPackage.FIELD: return createField();
-      case MiniJavaPackage.EXPRESSION: return createExpression();
       case MiniJavaPackage.BLOCK: return createBlock();
       case MiniJavaPackage.STATEMENT: return createStatement();
       case MiniJavaPackage.PRINT_STATEMENT: return createPrintStatement();
@@ -151,6 +150,7 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
       case MiniJavaPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case MiniJavaPackage.ASSIGNMENT: return createAssignment();
       case MiniJavaPackage.ASSIGNEE: return createAssignee();
+      case MiniJavaPackage.EXPRESSION: return createExpression();
       case MiniJavaPackage.ARRAY_TYPE_REF: return createArrayTypeRef();
       case MiniJavaPackage.INTEGER_TYPE_REF: return createIntegerTypeRef();
       case MiniJavaPackage.BOOLEAN_TYPE_REF: return createBooleanTypeRef();
@@ -319,17 +319,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     FieldImpl field = new FieldImpl();
     return field;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression createExpression()
-  {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
   }
 
   /**
@@ -506,6 +495,17 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
   {
     AssigneeImpl assignee = new AssigneeImpl();
     return assignee;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**

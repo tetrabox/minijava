@@ -25,5 +25,6 @@ Export-Package: org.tetrabox.minijava.xtext,
  org.tetrabox.minijava.xtext.miniJava,
  org.tetrabox.minijava.xtext.parser.antlr,
  org.tetrabox.minijava.xtext.miniJava.util,
- org.tetrabox.minijava.xtext.services
+ org.tetrabox.minijava.xtext.services,
+ org.tetrabox.minijava.xtext.formatting2
 Import-Package: org.apache.log4j
