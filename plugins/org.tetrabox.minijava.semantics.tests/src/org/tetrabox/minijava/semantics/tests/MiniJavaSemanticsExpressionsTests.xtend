@@ -133,6 +133,11 @@ class MiniJavaSemanticsExpressionsTests {
 	}
 
 	@Test
+	def void equality_inequal_instance_null_true() {
+		genericExpressionTest("boolean", ''' new Main() != null ''', true)
+	}
+
+	@Test
 	def void equality_inequal_instances_false() {
 		genericExpressionTest('''
 		Main i1 = new Main(); 
@@ -172,6 +177,16 @@ class MiniJavaSemanticsExpressionsTests {
 	@Test
 	def void equality_equal_instances_true() {
 		genericExpressionTest('''Main i1 = new Main(); Main i2 = i1;''', "boolean", ''' i1 == i2 ''', true)
+	}
+
+	@Test
+	def void equality_equal_instance_null_false() {
+		genericExpressionTest("boolean", ''' new Main() == null ''', false)
+	}
+	
+		@Test
+	def void equality_equal_null_true() {
+		genericExpressionTest("boolean", ''' null == null ''', true)
 	}
 
 	@Test
@@ -382,12 +397,13 @@ class MiniJavaSemanticsExpressionsTests {
 
 	@Test
 	def void newArray_primitive() {
-		genericExpressionTest("int[]", ''' new int[7] ''', new ArrayTemplate(7, "int", #[0,0,0,0,0,0,0]))
+		genericExpressionTest("int[]", ''' new int[7] ''', new ArrayTemplate(7, "int", #[0, 0, 0, 0, 0, 0, 0]))
 	}
 
 	@Test
 	def void newArray_objects() {
-		genericExpressionTest("X[]", ''' new X[3] ''', new ArrayTemplate(3, "X", #[factory.createNullValue,factory.createNullValue,factory.createNullValue]))
+		genericExpressionTest("X[]", ''' new X[3] ''',
+			new ArrayTemplate(3, "X", #[factory.createNullValue, factory.createNullValue, factory.createNullValue]))
 	}
 
 	@Test

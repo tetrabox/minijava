@@ -128,7 +128,8 @@ class MiniJavaTestUtil {
 		val Program result = parseHelper.parse(program)
 		Assert.assertNotNull(result)
 		helper.assertNoErrors(result)
-		val state = result.execute(args)
+		result.initialize(args)
+		val state = result.execute()
 		oracle.accept(state)
 	}
 

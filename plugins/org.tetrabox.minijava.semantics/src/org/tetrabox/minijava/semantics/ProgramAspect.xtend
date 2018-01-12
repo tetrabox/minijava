@@ -12,6 +12,7 @@ import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import java.util.List
 import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -20,12 +21,15 @@ class ProgramAspect {
 
 	@Main
 	@Step
-	def void main(List<String> args) {
-		_self.execute(args)
+	def void main() {
+		_self.execute
 	}
 
-	def State execute(List<String> args) {
-		// Find main method
+
+	
+
+	@InitializeModel
+	def void initialize(List<String> args) {
 		val main = _self.classes.map[members].flatten.filter(Method).findFirst [
 			it.name == "main" && it.static && it.params.size == 1 && it.params.head.typeRef instanceof ArrayTypeRef &&
 				(it.params.head.typeRef as ArrayTypeRef).typeRef instanceof StringTypeRef
@@ -62,11 +66,19 @@ class ProgramAspect {
 			]
 			_self.state.arraysHeap.add(argsArray)
 
-			// Start the main method
-			main.body.evaluateStatementKeepContext(_self.state)
-			return _self.state
 		} else
 			throw new RuntimeException("No main method found.")
+	}
+
+	def State execute() {
+		
+		val main = _self.classes.map[members].flatten.filter(Method).findFirst [
+			it.name == "main" && it.static && it.params.size == 1 && it.params.head.typeRef instanceof ArrayTypeRef &&
+				(it.params.head.typeRef as ArrayTypeRef).typeRef instanceof StringTypeRef
+		]
+		// Start the main method
+		main.body.evaluateStatementKeepContext(_self.state)
+		return _self.state
 	}
 
 }

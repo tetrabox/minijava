@@ -56,6 +56,7 @@ import org.tetrabox.minijava.xtext.miniJava.ArrayAccess
 import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
 import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -254,8 +255,10 @@ class EqualityAspect extends ExpressionAspect {
 				left.value == (right as StringValue).value
 			} else if (left instanceof BooleanValue) {
 				left.value === (right as BooleanValue).value
+			} else if (left instanceof NullValue) {
+				right instanceof NullValue
 			} else if (left instanceof ObjectRefValue) {
-				left.instance === (right as ObjectRefValue).instance
+				(right instanceof ObjectRefValue) && left.instance === (right as ObjectRefValue).instance
 			} else {
 				throw new RuntimeException('''Type unsupported for equality operator: «left.class»''')
 			}
@@ -280,8 +283,10 @@ class InequalityAspect extends ExpressionAspect {
 				left.value != (right as StringValue).value
 			} else if (left instanceof BooleanValue) {
 				left.value !== (right as BooleanValue).value
+			} else if (left instanceof NullValue) {
+				! (right instanceof NullValue)
 			} else if (left instanceof ObjectRefValue) {
-				left.instance !== (right as ObjectRefValue).instance
+				!(right instanceof ObjectRefValue) || left.instance !== (right as ObjectRefValue).instance
 			} else {
 				throw new RuntimeException('''Type unsupported for inequality operator: «left.class»''')
 			}
