@@ -136,6 +136,12 @@ class MiniJavaFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(IfStatement ifStatement, extension IFormattableDocument document) {
+
+		// No spaces surrounding args list
+		ifStatement.regionFor.keyword("(").prepend[oneSpace]
+		ifStatement.regionFor.keyword("(").append[noSpace]
+		ifStatement.regionFor.keyword(")").prepend[noSpace]
+
 		// Visit
 		ifStatement.thenBlock.format
 		ifStatement.elseBlock.format
