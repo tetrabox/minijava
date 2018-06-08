@@ -192,7 +192,7 @@ public interface Frame extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void findCurrentFrame();
+	Frame findCurrentFrame();
 
 	/**
 	 * <!-- begin-user-doc -->

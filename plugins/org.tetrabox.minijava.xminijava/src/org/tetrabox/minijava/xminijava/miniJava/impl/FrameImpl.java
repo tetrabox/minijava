@@ -364,7 +364,7 @@ public class FrameImpl extends EObjectImpl implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void findCurrentFrame() {
+	public Frame findCurrentFrame() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

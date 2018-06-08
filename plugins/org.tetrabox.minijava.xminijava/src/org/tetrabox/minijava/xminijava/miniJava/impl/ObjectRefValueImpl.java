@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xminijava.miniJava.ObjectInstance;
 import org.tetrabox.minijava.xminijava.miniJava.ObjectRefValue;
-import org.tetrabox.minijava.xminijava.miniJava.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,17 +92,6 @@ public class ObjectRefValueImpl extends ValueImpl implements ObjectRefValue {
 		instance = newInstance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.OBJECT_REF_VALUE__INSTANCE, oldInstance, instance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value copy() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

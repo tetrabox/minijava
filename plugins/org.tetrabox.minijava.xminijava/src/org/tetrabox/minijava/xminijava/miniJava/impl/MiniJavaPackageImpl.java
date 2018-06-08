@@ -3053,18 +3053,18 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildContext(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ChildContext(), this.getContext(), this.getContext_ParentContext(), "childContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(contextEClass, null, "createChildContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(contextEClass, this.getContext(), "createChildContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(contextEClass, this.getSymbolBinding(), "findBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSymbol(), "symbol", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(contextEClass, null, "findCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(contextEClass, this.getContext(), "findCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(valueEClass, ecorePackage.getEString(), "customToString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(valueEClass, null, "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(valueEClass, this.getValue(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerValue_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3131,7 +3131,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getFrame_RootContext(), this.getContext(), null, "rootContext", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(frameEClass, null, "findCurrentFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(frameEClass, this.getFrame(), "findCurrentFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(frameEClass, this.getContext(), "findCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 

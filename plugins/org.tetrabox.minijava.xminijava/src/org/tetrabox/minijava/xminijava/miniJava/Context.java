@@ -103,7 +103,7 @@ public interface Context extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void createChildContext();
+	Context createChildContext();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,6 +119,6 @@ public interface Context extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void findCurrentContext();
+	Context findCurrentContext();
 
 } // Context

@@ -98,6 +98,12 @@
           <ecoreParameter href="XMiniJava.ecore#//Method/findOverride/c"/>
         </genParameters>
       </genOperations>
+      <genOperations>
+        <ecoreOperation href="XMiniJava.ecore#//Method/execute"/>
+        <genParameters>
+          <ecoreParameter href="XMiniJava.ecore#//Method/execute/state"/>
+        </genParameters>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="XMiniJava.ecore#//Parameter"/>

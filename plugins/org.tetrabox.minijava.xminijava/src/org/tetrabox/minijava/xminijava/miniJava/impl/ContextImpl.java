@@ -180,7 +180,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createChildContext() {
+	public Context createChildContext() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -202,7 +202,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void findCurrentContext() {
+	public Context findCurrentContext() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

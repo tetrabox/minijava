@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xminijava.miniJava.NullValue;
-import org.tetrabox.minijava.xminijava.miniJava.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,17 +32,6 @@ public class NullValueImpl extends ValueImpl implements NullValue {
 	@Override
 	protected EClass eStaticClass() {
 		return MiniJavaPackage.Literals.NULL_VALUE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value copy() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 } //NullValueImpl

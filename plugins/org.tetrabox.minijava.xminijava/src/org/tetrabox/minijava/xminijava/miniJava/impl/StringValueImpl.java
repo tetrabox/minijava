@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xminijava.miniJava.StringValue;
-import org.tetrabox.minijava.xminijava.miniJava.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,17 +83,6 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.STRING_VALUE__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value copy() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
