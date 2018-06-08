@@ -2730,7 +2730,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Imports(), this.getImport(), null, "imports", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Classes(), this.getTypeDeclaration(), null, "classes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_State(), this.getState(), null, "state", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_State(), this.getState(), null, "state", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(programEClass, null, "main", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2761,6 +2761,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEAttribute(getMethod_Static(), ecorePackage.getEBoolean(), "static", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Params(), this.getParameter(), null, "params", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Body(), this.getBlock(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(methodEClass, null, "call", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(methodEClass, this.getMethod(), "findOverride", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClass_(), "c", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3215,6 +3218,11 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (methodEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (parameterEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
@@ -3415,6 +3423,11 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (contextEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (contextEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
@@ -3430,12 +3443,22 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (valueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (valueEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
 		   });	
 		addAnnotation
 		  (valueEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (integerValueEClass, 
 		   source, 
 		   new String[] {
 		   });	
@@ -3450,6 +3473,21 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (symbolBindingEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (fieldBindingEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (stringValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (stringValueEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
@@ -3460,12 +3498,27 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (booleanValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (booleanValueEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
 		   });	
 		addAnnotation
 		  (booleanValueEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (outputStreamEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (stateEClass, 
 		   source, 
 		   new String[] {
 		   });	
@@ -3505,6 +3558,11 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (frameEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (frameEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
@@ -3515,7 +3573,42 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });	
 		addAnnotation
+		  (nullValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
 		  (nullValueEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (callEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (newCallEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (methodCall2EClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (objectInstanceEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (arrayInstanceEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (objectRefValueEClass, 
 		   source, 
 		   new String[] {
 		   });	
@@ -3526,6 +3619,11 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   });	
 		addAnnotation
 		  (objectRefValueEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (arrayRefValueEClass, 
 		   source, 
 		   new String[] {
 		   });	

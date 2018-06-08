@@ -21,6 +21,7 @@ import org.tetrabox.minijava.xminijava.miniJava.Block;
 import org.tetrabox.minijava.xminijava.miniJava.Method;
 import org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.xminijava.miniJava.Parameter;
+import org.tetrabox.minijava.xminijava.miniJava.State;
 
 /**
  * <!-- begin-user-doc -->
@@ -221,6 +222,17 @@ public class MethodImpl extends MemberImpl implements Method {
 	 * @generated
 	 */
 	public Method findOverride(org.tetrabox.minijava.xminijava.miniJava.Class c) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void call(State state) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

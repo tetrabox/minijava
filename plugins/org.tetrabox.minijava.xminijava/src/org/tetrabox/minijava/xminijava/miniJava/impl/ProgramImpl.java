@@ -82,7 +82,7 @@ public class ProgramImpl extends EObjectImpl implements Program {
 	protected EList<TypeDeclaration> classes;
 
 	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' reference.
+	 * The cached value of the '{@link #getState() <em>State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getState()
@@ -161,14 +161,6 @@ public class ProgramImpl extends EObjectImpl implements Program {
 	 * @generated
 	 */
 	public State getState() {
-		if (state != null && state.eIsProxy()) {
-			InternalEObject oldState = (InternalEObject)state;
-			state = (State)eResolveProxy(oldState);
-			if (state != oldState) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MiniJavaPackage.PROGRAM__STATE, oldState, state));
-			}
-		}
 		return state;
 	}
 
@@ -177,8 +169,14 @@ public class ProgramImpl extends EObjectImpl implements Program {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State basicGetState() {
-		return state;
+	public NotificationChain basicSetState(State newState, NotificationChain msgs) {
+		State oldState = state;
+		state = newState;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__STATE, oldState, newState);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -187,10 +185,17 @@ public class ProgramImpl extends EObjectImpl implements Program {
 	 * @generated
 	 */
 	public void setState(State newState) {
-		State oldState = state;
-		state = newState;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__STATE, oldState, state));
+		if (newState != state) {
+			NotificationChain msgs = null;
+			if (state != null)
+				msgs = ((InternalEObject)state).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.PROGRAM__STATE, null, msgs);
+			if (newState != null)
+				msgs = ((InternalEObject)newState).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniJavaPackage.PROGRAM__STATE, null, msgs);
+			msgs = basicSetState(newState, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MiniJavaPackage.PROGRAM__STATE, newState, newState));
 	}
 
 	/**
@@ -238,6 +243,8 @@ public class ProgramImpl extends EObjectImpl implements Program {
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case MiniJavaPackage.PROGRAM__CLASSES:
 				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
+			case MiniJavaPackage.PROGRAM__STATE:
+				return basicSetState(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -257,8 +264,7 @@ public class ProgramImpl extends EObjectImpl implements Program {
 			case MiniJavaPackage.PROGRAM__CLASSES:
 				return getClasses();
 			case MiniJavaPackage.PROGRAM__STATE:
-				if (resolve) return getState();
-				return basicGetState();
+				return getState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

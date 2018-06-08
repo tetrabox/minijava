@@ -85,26 +85,26 @@ public interface Program extends EObject {
 	EList<TypeDeclaration> getClasses();
 
 	/**
-	 * Returns the value of the '<em><b>State</b></em>' reference.
+	 * Returns the value of the '<em><b>State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>State</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State</em>' reference.
+	 * @return the value of the '<em>State</em>' containment reference.
 	 * @see #setState(State)
 	 * @see org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage#getProgram_State()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	State getState();
 
 	/**
-	 * Sets the value of the '{@link org.tetrabox.minijava.xminijava.miniJava.Program#getState <em>State</em>}' reference.
+	 * Sets the value of the '{@link org.tetrabox.minijava.xminijava.miniJava.Program#getState <em>State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State</em>' reference.
+	 * @param value the new value of the '<em>State</em>' containment reference.
 	 * @see #getState()
 	 * @generated
 	 */
