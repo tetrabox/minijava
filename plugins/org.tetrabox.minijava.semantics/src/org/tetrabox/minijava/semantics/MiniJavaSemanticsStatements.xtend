@@ -172,7 +172,7 @@ class ReturnAspect extends StatementAspect {
 @Aspect(className=Method)
 class MethodSortofStatementAspect {
 	@Step
-	def void execute(State state) {
+	def void call(State state) {
 		_self.body.evaluateStatement(state)
 	}
 }

@@ -66,7 +66,7 @@ public class MethodCallExpressionAspect extends ExpressionAspect {
     };
     final MethodCall2 call = ObjectExtensions.<MethodCall2>operator_doubleArrow(_createMethodCall2, _function);
     StateAspect.pushNewFrame(state, realReceiver, call, newContext);
-    MethodSortofStatementAspect.execute(realMethod, state);
+    MethodSortofStatementAspect.call(realMethod, state);
     final Value returnValue = StateAspect.findCurrentFrame(state).getReturnValue();
     StateAspect.popCurrentFrame(state);
     return returnValue;

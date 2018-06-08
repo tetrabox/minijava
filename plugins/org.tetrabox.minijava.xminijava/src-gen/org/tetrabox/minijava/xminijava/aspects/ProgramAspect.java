@@ -6,6 +6,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import fr.inria.diverse.melange.annotation.Containment;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -71,6 +72,7 @@ public class ProgramAspect {
 	return (org.tetrabox.minijava.xminijava.miniJava.State) result;
 }
   
+  @Containment
   public static State state(final Program _self) {
 	final org.tetrabox.minijava.xminijava.aspects.ProgramAspectProgramAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.ProgramAspectProgramAspectContext
 			.getSelf(_self);
@@ -80,6 +82,7 @@ public class ProgramAspect {
 	return (org.tetrabox.minijava.xminijava.miniJava.State) result;
 }
   
+  @Containment
   public static void state(final Program _self, final State state) {
 	final org.tetrabox.minijava.xminijava.aspects.ProgramAspectProgramAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.ProgramAspectProgramAspectContext
 			.getSelf(_self);

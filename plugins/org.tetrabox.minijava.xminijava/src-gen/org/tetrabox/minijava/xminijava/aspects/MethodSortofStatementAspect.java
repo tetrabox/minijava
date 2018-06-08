@@ -11,19 +11,19 @@ import org.tetrabox.minijava.xminijava.miniJava.Method;
 @SuppressWarnings("all")
 public class MethodSortofStatementAspect {
   @Step
-  public static void execute(final Method _self, final State state) {
+  public static void call(final Method _self, final State state) {
 	final org.tetrabox.minijava.xminijava.aspects.MethodSortofStatementAspectMethodAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.MethodSortofStatementAspectMethodAspectContext
 			.getSelf(_self);
 	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 		@Override
 		public void execute() {
-			_privk3_execute(_self_, _self, state);
+			_privk3_call(_self_, _self, state);
 		}
 	};
 	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
 			.getInstance().findStepManager(_self);
 	if (manager != null) {
-		manager.executeStep(_self, command, "Method", "execute");
+		manager.executeStep(_self, command, "Method", "call");
 	} else {
 		command.execute();
 	}
@@ -31,7 +31,7 @@ public class MethodSortofStatementAspect {
 	;
 }
   
-  protected static void _privk3_execute(final MethodSortofStatementAspectMethodAspectProperties _self_, final Method _self, final State state) {
+  protected static void _privk3_call(final MethodSortofStatementAspectMethodAspectProperties _self_, final Method _self, final State state) {
     BlockAspect.evaluateStatement(_self.getBody(), state);
   }
 }

@@ -367,7 +367,7 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 
 		val call = MinijavadynamicdataFactory::eINSTANCE.createMethodCall2 => [methodcall = _self]
 		state.pushNewFrame(realReceiver, call, newContext)
-		realMethod.execute(state)
+		realMethod.call(state)
 		val returnValue = state.findCurrentFrame.returnValue
 		state.popCurrentFrame
 		return returnValue
