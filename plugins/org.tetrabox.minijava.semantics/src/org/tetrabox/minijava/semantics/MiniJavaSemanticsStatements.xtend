@@ -2,8 +2,14 @@ package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
+import fr.inria.diverse.k3.al.annotationprocessor.Step
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
+import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
+import org.tetrabox.minijava.xtext.miniJava.ArrayAccess
 import org.tetrabox.minijava.xtext.miniJava.Assignment
 import org.tetrabox.minijava.xtext.miniJava.Block
 import org.tetrabox.minijava.xtext.miniJava.Expression
@@ -11,6 +17,7 @@ import org.tetrabox.minijava.xtext.miniJava.Field
 import org.tetrabox.minijava.xtext.miniJava.FieldAccess
 import org.tetrabox.minijava.xtext.miniJava.ForStatement
 import org.tetrabox.minijava.xtext.miniJava.IfStatement
+import org.tetrabox.minijava.xtext.miniJava.Method
 import org.tetrabox.minijava.xtext.miniJava.PrintStatement
 import org.tetrabox.minijava.xtext.miniJava.Return
 import org.tetrabox.minijava.xtext.miniJava.Statement
@@ -18,18 +25,11 @@ import org.tetrabox.minijava.xtext.miniJava.SymbolRef
 import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 import org.tetrabox.minijava.xtext.miniJava.WhileStatement
 
-
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
-import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
+import static extension org.tetrabox.minijava.semantics.ExpressionAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import fr.inria.diverse.k3.al.annotationprocessor.Step
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
-import org.tetrabox.minijava.xtext.miniJava.ArrayAccess
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
 
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
@@ -166,5 +166,13 @@ class ReturnAspect extends StatementAspect {
 	def void evaluateStatement(State state) {
 		val value = _self.expression.evaluateExpression(state);
 		state.findCurrentFrame.returnValue = value
+	}
+}
+
+@Aspect(className=Method)
+class MethodSortofStatementAspect {
+	@Step
+	def void execute(State state) {
+		_self.body.evaluateStatement(state)
 	}
 }

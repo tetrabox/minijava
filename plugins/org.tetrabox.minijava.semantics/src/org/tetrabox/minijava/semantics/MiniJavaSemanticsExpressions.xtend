@@ -46,6 +46,7 @@ import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
+import static extension org.tetrabox.minijava.semantics.MethodSortofStatementAspect.*
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
 import org.tetrabox.minijava.xtext.miniJava.NewObject
@@ -366,7 +367,7 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 
 		val call = MinijavadynamicdataFactory::eINSTANCE.createMethodCall2 => [methodcall = _self]
 		state.pushNewFrame(realReceiver, call, newContext)
-		realMethod.body.evaluateStatement(state)
+		realMethod.execute(state)
 		val returnValue = state.findCurrentFrame.returnValue
 		state.popCurrentFrame
 		return returnValue
