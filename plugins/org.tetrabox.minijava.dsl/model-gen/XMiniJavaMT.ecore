@@ -387,14 +387,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" eType="//Symbol"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eOperations name="createChildContext">
+    <eOperations name="createChildContext" eType="//Context">
       <eAnnotations source="aspect"/>
     </eOperations>
     <eOperations name="findBinding" eType="//SymbolBinding">
       <eAnnotations source="aspect"/>
       <eParameters name="symbol" eType="//Symbol"/>
     </eOperations>
-    <eOperations name="findCurrentContext">
+    <eOperations name="findCurrentContext" eType="//Context">
       <eAnnotations source="aspect"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="//SymbolBinding" containment="true"/>
@@ -406,7 +406,7 @@
       <eAnnotations source="aspect"/>
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="copy">
+    <eOperations name="copy" eType="//Value">
       <eAnnotations source="aspect"/>
     </eOperations>
   </eClassifiers>
@@ -496,7 +496,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame">
-    <eOperations name="findCurrentFrame">
+    <eOperations name="findCurrentFrame" eType="//Frame">
       <eAnnotations source="aspect"/>
     </eOperations>
     <eOperations name="findCurrentContext" eType="//Context">
