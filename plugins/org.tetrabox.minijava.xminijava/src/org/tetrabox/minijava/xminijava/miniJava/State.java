@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.State#getObjectsHeap <em>Objects Heap</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.State#getOutputStream <em>Output Stream</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.State#getArraysHeap <em>Arrays Heap</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.State#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @see org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage#getState()
@@ -110,22 +109,6 @@ public interface State extends EObject {
 	 * @generated
 	 */
 	EList<ArrayInstance> getArraysHeap();
-
-	/**
-	 * Returns the value of the '<em><b>Args</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Args</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Args</em>' attribute list.
-	 * @see org.tetrabox.minijava.xminijava.miniJava.MiniJavaPackage#getState_Args()
-	 * @model unique="false"
-	 * @generated
-	 */
-	EList<String> getArgs();
 
 	/**
 	 * <!-- begin-user-doc -->

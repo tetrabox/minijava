@@ -124,7 +124,7 @@ public interface Method extends Member {
 	 * @model
 	 * @generated
 	 */
-	Method findOverride(org.tetrabox.minijava.xminijava.miniJava.Class c);
+	void call(State state);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +132,6 @@ public interface Method extends Member {
 	 * @model
 	 * @generated
 	 */
-	void call(State state);
+	Method findOverride(org.tetrabox.minijava.xminijava.miniJava.Class c);
 
 } // Method

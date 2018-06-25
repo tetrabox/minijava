@@ -221,7 +221,7 @@ public class MethodImpl extends MemberImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Method findOverride(org.tetrabox.minijava.xminijava.miniJava.Class c) {
+	public void call(State state) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -232,7 +232,7 @@ public class MethodImpl extends MemberImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void call(State state) {
+	public Method findOverride(org.tetrabox.minijava.xminijava.miniJava.Class c) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

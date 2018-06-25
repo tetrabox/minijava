@@ -2124,15 +2124,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getState_Args() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFrame() {
 		return frameEClass;
 	}
@@ -2596,7 +2587,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		createEReference(stateEClass, STATE__OBJECTS_HEAP);
 		createEReference(stateEClass, STATE__OUTPUT_STREAM);
 		createEReference(stateEClass, STATE__ARRAYS_HEAP);
-		createEAttribute(stateEClass, STATE__ARGS);
 
 		frameEClass = createEClass(FRAME);
 		createEReference(frameEClass, FRAME__CALL);
@@ -3106,7 +3096,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getState_ObjectsHeap(), this.getObjectInstance(), null, "objectsHeap", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_ArraysHeap(), this.getArrayInstance(), null, "arraysHeap", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_Args(), ecorePackage.getEString(), "args", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(stateEClass, this.getFrame(), "findCurrentFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
 

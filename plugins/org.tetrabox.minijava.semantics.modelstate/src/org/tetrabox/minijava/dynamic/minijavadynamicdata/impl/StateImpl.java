@@ -14,8 +14,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,7 +36,6 @@ import org.tetrabox.minijava.dynamic.minijavadynamicdata.State;
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getObjectsHeap <em>Objects Heap</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getOutputStream <em>Output Stream</em>}</li>
  *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getArraysHeap <em>Arrays Heap</em>}</li>
- *   <li>{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.StateImpl#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,16 +80,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @ordered
 	 */
 	protected EList<ArrayInstance> arraysHeap;
-
-	/**
-	 * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArgs()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> args;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,18 +215,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getArgs() {
-		if (args == null) {
-			args = new EDataTypeEList<String>(String.class, this, MinijavadynamicdataPackage.STATE__ARGS);
-		}
-		return args;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -271,8 +246,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return getOutputStream();
 			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
 				return getArraysHeap();
-			case MinijavadynamicdataPackage.STATE__ARGS:
-				return getArgs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,10 +273,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				getArraysHeap().clear();
 				getArraysHeap().addAll((Collection<? extends ArrayInstance>)newValue);
 				return;
-			case MinijavadynamicdataPackage.STATE__ARGS:
-				getArgs().clear();
-				getArgs().addAll((Collection<? extends String>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -328,9 +297,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
 				getArraysHeap().clear();
 				return;
-			case MinijavadynamicdataPackage.STATE__ARGS:
-				getArgs().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -351,26 +317,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return outputStream != null;
 			case MinijavadynamicdataPackage.STATE__ARRAYS_HEAP:
 				return arraysHeap != null && !arraysHeap.isEmpty();
-			case MinijavadynamicdataPackage.STATE__ARGS:
-				return args != null && !args.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (args: ");
-		result.append(args);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StateImpl

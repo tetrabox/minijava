@@ -788,9 +788,6 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="XMiniJava.ecore#//State/arraysHeap"/>
       </genFeatures>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="XMiniJava.ecore#//State/args"/>
-      </genFeatures>
       <genOperations>
         <ecoreOperation href="XMiniJava.ecore#//State/findCurrentFrame"/>
       </genOperations>

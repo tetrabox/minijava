@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -40,7 +39,6 @@ import org.tetrabox.minijava.xminijava.miniJava.State;
  *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.impl.StateImpl#getObjectsHeap <em>Objects Heap</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.impl.StateImpl#getOutputStream <em>Output Stream</em>}</li>
  *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.impl.StateImpl#getArraysHeap <em>Arrays Heap</em>}</li>
- *   <li>{@link org.tetrabox.minijava.xminijava.miniJava.impl.StateImpl#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,16 +83,6 @@ public class StateImpl extends EObjectImpl implements State {
 	 * @ordered
 	 */
 	protected EList<ArrayInstance> arraysHeap;
-
-	/**
-	 * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArgs()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> args;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,18 +218,6 @@ public class StateImpl extends EObjectImpl implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getArgs() {
-		if (args == null) {
-			args = new EDataTypeEList<String>(String.class, this, MiniJavaPackage.STATE__ARGS);
-		}
-		return args;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Frame findCurrentFrame() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -350,8 +326,6 @@ public class StateImpl extends EObjectImpl implements State {
 				return getOutputStream();
 			case MiniJavaPackage.STATE__ARRAYS_HEAP:
 				return getArraysHeap();
-			case MiniJavaPackage.STATE__ARGS:
-				return getArgs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -379,10 +353,6 @@ public class StateImpl extends EObjectImpl implements State {
 				getArraysHeap().clear();
 				getArraysHeap().addAll((Collection<? extends ArrayInstance>)newValue);
 				return;
-			case MiniJavaPackage.STATE__ARGS:
-				getArgs().clear();
-				getArgs().addAll((Collection<? extends String>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -407,9 +377,6 @@ public class StateImpl extends EObjectImpl implements State {
 			case MiniJavaPackage.STATE__ARRAYS_HEAP:
 				getArraysHeap().clear();
 				return;
-			case MiniJavaPackage.STATE__ARGS:
-				getArgs().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -430,26 +397,8 @@ public class StateImpl extends EObjectImpl implements State {
 				return outputStream != null;
 			case MiniJavaPackage.STATE__ARRAYS_HEAP:
 				return arraysHeap != null && !arraysHeap.isEmpty();
-			case MiniJavaPackage.STATE__ARGS:
-				return args != null && !args.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (args: ");
-		result.append(args);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StateImpl

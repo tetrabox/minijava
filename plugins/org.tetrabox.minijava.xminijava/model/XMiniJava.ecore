@@ -504,9 +504,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectsHeap" upperBound="-1" eType="//ObjectInstance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="//OutputStream" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arraysHeap" upperBound="-1" eType="//ArrayInstance" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" unique="false" upperBound="-1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame">
     <eAnnotations source="aspect"/>

@@ -139,9 +139,9 @@ public class ProgramAspect {
         Frame _doubleArrow = ObjectExtensions.<Frame>operator_doubleArrow(_createFrame, _function_4);
         it.setRootFrame(_doubleArrow);
       };
-      State _doubleArrow = ObjectExtensions.<State>operator_doubleArrow(_createState, _function_3);
-      ProgramAspect.state(_self, _doubleArrow);
-      ProgramAspect.state(_self).getArraysHeap().add(argsArray);
+      final State state = ObjectExtensions.<State>operator_doubleArrow(_createState, _function_3);
+      state.getArraysHeap().add(argsArray);
+      ProgramAspect.state(_self, state);
     } else {
       throw new RuntimeException("No main method found.");
     }

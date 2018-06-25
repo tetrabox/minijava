@@ -450,15 +450,6 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getState_Args() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFrame() {
 		return frameEClass;
 	}
@@ -721,7 +712,6 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		createEReference(stateEClass, STATE__OBJECTS_HEAP);
 		createEReference(stateEClass, STATE__OUTPUT_STREAM);
 		createEReference(stateEClass, STATE__ARRAYS_HEAP);
-		createEAttribute(stateEClass, STATE__ARGS);
 
 		frameEClass = createEClass(FRAME);
 		createEReference(frameEClass, FRAME__CALL);
@@ -829,7 +819,6 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 		initEReference(getState_ObjectsHeap(), this.getObjectInstance(), null, "objectsHeap", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_ArraysHeap(), this.getArrayInstance(), null, "arraysHeap", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_Args(), ecorePackage.getEString(), "args", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(frameEClass, Frame.class, "Frame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFrame_Call(), this.getCall(), null, "call", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -865,6 +854,110 @@ public class MinijavadynamicdataPackageImpl extends EPackageImpl implements Mini
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// aspect
+		createAspectAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>aspect</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createAspectAnnotations() {
+		String source = "aspect";	
+		addAnnotation
+		  (contextEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (valueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (integerValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (symbolBindingEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (fieldBindingEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (stringValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (booleanValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (outputStreamEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (stateEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (frameEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (nullValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (callEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (newCallEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (methodCall2EClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (objectInstanceEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (arrayInstanceEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (objectRefValueEClass, 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (arrayRefValueEClass, 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 } //MinijavadynamicdataPackageImpl

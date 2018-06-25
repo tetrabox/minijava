@@ -60,13 +60,15 @@ class ProgramAspect {
 			rootCont.bindings.add(argsBinding)
 
 			// Prepare initial state
-			_self.state = MinijavadynamicdataFactory::eINSTANCE.createState => [
+			 
+			val state = MinijavadynamicdataFactory::eINSTANCE.createState => [
 				outputStream = MinijavadynamicdataFactory::eINSTANCE.createOutputStream
 				rootFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
 					rootContext = rootCont
 				]
 			]
-			_self.state.arraysHeap.add(argsArray)
+			state.arraysHeap.add(argsArray)
+			_self.state = state
 
 		} else
 			throw new RuntimeException("No main method found.")

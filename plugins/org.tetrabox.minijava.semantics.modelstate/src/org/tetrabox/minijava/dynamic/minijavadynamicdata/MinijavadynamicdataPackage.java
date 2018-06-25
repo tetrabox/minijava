@@ -426,22 +426,13 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	int STATE__ARRAYS_HEAP = 3;
 
 	/**
-	 * The feature id for the '<em><b>Args</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__ARGS = 4;
-
-	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 5;
+	int STATE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -1087,17 +1078,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 	EReference getState_ArraysHeap();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getArgs <em>Args</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Args</em>'.
-	 * @see org.tetrabox.minijava.dynamic.minijavadynamicdata.State#getArgs()
-	 * @see #getState()
-	 * @generated
-	 */
-	EAttribute getState_Args();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame <em>Frame</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1573,14 +1553,6 @@ public interface MinijavadynamicdataPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__ARRAYS_HEAP = eINSTANCE.getState_ArraysHeap();
-
-		/**
-		 * The meta object literal for the '<em><b>Args</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATE__ARGS = eINSTANCE.getState_Args();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.dynamic.minijavadynamicdata.impl.FrameImpl <em>Frame</em>}' class.
