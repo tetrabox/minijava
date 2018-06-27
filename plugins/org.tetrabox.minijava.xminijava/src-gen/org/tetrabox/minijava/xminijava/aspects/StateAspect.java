@@ -69,12 +69,46 @@ public class StateAspect {
 	;
 }
   
+  private static Frame frameCache(final State _self) {
+    final org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_frameCache(_self_, _self);;
+    return (org.tetrabox.minijava.xminijava.miniJava.Frame)result;
+  }
+  
+  private static void frameCache(final State _self, final Frame frameCache) {
+    final org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectContext.getSelf(_self);
+    _privk3_frameCache(_self_, _self,frameCache);;
+  }
+  
+  private static Context contextCache(final State _self) {
+    final org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_contextCache(_self_, _self);;
+    return (org.tetrabox.minijava.xminijava.miniJava.Context)result;
+  }
+  
+  private static void contextCache(final State _self, final Context contextCache) {
+    final org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectProperties _self_ = org.tetrabox.minijava.xminijava.aspects.StateAspectStateAspectContext.getSelf(_self);
+    _privk3_contextCache(_self_, _self,contextCache);;
+  }
+  
   protected static Frame _privk3_findCurrentFrame(final StateAspectStateAspectProperties _self_, final State _self) {
-    return FrameAspect.findCurrentFrame(_self.getRootFrame());
+    Frame _frameCache = StateAspect.frameCache(_self);
+    boolean _tripleEquals = (_frameCache == null);
+    if (_tripleEquals) {
+      StateAspect.frameCache(_self, FrameAspect.findCurrentFrame(_self.getRootFrame()));
+    }
+    return StateAspect.frameCache(_self);
   }
   
   protected static Context _privk3_findCurrentContext(final StateAspectStateAspectProperties _self_, final State _self) {
-    return FrameAspect.findCurrentContext(_self.getRootFrame());
+    Context _contextCache = StateAspect.contextCache(_self);
+    boolean _tripleEquals = (_contextCache == null);
+    if (_tripleEquals) {
+      StateAspect.contextCache(_self, FrameAspect.findCurrentContext(_self.getRootFrame()));
+    }
+    return StateAspect.contextCache(_self);
   }
   
   protected static void _privk3_println(final StateAspectStateAspectProperties _self_, final State _self, final String string) {
@@ -83,36 +117,119 @@ public class StateAspect {
   }
   
   protected static void _privk3_pushNewContext(final StateAspectStateAspectProperties _self_, final State _self) {
+    final Context newContext = MiniJavaFactory.eINSTANCE.createContext();
     Context _findCurrentContext = StateAspect.findCurrentContext(_self);
     boolean _tripleNotEquals = (_findCurrentContext != null);
     if (_tripleNotEquals) {
       Context _findCurrentContext_1 = StateAspect.findCurrentContext(_self);
-      _findCurrentContext_1.setChildContext(MiniJavaFactory.eINSTANCE.createContext());
+      _findCurrentContext_1.setChildContext(newContext);
     } else {
       Frame _findCurrentFrame = StateAspect.findCurrentFrame(_self);
-      _findCurrentFrame.setRootContext(MiniJavaFactory.eINSTANCE.createContext());
+      _findCurrentFrame.setRootContext(newContext);
     }
+    StateAspect.contextCache(_self, newContext);
   }
   
   protected static void _privk3_popCurrentContext(final StateAspectStateAspectProperties _self_, final State _self) {
+    final Context newCurrent = StateAspect.findCurrentContext(_self).getParentContext();
     Context _findCurrentContext = StateAspect.findCurrentContext(_self);
     _findCurrentContext.setParentContext(null);
+    StateAspect.contextCache(_self, newCurrent);
   }
   
   protected static void _privk3_pushNewFrame(final StateAspectStateAspectProperties _self_, final State _self, final ObjectInstance receiver, final Call c, final Context newContext) {
-    Frame _findCurrentFrame = StateAspect.findCurrentFrame(_self);
     Frame _createFrame = MiniJavaFactory.eINSTANCE.createFrame();
     final Procedure1<Frame> _function = (Frame it) -> {
       it.setInstance(receiver);
       it.setCall(c);
       it.setRootContext(newContext);
     };
-    Frame _doubleArrow = ObjectExtensions.<Frame>operator_doubleArrow(_createFrame, _function);
-    _findCurrentFrame.setChildFrame(_doubleArrow);
+    final Frame newFrame = ObjectExtensions.<Frame>operator_doubleArrow(_createFrame, _function);
+    Frame _findCurrentFrame = StateAspect.findCurrentFrame(_self);
+    _findCurrentFrame.setChildFrame(newFrame);
+    StateAspect.frameCache(_self, newFrame);
+    StateAspect.contextCache(_self, null);
   }
   
   protected static void _privk3_popCurrentFrame(final StateAspectStateAspectProperties _self_, final State _self) {
+    final Frame newCurrent = StateAspect.findCurrentFrame(_self).getParentFrame();
     Frame _findCurrentFrame = StateAspect.findCurrentFrame(_self);
     _findCurrentFrame.setParentFrame(null);
+    StateAspect.contextCache(_self, null);
+    StateAspect.frameCache(_self, newCurrent);
+  }
+  
+  protected static Frame _privk3_frameCache(final StateAspectStateAspectProperties _self_, final State _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getFrameCache") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.tetrabox.minijava.xminijava.miniJava.Frame) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.frameCache;
+  }
+  
+  protected static void _privk3_frameCache(final StateAspectStateAspectProperties _self_, final State _self, final Frame frameCache) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setFrameCache")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, frameCache);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.frameCache = frameCache;
+    }
+  }
+  
+  protected static Context _privk3_contextCache(final StateAspectStateAspectProperties _self_, final State _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getContextCache") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.tetrabox.minijava.xminijava.miniJava.Context) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.contextCache;
+  }
+  
+  protected static void _privk3_contextCache(final StateAspectStateAspectProperties _self_, final State _self, final Context contextCache) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setContextCache")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, contextCache);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.contextCache = contextCache;
+    }
   }
 }

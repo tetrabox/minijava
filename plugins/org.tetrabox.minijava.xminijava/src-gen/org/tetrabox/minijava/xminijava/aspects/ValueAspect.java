@@ -18,18 +18,18 @@ public class ValueAspect {
 	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.IntegerValue) {
 		result = org.tetrabox.minijava.xminijava.aspects.IntegerValueAspect
 				.copy((org.tetrabox.minijava.xminijava.miniJava.IntegerValue) _self);
-	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.StringValue) {
-		result = org.tetrabox.minijava.xminijava.aspects.StringValueAspect
-				.copy((org.tetrabox.minijava.xminijava.miniJava.StringValue) _self);
 	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.BooleanValue) {
 		result = org.tetrabox.minijava.xminijava.aspects.BooleanValueAspect
 				.copy((org.tetrabox.minijava.xminijava.miniJava.BooleanValue) _self);
-	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.NullValue) {
-		result = org.tetrabox.minijava.xminijava.aspects.NullValueAspect
-				.copy((org.tetrabox.minijava.xminijava.miniJava.NullValue) _self);
 	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.ArrayRefValue) {
 		result = org.tetrabox.minijava.xminijava.aspects.ArrayRefValueAspect
 				.copy((org.tetrabox.minijava.xminijava.miniJava.ArrayRefValue) _self);
+	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.StringValue) {
+		result = org.tetrabox.minijava.xminijava.aspects.StringValueAspect
+				.copy((org.tetrabox.minijava.xminijava.miniJava.StringValue) _self);
+	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.NullValue) {
+		result = org.tetrabox.minijava.xminijava.aspects.NullValueAspect
+				.copy((org.tetrabox.minijava.xminijava.miniJava.NullValue) _self);
 	} else if (_self instanceof org.tetrabox.minijava.xminijava.miniJava.Value) {
 		result = org.tetrabox.minijava.xminijava.aspects.ValueAspect._privk3_copy(_self_,
 				(org.tetrabox.minijava.xminijava.miniJava.Value) _self);

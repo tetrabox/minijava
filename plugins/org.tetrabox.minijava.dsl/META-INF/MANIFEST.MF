@@ -28,7 +28,4 @@ Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
-Export-Package: org.tetrabox.minijava.xminijavamt.miniJava.impl,
- org.tetrabox.minijava.xminijavamt.miniJava,
- org.tetrabox.minijava.xminijavamt.miniJava.util
 

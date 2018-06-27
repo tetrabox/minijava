@@ -58,6 +58,8 @@ import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
 import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef
 import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
 import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue
+import java.util.Map
+import java.util.HashMap
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -120,28 +122,17 @@ class PlusAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = _self.left.evaluateExpression(state)
 		val right = _self.right.evaluateExpression(state)
-		val expressions = #{left, right}
-
-		val stringExpression = expressions.filter(StringValue).head
-		val IntegerValue intExpression = expressions.filter(IntegerValue).head
-		if (stringExpression !== null) {
-			val otherExpr = expressions.findFirst[it !== stringExpression]
+		if (left instanceof StringValue || right instanceof StringValue) {
 			return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [
-				value = if (left === stringExpression)
-					stringExpression.customToString + otherExpr.customToString
-				else
-					otherExpr.customToString + stringExpression.customToString
+				value = left.customToString + right.customToString
 			]
-
-		} else if (intExpression !== null) {
-			val otherExpr = expressions.findFirst[it !== intExpression]
-			if (otherExpr instanceof IntegerValue) {
+		} else if (left instanceof IntegerValue) {
+			if (right instanceof IntegerValue) {
 				return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [
-					value = intExpression.value + otherExpr.value
+					value = left.value + right.value
 				]
 			}
 		}
-
 		throw new RuntimeException('''Unsupported plus operands: «left» + «right».''')
 	}
 }
@@ -158,7 +149,6 @@ class OrAspect extends ExpressionAspect {
 					value = left.value || right.value
 				]
 			}
-
 		}
 		throw new RuntimeException('''Unsupported or operands: «left» || «right».''')
 	}
@@ -176,7 +166,6 @@ class AndAspect extends ExpressionAspect {
 					value = left.value && right.value
 				]
 			}
-
 		}
 		throw new RuntimeException('''Unsupported or operands: «left» && «right».''')
 	}
@@ -324,28 +313,36 @@ class ParameterAspect {
 @Aspect(className=Method)
 class MethodAspect {
 
+	private Map<Class, Method> cache = new HashMap
+
 	def Method findOverride(Class c) {
 
-		if (c.members.contains(_self)) {
-			return _self
-		}
+		if (!_self.cache.containsKey(c)) {
+			val result = if (c.members.contains(_self)) {
+					_self
+				} else {
 
-		val candidate = c.members.filter(Method).findFirst [
-			it.name == _self.name && it.params.size == _self.params.size && it.typeRef.compare(_self.typeRef) &&
-				it.params.forall [ p1 |
-					_self.params.exists [ p2 |
-						p1.compare(p2)
+					val candidate = c.members.filter(Method).findFirst [
+						it.name == _self.name && it.params.size == _self.params.size &&
+							it.typeRef.compare(_self.typeRef) && it.params.forall [ p1 |
+								_self.params.exists [ p2 |
+									p1.compare(p2)
+								]
+							]
 					]
-				]
-		]
 
-		if (candidate !== null) {
-			return candidate
-		} else if (c.superClass !== null) {
-			return _self.findOverride(c.superClass)
-		} else {
-			return null
+					if (candidate !== null) {
+						candidate
+					} else if (c.superClass !== null) {
+						_self.findOverride(c.superClass)
+					} else {
+						null
+					}
+				}
+			_self.cache.put(c, result)
 		}
+
+		return _self.cache.get(c)
 	}
 }
 

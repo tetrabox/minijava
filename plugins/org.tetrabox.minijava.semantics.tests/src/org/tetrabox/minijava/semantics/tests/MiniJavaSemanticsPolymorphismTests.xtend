@@ -28,7 +28,7 @@ class MiniJavaSemanticsPolymorphismTests {
 
 	@Test
 	def void interface_implementation_three_levels() {
-		genericStatementPrintTest("I i = new Z(); i.hello();", "hello")
+		genericStatementPrintTest("I i = new Z(); i.hello(); i.hello(); i.hello();", "hello", "hello", "hello")
 	}
 
 	@Test
