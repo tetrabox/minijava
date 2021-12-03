@@ -381,7 +381,40 @@ class FieldAccessAspect extends ExpressionAspect {
 		if (binding === null){
 			return null
 		}
-		return binding.value
+		else if (binding.value instanceof NullValue){
+			val nullValue = MinijavadynamicdataFactory::eINSTANCE.createNullValue
+			return nullValue
+		}
+		else if (binding.value instanceof StringValue){
+			val stringValue = MinijavadynamicdataFactory::eINSTANCE.createStringValue =>[
+				value = (binding.value as StringValue).value
+			]
+			return stringValue
+		}
+		else if (binding.value instanceof IntegerValue){
+			val intValue = MinijavadynamicdataFactory::eINSTANCE.createIntegerValue =>[
+				value = (binding.value as IntegerValue).value
+			]
+			return intValue
+		}
+		else if (binding.value instanceof BooleanValue){
+			val boolValue = MinijavadynamicdataFactory::eINSTANCE.createBooleanValue =>[
+				value = (binding.value as BooleanValue).value
+			]
+			return boolValue
+		}
+		else if (binding.value instanceof ObjectRefValue){
+			val objRefValue = MinijavadynamicdataFactory::eINSTANCE.createObjectRefValue =>[
+				instance = (binding.value as ObjectRefValue).instance
+			]
+			return objRefValue
+		}
+		else if (binding.value instanceof ArrayRefValue){
+			val arrayRefValue = MinijavadynamicdataFactory::eINSTANCE.createArrayRefValue =>[
+				instance = (binding.value as ArrayRefValue).instance
+			]
+			return arrayRefValue
+		}
 	}
 }
 
