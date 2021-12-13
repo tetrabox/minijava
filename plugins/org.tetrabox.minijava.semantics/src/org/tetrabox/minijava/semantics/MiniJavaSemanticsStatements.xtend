@@ -1,29 +1,30 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
-import org.tetrabox.minijava.xtext.miniJava.ArrayAccess
-import org.tetrabox.minijava.xtext.miniJava.Assignment
-import org.tetrabox.minijava.xtext.miniJava.Block
-import org.tetrabox.minijava.xtext.miniJava.Expression
-import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.FieldAccess
-import org.tetrabox.minijava.xtext.miniJava.ForStatement
-import org.tetrabox.minijava.xtext.miniJava.IfStatement
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.PrintStatement
-import org.tetrabox.minijava.xtext.miniJava.Return
-import org.tetrabox.minijava.xtext.miniJava.Statement
-import org.tetrabox.minijava.xtext.miniJava.SymbolRef
-import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
-import org.tetrabox.minijava.xtext.miniJava.WhileStatement
+import org.tetrabox.minijava.model.miniJava.ArrayRefValue
+import org.tetrabox.minijava.model.miniJava.BooleanValue
+import org.tetrabox.minijava.model.miniJava.IntegerValue
+import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
+import org.tetrabox.minijava.model.miniJava.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.State
+import org.tetrabox.minijava.model.miniJava.ArrayAccess
+import org.tetrabox.minijava.model.miniJava.Assignment
+import org.tetrabox.minijava.model.miniJava.Block
+import org.tetrabox.minijava.model.miniJava.Expression
+import org.tetrabox.minijava.model.miniJava.Field
+import org.tetrabox.minijava.model.miniJava.FieldAccess
+import org.tetrabox.minijava.model.miniJava.ForStatement
+import org.tetrabox.minijava.model.miniJava.IfStatement
+import org.tetrabox.minijava.model.miniJava.Method
+import org.tetrabox.minijava.model.miniJava.PrintStatement
+import org.tetrabox.minijava.model.miniJava.Return
+import org.tetrabox.minijava.model.miniJava.Statement
+import org.tetrabox.minijava.model.miniJava.SymbolRef
+import org.tetrabox.minijava.model.miniJava.VariableDeclaration
+import org.tetrabox.minijava.model.miniJava.WhileStatement
 
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
@@ -82,7 +83,7 @@ class AssigmentAspect extends StatementAspect {
 				existingBinding.value = right
 			}
 			VariableDeclaration: {
-				val binding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
+				val binding = MiniJavaFactory::eINSTANCE.createSymbolBinding => [
 					symbol = assignee
 					value = right
 				]
@@ -95,7 +96,7 @@ class AssigmentAspect extends StatementAspect {
 				if (existingBinding !== null) {
 					existingBinding.value = right
 				} else {
-					val binding = MinijavadynamicdataFactory::eINSTANCE.createFieldBinding => [
+					val binding = MiniJavaFactory::eINSTANCE.createFieldBinding => [
 						field = f
 						value = right
 					]

@@ -1,25 +1,25 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import java.util.HashMap
 import java.util.Map
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Call
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Frame
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectInstance
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
-import org.tetrabox.minijava.xtext.miniJava.Symbol
-
+import org.tetrabox.minijava.model.miniJava.ArrayRefValue
+import org.tetrabox.minijava.model.miniJava.BooleanValue
+import org.tetrabox.minijava.model.miniJava.Call
+import org.tetrabox.minijava.model.miniJava.Context
+import org.tetrabox.minijava.model.miniJava.Frame
+import org.tetrabox.minijava.model.miniJava.IntegerValue
+import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
+import org.tetrabox.minijava.model.miniJava.NullValue
+import org.tetrabox.minijava.model.miniJava.ObjectInstance
+import org.tetrabox.minijava.model.miniJava.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.State
+import org.tetrabox.minijava.model.miniJava.StringValue
+import org.tetrabox.minijava.model.miniJava.SymbolBinding
+import org.tetrabox.minijava.model.miniJava.Value
+import org.tetrabox.minijava.model.miniJava.Symbol
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
 import static extension org.tetrabox.minijava.semantics.FrameAspect.*
 
@@ -29,7 +29,7 @@ class ContextAspect {
 	private val Map<Symbol, SymbolBinding> cache = new HashMap
 
 	def Context createChildContext() {
-		return MinijavadynamicdataFactory::eINSTANCE.createContext => [
+		return MiniJavaFactory::eINSTANCE.createContext => [
 			parentContext = _self
 		]
 	}
@@ -85,7 +85,7 @@ class StateAspect {
 	}
 
 	def void pushNewContext() {
-		val newContext = MinijavadynamicdataFactory::eINSTANCE.createContext
+		val newContext = MiniJavaFactory::eINSTANCE.createContext
 		if (_self.findCurrentContext !== null) {
 			_self.findCurrentContext.childContext = newContext
 		} else {
@@ -101,7 +101,7 @@ class StateAspect {
 	}
 
 	def void pushNewFrame(ObjectInstance receiver, Call c, Context newContext) {
-		val newFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
+		val newFrame = MiniJavaFactory::eINSTANCE.createFrame => [
 			instance = receiver
 			call = c
 			rootContext = newContext
@@ -153,7 +153,7 @@ class ValueAspect {
 class IntegerValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createIntegerValue => [value = _self.value]
+		return MiniJavaFactory::eINSTANCE.createIntegerValue => [value = _self.value]
 	}
 }
 
@@ -161,7 +161,7 @@ class IntegerValueAspect extends ValueAspect {
 class BooleanValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createBooleanValue => [value = _self.value]
+		return MiniJavaFactory::eINSTANCE.createBooleanValue => [value = _self.value]
 	}
 }
 
@@ -169,7 +169,7 @@ class BooleanValueAspect extends ValueAspect {
 class StringValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createStringValue => [value = _self.value]
+		return MiniJavaFactory::eINSTANCE.createStringValue => [value = _self.value]
 	}
 
 }
@@ -178,7 +178,7 @@ class StringValueAspect extends ValueAspect {
 class ObjectRefValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createObjectRefValue => [instance = _self.instance]
+		return MiniJavaFactory::eINSTANCE.createObjectRefValue => [instance = _self.instance]
 	}
 }
 
@@ -186,7 +186,7 @@ class ObjectRefValueAspect extends ValueAspect {
 class ArrayRefValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createArrayRefValue => [instance = _self.instance]
+		return MiniJavaFactory::eINSTANCE.createArrayRefValue => [instance = _self.instance]
 	}
 }
 
@@ -194,6 +194,6 @@ class ArrayRefValueAspect extends ValueAspect {
 class NullValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MinijavadynamicdataFactory::eINSTANCE.createNullValue
+		return MiniJavaFactory::eINSTANCE.createNullValue
 	}
 }
