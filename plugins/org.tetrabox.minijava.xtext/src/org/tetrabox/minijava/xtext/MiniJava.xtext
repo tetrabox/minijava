@@ -1,6 +1,6 @@
 grammar org.tetrabox.minijava.xtext.MiniJava with org.eclipse.xtext.common.Terminals
 
-generate miniJava "http://www.example.org/minijava/MiniJava"
+import "platform:/resource/org.tetrabox.minijava.model/model/XMiniJava.ecore" 
 
 Program:
 	('package' name=QualifiedName ';')?
