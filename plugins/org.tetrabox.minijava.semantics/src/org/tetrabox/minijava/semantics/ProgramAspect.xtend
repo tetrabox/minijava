@@ -1,19 +1,18 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.Program
-
-import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import java.util.List
-import org.tetrabox.minijava.xtext.miniJava.ArrayTypeRef
-import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
-import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
-import fr.inria.diverse.melange.annotation.Containment
+import org.tetrabox.minijava.model.miniJava.ArrayTypeRef
+import org.tetrabox.minijava.model.miniJava.Method
+import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
+import org.tetrabox.minijava.model.miniJava.Program
+import org.tetrabox.minijava.model.miniJava.State
+import org.tetrabox.minijava.model.miniJava.StringTypeRef
+import static extension org.tetrabox.minijava.semantics.BlockAspect.*;
+import fr.inria.diverse.k3.al.annotationprocessor.Containment
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -40,30 +39,30 @@ class ProgramAspect {
 		if (main !== null) {
 
 			// Prepare args array
-			val argsArray = MinijavadynamicdataFactory::eINSTANCE.createArrayInstance
+			val argsArray = MiniJavaFactory::eINSTANCE.createArrayInstance
 			argsArray.size = args.size
 			for (arg : args) {
-				val stringVal = MinijavadynamicdataFactory::eINSTANCE.createStringValue => [value = arg]
+				val stringVal = MiniJavaFactory::eINSTANCE.createStringValue => [value = arg]
 				argsArray.value.add(stringVal)
 			}
 
 			// Prepare binding for args param
-			val argsBinding = MinijavadynamicdataFactory::eINSTANCE.createSymbolBinding => [
+			val argsBinding = MiniJavaFactory::eINSTANCE.createSymbolBinding => [
 				symbol = main.params.head
-				value = MinijavadynamicdataFactory::eINSTANCE.createArrayRefValue => [
+				value = MiniJavaFactory::eINSTANCE.createArrayRefValue => [
 					instance = argsArray
 				]
 			]
 
 			// Prepare root context with args binding
-			val rootCont = MinijavadynamicdataFactory::eINSTANCE.createContext
+			val rootCont = MiniJavaFactory::eINSTANCE.createContext
 			rootCont.bindings.add(argsBinding)
 
 			// Prepare initial state
 			 
-			val state = MinijavadynamicdataFactory::eINSTANCE.createState => [
-				outputStream = MinijavadynamicdataFactory::eINSTANCE.createOutputStream
-				rootFrame = MinijavadynamicdataFactory::eINSTANCE.createFrame => [
+			val state = MiniJavaFactory::eINSTANCE.createState => [
+				outputStream = MiniJavaFactory::eINSTANCE.createOutputStream
+				rootFrame = MiniJavaFactory::eINSTANCE.createFrame => [
 					rootContext = rootCont
 				]
 			]

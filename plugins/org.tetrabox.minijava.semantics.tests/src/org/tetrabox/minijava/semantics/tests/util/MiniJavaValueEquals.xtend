@@ -1,15 +1,15 @@
 package org.tetrabox.minijava.semantics.tests.util
 
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
+import org.tetrabox.minijava.model.miniJava.BooleanValue
+import org.tetrabox.minijava.model.miniJava.IntegerValue
+import org.tetrabox.minijava.model.miniJava.StringValue
+import org.tetrabox.minijava.model.miniJava.Value
 import java.util.Map
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.NullValue
+import org.tetrabox.minijava.model.miniJava.NullValue
 import org.eclipse.xtend.lib.annotations.Data
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.ObjectRefValue
 import java.util.List
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ArrayRefValue
+import org.tetrabox.minijava.model.miniJava.ArrayRefValue
 
 /**
  * TODO work in progress

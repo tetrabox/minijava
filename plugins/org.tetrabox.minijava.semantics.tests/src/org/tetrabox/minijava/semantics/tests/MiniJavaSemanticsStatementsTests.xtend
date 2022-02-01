@@ -4,6 +4,7 @@
 package org.tetrabox.minijava.semantics.tests
 
 import com.google.inject.Inject
+
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.junit.Test

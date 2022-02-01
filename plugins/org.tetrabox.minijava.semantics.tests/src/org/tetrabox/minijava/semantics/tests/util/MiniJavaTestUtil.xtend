@@ -1,6 +1,8 @@
 package org.tetrabox.minijava.semantics.tests.util
 
 import com.google.inject.Inject
+
+
 import java.util.Map
 import java.util.Set
 import java.util.function.Consumer
@@ -8,12 +10,12 @@ import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.Assert
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Context
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.MinijavadynamicdataFactory
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.State
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.SymbolBinding
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
-import org.tetrabox.minijava.xtext.miniJava.Program
+import org.tetrabox.minijava.model.miniJava.Context
+import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
+import org.tetrabox.minijava.model.miniJava.State
+import org.tetrabox.minijava.model.miniJava.SymbolBinding
+import org.tetrabox.minijava.model.miniJava.Value
+import org.tetrabox.minijava.model.miniJava.Program
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
@@ -121,7 +123,7 @@ class MiniJavaTestUtil {
 		}
 	}
 
-	public static val factory = MinijavadynamicdataFactory::eINSTANCE
+	public static val factory = MiniJavaFactory::eINSTANCE
 
 	public def void genericTest(String program, List<String> args, Consumer<State> oracle) {
 		val helper = new ValidationTestHelper();

@@ -1,12 +1,13 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.BooleanValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.IntegerValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.StringValue
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.Value
-import org.tetrabox.minijava.dynamic.minijavadynamicdata.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.BooleanValue
+import org.tetrabox.minijava.model.miniJava.IntegerValue
+import org.tetrabox.minijava.model.miniJava.StringValue
+import org.tetrabox.minijava.model.miniJava.Value
+import org.tetrabox.minijava.model.miniJava.ObjectRefValue
 
 @Aspect(className=Value)
 class ValueToStringAspect {
