@@ -4,6 +4,7 @@
     <semanticResources>XMiniJava.ecore</semanticResources>
     <semanticResources>platform:/resource/org.tetrabox.minijava.xtext/model/generated/MiniJava.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <semanticResources>XMiniJava.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_aWRhMLsLEee8-opYSTThSQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_a0g8YLsLEee8-opYSTThSQ" name="semantics" repPath="#_a0d5ELsLEee8-opYSTThSQ" changeId="e108b420-2f38-4d2d-88db-ba4cf5cb6a75">
