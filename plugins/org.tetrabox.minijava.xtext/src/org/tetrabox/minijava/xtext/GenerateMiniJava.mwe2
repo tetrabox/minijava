@@ -32,6 +32,7 @@ Workflow {
 			}
 		}
 		language = StandardLanguage {
+			referencedResource = "platform:/resource/org.tetrabox.minijava.model/model/XMiniJava.genmodel"
 			name = "org.tetrabox.minijava.xtext.MiniJava"
 			fileExtensions = "minijava"
 			generator = {

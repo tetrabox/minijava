@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.tetrabox.minijava.model.miniJava.And;
 import org.tetrabox.minijava.model.miniJava.ArrayAccess;
 import org.tetrabox.minijava.model.miniJava.ArrayInstance;

@@ -85,28 +85,4 @@ public interface Context extends EObject {
 	 */
 	void setChildContext(Context value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Context createChildContext();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	SymbolBinding findBinding(Symbol symbol);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Context findCurrentContext();
-
 } // Context

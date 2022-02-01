@@ -65,12 +65,4 @@ public interface Division extends Expression {
 	 */
 	void setRight(Expression value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // Division

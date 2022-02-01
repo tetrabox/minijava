@@ -42,12 +42,4 @@ public interface ArrayLength extends Expression {
 	 */
 	void setArray(Expression value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // ArrayLength

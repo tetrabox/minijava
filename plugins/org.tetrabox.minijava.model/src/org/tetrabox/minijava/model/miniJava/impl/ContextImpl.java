@@ -2,8 +2,6 @@
  */
 package org.tetrabox.minijava.model.miniJava.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,10 +18,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.minijava.model.miniJava.Context;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
-import org.tetrabox.minijava.model.miniJava.Symbol;
 import org.tetrabox.minijava.model.miniJava.SymbolBinding;
 
 /**
@@ -182,39 +178,6 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Context createChildContext() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SymbolBinding findBinding(Symbol symbol) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Context findCurrentContext() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -340,24 +303,6 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return childContext != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case MiniJavaPackage.CONTEXT___CREATE_CHILD_CONTEXT:
-				return createChildContext();
-			case MiniJavaPackage.CONTEXT___FIND_BINDING__SYMBOL:
-				return findBinding((Symbol)arguments.get(0));
-			case MiniJavaPackage.CONTEXT___FIND_CURRENT_CONTEXT:
-				return findCurrentContext();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //ContextImpl

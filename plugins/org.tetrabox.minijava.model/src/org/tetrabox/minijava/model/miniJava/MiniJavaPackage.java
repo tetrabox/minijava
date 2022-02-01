@@ -114,40 +114,13 @@ public interface MiniJavaPackage extends EPackage {
 	int PROGRAM_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Main</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM___MAIN = 0;
-
-	/**
-	 * The operation id for the '<em>Initialize</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM___INITIALIZE__ELIST = 1;
-
-	/**
-	 * The operation id for the '<em>Execute</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM___EXECUTE = 2;
-
-	/**
 	 * The number of operations of the '<em>Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_OPERATION_COUNT = 3;
+	int PROGRAM_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ImportImpl <em>Import</em>}' class.
@@ -617,31 +590,13 @@ public interface MiniJavaPackage extends EPackage {
 	int METHOD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Call</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD___CALL__STATE = MEMBER_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Find Override</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD___FIND_OVERRIDE__CLASS = MEMBER_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Method</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 2;
+	int METHOD_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -727,22 +682,13 @@ public interface MiniJavaPackage extends EPackage {
 	int PARAMETER_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER___COMPARE__PARAMETER = SYMBOL_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = SYMBOL_OPERATION_COUNT + 1;
+	int PARAMETER_OPERATION_COUNT = SYMBOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.FieldImpl <em>Field</em>}' class.
@@ -828,22 +774,13 @@ public interface MiniJavaPackage extends EPackage {
 	int STATEMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT___EVALUATE_STATEMENT__STATE = 0;
-
-	/**
 	 * The number of operations of the '<em>Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_OPERATION_COUNT = 1;
+	int STATEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.BlockImpl <em>Block</em>}' class.
@@ -874,31 +811,13 @@ public interface MiniJavaPackage extends EPackage {
 	int BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement Keep Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK___EVALUATE_STATEMENT_KEEP_CONTEXT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 2;
+	int BLOCK_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.PrintStatementImpl <em>Print Statement</em>}' class.
@@ -929,22 +848,13 @@ public interface MiniJavaPackage extends EPackage {
 	int PRINT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRINT_STATEMENT___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Print Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRINT_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+	int PRINT_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ReturnImpl <em>Return</em>}' class.
@@ -975,22 +885,13 @@ public interface MiniJavaPackage extends EPackage {
 	int RETURN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Return</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+	int RETURN_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -1039,22 +940,13 @@ public interface MiniJavaPackage extends EPackage {
 	int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_STATEMENT___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>If Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+	int IF_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.WhileStatementImpl <em>While Statement</em>}' class.
@@ -1094,22 +986,13 @@ public interface MiniJavaPackage extends EPackage {
 	int WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_STATEMENT___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>While Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+	int WHILE_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ForStatementImpl <em>For Statement</em>}' class.
@@ -1167,22 +1050,13 @@ public interface MiniJavaPackage extends EPackage {
 	int FOR_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOR_STATEMENT___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>For Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOR_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+	int FOR_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.TypeRefImpl <em>Type Ref</em>}' class.
@@ -1204,22 +1078,13 @@ public interface MiniJavaPackage extends EPackage {
 	int TYPE_REF_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REF___COMPARE__TYPEREF = 0;
-
-	/**
 	 * The number of operations of the '<em>Type Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_REF_OPERATION_COUNT = 1;
+	int TYPE_REF_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SingleTypeRefImpl <em>Single Type Ref</em>}' class.
@@ -1239,15 +1104,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_TYPE_REF_FEATURE_COUNT = TYPE_REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_TYPE_REF___COMPARE__TYPEREF = TYPE_REF___COMPARE__TYPEREF;
 
 	/**
 	 * The number of operations of the '<em>Single Type Ref</em>' class.
@@ -1287,22 +1143,13 @@ public interface MiniJavaPackage extends EPackage {
 	int CLASS_REF_FEATURE_COUNT = SINGLE_TYPE_REF_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_REF___COMPARE__TYPEREF = SINGLE_TYPE_REF_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Class Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_REF_OPERATION_COUNT = SINGLE_TYPE_REF_OPERATION_COUNT + 1;
+	int CLASS_REF_OPERATION_COUNT = SINGLE_TYPE_REF_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
@@ -1388,22 +1235,13 @@ public interface MiniJavaPackage extends EPackage {
 	int ASSIGNMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Assignment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+	int ASSIGNMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.AssigneeImpl <em>Assignee</em>}' class.
@@ -1453,31 +1291,13 @@ public interface MiniJavaPackage extends EPackage {
 	int EXPRESSION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION___EVALUATE_STATEMENT__STATE = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION___EVALUATE_EXPRESSION__STATE = STATEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 2;
+	int EXPRESSION_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ArrayTypeRefImpl <em>Array Type Ref</em>}' class.
@@ -1508,15 +1328,6 @@ public interface MiniJavaPackage extends EPackage {
 	int ARRAY_TYPE_REF_FEATURE_COUNT = TYPE_REF_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_TYPE_REF___COMPARE__TYPEREF = TYPE_REF___COMPARE__TYPEREF;
-
-	/**
 	 * The number of operations of the '<em>Array Type Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1543,15 +1354,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTEGER_TYPE_REF_FEATURE_COUNT = SINGLE_TYPE_REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_TYPE_REF___COMPARE__TYPEREF = SINGLE_TYPE_REF___COMPARE__TYPEREF;
 
 	/**
 	 * The number of operations of the '<em>Integer Type Ref</em>' class.
@@ -1582,15 +1384,6 @@ public interface MiniJavaPackage extends EPackage {
 	int BOOLEAN_TYPE_REF_FEATURE_COUNT = SINGLE_TYPE_REF_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_TYPE_REF___COMPARE__TYPEREF = SINGLE_TYPE_REF___COMPARE__TYPEREF;
-
-	/**
 	 * The number of operations of the '<em>Boolean Type Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1619,15 +1412,6 @@ public interface MiniJavaPackage extends EPackage {
 	int STRING_TYPE_REF_FEATURE_COUNT = SINGLE_TYPE_REF_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_TYPE_REF___COMPARE__TYPEREF = SINGLE_TYPE_REF___COMPARE__TYPEREF;
-
-	/**
 	 * The number of operations of the '<em>String Type Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1654,15 +1438,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int VOID_TYPE_REF_FEATURE_COUNT = SINGLE_TYPE_REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VOID_TYPE_REF___COMPARE__TYPEREF = SINGLE_TYPE_REF___COMPARE__TYPEREF;
 
 	/**
 	 * The number of operations of the '<em>Void Type Ref</em>' class.
@@ -1711,31 +1486,13 @@ public interface MiniJavaPackage extends EPackage {
 	int OR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OR___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OR___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Or</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int OR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.AndImpl <em>And</em>}' class.
@@ -1775,31 +1532,13 @@ public interface MiniJavaPackage extends EPackage {
 	int AND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>And</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AND_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int AND_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.EqualityImpl <em>Equality</em>}' class.
@@ -1839,31 +1578,13 @@ public interface MiniJavaPackage extends EPackage {
 	int EQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EQUALITY___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EQUALITY___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Equality</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EQUALITY_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int EQUALITY_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.InequalityImpl <em>Inequality</em>}' class.
@@ -1903,31 +1624,13 @@ public interface MiniJavaPackage extends EPackage {
 	int INEQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INEQUALITY___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INEQUALITY___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Inequality</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INEQUALITY_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int INEQUALITY_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SuperiorOrEqualImpl <em>Superior Or Equal</em>}' class.
@@ -1967,31 +1670,13 @@ public interface MiniJavaPackage extends EPackage {
 	int SUPERIOR_OR_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPERIOR_OR_EQUAL___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPERIOR_OR_EQUAL___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Superior Or Equal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPERIOR_OR_EQUAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int SUPERIOR_OR_EQUAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.InferiorOrEqualImpl <em>Inferior Or Equal</em>}' class.
@@ -2031,31 +1716,13 @@ public interface MiniJavaPackage extends EPackage {
 	int INFERIOR_OR_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFERIOR_OR_EQUAL___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFERIOR_OR_EQUAL___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Inferior Or Equal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFERIOR_OR_EQUAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int INFERIOR_OR_EQUAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SuperiorImpl <em>Superior</em>}' class.
@@ -2095,31 +1762,13 @@ public interface MiniJavaPackage extends EPackage {
 	int SUPERIOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPERIOR___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPERIOR___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Superior</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPERIOR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int SUPERIOR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.InferiorImpl <em>Inferior</em>}' class.
@@ -2159,31 +1808,13 @@ public interface MiniJavaPackage extends EPackage {
 	int INFERIOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFERIOR___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFERIOR___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Inferior</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFERIOR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int INFERIOR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.PlusImpl <em>Plus</em>}' class.
@@ -2223,31 +1854,13 @@ public interface MiniJavaPackage extends EPackage {
 	int PLUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLUS___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLUS___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Plus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int PLUS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.MinusImpl <em>Minus</em>}' class.
@@ -2287,31 +1900,13 @@ public interface MiniJavaPackage extends EPackage {
 	int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINUS___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINUS___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Minus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MINUS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int MINUS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.MultiplicationImpl <em>Multiplication</em>}' class.
@@ -2351,31 +1946,13 @@ public interface MiniJavaPackage extends EPackage {
 	int MULTIPLICATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLICATION___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLICATION___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Multiplication</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLICATION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int MULTIPLICATION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.DivisionImpl <em>Division</em>}' class.
@@ -2415,31 +1992,13 @@ public interface MiniJavaPackage extends EPackage {
 	int DIVISION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIVISION___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIVISION___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Division</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIVISION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int DIVISION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ArrayAccessImpl <em>Array Access</em>}' class.
@@ -2479,31 +2038,13 @@ public interface MiniJavaPackage extends EPackage {
 	int ARRAY_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_ACCESS___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_ACCESS___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Array Access</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_ACCESS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int ARRAY_ACCESS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ArrayLengthImpl <em>Array Length</em>}' class.
@@ -2534,31 +2075,13 @@ public interface MiniJavaPackage extends EPackage {
 	int ARRAY_LENGTH_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_LENGTH___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_LENGTH___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Array Length</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_LENGTH_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int ARRAY_LENGTH_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.NotImpl <em>Not</em>}' class.
@@ -2589,31 +2112,13 @@ public interface MiniJavaPackage extends EPackage {
 	int NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Not</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int NOT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.NegImpl <em>Neg</em>}' class.
@@ -2644,31 +2149,13 @@ public interface MiniJavaPackage extends EPackage {
 	int NEG_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEG___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEG___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Neg</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEG_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int NEG_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.FieldAccessImpl <em>Field Access</em>}' class.
@@ -2708,31 +2195,13 @@ public interface MiniJavaPackage extends EPackage {
 	int FIELD_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Field Access</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_ACCESS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int FIELD_ACCESS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.MethodCallImpl <em>Method Call</em>}' class.
@@ -2781,31 +2250,13 @@ public interface MiniJavaPackage extends EPackage {
 	int METHOD_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_CALL___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_CALL___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Method Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int METHOD_CALL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -2836,31 +2287,13 @@ public interface MiniJavaPackage extends EPackage {
 	int STRING_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_CONSTANT___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_CONSTANT___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>String Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int STRING_CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.IntConstantImpl <em>Int Constant</em>}' class.
@@ -2891,31 +2324,13 @@ public interface MiniJavaPackage extends EPackage {
 	int INT_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INT_CONSTANT___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INT_CONSTANT___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Int Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INT_CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int INT_CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.BoolConstantImpl <em>Bool Constant</em>}' class.
@@ -2946,31 +2361,13 @@ public interface MiniJavaPackage extends EPackage {
 	int BOOL_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOL_CONSTANT___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOL_CONSTANT___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Bool Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int BOOL_CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ThisImpl <em>This</em>}' class.
@@ -2992,31 +2389,13 @@ public interface MiniJavaPackage extends EPackage {
 	int THIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THIS___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THIS___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>This</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THIS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int THIS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SuperImpl <em>Super</em>}' class.
@@ -3036,24 +2415,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUPER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPER___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPER___EVALUATE_EXPRESSION__STATE = EXPRESSION___EVALUATE_EXPRESSION__STATE;
 
 	/**
 	 * The number of operations of the '<em>Super</em>' class.
@@ -3084,31 +2445,13 @@ public interface MiniJavaPackage extends EPackage {
 	int NULL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NULL___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NULL___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Null</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int NULL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.NewObjectImpl <em>New Object</em>}' class.
@@ -3148,31 +2491,13 @@ public interface MiniJavaPackage extends EPackage {
 	int NEW_OBJECT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEW_OBJECT___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEW_OBJECT___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>New Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEW_OBJECT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int NEW_OBJECT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.NewArrayImpl <em>New Array</em>}' class.
@@ -3212,31 +2537,13 @@ public interface MiniJavaPackage extends EPackage {
 	int NEW_ARRAY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEW_ARRAY___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEW_ARRAY___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>New Array</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEW_ARRAY_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int NEW_ARRAY_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
@@ -3267,31 +2574,13 @@ public interface MiniJavaPackage extends EPackage {
 	int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Evaluate Statement</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYMBOL_REF___EVALUATE_STATEMENT__STATE = EXPRESSION___EVALUATE_STATEMENT__STATE;
-
-	/**
-	 * The operation id for the '<em>Evaluate Expression</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYMBOL_REF___EVALUATE_EXPRESSION__STATE = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Symbol Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYMBOL_REF_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
+	int SYMBOL_REF_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ContextImpl <em>Context</em>}' class.
@@ -3340,40 +2629,13 @@ public interface MiniJavaPackage extends EPackage {
 	int CONTEXT_FEATURE_COUNT = 3;
 
 	/**
-	 * The operation id for the '<em>Create Child Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT___CREATE_CHILD_CONTEXT = 0;
-
-	/**
-	 * The operation id for the '<em>Find Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT___FIND_BINDING__SYMBOL = 1;
-
-	/**
-	 * The operation id for the '<em>Find Current Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT___FIND_CURRENT_CONTEXT = 2;
-
-	/**
 	 * The number of operations of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_OPERATION_COUNT = 3;
+	int CONTEXT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.ValueImpl <em>Value</em>}' class.
@@ -3395,31 +2657,13 @@ public interface MiniJavaPackage extends EPackage {
 	int VALUE_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Custom To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE___CUSTOM_TO_STRING = 0;
-
-	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE___COPY = 1;
-
-	/**
 	 * The number of operations of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_OPERATION_COUNT = 2;
+	int VALUE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.IntegerValueImpl <em>Integer Value</em>}' class.
@@ -3450,31 +2694,13 @@ public interface MiniJavaPackage extends EPackage {
 	int INTEGER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE___COPY = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Custom To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE___CUSTOM_TO_STRING = VALUE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Integer Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 2;
+	int INTEGER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
@@ -3597,31 +2823,13 @@ public interface MiniJavaPackage extends EPackage {
 	int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_VALUE___COPY = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Custom To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_VALUE___CUSTOM_TO_STRING = VALUE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>String Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 2;
+	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
@@ -3652,31 +2860,13 @@ public interface MiniJavaPackage extends EPackage {
 	int BOOLEAN_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Custom To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_VALUE___CUSTOM_TO_STRING = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_VALUE___COPY = VALUE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Boolean Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 2;
+	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.OutputStreamImpl <em>Output Stream</em>}' class.
@@ -3771,76 +2961,13 @@ public interface MiniJavaPackage extends EPackage {
 	int STATE_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Find Current Frame</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___FIND_CURRENT_FRAME = 0;
-
-	/**
-	 * The operation id for the '<em>Find Current Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___FIND_CURRENT_CONTEXT = 1;
-
-	/**
-	 * The operation id for the '<em>Println</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___PRINTLN__STRING = 2;
-
-	/**
-	 * The operation id for the '<em>Push New Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___PUSH_NEW_CONTEXT = 3;
-
-	/**
-	 * The operation id for the '<em>Pop Current Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___POP_CURRENT_CONTEXT = 4;
-
-	/**
-	 * The operation id for the '<em>Push New Frame</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___PUSH_NEW_FRAME__OBJECTINSTANCE_CALL_CONTEXT = 5;
-
-	/**
-	 * The operation id for the '<em>Pop Current Frame</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___POP_CURRENT_FRAME = 6;
-
-	/**
 	 * The number of operations of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_OPERATION_COUNT = 7;
+	int STATE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.FrameImpl <em>Frame</em>}' class.
@@ -3916,31 +3043,13 @@ public interface MiniJavaPackage extends EPackage {
 	int FRAME_FEATURE_COUNT = 6;
 
 	/**
-	 * The operation id for the '<em>Find Current Frame</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FRAME___FIND_CURRENT_FRAME = 0;
-
-	/**
-	 * The operation id for the '<em>Find Current Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FRAME___FIND_CURRENT_CONTEXT = 1;
-
-	/**
 	 * The number of operations of the '<em>Frame</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAME_OPERATION_COUNT = 2;
+	int FRAME_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.NullValueImpl <em>Null Value</em>}' class.
@@ -3962,31 +3071,13 @@ public interface MiniJavaPackage extends EPackage {
 	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Custom To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NULL_VALUE___CUSTOM_TO_STRING = VALUE___CUSTOM_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NULL_VALUE___COPY = VALUE_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Null Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
+	int NULL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.minijava.model.miniJava.impl.CallImpl <em>Call</em>}' class.
@@ -4266,15 +3357,6 @@ public interface MiniJavaPackage extends EPackage {
 	int ARRAY_REF_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Custom To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_REF_VALUE___CUSTOM_TO_STRING = VALUE___CUSTOM_TO_STRING;
-
-	/**
 	 * The operation id for the '<em>Copy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4356,36 +3438,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProgram_State();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Program#main() <em>Main</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Main</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Program#main()
-	 * @generated
-	 */
-	EOperation getProgram__Main();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Program#initialize(org.eclipse.emf.common.util.EList) <em>Initialize</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Initialize</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Program#initialize(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	EOperation getProgram__Initialize__EList();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Program#execute() <em>Execute</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Execute</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Program#execute()
-	 * @generated
-	 */
-	EOperation getProgram__Execute();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Import <em>Import</em>}'.
@@ -4569,26 +3621,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getMethod_Body();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Method#call(org.tetrabox.minijava.model.miniJava.State) <em>Call</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Call</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Method#call(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getMethod__Call__State();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Method#findOverride(org.tetrabox.minijava.model.miniJava.Class) <em>Find Override</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Override</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Method#findOverride(org.tetrabox.minijava.model.miniJava.Class)
-	 * @generated
-	 */
-	EOperation getMethod__FindOverride__Class();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4597,16 +3629,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParameter();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Parameter#compare(org.tetrabox.minijava.model.miniJava.Parameter) <em>Compare</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compare</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Parameter#compare(org.tetrabox.minijava.model.miniJava.Parameter)
-	 * @generated
-	 */
-	EOperation getParameter__Compare__Parameter();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Field <em>Field</em>}'.
@@ -4651,26 +3673,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getBlock_Statements();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Block#evaluateStatementKeepContext(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement Keep Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement Keep Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Block#evaluateStatementKeepContext(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getBlock__EvaluateStatementKeepContext__State();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Block#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Block#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getBlock__EvaluateStatement__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Statement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4679,16 +3681,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStatement();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Statement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Statement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getStatement__EvaluateStatement__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.PrintStatement <em>Print Statement</em>}'.
@@ -4712,16 +3704,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getPrintStatement_Expression();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.PrintStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.PrintStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getPrintStatement__EvaluateStatement__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Return <em>Return</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4741,16 +3723,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReturn_Expression();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Return#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Return#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getReturn__EvaluateStatement__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.IfStatement <em>If Statement</em>}'.
@@ -4796,16 +3768,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getIfStatement_ElseBlock();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.IfStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.IfStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getIfStatement__EvaluateStatement__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.WhileStatement <em>While Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4836,16 +3798,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getWhileStatement_Block();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.WhileStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.WhileStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getWhileStatement__EvaluateStatement__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.ForStatement <em>For Statement</em>}'.
@@ -4902,16 +3854,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getForStatement_Block();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.ForStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.ForStatement#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getForStatement__EvaluateStatement__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.TypeRef <em>Type Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4920,16 +3862,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTypeRef();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.TypeRef#compare(org.tetrabox.minijava.model.miniJava.TypeRef) <em>Compare</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compare</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.TypeRef#compare(org.tetrabox.minijava.model.miniJava.TypeRef)
-	 * @generated
-	 */
-	EOperation getTypeRef__Compare__TypeRef();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.SingleTypeRef <em>Single Type Ref</em>}'.
@@ -4961,16 +3893,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getClassRef_ReferencedClass();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.ClassRef#compare(org.tetrabox.minijava.model.miniJava.TypeRef) <em>Compare</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compare</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.ClassRef#compare(org.tetrabox.minijava.model.miniJava.TypeRef)
-	 * @generated
-	 */
-	EOperation getClassRef__Compare__TypeRef();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.NamedElement <em>Named Element</em>}'.
@@ -5067,16 +3989,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getAssignment_Value();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Assignment#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Assignment#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getAssignment__EvaluateStatement__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Assignee <em>Assignee</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5095,26 +4007,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExpression();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Expression#evaluateStatement(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Statement</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Statement</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Expression#evaluateStatement(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getExpression__EvaluateStatement__State();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Expression#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Expression#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getExpression__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.ArrayTypeRef <em>Array Type Ref</em>}'.
@@ -5210,16 +4102,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getOr_Right();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Or#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Or#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getOr__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.And <em>And</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5250,16 +4132,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAnd_Right();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.And#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.And#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getAnd__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Equality <em>Equality</em>}'.
@@ -5294,16 +4166,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getEquality_Right();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Equality#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Equality#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getEquality__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Inequality <em>Inequality</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5334,16 +4196,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInequality_Right();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Inequality#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Inequality#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getInequality__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.SuperiorOrEqual <em>Superior Or Equal</em>}'.
@@ -5378,16 +4230,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getSuperiorOrEqual_Right();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.SuperiorOrEqual#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.SuperiorOrEqual#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getSuperiorOrEqual__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.InferiorOrEqual <em>Inferior Or Equal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5418,16 +4260,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInferiorOrEqual_Right();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.InferiorOrEqual#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.InferiorOrEqual#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getInferiorOrEqual__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Superior <em>Superior</em>}'.
@@ -5462,16 +4294,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getSuperior_Right();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Superior#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Superior#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getSuperior__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Inferior <em>Inferior</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5502,16 +4324,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInferior_Right();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Inferior#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Inferior#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getInferior__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Plus <em>Plus</em>}'.
@@ -5546,16 +4358,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getPlus_Right();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Plus#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Plus#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getPlus__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Minus <em>Minus</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5586,16 +4388,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMinus_Right();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Minus#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Minus#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getMinus__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Multiplication <em>Multiplication</em>}'.
@@ -5630,16 +4422,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getMultiplication_Right();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Multiplication#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Multiplication#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getMultiplication__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Division <em>Division</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5670,16 +4452,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDivision_Right();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Division#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Division#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getDivision__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.ArrayAccess <em>Array Access</em>}'.
@@ -5714,16 +4486,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getArrayAccess_Index();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.ArrayAccess#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.ArrayAccess#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getArrayAccess__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.ArrayLength <em>Array Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5743,16 +4505,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArrayLength_Array();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.ArrayLength#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.ArrayLength#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getArrayLength__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Not <em>Not</em>}'.
@@ -5776,16 +4528,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getNot_Expression();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Not#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Not#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getNot__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Neg <em>Neg</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5805,16 +4547,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeg_Expression();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Neg#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Neg#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getNeg__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.FieldAccess <em>Field Access</em>}'.
@@ -5847,16 +4579,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFieldAccess_Field();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.FieldAccess#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.FieldAccess#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getFieldAccess__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.MethodCall <em>Method Call</em>}'.
@@ -5902,16 +4624,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getMethodCall_Args();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.MethodCall#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.MethodCall#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getMethodCall__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.StringConstant <em>String Constant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5931,16 +4643,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringConstant_Value();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.StringConstant#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.StringConstant#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getStringConstant__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.IntConstant <em>Int Constant</em>}'.
@@ -5964,16 +4666,6 @@ public interface MiniJavaPackage extends EPackage {
 	EAttribute getIntConstant_Value();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.IntConstant#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.IntConstant#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getIntConstant__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.BoolConstant <em>Bool Constant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5995,16 +4687,6 @@ public interface MiniJavaPackage extends EPackage {
 	EAttribute getBoolConstant_Value();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.BoolConstant#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.BoolConstant#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getBoolConstant__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.This <em>This</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6013,16 +4695,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getThis();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.This#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.This#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getThis__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Super <em>Super</em>}'.
@@ -6043,16 +4715,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNull();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Null#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Null#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getNull__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.NewObject <em>New Object</em>}'.
@@ -6087,16 +4749,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getNewObject_Args();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.NewObject#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.NewObject#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getNewObject__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.NewArray <em>New Array</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6129,16 +4781,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getNewArray_Size();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.NewArray#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.NewArray#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getNewArray__EvaluateExpression__State();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.SymbolRef <em>Symbol Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6158,16 +4800,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSymbolRef_Symbol();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.SymbolRef#evaluateExpression(org.tetrabox.minijava.model.miniJava.State) <em>Evaluate Expression</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Evaluate Expression</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.SymbolRef#evaluateExpression(org.tetrabox.minijava.model.miniJava.State)
-	 * @generated
-	 */
-	EOperation getSymbolRef__EvaluateExpression__State();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Context <em>Context</em>}'.
@@ -6213,36 +4845,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getContext_ChildContext();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Context#createChildContext() <em>Create Child Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Child Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Context#createChildContext()
-	 * @generated
-	 */
-	EOperation getContext__CreateChildContext();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Context#findBinding(org.tetrabox.minijava.model.miniJava.Symbol) <em>Find Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Binding</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Context#findBinding(org.tetrabox.minijava.model.miniJava.Symbol)
-	 * @generated
-	 */
-	EOperation getContext__FindBinding__Symbol();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Context#findCurrentContext() <em>Find Current Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Current Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Context#findCurrentContext()
-	 * @generated
-	 */
-	EOperation getContext__FindCurrentContext();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6251,26 +4853,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getValue();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Value#customToString() <em>Custom To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Custom To String</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Value#customToString()
-	 * @generated
-	 */
-	EOperation getValue__CustomToString();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Value#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Value#copy()
-	 * @generated
-	 */
-	EOperation getValue__Copy();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.IntegerValue <em>Integer Value</em>}'.
@@ -6292,26 +4874,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntegerValue_Value();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.IntegerValue#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.IntegerValue#copy()
-	 * @generated
-	 */
-	EOperation getIntegerValue__Copy();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.IntegerValue#customToString() <em>Custom To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Custom To String</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.IntegerValue#customToString()
-	 * @generated
-	 */
-	EOperation getIntegerValue__CustomToString();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.SymbolBinding <em>Symbol Binding</em>}'.
@@ -6399,26 +4961,6 @@ public interface MiniJavaPackage extends EPackage {
 	EAttribute getStringValue_Value();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.StringValue#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.StringValue#copy()
-	 * @generated
-	 */
-	EOperation getStringValue__Copy();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.StringValue#customToString() <em>Custom To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Custom To String</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.StringValue#customToString()
-	 * @generated
-	 */
-	EOperation getStringValue__CustomToString();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.BooleanValue <em>Boolean Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6438,26 +4980,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBooleanValue_Value();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.BooleanValue#customToString() <em>Custom To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Custom To String</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.BooleanValue#customToString()
-	 * @generated
-	 */
-	EOperation getBooleanValue__CustomToString();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.BooleanValue#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.BooleanValue#copy()
-	 * @generated
-	 */
-	EOperation getBooleanValue__Copy();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.OutputStream <em>Output Stream</em>}'.
@@ -6533,76 +5055,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_ArraysHeap();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#findCurrentFrame() <em>Find Current Frame</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Current Frame</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#findCurrentFrame()
-	 * @generated
-	 */
-	EOperation getState__FindCurrentFrame();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#findCurrentContext() <em>Find Current Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Current Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#findCurrentContext()
-	 * @generated
-	 */
-	EOperation getState__FindCurrentContext();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#println(java.lang.String) <em>Println</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Println</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#println(java.lang.String)
-	 * @generated
-	 */
-	EOperation getState__Println__String();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#pushNewContext() <em>Push New Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Push New Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#pushNewContext()
-	 * @generated
-	 */
-	EOperation getState__PushNewContext();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#popCurrentContext() <em>Pop Current Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Pop Current Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#popCurrentContext()
-	 * @generated
-	 */
-	EOperation getState__PopCurrentContext();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#pushNewFrame(org.tetrabox.minijava.model.miniJava.ObjectInstance, org.tetrabox.minijava.model.miniJava.Call, org.tetrabox.minijava.model.miniJava.Context) <em>Push New Frame</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Push New Frame</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#pushNewFrame(org.tetrabox.minijava.model.miniJava.ObjectInstance, org.tetrabox.minijava.model.miniJava.Call, org.tetrabox.minijava.model.miniJava.Context)
-	 * @generated
-	 */
-	EOperation getState__PushNewFrame__ObjectInstance_Call_Context();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.State#popCurrentFrame() <em>Pop Current Frame</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Pop Current Frame</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.State#popCurrentFrame()
-	 * @generated
-	 */
-	EOperation getState__PopCurrentFrame();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Frame <em>Frame</em>}'.
@@ -6681,26 +5133,6 @@ public interface MiniJavaPackage extends EPackage {
 	EReference getFrame_ReturnValue();
 
 	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Frame#findCurrentFrame() <em>Find Current Frame</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Current Frame</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Frame#findCurrentFrame()
-	 * @generated
-	 */
-	EOperation getFrame__FindCurrentFrame();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.Frame#findCurrentContext() <em>Find Current Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Current Context</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.Frame#findCurrentContext()
-	 * @generated
-	 */
-	EOperation getFrame__FindCurrentContext();
-
-	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.NullValue <em>Null Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6709,16 +5141,6 @@ public interface MiniJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNullValue();
-
-	/**
-	 * Returns the meta object for the '{@link org.tetrabox.minijava.model.miniJava.NullValue#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see org.tetrabox.minijava.model.miniJava.NullValue#copy()
-	 * @generated
-	 */
-	EOperation getNullValue__Copy();
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.minijava.model.miniJava.Call <em>Call</em>}'.
@@ -6984,30 +5406,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference PROGRAM__STATE = eINSTANCE.getProgram_State();
 
 		/**
-		 * The meta object literal for the '<em><b>Main</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROGRAM___MAIN = eINSTANCE.getProgram__Main();
-
-		/**
-		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROGRAM___INITIALIZE__ELIST = eINSTANCE.getProgram__Initialize__EList();
-
-		/**
-		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROGRAM___EXECUTE = eINSTANCE.getProgram__Execute();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ImportImpl <em>Import</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7156,22 +5554,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference METHOD__BODY = eINSTANCE.getMethod_Body();
 
 		/**
-		 * The meta object literal for the '<em><b>Call</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation METHOD___CALL__STATE = eINSTANCE.getMethod__Call__State();
-
-		/**
-		 * The meta object literal for the '<em><b>Find Override</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation METHOD___FIND_OVERRIDE__CLASS = eINSTANCE.getMethod__FindOverride__Class();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7180,14 +5562,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER = eINSTANCE.getParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Compare</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER___COMPARE__PARAMETER = eINSTANCE.getParameter__Compare__Parameter();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.FieldImpl <em>Field</em>}' class.
@@ -7226,22 +5600,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference BLOCK__STATEMENTS = eINSTANCE.getBlock_Statements();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement Keep Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BLOCK___EVALUATE_STATEMENT_KEEP_CONTEXT__STATE = eINSTANCE.getBlock__EvaluateStatementKeepContext__State();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BLOCK___EVALUATE_STATEMENT__STATE = eINSTANCE.getBlock__EvaluateStatement__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.StatementImpl <em>Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7250,14 +5608,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATEMENT = eINSTANCE.getStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATEMENT___EVALUATE_STATEMENT__STATE = eINSTANCE.getStatement__EvaluateStatement__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.PrintStatementImpl <em>Print Statement</em>}' class.
@@ -7278,14 +5628,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference PRINT_STATEMENT__EXPRESSION = eINSTANCE.getPrintStatement_Expression();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PRINT_STATEMENT___EVALUATE_STATEMENT__STATE = eINSTANCE.getPrintStatement__EvaluateStatement__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ReturnImpl <em>Return</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7302,14 +5644,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RETURN__EXPRESSION = eINSTANCE.getReturn_Expression();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RETURN___EVALUATE_STATEMENT__STATE = eINSTANCE.getReturn__EvaluateStatement__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -7346,14 +5680,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference IF_STATEMENT__ELSE_BLOCK = eINSTANCE.getIfStatement_ElseBlock();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation IF_STATEMENT___EVALUATE_STATEMENT__STATE = eINSTANCE.getIfStatement__EvaluateStatement__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.WhileStatementImpl <em>While Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7378,14 +5704,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference WHILE_STATEMENT__BLOCK = eINSTANCE.getWhileStatement_Block();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation WHILE_STATEMENT___EVALUATE_STATEMENT__STATE = eINSTANCE.getWhileStatement__EvaluateStatement__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ForStatementImpl <em>For Statement</em>}' class.
@@ -7430,14 +5748,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference FOR_STATEMENT__BLOCK = eINSTANCE.getForStatement_Block();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FOR_STATEMENT___EVALUATE_STATEMENT__STATE = eINSTANCE.getForStatement__EvaluateStatement__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.TypeRefImpl <em>Type Ref</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7446,14 +5756,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TYPE_REF = eINSTANCE.getTypeRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Compare</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TYPE_REF___COMPARE__TYPEREF = eINSTANCE.getTypeRef__Compare__TypeRef();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.SingleTypeRefImpl <em>Single Type Ref</em>}' class.
@@ -7482,14 +5784,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLASS_REF__REFERENCED_CLASS = eINSTANCE.getClassRef_ReferencedClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Compare</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CLASS_REF___COMPARE__TYPEREF = eINSTANCE.getClassRef__Compare__TypeRef();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -7574,14 +5868,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference ASSIGNMENT__VALUE = eINSTANCE.getAssignment_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIGNMENT___EVALUATE_STATEMENT__STATE = eINSTANCE.getAssignment__EvaluateStatement__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.AssigneeImpl <em>Assignee</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7600,22 +5886,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXPRESSION = eINSTANCE.getExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Statement</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation EXPRESSION___EVALUATE_STATEMENT__STATE = eINSTANCE.getExpression__EvaluateStatement__State();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation EXPRESSION___EVALUATE_EXPRESSION__STATE = eINSTANCE.getExpression__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ArrayTypeRefImpl <em>Array Type Ref</em>}' class.
@@ -7702,14 +5972,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference OR__RIGHT = eINSTANCE.getOr_Right();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OR___EVALUATE_EXPRESSION__STATE = eINSTANCE.getOr__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.AndImpl <em>And</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7734,14 +5996,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference AND__RIGHT = eINSTANCE.getAnd_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation AND___EVALUATE_EXPRESSION__STATE = eINSTANCE.getAnd__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.EqualityImpl <em>Equality</em>}' class.
@@ -7770,14 +6024,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference EQUALITY__RIGHT = eINSTANCE.getEquality_Right();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation EQUALITY___EVALUATE_EXPRESSION__STATE = eINSTANCE.getEquality__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.InequalityImpl <em>Inequality</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7802,14 +6048,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INEQUALITY__RIGHT = eINSTANCE.getInequality_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INEQUALITY___EVALUATE_EXPRESSION__STATE = eINSTANCE.getInequality__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.SuperiorOrEqualImpl <em>Superior Or Equal</em>}' class.
@@ -7838,14 +6076,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference SUPERIOR_OR_EQUAL__RIGHT = eINSTANCE.getSuperiorOrEqual_Right();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SUPERIOR_OR_EQUAL___EVALUATE_EXPRESSION__STATE = eINSTANCE.getSuperiorOrEqual__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.InferiorOrEqualImpl <em>Inferior Or Equal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7870,14 +6100,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INFERIOR_OR_EQUAL__RIGHT = eINSTANCE.getInferiorOrEqual_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INFERIOR_OR_EQUAL___EVALUATE_EXPRESSION__STATE = eINSTANCE.getInferiorOrEqual__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.SuperiorImpl <em>Superior</em>}' class.
@@ -7906,14 +6128,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference SUPERIOR__RIGHT = eINSTANCE.getSuperior_Right();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SUPERIOR___EVALUATE_EXPRESSION__STATE = eINSTANCE.getSuperior__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.InferiorImpl <em>Inferior</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7938,14 +6152,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INFERIOR__RIGHT = eINSTANCE.getInferior_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INFERIOR___EVALUATE_EXPRESSION__STATE = eINSTANCE.getInferior__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.PlusImpl <em>Plus</em>}' class.
@@ -7974,14 +6180,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference PLUS__RIGHT = eINSTANCE.getPlus_Right();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PLUS___EVALUATE_EXPRESSION__STATE = eINSTANCE.getPlus__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.MinusImpl <em>Minus</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8006,14 +6204,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MINUS__RIGHT = eINSTANCE.getMinus_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINUS___EVALUATE_EXPRESSION__STATE = eINSTANCE.getMinus__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.MultiplicationImpl <em>Multiplication</em>}' class.
@@ -8042,14 +6232,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference MULTIPLICATION__RIGHT = eINSTANCE.getMultiplication_Right();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MULTIPLICATION___EVALUATE_EXPRESSION__STATE = eINSTANCE.getMultiplication__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.DivisionImpl <em>Division</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8074,14 +6256,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DIVISION__RIGHT = eINSTANCE.getDivision_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DIVISION___EVALUATE_EXPRESSION__STATE = eINSTANCE.getDivision__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ArrayAccessImpl <em>Array Access</em>}' class.
@@ -8110,14 +6284,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference ARRAY_ACCESS__INDEX = eINSTANCE.getArrayAccess_Index();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ARRAY_ACCESS___EVALUATE_EXPRESSION__STATE = eINSTANCE.getArrayAccess__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ArrayLengthImpl <em>Array Length</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8134,14 +6300,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARRAY_LENGTH__ARRAY = eINSTANCE.getArrayLength_Array();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ARRAY_LENGTH___EVALUATE_EXPRESSION__STATE = eINSTANCE.getArrayLength__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.NotImpl <em>Not</em>}' class.
@@ -8162,14 +6320,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NOT___EVALUATE_EXPRESSION__STATE = eINSTANCE.getNot__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.NegImpl <em>Neg</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8186,14 +6336,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEG__EXPRESSION = eINSTANCE.getNeg_Expression();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEG___EVALUATE_EXPRESSION__STATE = eINSTANCE.getNeg__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.FieldAccessImpl <em>Field Access</em>}' class.
@@ -8220,14 +6362,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FIELD_ACCESS__FIELD = eINSTANCE.getFieldAccess_Field();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FIELD_ACCESS___EVALUATE_EXPRESSION__STATE = eINSTANCE.getFieldAccess__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.MethodCallImpl <em>Method Call</em>}' class.
@@ -8264,14 +6398,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference METHOD_CALL__ARGS = eINSTANCE.getMethodCall_Args();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation METHOD_CALL___EVALUATE_EXPRESSION__STATE = eINSTANCE.getMethodCall__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.StringConstantImpl <em>String Constant</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8288,14 +6414,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_CONSTANT__VALUE = eINSTANCE.getStringConstant_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STRING_CONSTANT___EVALUATE_EXPRESSION__STATE = eINSTANCE.getStringConstant__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.IntConstantImpl <em>Int Constant</em>}' class.
@@ -8316,14 +6434,6 @@ public interface MiniJavaPackage extends EPackage {
 		EAttribute INT_CONSTANT__VALUE = eINSTANCE.getIntConstant_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INT_CONSTANT___EVALUATE_EXPRESSION__STATE = eINSTANCE.getIntConstant__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.BoolConstantImpl <em>Bool Constant</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8342,14 +6452,6 @@ public interface MiniJavaPackage extends EPackage {
 		EAttribute BOOL_CONSTANT__VALUE = eINSTANCE.getBoolConstant_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOL_CONSTANT___EVALUATE_EXPRESSION__STATE = eINSTANCE.getBoolConstant__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ThisImpl <em>This</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8358,14 +6460,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass THIS = eINSTANCE.getThis();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation THIS___EVALUATE_EXPRESSION__STATE = eINSTANCE.getThis__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.SuperImpl <em>Super</em>}' class.
@@ -8386,14 +6480,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NULL = eINSTANCE.getNull();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NULL___EVALUATE_EXPRESSION__STATE = eINSTANCE.getNull__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.NewObjectImpl <em>New Object</em>}' class.
@@ -8422,14 +6508,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference NEW_OBJECT__ARGS = eINSTANCE.getNewObject_Args();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEW_OBJECT___EVALUATE_EXPRESSION__STATE = eINSTANCE.getNewObject__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.NewArrayImpl <em>New Array</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8456,14 +6534,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference NEW_ARRAY__SIZE = eINSTANCE.getNewArray_Size();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEW_ARRAY___EVALUATE_EXPRESSION__STATE = eINSTANCE.getNewArray__EvaluateExpression__State();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8480,14 +6550,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
-
-		/**
-		 * The meta object literal for the '<em><b>Evaluate Expression</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SYMBOL_REF___EVALUATE_EXPRESSION__STATE = eINSTANCE.getSymbolRef__EvaluateExpression__State();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ContextImpl <em>Context</em>}' class.
@@ -8524,30 +6586,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference CONTEXT__CHILD_CONTEXT = eINSTANCE.getContext_ChildContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Child Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONTEXT___CREATE_CHILD_CONTEXT = eINSTANCE.getContext__CreateChildContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Find Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONTEXT___FIND_BINDING__SYMBOL = eINSTANCE.getContext__FindBinding__Symbol();
-
-		/**
-		 * The meta object literal for the '<em><b>Find Current Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONTEXT___FIND_CURRENT_CONTEXT = eINSTANCE.getContext__FindCurrentContext();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8556,22 +6594,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VALUE = eINSTANCE.getValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VALUE___CUSTOM_TO_STRING = eINSTANCE.getValue__CustomToString();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VALUE___COPY = eINSTANCE.getValue__Copy();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.IntegerValueImpl <em>Integer Value</em>}' class.
@@ -8590,22 +6612,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTEGER_VALUE__VALUE = eINSTANCE.getIntegerValue_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INTEGER_VALUE___COPY = eINSTANCE.getIntegerValue__Copy();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INTEGER_VALUE___CUSTOM_TO_STRING = eINSTANCE.getIntegerValue__CustomToString();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.SymbolBindingImpl <em>Symbol Binding</em>}' class.
@@ -8678,22 +6684,6 @@ public interface MiniJavaPackage extends EPackage {
 		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STRING_VALUE___COPY = eINSTANCE.getStringValue__Copy();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STRING_VALUE___CUSTOM_TO_STRING = eINSTANCE.getStringValue__CustomToString();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8710,22 +6700,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOLEAN_VALUE__VALUE = eINSTANCE.getBooleanValue_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOLEAN_VALUE___CUSTOM_TO_STRING = eINSTANCE.getBooleanValue__CustomToString();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOLEAN_VALUE___COPY = eINSTANCE.getBooleanValue__Copy();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.OutputStreamImpl <em>Output Stream</em>}' class.
@@ -8788,62 +6762,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference STATE__ARRAYS_HEAP = eINSTANCE.getState_ArraysHeap();
 
 		/**
-		 * The meta object literal for the '<em><b>Find Current Frame</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___FIND_CURRENT_FRAME = eINSTANCE.getState__FindCurrentFrame();
-
-		/**
-		 * The meta object literal for the '<em><b>Find Current Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___FIND_CURRENT_CONTEXT = eINSTANCE.getState__FindCurrentContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Println</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___PRINTLN__STRING = eINSTANCE.getState__Println__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Push New Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___PUSH_NEW_CONTEXT = eINSTANCE.getState__PushNewContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Pop Current Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___POP_CURRENT_CONTEXT = eINSTANCE.getState__PopCurrentContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Push New Frame</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___PUSH_NEW_FRAME__OBJECTINSTANCE_CALL_CONTEXT = eINSTANCE.getState__PushNewFrame__ObjectInstance_Call_Context();
-
-		/**
-		 * The meta object literal for the '<em><b>Pop Current Frame</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___POP_CURRENT_FRAME = eINSTANCE.getState__PopCurrentFrame();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.FrameImpl <em>Frame</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8902,22 +6820,6 @@ public interface MiniJavaPackage extends EPackage {
 		EReference FRAME__RETURN_VALUE = eINSTANCE.getFrame_ReturnValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Find Current Frame</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FRAME___FIND_CURRENT_FRAME = eINSTANCE.getFrame__FindCurrentFrame();
-
-		/**
-		 * The meta object literal for the '<em><b>Find Current Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FRAME___FIND_CURRENT_CONTEXT = eINSTANCE.getFrame__FindCurrentContext();
-
-		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.NullValueImpl <em>Null Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8926,14 +6828,6 @@ public interface MiniJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NULL_VALUE = eINSTANCE.getNullValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NULL_VALUE___COPY = eINSTANCE.getNullValue__Copy();
 
 		/**
 		 * The meta object literal for the '{@link org.tetrabox.minijava.model.miniJava.impl.CallImpl <em>Call</em>}' class.

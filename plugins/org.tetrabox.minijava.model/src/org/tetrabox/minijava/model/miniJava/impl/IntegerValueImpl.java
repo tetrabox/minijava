@@ -7,7 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.tetrabox.minijava.model.miniJava.IntegerValue;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 

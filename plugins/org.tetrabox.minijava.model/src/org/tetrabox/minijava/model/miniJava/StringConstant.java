@@ -42,12 +42,4 @@ public interface StringConstant extends Expression {
 	 */
 	void setValue(String value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // StringConstant

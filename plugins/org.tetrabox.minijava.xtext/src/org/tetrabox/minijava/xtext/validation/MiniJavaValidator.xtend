@@ -5,34 +5,33 @@ package org.tetrabox.minijava.xtext.validation
 
 import com.google.common.collect.HashMultimap
 import com.google.inject.Inject
+import java.util.HashSet
+import java.util.Set
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.CheckType
+import org.tetrabox.minijava.model.miniJava.Block
+import org.tetrabox.minijava.model.miniJava.Class
+import org.tetrabox.minijava.model.miniJava.ClassRef
+import org.tetrabox.minijava.model.miniJava.Expression
+import org.tetrabox.minijava.model.miniJava.Field
+import org.tetrabox.minijava.model.miniJava.FieldAccess
+import org.tetrabox.minijava.model.miniJava.Interface
+import org.tetrabox.minijava.model.miniJava.Method
+import org.tetrabox.minijava.model.miniJava.MethodCall
+import org.tetrabox.minijava.model.miniJava.MiniJavaPackage
+import org.tetrabox.minijava.model.miniJava.NamedElement
+import org.tetrabox.minijava.model.miniJava.NewObject
+import org.tetrabox.minijava.model.miniJava.Program
+import org.tetrabox.minijava.model.miniJava.Return
+import org.tetrabox.minijava.model.miniJava.Super
+import org.tetrabox.minijava.model.miniJava.TypeDeclaration
+import org.tetrabox.minijava.model.miniJava.VariableDeclaration
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
-import org.tetrabox.minijava.xtext.miniJava.Block
-import org.tetrabox.minijava.xtext.miniJava.Class
-import org.tetrabox.minijava.xtext.miniJava.Expression
-import org.tetrabox.minijava.xtext.miniJava.FieldAccess
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.MethodCall
-import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
-import org.tetrabox.minijava.xtext.miniJava.NamedElement
-import org.tetrabox.minijava.xtext.miniJava.Program
-import org.tetrabox.minijava.xtext.miniJava.Return
-import org.tetrabox.minijava.xtext.miniJava.Super
-import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 import org.tetrabox.minijava.xtext.scoping.MiniJavaIndex
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeConformance
-
-import static extension org.eclipse.xtext.EcoreUtil2.*
-import org.tetrabox.minijava.xtext.miniJava.ClassRef
-import org.tetrabox.minijava.xtext.miniJava.Interface
-import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
-import java.util.HashSet
-import java.util.Set
-import org.tetrabox.minijava.xtext.miniJava.NewObject
 
 /**
  * This class contains custom validation rules. 
@@ -180,7 +179,7 @@ class MiniJavaValidator extends AbstractMiniJavaValidator {
 
 	@Check def void checkNoDuplicateSymbols(Method m) {
 		checkNoDuplicateElements(m.params, "parameter")
-		checkNoDuplicateElements(m.body.getAllContentsOfType(VariableDeclaration), "variable")
+		checkNoDuplicateElements(EcoreUtil2.getAllContentsOfType(m, VariableDeclaration), "variable")
 	}
 
 	@Check def void checkConformance(Expression exp) {

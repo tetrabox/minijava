@@ -162,20 +162,4 @@ public interface Frame extends EObject {
 	 */
 	void setReturnValue(Value value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Frame findCurrentFrame();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Context findCurrentContext();
-
 } // Frame

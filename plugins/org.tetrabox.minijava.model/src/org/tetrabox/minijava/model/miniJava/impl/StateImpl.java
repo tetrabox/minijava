@@ -2,8 +2,6 @@
  */
 package org.tetrabox.minijava.model.miniJava.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,10 +17,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.minijava.model.miniJava.ArrayInstance;
-import org.tetrabox.minijava.model.miniJava.Call;
-import org.tetrabox.minijava.model.miniJava.Context;
 import org.tetrabox.minijava.model.miniJava.Frame;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.ObjectInstance;
@@ -220,83 +215,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Frame findCurrentFrame() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Context findCurrentContext() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void println(String string) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void pushNewContext() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void popCurrentContext() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void pushNewFrame(ObjectInstance receiver, Call c, Context newContext) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void popCurrentFrame() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -401,37 +319,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return arraysHeap != null && !arraysHeap.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case MiniJavaPackage.STATE___FIND_CURRENT_FRAME:
-				return findCurrentFrame();
-			case MiniJavaPackage.STATE___FIND_CURRENT_CONTEXT:
-				return findCurrentContext();
-			case MiniJavaPackage.STATE___PRINTLN__STRING:
-				println((String)arguments.get(0));
-				return null;
-			case MiniJavaPackage.STATE___PUSH_NEW_CONTEXT:
-				pushNewContext();
-				return null;
-			case MiniJavaPackage.STATE___POP_CURRENT_CONTEXT:
-				popCurrentContext();
-				return null;
-			case MiniJavaPackage.STATE___PUSH_NEW_FRAME__OBJECTINSTANCE_CALL_CONTEXT:
-				pushNewFrame((ObjectInstance)arguments.get(0), (Call)arguments.get(1), (Context)arguments.get(2));
-				return null;
-			case MiniJavaPackage.STATE___POP_CURRENT_FRAME:
-				popCurrentFrame();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //StateImpl

@@ -42,12 +42,4 @@ public interface ClassRef extends SingleTypeRef {
 	 */
 	void setReferencedClass(TypeDeclaration value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	boolean compare(TypeRef other);
-
 } // ClassRef

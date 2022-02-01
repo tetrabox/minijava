@@ -95,29 +95,4 @@ public interface Program extends EObject {
 	 */
 	void setState(State value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void main();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model argsMany="true"
-	 *        annotation="aspect"
-	 * @generated
-	 */
-	void initialize(EList<String> args);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	State execute();
-
 } // Program

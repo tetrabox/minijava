@@ -2,8 +2,6 @@
  */
 package org.tetrabox.minijava.model.miniJava.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,10 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.minijava.model.miniJava.Block;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
-import org.tetrabox.minijava.model.miniJava.State;
 import org.tetrabox.minijava.model.miniJava.Statement;
 
 /**
@@ -74,17 +70,6 @@ public class BlockImpl extends StatementImpl implements Block {
 			statements = new EObjectContainmentEList<Statement>(Statement.class, this, MiniJavaPackage.BLOCK__STATEMENTS);
 		}
 		return statements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void evaluateStatementKeepContext(State state) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -159,21 +144,6 @@ public class BlockImpl extends StatementImpl implements Block {
 				return statements != null && !statements.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case MiniJavaPackage.BLOCK___EVALUATE_STATEMENT_KEEP_CONTEXT__STATE:
-				evaluateStatementKeepContext((State)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //BlockImpl

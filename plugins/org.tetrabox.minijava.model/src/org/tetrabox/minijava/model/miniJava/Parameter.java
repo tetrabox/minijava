@@ -14,12 +14,5 @@ package org.tetrabox.minijava.model.miniJava;
  * @generated
  */
 public interface Parameter extends Symbol {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	boolean compare(Parameter other);
 
 } // Parameter

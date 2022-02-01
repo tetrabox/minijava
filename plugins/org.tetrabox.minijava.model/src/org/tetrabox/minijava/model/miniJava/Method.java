@@ -102,20 +102,4 @@ public interface Method extends Member {
 	 */
 	void setBody(Block value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void call(State state);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Method findOverride(org.tetrabox.minijava.model.miniJava.Class c);
-
 } // Method

@@ -56,12 +56,4 @@ public interface NewObject extends Expression {
 	 */
 	EList<Expression> getArgs();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // NewObject

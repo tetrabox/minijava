@@ -7,11 +7,10 @@ import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import org.tetrabox.minijava.model.miniJava.Field
+import org.tetrabox.minijava.model.miniJava.Member
+import org.tetrabox.minijava.model.miniJava.Method
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
-import org.tetrabox.minijava.xtext.miniJava.Class
-import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.Member
-import org.tetrabox.minijava.xtext.miniJava.Method
 
 /**
  * Provides labels for EObjects.

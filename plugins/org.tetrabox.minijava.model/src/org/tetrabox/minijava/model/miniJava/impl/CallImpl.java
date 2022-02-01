@@ -5,7 +5,6 @@ package org.tetrabox.minijava.model.miniJava.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.tetrabox.minijava.model.miniJava.Call;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 

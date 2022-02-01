@@ -13,7 +13,7 @@ public abstract class AbstractMiniJavaValidator extends AbstractDeclarativeValid
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage.eINSTANCE);
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.tetrabox.minijava.xminijava/miniJava/"));
 		return result;
 	}
 }

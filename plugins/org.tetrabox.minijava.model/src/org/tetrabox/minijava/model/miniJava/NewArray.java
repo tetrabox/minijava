@@ -65,12 +65,4 @@ public interface NewArray extends Expression {
 	 */
 	void setSize(Expression value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // NewArray

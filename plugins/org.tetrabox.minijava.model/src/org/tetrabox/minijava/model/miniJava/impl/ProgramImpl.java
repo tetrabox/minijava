@@ -2,8 +2,6 @@
  */
 package org.tetrabox.minijava.model.miniJava.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.minijava.model.miniJava.Import;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.Program;
@@ -205,39 +202,6 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void main() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void initialize(EList<String> args) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public State execute() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -340,27 +304,6 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return state != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case MiniJavaPackage.PROGRAM___MAIN:
-				main();
-				return null;
-			case MiniJavaPackage.PROGRAM___INITIALIZE__ELIST:
-				initialize((EList<String>)arguments.get(0));
-				return null;
-			case MiniJavaPackage.PROGRAM___EXECUTE:
-				return execute();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

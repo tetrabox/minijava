@@ -1,34 +1,32 @@
 package org.tetrabox.minijava.xtext.typing
 
-import org.tetrabox.minijava.xtext.miniJava.Assignment
-import org.tetrabox.minijava.xtext.miniJava.BoolConstant
-import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef
-import org.tetrabox.minijava.xtext.miniJava.Class
-import org.tetrabox.minijava.xtext.miniJava.ClassRef
-import org.tetrabox.minijava.xtext.miniJava.Expression
-import org.tetrabox.minijava.xtext.miniJava.IntConstant
-import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.MiniJavaFactory
-import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
-import org.tetrabox.minijava.xtext.miniJava.Null
-import org.tetrabox.minijava.xtext.miniJava.Return
-import org.tetrabox.minijava.xtext.miniJava.StringConstant
-import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
-import org.tetrabox.minijava.xtext.miniJava.Super
-import org.tetrabox.minijava.xtext.miniJava.SymbolRef
-import org.tetrabox.minijava.xtext.miniJava.This
-import org.tetrabox.minijava.xtext.miniJava.TypeRef
-import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
-
-import static extension org.eclipse.xtext.EcoreUtil2.*
-import org.tetrabox.minijava.xtext.miniJava.FieldAccess
-import org.tetrabox.minijava.xtext.miniJava.MethodCall
-import org.tetrabox.minijava.xtext.miniJava.VoidTypeRef
-import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
-import org.tetrabox.minijava.xtext.miniJava.Interface
-import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
-import org.tetrabox.minijava.xtext.miniJava.NewObject
+import org.tetrabox.minijava.model.miniJava.Assignment
+import org.tetrabox.minijava.model.miniJava.BoolConstant
+import org.tetrabox.minijava.model.miniJava.BooleanTypeRef
+import org.tetrabox.minijava.model.miniJava.ClassRef
+import org.tetrabox.minijava.model.miniJava.Expression
+import org.tetrabox.minijava.model.miniJava.FieldAccess
+import org.tetrabox.minijava.model.miniJava.IntConstant
+import org.tetrabox.minijava.model.miniJava.IntegerTypeRef
+import org.tetrabox.minijava.model.miniJava.Method
+import org.tetrabox.minijava.model.miniJava.MethodCall
+import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
+import org.tetrabox.minijava.model.miniJava.MiniJavaPackage
+import org.tetrabox.minijava.model.miniJava.NewObject
+import org.tetrabox.minijava.model.miniJava.Null
+import org.tetrabox.minijava.model.miniJava.Class
+import org.tetrabox.minijava.model.miniJava.Return
+import org.tetrabox.minijava.model.miniJava.StringConstant
+import org.tetrabox.minijava.model.miniJava.StringTypeRef
+import org.tetrabox.minijava.model.miniJava.Super
+import org.tetrabox.minijava.model.miniJava.SymbolRef
+import org.tetrabox.minijava.model.miniJava.This
+import org.tetrabox.minijava.model.miniJava.TypeDeclaration
+import org.tetrabox.minijava.model.miniJava.TypeRef
+import org.tetrabox.minijava.model.miniJava.VariableDeclaration
+import org.tetrabox.minijava.model.miniJava.VoidTypeRef
+import static org.eclipse.xtext.EcoreUtil2.getContainerOfType
+import org.eclipse.xtext.EcoreUtil2
 
 class MiniJavaTypeComputer {
 	private static val factory = MiniJavaFactory.eINSTANCE
@@ -60,9 +58,9 @@ class MiniJavaTypeComputer {
 			NewObject:
 				e.type
 			This:
-				e.getContainerOfType(Class)
+				EcoreUtil2.getContainerOfType(e, Class)
 			Super:
-				e.getContainerOfType(Class).superClass
+				EcoreUtil2.getContainerOfType(e, Class).superClass
 			Null:
 				NULL_TYPE
 			StringConstant:
@@ -93,7 +91,7 @@ class MiniJavaTypeComputer {
 				}
 			}
 			Return:
-				c.getContainerOfType(Method).typeRef.type
+				EcoreUtil2.getContainerOfType(c, Method).typeRef.type
 			case f == ep.ifStatement_Expression:
 				BOOLEAN_TYPE
 			MethodCall case f == ep.methodCall_Args: {

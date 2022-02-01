@@ -2,8 +2,6 @@
  */
 package org.tetrabox.minijava.model.miniJava.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,12 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.minijava.model.miniJava.Block;
 import org.tetrabox.minijava.model.miniJava.Method;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.Parameter;
-import org.tetrabox.minijava.model.miniJava.State;
 
 /**
  * <!-- begin-user-doc -->
@@ -223,28 +219,6 @@ public class MethodImpl extends MemberImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void call(State state) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Method findOverride(org.tetrabox.minijava.model.miniJava.Class c) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -344,23 +318,6 @@ public class MethodImpl extends MemberImpl implements Method {
 				return body != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case MiniJavaPackage.METHOD___CALL__STATE:
-				call((State)arguments.get(0));
-				return null;
-			case MiniJavaPackage.METHOD___FIND_OVERRIDE__CLASS:
-				return findOverride((org.tetrabox.minijava.model.miniJava.Class)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

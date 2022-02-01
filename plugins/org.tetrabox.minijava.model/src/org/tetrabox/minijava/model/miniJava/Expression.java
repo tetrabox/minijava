@@ -14,20 +14,5 @@ package org.tetrabox.minijava.model.miniJava;
  * @generated
  */
 public interface Expression extends Statement, Assignee {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void evaluateStatement(State state);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
 
 } // Expression

@@ -1,20 +1,19 @@
 package org.tetrabox.minijava.xtext
 
-import org.tetrabox.minijava.xtext.miniJava.Block
-import org.tetrabox.minijava.xtext.miniJava.BooleanTypeRef
-import org.tetrabox.minijava.xtext.miniJava.Class
-import org.tetrabox.minijava.xtext.miniJava.ClassRef
-import org.tetrabox.minijava.xtext.miniJava.Field
-import org.tetrabox.minijava.xtext.miniJava.IntegerTypeRef
-import org.tetrabox.minijava.xtext.miniJava.Member
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.Return
-import org.tetrabox.minijava.xtext.miniJava.StringTypeRef
-import org.tetrabox.minijava.xtext.miniJava.TypeRef
-import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
-import org.tetrabox.minijava.xtext.miniJava.Interface
 import java.util.Set
-import org.tetrabox.minijava.xtext.miniJava.TypedDeclaration
+import org.tetrabox.minijava.model.miniJava.Block
+import org.tetrabox.minijava.model.miniJava.BooleanTypeRef
+import org.tetrabox.minijava.model.miniJava.Class
+import org.tetrabox.minijava.model.miniJava.ClassRef
+import org.tetrabox.minijava.model.miniJava.Field
+import org.tetrabox.minijava.model.miniJava.IntegerTypeRef
+import org.tetrabox.minijava.model.miniJava.Interface
+import org.tetrabox.minijava.model.miniJava.Member
+import org.tetrabox.minijava.model.miniJava.Method
+import org.tetrabox.minijava.model.miniJava.Return
+import org.tetrabox.minijava.model.miniJava.StringTypeRef
+import org.tetrabox.minijava.model.miniJava.TypeDeclaration
+import org.tetrabox.minijava.model.miniJava.TypeRef
 
 class MiniJavaModelUtil {
 

@@ -42,12 +42,4 @@ public interface Neg extends Expression {
 	 */
 	void setExpression(Expression value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // Neg

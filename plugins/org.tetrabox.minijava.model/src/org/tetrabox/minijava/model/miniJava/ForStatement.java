@@ -111,12 +111,4 @@ public interface ForStatement extends Statement {
 	 */
 	void setBlock(Block value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void evaluateStatement(State state);
-
 } // ForStatement

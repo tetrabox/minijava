@@ -10,12 +10,12 @@ import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.CrossReference
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import org.tetrabox.minijava.model.miniJava.Class
+import org.tetrabox.minijava.model.miniJava.Field
+import org.tetrabox.minijava.model.miniJava.Member
+import org.tetrabox.minijava.model.miniJava.Method
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
-import org.tetrabox.minijava.xtext.miniJava.Class
-import org.tetrabox.minijava.xtext.miniJava.Member
 import org.tetrabox.minijava.xtext.validation.MiniJavaAccessibility
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.Field
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist

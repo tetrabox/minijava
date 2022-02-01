@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.tetrabox.minijava.model.miniJava.AccessLevel;
 import org.tetrabox.minijava.model.miniJava.And;
 import org.tetrabox.minijava.model.miniJava.ArrayAccess;
@@ -747,33 +746,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProgram__Main() {
-		return programEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getProgram__Initialize__EList() {
-		return programEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getProgram__Execute() {
-		return programEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getImport() {
 		return importEClass;
 	}
@@ -927,35 +899,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMethod__Call__State() {
-		return methodEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMethod__FindOverride__Class() {
-		return methodEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getParameter() {
 		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParameter__Compare__Parameter() {
-		return parameterEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -999,35 +944,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBlock__EvaluateStatementKeepContext__State() {
-		return blockEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getBlock__EvaluateStatement__State() {
-		return blockEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStatement() {
 		return statementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getStatement__EvaluateStatement__State() {
-		return statementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1053,15 +971,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPrintStatement__EvaluateStatement__State() {
-		return printStatementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getReturn() {
 		return returnEClass;
 	}
@@ -1073,15 +982,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getReturn_Expression() {
 		return (EReference)returnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getReturn__EvaluateStatement__State() {
-		return returnEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1125,15 +1025,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIfStatement__EvaluateStatement__State() {
-		return ifStatementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getWhileStatement() {
 		return whileStatementEClass;
 	}
@@ -1154,15 +1045,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getWhileStatement_Block() {
 		return (EReference)whileStatementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getWhileStatement__EvaluateStatement__State() {
-		return whileStatementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1215,26 +1097,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getForStatement__EvaluateStatement__State() {
-		return forStatementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTypeRef() {
 		return typeRefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTypeRef__Compare__TypeRef() {
-		return typeRefEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1262,15 +1126,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getClassRef_ReferencedClass() {
 		return (EReference)classRefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getClassRef__Compare__TypeRef() {
-		return classRefEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1359,15 +1214,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssignment__EvaluateStatement__State() {
-		return assignmentEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAssignee() {
 		return assigneeEClass;
 	}
@@ -1379,24 +1225,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EClass getExpression() {
 		return expressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExpression__EvaluateStatement__State() {
-		return expressionEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExpression__EvaluateExpression__State() {
-		return expressionEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1485,15 +1313,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOr__EvaluateExpression__State() {
-		return orEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnd() {
 		return andEClass;
 	}
@@ -1514,15 +1333,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getAnd_Right() {
 		return (EReference)andEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAnd__EvaluateExpression__State() {
-		return andEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1557,15 +1367,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEquality__EvaluateExpression__State() {
-		return equalityEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInequality() {
 		return inequalityEClass;
 	}
@@ -1586,15 +1387,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getInequality_Right() {
 		return (EReference)inequalityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getInequality__EvaluateExpression__State() {
-		return inequalityEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1629,15 +1421,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSuperiorOrEqual__EvaluateExpression__State() {
-		return superiorOrEqualEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInferiorOrEqual() {
 		return inferiorOrEqualEClass;
 	}
@@ -1658,15 +1441,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getInferiorOrEqual_Right() {
 		return (EReference)inferiorOrEqualEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getInferiorOrEqual__EvaluateExpression__State() {
-		return inferiorOrEqualEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1701,15 +1475,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSuperior__EvaluateExpression__State() {
-		return superiorEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInferior() {
 		return inferiorEClass;
 	}
@@ -1730,15 +1495,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getInferior_Right() {
 		return (EReference)inferiorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getInferior__EvaluateExpression__State() {
-		return inferiorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1773,15 +1529,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPlus__EvaluateExpression__State() {
-		return plusEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMinus() {
 		return minusEClass;
 	}
@@ -1802,15 +1549,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getMinus_Right() {
 		return (EReference)minusEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMinus__EvaluateExpression__State() {
-		return minusEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1845,15 +1583,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMultiplication__EvaluateExpression__State() {
-		return multiplicationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDivision() {
 		return divisionEClass;
 	}
@@ -1874,15 +1603,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getDivision_Right() {
 		return (EReference)divisionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDivision__EvaluateExpression__State() {
-		return divisionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1917,15 +1637,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getArrayAccess__EvaluateExpression__State() {
-		return arrayAccessEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getArrayLength() {
 		return arrayLengthEClass;
 	}
@@ -1937,15 +1648,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getArrayLength_Array() {
 		return (EReference)arrayLengthEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getArrayLength__EvaluateExpression__State() {
-		return arrayLengthEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1971,15 +1673,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getNot__EvaluateExpression__State() {
-		return notEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNeg() {
 		return negEClass;
 	}
@@ -1991,15 +1684,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getNeg_Expression() {
 		return (EReference)negEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getNeg__EvaluateExpression__State() {
-		return negEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2027,15 +1711,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getFieldAccess_Field() {
 		return (EReference)fieldAccessEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getFieldAccess__EvaluateExpression__State() {
-		return fieldAccessEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2079,15 +1754,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMethodCall__EvaluateExpression__State() {
-		return methodCallEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStringConstant() {
 		return stringConstantEClass;
 	}
@@ -2099,15 +1765,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EAttribute getStringConstant_Value() {
 		return (EAttribute)stringConstantEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getStringConstant__EvaluateExpression__State() {
-		return stringConstantEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2133,15 +1790,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIntConstant__EvaluateExpression__State() {
-		return intConstantEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBoolConstant() {
 		return boolConstantEClass;
 	}
@@ -2160,26 +1808,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBoolConstant__EvaluateExpression__State() {
-		return boolConstantEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getThis() {
 		return thisEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getThis__EvaluateExpression__State() {
-		return thisEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2198,15 +1828,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EClass getNull() {
 		return nullEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getNull__EvaluateExpression__State() {
-		return nullEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2241,15 +1862,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getNewObject__EvaluateExpression__State() {
-		return newObjectEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNewArray() {
 		return newArrayEClass;
 	}
@@ -2277,15 +1889,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getNewArray__EvaluateExpression__State() {
-		return newArrayEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSymbolRef() {
 		return symbolRefEClass;
 	}
@@ -2297,15 +1900,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EReference getSymbolRef_Symbol() {
 		return (EReference)symbolRefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSymbolRef__EvaluateExpression__State() {
-		return symbolRefEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2349,53 +1943,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getContext__CreateChildContext() {
-		return contextEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getContext__FindBinding__Symbol() {
-		return contextEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getContext__FindCurrentContext() {
-		return contextEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getValue() {
 		return valueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getValue__CustomToString() {
-		return valueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getValue__Copy() {
-		return valueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -2414,24 +1963,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EAttribute getIntegerValue_Value() {
 		return (EAttribute)integerValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getIntegerValue__Copy() {
-		return integerValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getIntegerValue__CustomToString() {
-		return integerValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -2511,24 +2042,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getStringValue__Copy() {
-		return stringValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getStringValue__CustomToString() {
-		return stringValueEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBooleanValue() {
 		return booleanValueEClass;
 	}
@@ -2540,24 +2053,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 */
 	public EAttribute getBooleanValue_Value() {
 		return (EAttribute)booleanValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getBooleanValue__CustomToString() {
-		return booleanValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getBooleanValue__Copy() {
-		return booleanValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -2628,69 +2123,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getState__FindCurrentFrame() {
-		return stateEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__FindCurrentContext() {
-		return stateEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__Println__String() {
-		return stateEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__PushNewContext() {
-		return stateEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__PopCurrentContext() {
-		return stateEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__PushNewFrame__ObjectInstance_Call_Context() {
-		return stateEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__PopCurrentFrame() {
-		return stateEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFrame() {
 		return frameEClass;
 	}
@@ -2754,35 +2186,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFrame__FindCurrentFrame() {
-		return frameEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getFrame__FindCurrentContext() {
-		return frameEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNullValue() {
 		return nullValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getNullValue__Copy() {
-		return nullValueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2989,9 +2394,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		createEReference(programEClass, PROGRAM__IMPORTS);
 		createEReference(programEClass, PROGRAM__CLASSES);
 		createEReference(programEClass, PROGRAM__STATE);
-		createEOperation(programEClass, PROGRAM___MAIN);
-		createEOperation(programEClass, PROGRAM___INITIALIZE__ELIST);
-		createEOperation(programEClass, PROGRAM___EXECUTE);
 
 		importEClass = createEClass(IMPORT);
 		createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -3015,57 +2417,44 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		createEAttribute(methodEClass, METHOD__STATIC);
 		createEReference(methodEClass, METHOD__PARAMS);
 		createEReference(methodEClass, METHOD__BODY);
-		createEOperation(methodEClass, METHOD___CALL__STATE);
-		createEOperation(methodEClass, METHOD___FIND_OVERRIDE__CLASS);
 
 		parameterEClass = createEClass(PARAMETER);
-		createEOperation(parameterEClass, PARAMETER___COMPARE__PARAMETER);
 
 		fieldEClass = createEClass(FIELD);
 		createEReference(fieldEClass, FIELD__DEFAULT_VALUE);
 
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__STATEMENTS);
-		createEOperation(blockEClass, BLOCK___EVALUATE_STATEMENT_KEEP_CONTEXT__STATE);
-		createEOperation(blockEClass, BLOCK___EVALUATE_STATEMENT__STATE);
 
 		statementEClass = createEClass(STATEMENT);
-		createEOperation(statementEClass, STATEMENT___EVALUATE_STATEMENT__STATE);
 
 		printStatementEClass = createEClass(PRINT_STATEMENT);
 		createEReference(printStatementEClass, PRINT_STATEMENT__EXPRESSION);
-		createEOperation(printStatementEClass, PRINT_STATEMENT___EVALUATE_STATEMENT__STATE);
 
 		returnEClass = createEClass(RETURN);
 		createEReference(returnEClass, RETURN__EXPRESSION);
-		createEOperation(returnEClass, RETURN___EVALUATE_STATEMENT__STATE);
 
 		ifStatementEClass = createEClass(IF_STATEMENT);
 		createEReference(ifStatementEClass, IF_STATEMENT__EXPRESSION);
 		createEReference(ifStatementEClass, IF_STATEMENT__THEN_BLOCK);
 		createEReference(ifStatementEClass, IF_STATEMENT__ELSE_BLOCK);
-		createEOperation(ifStatementEClass, IF_STATEMENT___EVALUATE_STATEMENT__STATE);
 
 		whileStatementEClass = createEClass(WHILE_STATEMENT);
 		createEReference(whileStatementEClass, WHILE_STATEMENT__CONDITION);
 		createEReference(whileStatementEClass, WHILE_STATEMENT__BLOCK);
-		createEOperation(whileStatementEClass, WHILE_STATEMENT___EVALUATE_STATEMENT__STATE);
 
 		forStatementEClass = createEClass(FOR_STATEMENT);
 		createEReference(forStatementEClass, FOR_STATEMENT__DECLARATION);
 		createEReference(forStatementEClass, FOR_STATEMENT__CONDITION);
 		createEReference(forStatementEClass, FOR_STATEMENT__PROGRESSION);
 		createEReference(forStatementEClass, FOR_STATEMENT__BLOCK);
-		createEOperation(forStatementEClass, FOR_STATEMENT___EVALUATE_STATEMENT__STATE);
 
 		typeRefEClass = createEClass(TYPE_REF);
-		createEOperation(typeRefEClass, TYPE_REF___COMPARE__TYPEREF);
 
 		singleTypeRefEClass = createEClass(SINGLE_TYPE_REF);
 
 		classRefEClass = createEClass(CLASS_REF);
 		createEReference(classRefEClass, CLASS_REF__REFERENCED_CLASS);
-		createEOperation(classRefEClass, CLASS_REF___COMPARE__TYPEREF);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -3080,13 +2469,10 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		assignmentEClass = createEClass(ASSIGNMENT);
 		createEReference(assignmentEClass, ASSIGNMENT__ASSIGNEE);
 		createEReference(assignmentEClass, ASSIGNMENT__VALUE);
-		createEOperation(assignmentEClass, ASSIGNMENT___EVALUATE_STATEMENT__STATE);
 
 		assigneeEClass = createEClass(ASSIGNEE);
 
 		expressionEClass = createEClass(EXPRESSION);
-		createEOperation(expressionEClass, EXPRESSION___EVALUATE_STATEMENT__STATE);
-		createEOperation(expressionEClass, EXPRESSION___EVALUATE_EXPRESSION__STATE);
 
 		arrayTypeRefEClass = createEClass(ARRAY_TYPE_REF);
 		createEReference(arrayTypeRefEClass, ARRAY_TYPE_REF__TYPE_REF);
@@ -3102,141 +2488,108 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		orEClass = createEClass(OR);
 		createEReference(orEClass, OR__LEFT);
 		createEReference(orEClass, OR__RIGHT);
-		createEOperation(orEClass, OR___EVALUATE_EXPRESSION__STATE);
 
 		andEClass = createEClass(AND);
 		createEReference(andEClass, AND__LEFT);
 		createEReference(andEClass, AND__RIGHT);
-		createEOperation(andEClass, AND___EVALUATE_EXPRESSION__STATE);
 
 		equalityEClass = createEClass(EQUALITY);
 		createEReference(equalityEClass, EQUALITY__LEFT);
 		createEReference(equalityEClass, EQUALITY__RIGHT);
-		createEOperation(equalityEClass, EQUALITY___EVALUATE_EXPRESSION__STATE);
 
 		inequalityEClass = createEClass(INEQUALITY);
 		createEReference(inequalityEClass, INEQUALITY__LEFT);
 		createEReference(inequalityEClass, INEQUALITY__RIGHT);
-		createEOperation(inequalityEClass, INEQUALITY___EVALUATE_EXPRESSION__STATE);
 
 		superiorOrEqualEClass = createEClass(SUPERIOR_OR_EQUAL);
 		createEReference(superiorOrEqualEClass, SUPERIOR_OR_EQUAL__LEFT);
 		createEReference(superiorOrEqualEClass, SUPERIOR_OR_EQUAL__RIGHT);
-		createEOperation(superiorOrEqualEClass, SUPERIOR_OR_EQUAL___EVALUATE_EXPRESSION__STATE);
 
 		inferiorOrEqualEClass = createEClass(INFERIOR_OR_EQUAL);
 		createEReference(inferiorOrEqualEClass, INFERIOR_OR_EQUAL__LEFT);
 		createEReference(inferiorOrEqualEClass, INFERIOR_OR_EQUAL__RIGHT);
-		createEOperation(inferiorOrEqualEClass, INFERIOR_OR_EQUAL___EVALUATE_EXPRESSION__STATE);
 
 		superiorEClass = createEClass(SUPERIOR);
 		createEReference(superiorEClass, SUPERIOR__LEFT);
 		createEReference(superiorEClass, SUPERIOR__RIGHT);
-		createEOperation(superiorEClass, SUPERIOR___EVALUATE_EXPRESSION__STATE);
 
 		inferiorEClass = createEClass(INFERIOR);
 		createEReference(inferiorEClass, INFERIOR__LEFT);
 		createEReference(inferiorEClass, INFERIOR__RIGHT);
-		createEOperation(inferiorEClass, INFERIOR___EVALUATE_EXPRESSION__STATE);
 
 		plusEClass = createEClass(PLUS);
 		createEReference(plusEClass, PLUS__LEFT);
 		createEReference(plusEClass, PLUS__RIGHT);
-		createEOperation(plusEClass, PLUS___EVALUATE_EXPRESSION__STATE);
 
 		minusEClass = createEClass(MINUS);
 		createEReference(minusEClass, MINUS__LEFT);
 		createEReference(minusEClass, MINUS__RIGHT);
-		createEOperation(minusEClass, MINUS___EVALUATE_EXPRESSION__STATE);
 
 		multiplicationEClass = createEClass(MULTIPLICATION);
 		createEReference(multiplicationEClass, MULTIPLICATION__LEFT);
 		createEReference(multiplicationEClass, MULTIPLICATION__RIGHT);
-		createEOperation(multiplicationEClass, MULTIPLICATION___EVALUATE_EXPRESSION__STATE);
 
 		divisionEClass = createEClass(DIVISION);
 		createEReference(divisionEClass, DIVISION__LEFT);
 		createEReference(divisionEClass, DIVISION__RIGHT);
-		createEOperation(divisionEClass, DIVISION___EVALUATE_EXPRESSION__STATE);
 
 		arrayAccessEClass = createEClass(ARRAY_ACCESS);
 		createEReference(arrayAccessEClass, ARRAY_ACCESS__OBJECT);
 		createEReference(arrayAccessEClass, ARRAY_ACCESS__INDEX);
-		createEOperation(arrayAccessEClass, ARRAY_ACCESS___EVALUATE_EXPRESSION__STATE);
 
 		arrayLengthEClass = createEClass(ARRAY_LENGTH);
 		createEReference(arrayLengthEClass, ARRAY_LENGTH__ARRAY);
-		createEOperation(arrayLengthEClass, ARRAY_LENGTH___EVALUATE_EXPRESSION__STATE);
 
 		notEClass = createEClass(NOT);
 		createEReference(notEClass, NOT__EXPRESSION);
-		createEOperation(notEClass, NOT___EVALUATE_EXPRESSION__STATE);
 
 		negEClass = createEClass(NEG);
 		createEReference(negEClass, NEG__EXPRESSION);
-		createEOperation(negEClass, NEG___EVALUATE_EXPRESSION__STATE);
 
 		fieldAccessEClass = createEClass(FIELD_ACCESS);
 		createEReference(fieldAccessEClass, FIELD_ACCESS__RECEIVER);
 		createEReference(fieldAccessEClass, FIELD_ACCESS__FIELD);
-		createEOperation(fieldAccessEClass, FIELD_ACCESS___EVALUATE_EXPRESSION__STATE);
 
 		methodCallEClass = createEClass(METHOD_CALL);
 		createEReference(methodCallEClass, METHOD_CALL__RECEIVER);
 		createEReference(methodCallEClass, METHOD_CALL__METHOD);
 		createEReference(methodCallEClass, METHOD_CALL__ARGS);
-		createEOperation(methodCallEClass, METHOD_CALL___EVALUATE_EXPRESSION__STATE);
 
 		stringConstantEClass = createEClass(STRING_CONSTANT);
 		createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
-		createEOperation(stringConstantEClass, STRING_CONSTANT___EVALUATE_EXPRESSION__STATE);
 
 		intConstantEClass = createEClass(INT_CONSTANT);
 		createEAttribute(intConstantEClass, INT_CONSTANT__VALUE);
-		createEOperation(intConstantEClass, INT_CONSTANT___EVALUATE_EXPRESSION__STATE);
 
 		boolConstantEClass = createEClass(BOOL_CONSTANT);
 		createEAttribute(boolConstantEClass, BOOL_CONSTANT__VALUE);
-		createEOperation(boolConstantEClass, BOOL_CONSTANT___EVALUATE_EXPRESSION__STATE);
 
 		thisEClass = createEClass(THIS);
-		createEOperation(thisEClass, THIS___EVALUATE_EXPRESSION__STATE);
 
 		superEClass = createEClass(SUPER);
 
 		nullEClass = createEClass(NULL);
-		createEOperation(nullEClass, NULL___EVALUATE_EXPRESSION__STATE);
 
 		newObjectEClass = createEClass(NEW_OBJECT);
 		createEReference(newObjectEClass, NEW_OBJECT__TYPE);
 		createEReference(newObjectEClass, NEW_OBJECT__ARGS);
-		createEOperation(newObjectEClass, NEW_OBJECT___EVALUATE_EXPRESSION__STATE);
 
 		newArrayEClass = createEClass(NEW_ARRAY);
 		createEReference(newArrayEClass, NEW_ARRAY__TYPE);
 		createEReference(newArrayEClass, NEW_ARRAY__SIZE);
-		createEOperation(newArrayEClass, NEW_ARRAY___EVALUATE_EXPRESSION__STATE);
 
 		symbolRefEClass = createEClass(SYMBOL_REF);
 		createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
-		createEOperation(symbolRefEClass, SYMBOL_REF___EVALUATE_EXPRESSION__STATE);
 
 		contextEClass = createEClass(CONTEXT);
 		createEReference(contextEClass, CONTEXT__BINDINGS);
 		createEReference(contextEClass, CONTEXT__PARENT_CONTEXT);
 		createEReference(contextEClass, CONTEXT__CHILD_CONTEXT);
-		createEOperation(contextEClass, CONTEXT___CREATE_CHILD_CONTEXT);
-		createEOperation(contextEClass, CONTEXT___FIND_BINDING__SYMBOL);
-		createEOperation(contextEClass, CONTEXT___FIND_CURRENT_CONTEXT);
 
 		valueEClass = createEClass(VALUE);
-		createEOperation(valueEClass, VALUE___CUSTOM_TO_STRING);
-		createEOperation(valueEClass, VALUE___COPY);
 
 		integerValueEClass = createEClass(INTEGER_VALUE);
 		createEAttribute(integerValueEClass, INTEGER_VALUE__VALUE);
-		createEOperation(integerValueEClass, INTEGER_VALUE___COPY);
-		createEOperation(integerValueEClass, INTEGER_VALUE___CUSTOM_TO_STRING);
 
 		symbolBindingEClass = createEClass(SYMBOL_BINDING);
 		createEReference(symbolBindingEClass, SYMBOL_BINDING__VALUE);
@@ -3248,13 +2601,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 
 		stringValueEClass = createEClass(STRING_VALUE);
 		createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
-		createEOperation(stringValueEClass, STRING_VALUE___COPY);
-		createEOperation(stringValueEClass, STRING_VALUE___CUSTOM_TO_STRING);
 
 		booleanValueEClass = createEClass(BOOLEAN_VALUE);
 		createEAttribute(booleanValueEClass, BOOLEAN_VALUE__VALUE);
-		createEOperation(booleanValueEClass, BOOLEAN_VALUE___CUSTOM_TO_STRING);
-		createEOperation(booleanValueEClass, BOOLEAN_VALUE___COPY);
 
 		outputStreamEClass = createEClass(OUTPUT_STREAM);
 		createEAttribute(outputStreamEClass, OUTPUT_STREAM__STREAM);
@@ -3264,13 +2613,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		createEReference(stateEClass, STATE__OBJECTS_HEAP);
 		createEReference(stateEClass, STATE__OUTPUT_STREAM);
 		createEReference(stateEClass, STATE__ARRAYS_HEAP);
-		createEOperation(stateEClass, STATE___FIND_CURRENT_FRAME);
-		createEOperation(stateEClass, STATE___FIND_CURRENT_CONTEXT);
-		createEOperation(stateEClass, STATE___PRINTLN__STRING);
-		createEOperation(stateEClass, STATE___PUSH_NEW_CONTEXT);
-		createEOperation(stateEClass, STATE___POP_CURRENT_CONTEXT);
-		createEOperation(stateEClass, STATE___PUSH_NEW_FRAME__OBJECTINSTANCE_CALL_CONTEXT);
-		createEOperation(stateEClass, STATE___POP_CURRENT_FRAME);
 
 		frameEClass = createEClass(FRAME);
 		createEReference(frameEClass, FRAME__CALL);
@@ -3279,11 +2621,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		createEReference(frameEClass, FRAME__PARENT_FRAME);
 		createEReference(frameEClass, FRAME__ROOT_CONTEXT);
 		createEReference(frameEClass, FRAME__RETURN_VALUE);
-		createEOperation(frameEClass, FRAME___FIND_CURRENT_FRAME);
-		createEOperation(frameEClass, FRAME___FIND_CURRENT_CONTEXT);
 
 		nullValueEClass = createEClass(NULL_VALUE);
-		createEOperation(nullValueEClass, NULL_VALUE___COPY);
 
 		callEClass = createEClass(CALL);
 
@@ -3412,13 +2751,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getProgram_Classes(), this.getTypeDeclaration(), null, "classes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_State(), this.getState(), null, "state", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getProgram__Main(), null, "main", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		EOperation op = initEOperation(getProgram__Initialize__EList(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "args", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getProgram__Execute(), this.getState(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3442,16 +2774,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getMethod_Params(), this.getParameter(), null, "params", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Body(), this.getBlock(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getMethod__Call__State(), null, "call", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getMethod__FindOverride__Class(), this.getMethod(), "findOverride", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getClass_(), "c", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getParameter__Compare__Parameter(), ecorePackage.getEBoolean(), "compare", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getParameter(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getField_DefaultValue(), this.getExpression(), null, "defaultValue", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3459,43 +2782,22 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_Statements(), this.getStatement(), null, "statements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getBlock__EvaluateStatementKeepContext__State(), null, "evaluateStatementKeepContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getBlock__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getStatement__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(printStatementEClass, PrintStatement.class, "PrintStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrintStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, PrintStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPrintStatement__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReturn_Expression(), this.getExpression(), null, "expression", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getReturn__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIfStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIfStatement_ThenBlock(), this.getBlock(), null, "thenBlock", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIfStatement_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getIfStatement__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(whileStatementEClass, WhileStatement.class, "WhileStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWhileStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWhileStatement_Block(), this.getBlock(), null, "block", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getWhileStatement__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(forStatementEClass, ForStatement.class, "ForStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getForStatement_Declaration(), this.getAssignment(), null, "declaration", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3503,21 +2805,12 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getForStatement_Progression(), this.getAssignment(), null, "progression", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForStatement_Block(), this.getBlock(), null, "block", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getForStatement__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(typeRefEClass, TypeRef.class, "TypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getTypeRef__Compare__TypeRef(), ecorePackage.getEBoolean(), "compare", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeRef(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(singleTypeRefEClass, SingleTypeRef.class, "SingleTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(classRefEClass, ClassRef.class, "ClassRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassRef_ReferencedClass(), this.getTypeDeclaration(), null, "referencedClass", null, 0, 1, ClassRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getClassRef__Compare__TypeRef(), ecorePackage.getEBoolean(), "compare", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeRef(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3533,18 +2826,9 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getAssignment_Assignee(), this.getAssignee(), null, "assignee", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssignment_Value(), this.getExpression(), null, "value", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAssignment__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(assigneeEClass, Assignee.class, "Assignee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getExpression__EvaluateStatement__State(), null, "evaluateStatement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getExpression__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(arrayTypeRefEClass, ArrayTypeRef.class, "ArrayTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArrayTypeRef_TypeRef(), this.getSingleTypeRef(), null, "typeRef", null, 0, 1, ArrayTypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3561,200 +2845,107 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOr_Right(), this.getExpression(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getOr__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnd_Left(), this.getExpression(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnd_Right(), this.getExpression(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getAnd__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(equalityEClass, Equality.class, "Equality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEquality_Left(), this.getExpression(), null, "left", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEquality_Right(), this.getExpression(), null, "right", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getEquality__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(inequalityEClass, Inequality.class, "Inequality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInequality_Left(), this.getExpression(), null, "left", null, 0, 1, Inequality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInequality_Right(), this.getExpression(), null, "right", null, 0, 1, Inequality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getInequality__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(superiorOrEqualEClass, SuperiorOrEqual.class, "SuperiorOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSuperiorOrEqual_Left(), this.getExpression(), null, "left", null, 0, 1, SuperiorOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSuperiorOrEqual_Right(), this.getExpression(), null, "right", null, 0, 1, SuperiorOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSuperiorOrEqual__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(inferiorOrEqualEClass, InferiorOrEqual.class, "InferiorOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInferiorOrEqual_Left(), this.getExpression(), null, "left", null, 0, 1, InferiorOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInferiorOrEqual_Right(), this.getExpression(), null, "right", null, 0, 1, InferiorOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getInferiorOrEqual__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(superiorEClass, Superior.class, "Superior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSuperior_Left(), this.getExpression(), null, "left", null, 0, 1, Superior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSuperior_Right(), this.getExpression(), null, "right", null, 0, 1, Superior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSuperior__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(inferiorEClass, Inferior.class, "Inferior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInferior_Left(), this.getExpression(), null, "left", null, 0, 1, Inferior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInferior_Right(), this.getExpression(), null, "right", null, 0, 1, Inferior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getInferior__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlus_Right(), this.getExpression(), null, "right", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPlus__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMinus_Left(), this.getExpression(), null, "left", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMinus_Right(), this.getExpression(), null, "right", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getMinus__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(multiplicationEClass, Multiplication.class, "Multiplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultiplication_Left(), this.getExpression(), null, "left", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMultiplication_Right(), this.getExpression(), null, "right", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getMultiplication__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(divisionEClass, Division.class, "Division", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDivision_Left(), this.getExpression(), null, "left", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDivision_Right(), this.getExpression(), null, "right", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getDivision__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(arrayAccessEClass, ArrayAccess.class, "ArrayAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArrayAccess_Object(), this.getExpression(), null, "object", null, 0, 1, ArrayAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArrayAccess_Index(), this.getExpression(), null, "index", null, 0, 1, ArrayAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getArrayAccess__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(arrayLengthEClass, ArrayLength.class, "ArrayLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArrayLength_Array(), this.getExpression(), null, "array", null, 0, 1, ArrayLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getArrayLength__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getNot__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(negEClass, Neg.class, "Neg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeg_Expression(), this.getExpression(), null, "expression", null, 0, 1, Neg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getNeg__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(fieldAccessEClass, FieldAccess.class, "FieldAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFieldAccess_Receiver(), this.getExpression(), null, "receiver", null, 0, 1, FieldAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFieldAccess_Field(), this.getField(), null, "field", null, 0, 1, FieldAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getFieldAccess__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethodCall_Receiver(), this.getExpression(), null, "receiver", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethodCall_Method(), this.getMethod(), null, "method", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethodCall_Args(), this.getExpression(), null, "args", null, 0, -1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getMethodCall__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getStringConstant__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getIntConstant__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(boolConstantEClass, BoolConstant.class, "BoolConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoolConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getBoolConstant__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(thisEClass, This.class, "This", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getThis__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(superEClass, Super.class, "Super", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(nullEClass, Null.class, "Null", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getNull__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(newObjectEClass, NewObject.class, "NewObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNewObject_Type(), this.getClass_(), null, "type", null, 0, 1, NewObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNewObject_Args(), this.getExpression(), null, "args", null, 0, -1, NewObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getNewObject__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(newArrayEClass, NewArray.class, "NewArray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNewArray_Type(), this.getTypeRef(), null, "type", null, 0, 1, NewArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNewArray_Size(), this.getExpression(), null, "size", null, 0, 1, NewArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getNewArray__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getSymbolRef__EvaluateExpression__State(), this.getValue(), "evaluateExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContext_Bindings(), this.getSymbolBinding(), null, "bindings", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildContext(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ChildContext(), this.getContext(), this.getContext_ParentContext(), "childContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getContext__CreateChildContext(), this.getContext(), "createChildContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getContext__FindBinding__Symbol(), this.getSymbolBinding(), "findBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSymbol(), "symbol", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getContext__FindCurrentContext(), this.getContext(), "findCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getValue__CustomToString(), ecorePackage.getEString(), "customToString", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getValue__Copy(), this.getValue(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerValue_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getIntegerValue__Copy(), this.getValue(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getIntegerValue__CustomToString(), ecorePackage.getEString(), "customToString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(symbolBindingEClass, SymbolBinding.class, "SymbolBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSymbolBinding_Value(), this.getValue(), null, "value", null, 0, 1, SymbolBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3767,16 +2958,8 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getStringValue__Copy(), this.getValue(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getStringValue__CustomToString(), ecorePackage.getEString(), "customToString", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(booleanValueEClass, BooleanValue.class, "BooleanValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getBooleanValue__CustomToString(), ecorePackage.getEString(), "customToString", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getBooleanValue__Copy(), this.getValue(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(outputStreamEClass, OutputStream.class, "OutputStream", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOutputStream_Stream(), ecorePackage.getEString(), "stream", null, 0, -1, OutputStream.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3787,24 +2970,6 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getState_OutputStream(), this.getOutputStream(), null, "outputStream", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_ArraysHeap(), this.getArrayInstance(), null, "arraysHeap", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getState__FindCurrentFrame(), this.getFrame(), "findCurrentFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getState__FindCurrentContext(), this.getContext(), "findCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getState__Println__String(), null, "println", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "string", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getState__PushNewContext(), null, "pushNewContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getState__PopCurrentContext(), null, "popCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getState__PushNewFrame__ObjectInstance_Call_Context(), null, "pushNewFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectInstance(), "receiver", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCall(), "c", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getContext(), "newContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getState__PopCurrentFrame(), null, "popCurrentFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(frameEClass, Frame.class, "Frame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFrame_Call(), this.getCall(), null, "call", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_Instance(), this.getObjectInstance(), null, "instance", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3813,13 +2978,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		initEReference(getFrame_RootContext(), this.getContext(), null, "rootContext", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFrame_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getFrame__FindCurrentFrame(), this.getFrame(), "findCurrentFrame", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getFrame__FindCurrentContext(), this.getContext(), "findCurrentContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getNullValue__Copy(), this.getValue(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(callEClass, Call.class, "Call", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3872,232 +3031,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 	protected void createAspectAnnotations() {
 		String source = "aspect";
 		addAnnotation
-		  (getProgram__Main(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getProgram__Initialize__EList(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getProgram__Execute(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
 		  (getProgram_State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getMethod__Call__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getMethod__FindOverride__Class(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getParameter__Compare__Parameter(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getBlock__EvaluateStatementKeepContext__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getBlock__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getStatement__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getPrintStatement__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getReturn__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getIfStatement__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getWhileStatement__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getForStatement__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getTypeRef__Compare__TypeRef(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getClassRef__Compare__TypeRef(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getAssignment__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getExpression__EvaluateStatement__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getExpression__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getOr__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getAnd__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getEquality__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getInequality__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getSuperiorOrEqual__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getInferiorOrEqual__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getSuperior__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getInferior__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getPlus__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getMinus__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getMultiplication__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getDivision__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getArrayAccess__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getArrayLength__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getNot__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getNeg__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getFieldAccess__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getMethodCall__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getStringConstant__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getIntConstant__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getBoolConstant__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getThis__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getNull__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getNewObject__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getNewArray__EvaluateExpression__State(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getSymbolRef__EvaluateExpression__State(),
 		   source,
 		   new String[] {
 		   });
@@ -4107,47 +3041,12 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });
 		addAnnotation
-		  (getContext__CreateChildContext(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getContext__FindBinding__Symbol(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getContext__FindCurrentContext(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
 		  (valueEClass,
 		   source,
 		   new String[] {
 		   });
 		addAnnotation
-		  (getValue__CustomToString(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getValue__Copy(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
 		  (integerValueEClass,
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getIntegerValue__Copy(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getIntegerValue__CustomToString(),
 		   source,
 		   new String[] {
 		   });
@@ -4167,27 +3066,7 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });
 		addAnnotation
-		  (getStringValue__Copy(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getStringValue__CustomToString(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
 		  (booleanValueEClass,
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getBooleanValue__CustomToString(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getBooleanValue__Copy(),
 		   source,
 		   new String[] {
 		   });
@@ -4202,62 +3081,12 @@ public class MiniJavaPackageImpl extends EPackageImpl implements MiniJavaPackage
 		   new String[] {
 		   });
 		addAnnotation
-		  (getState__FindCurrentFrame(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getState__FindCurrentContext(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getState__Println__String(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getState__PushNewContext(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getState__PopCurrentContext(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getState__PushNewFrame__ObjectInstance_Call_Context(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getState__PopCurrentFrame(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
 		  (frameEClass,
 		   source,
 		   new String[] {
 		   });
 		addAnnotation
-		  (getFrame__FindCurrentFrame(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getFrame__FindCurrentContext(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
 		  (nullValueEClass,
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getNullValue__Copy(),
 		   source,
 		   new String[] {
 		   });

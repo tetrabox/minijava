@@ -1,8 +1,8 @@
 package org.tetrabox.minijava.xtext.typing
 
 import com.google.inject.Inject
+import org.tetrabox.minijava.model.miniJava.TypeDeclaration
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
-import org.tetrabox.minijava.xtext.miniJava.TypeDeclaration
 
 import static org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer.*
 

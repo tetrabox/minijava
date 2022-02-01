@@ -15,12 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Statement extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void evaluateStatement(State state);
 
 } // Statement

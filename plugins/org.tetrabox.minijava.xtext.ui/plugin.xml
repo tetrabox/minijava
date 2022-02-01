@@ -8,7 +8,7 @@
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="minijava"
-			id="org.tetrabox.minijava.xtext.MiniJava"
+			id="org.tetrabox.minijava.model.miniJava"
 			name="MiniJava Editor">
 		</editor>
 	</extension>
@@ -19,16 +19,16 @@
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="org.tetrabox.minijava.xtext.MiniJava.validate">
+			commandId="org.tetrabox.minijava.model.miniJava.validate">
 		<activeWhen>
 			<reference
-					definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 			</reference>
 		</activeWhen>
 		</handler>
@@ -37,7 +37,7 @@
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened" />
+				<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
@@ -45,7 +45,7 @@
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.XtextEditor.opened" />
+					<reference definitionId="org.tetrabox.minijava.model.miniJava.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+		<definition id="org.tetrabox.minijava.model.miniJava.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="org.tetrabox.minijava.xtext.MiniJava"
+						value="org.tetrabox.minijava.model.miniJava"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="org.tetrabox.minijava.xtext.MiniJava.XtextEditor.opened">
+		<definition id="org.tetrabox.minijava.model.miniJava.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="org.tetrabox.minijava.xtext.MiniJava"
+						value="org.tetrabox.minijava.model.miniJava"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -79,21 +79,21 @@
 			point="org.eclipse.ui.preferencePages">
 		<page
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava"
+			id="org.tetrabox.minijava.model.miniJava"
 			name="MiniJava">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 		</page>
 		<page
-			category="org.tetrabox.minijava.xtext.MiniJava"
+			category="org.tetrabox.minijava.model.miniJava"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava.coloring"
+			id="org.tetrabox.minijava.model.miniJava.coloring"
 			name="Syntax Coloring">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 		</page>
 		<page
-			category="org.tetrabox.minijava.xtext.MiniJava"
+			category="org.tetrabox.minijava.model.miniJava"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava.templates"
+			id="org.tetrabox.minijava.model.miniJava.templates"
 			name="Templates">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 		</page>
@@ -102,7 +102,7 @@
 			point="org.eclipse.ui.propertyPages">
 		<page
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava"
+			id="org.tetrabox.minijava.model.miniJava"
 			name="MiniJava">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 			<enabledWhen>
@@ -121,7 +121,7 @@
 		point="org.eclipse.ui.commands">
 	<command
 			description="Trigger expensive validation"
-			id="org.tetrabox.minijava.xtext.MiniJava.validate"
+			id="org.tetrabox.minijava.model.miniJava.validate"
 			name="Validate">
 	</command>
 	<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			 <command
-				 commandId="org.tetrabox.minijava.xtext.MiniJava.validate"
+				 commandId="org.tetrabox.minijava.model.miniJava.validate"
 				 style="push"
 				 tooltip="Trigger expensive validation">
 			<visibleWhen checkEnabled="false">
 				<reference
-					definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 				</reference>
 			</visibleWhen>
 		</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened" />
+					<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened" />
+					<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.XtextEditor.opened" />
+						<reference definitionId="org.tetrabox.minijava.model.miniJava.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -199,7 +199,7 @@
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -218,7 +218,7 @@
 			uriExtension="minijava">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for org.tetrabox.minijava.xtext.MiniJava -->
+	<!-- marker definitions for org.tetrabox.minijava.model.miniJava -->
 	<extension
 			id="minijava.check.fast"
 			name="MiniJava Problem"
@@ -247,18 +247,18 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="org.tetrabox.minijava.xtext.MiniJava"
+			category="org.tetrabox.minijava.model.miniJava"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava.compiler.preferencePage"
+			id="org.tetrabox.minijava.model.miniJava.compiler.preferencePage"
 			name="Compiler">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="org.tetrabox.minijava.xtext.MiniJava"
+			category="org.tetrabox.minijava.model.miniJava"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava.compiler.propertyPage"
+			id="org.tetrabox.minijava.model.miniJava.compiler.propertyPage"
 			name="Compiler">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 			<enabledWhen>
@@ -271,10 +271,10 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="org.tetrabox.minijava.xtext.MiniJava.OpenGeneratedCode"
+				id="org.tetrabox.minijava.model.miniJava.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened" />
+					<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -284,7 +284,7 @@
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened" />
+				<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -296,7 +296,7 @@
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -316,12 +316,12 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened"/>
+					<reference definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for org.tetrabox.minijava.xtext.MiniJava -->
+	<!-- quickfix marker resolution generator for org.tetrabox.minijava.model.miniJava -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
@@ -356,7 +356,7 @@
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+					definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -368,7 +368,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="org.tetrabox.minijava.xtext.MiniJava.Editor.opened">
+						definitionId="org.tetrabox.minijava.model.miniJava.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -376,27 +376,27 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="org.tetrabox.minijava.xtext.MiniJava"
+			category="org.tetrabox.minijava.model.miniJava"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="org.tetrabox.minijava.xtext.MiniJava.refactoring"
+			id="org.tetrabox.minijava.model.miniJava.refactoring"
 			name="Refactoring">
 			<keywordReference id="org.tetrabox.minijava.xtext.ui.keyword_MiniJava"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="org.tetrabox.minijava.xtext.MiniJava.compare.contentViewers"
+		<viewer id="org.tetrabox.minijava.model.miniJava.compare.contentViewers"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="minijava">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="org.tetrabox.minijava.xtext.MiniJava.compare.contentMergeViewers"
+		<viewer id="org.tetrabox.minijava.model.miniJava.compare.contentMergeViewers"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="minijava" label="MiniJava Compare">
 		</viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="org.tetrabox.minijava.xtext.MiniJava.editors.documentProviders"
+		<provider id="org.tetrabox.minijava.model.miniJava.editors.documentProviders"
 			class="org.tetrabox.minijava.xtext.ui.MiniJavaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
 			extensions="minijava">
 		</provider>

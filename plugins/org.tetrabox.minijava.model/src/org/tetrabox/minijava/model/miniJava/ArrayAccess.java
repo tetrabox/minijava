@@ -65,12 +65,4 @@ public interface ArrayAccess extends Expression {
 	 */
 	void setIndex(Expression value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // ArrayAccess

@@ -42,12 +42,4 @@ public interface IntConstant extends Expression {
 	 */
 	void setValue(int value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value evaluateExpression(State state);
-
 } // IntConstant

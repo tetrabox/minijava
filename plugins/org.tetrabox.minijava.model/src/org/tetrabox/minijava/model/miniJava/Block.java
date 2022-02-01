@@ -33,20 +33,4 @@ public interface Block extends Statement {
 	 */
 	EList<Statement> getStatements();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void evaluateStatementKeepContext(State state);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void evaluateStatement(State state);
-
 } // Block

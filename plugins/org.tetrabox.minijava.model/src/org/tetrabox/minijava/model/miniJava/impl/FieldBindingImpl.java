@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.tetrabox.minijava.model.miniJava.Field;
 import org.tetrabox.minijava.model.miniJava.FieldBinding;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;

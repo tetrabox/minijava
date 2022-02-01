@@ -15,12 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface TypeRef extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	boolean compare(TypeRef other);
 
 } // TypeRef

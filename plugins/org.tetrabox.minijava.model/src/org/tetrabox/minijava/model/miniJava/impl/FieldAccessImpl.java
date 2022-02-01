@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.tetrabox.minijava.model.miniJava.Expression;
 import org.tetrabox.minijava.model.miniJava.Field;
 import org.tetrabox.minijava.model.miniJava.FieldAccess;

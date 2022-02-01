@@ -15,20 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Value extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	String customToString();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value copy();
 
 } // Value

@@ -2,16 +2,18 @@
  */
 package org.tetrabox.minijava.model.miniJava.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.ObjectInstance;
 import org.tetrabox.minijava.model.miniJava.ObjectRefValue;
+import org.tetrabox.minijava.model.miniJava.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,6 +101,28 @@ public class ObjectRefValueImpl extends ValueImpl implements ObjectRefValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Value copy() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String customToString() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -151,6 +175,22 @@ public class ObjectRefValueImpl extends ValueImpl implements ObjectRefValue {
 				return instance != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MiniJavaPackage.OBJECT_REF_VALUE___COPY:
+				return copy();
+			case MiniJavaPackage.OBJECT_REF_VALUE___CUSTOM_TO_STRING:
+				return customToString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ObjectRefValueImpl

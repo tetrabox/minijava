@@ -14,12 +14,5 @@ package org.tetrabox.minijava.model.miniJava;
  * @generated
  */
 public interface NullValue extends Value {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	Value copy();
 
 } // NullValue

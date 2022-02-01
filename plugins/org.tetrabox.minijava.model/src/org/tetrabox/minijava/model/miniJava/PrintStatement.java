@@ -42,12 +42,4 @@ public interface PrintStatement extends Statement {
 	 */
 	void setExpression(Expression value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="aspect"
-	 * @generated
-	 */
-	void evaluateStatement(State state);
-
 } // PrintStatement

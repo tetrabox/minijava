@@ -10,7 +10,7 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.tetrabox.minijava.xtext.miniJava.Program
+import org.tetrabox.minijava.model.miniJava.Program
 
 @RunWith(XtextRunner)
 @InjectWith(MiniJavaInjectorProvider)

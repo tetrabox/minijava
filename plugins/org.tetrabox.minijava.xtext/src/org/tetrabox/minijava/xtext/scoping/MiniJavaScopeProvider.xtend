@@ -8,15 +8,15 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import org.tetrabox.minijava.model.miniJava.Assignment
+import org.tetrabox.minijava.model.miniJava.Block
+import org.tetrabox.minijava.model.miniJava.FieldAccess
+import org.tetrabox.minijava.model.miniJava.ForStatement
+import org.tetrabox.minijava.model.miniJava.Method
+import org.tetrabox.minijava.model.miniJava.MethodCall
+import org.tetrabox.minijava.model.miniJava.MiniJavaPackage
+import org.tetrabox.minijava.model.miniJava.VariableDeclaration
 import org.tetrabox.minijava.xtext.MiniJavaModelUtil
-import org.tetrabox.minijava.xtext.miniJava.Assignment
-import org.tetrabox.minijava.xtext.miniJava.Block
-import org.tetrabox.minijava.xtext.miniJava.FieldAccess
-import org.tetrabox.minijava.xtext.miniJava.ForStatement
-import org.tetrabox.minijava.xtext.miniJava.Method
-import org.tetrabox.minijava.xtext.miniJava.MethodCall
-import org.tetrabox.minijava.xtext.miniJava.MiniJavaPackage
-import org.tetrabox.minijava.xtext.miniJava.VariableDeclaration
 import org.tetrabox.minijava.xtext.typing.MiniJavaTypeComputer
 
 /**
