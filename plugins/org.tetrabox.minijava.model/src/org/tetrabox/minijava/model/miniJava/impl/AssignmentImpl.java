@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.tetrabox.minijava.model.miniJava.Assignee;
 import org.tetrabox.minijava.model.miniJava.Assignment;
 import org.tetrabox.minijava.model.miniJava.Expression;

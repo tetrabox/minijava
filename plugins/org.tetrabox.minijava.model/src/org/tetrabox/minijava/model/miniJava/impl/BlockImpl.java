@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.tetrabox.minijava.model.miniJava.Block;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.Statement;

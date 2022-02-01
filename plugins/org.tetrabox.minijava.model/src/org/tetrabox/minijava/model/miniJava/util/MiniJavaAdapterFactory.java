@@ -8,29 +8,23 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.tetrabox.minijava.model.miniJava.And;
 import org.tetrabox.minijava.model.miniJava.ArrayAccess;
-import org.tetrabox.minijava.model.miniJava.ArrayInstance;
 import org.tetrabox.minijava.model.miniJava.ArrayLength;
-import org.tetrabox.minijava.model.miniJava.ArrayRefValue;
 import org.tetrabox.minijava.model.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.model.miniJava.Assignee;
 import org.tetrabox.minijava.model.miniJava.Assignment;
 import org.tetrabox.minijava.model.miniJava.Block;
 import org.tetrabox.minijava.model.miniJava.BoolConstant;
 import org.tetrabox.minijava.model.miniJava.BooleanTypeRef;
-import org.tetrabox.minijava.model.miniJava.BooleanValue;
-import org.tetrabox.minijava.model.miniJava.Call;
 import org.tetrabox.minijava.model.miniJava.ClassRef;
-import org.tetrabox.minijava.model.miniJava.Context;
 import org.tetrabox.minijava.model.miniJava.Division;
 import org.tetrabox.minijava.model.miniJava.Equality;
 import org.tetrabox.minijava.model.miniJava.Expression;
 import org.tetrabox.minijava.model.miniJava.Field;
 import org.tetrabox.minijava.model.miniJava.FieldAccess;
-import org.tetrabox.minijava.model.miniJava.FieldBinding;
 import org.tetrabox.minijava.model.miniJava.ForStatement;
-import org.tetrabox.minijava.model.miniJava.Frame;
 import org.tetrabox.minijava.model.miniJava.IfStatement;
 import org.tetrabox.minijava.model.miniJava.Import;
 import org.tetrabox.minijava.model.miniJava.Inequality;
@@ -38,49 +32,38 @@ import org.tetrabox.minijava.model.miniJava.Inferior;
 import org.tetrabox.minijava.model.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.model.miniJava.IntConstant;
 import org.tetrabox.minijava.model.miniJava.IntegerTypeRef;
-import org.tetrabox.minijava.model.miniJava.IntegerValue;
 import org.tetrabox.minijava.model.miniJava.Interface;
 import org.tetrabox.minijava.model.miniJava.Member;
 import org.tetrabox.minijava.model.miniJava.Method;
 import org.tetrabox.minijava.model.miniJava.MethodCall;
-import org.tetrabox.minijava.model.miniJava.MethodCall2;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.Minus;
 import org.tetrabox.minijava.model.miniJava.Multiplication;
 import org.tetrabox.minijava.model.miniJava.NamedElement;
 import org.tetrabox.minijava.model.miniJava.Neg;
 import org.tetrabox.minijava.model.miniJava.NewArray;
-import org.tetrabox.minijava.model.miniJava.NewCall;
 import org.tetrabox.minijava.model.miniJava.NewObject;
 import org.tetrabox.minijava.model.miniJava.Not;
 import org.tetrabox.minijava.model.miniJava.Null;
-import org.tetrabox.minijava.model.miniJava.NullValue;
-import org.tetrabox.minijava.model.miniJava.ObjectInstance;
-import org.tetrabox.minijava.model.miniJava.ObjectRefValue;
 import org.tetrabox.minijava.model.miniJava.Or;
-import org.tetrabox.minijava.model.miniJava.OutputStream;
 import org.tetrabox.minijava.model.miniJava.Parameter;
 import org.tetrabox.minijava.model.miniJava.Plus;
 import org.tetrabox.minijava.model.miniJava.PrintStatement;
 import org.tetrabox.minijava.model.miniJava.Program;
 import org.tetrabox.minijava.model.miniJava.Return;
 import org.tetrabox.minijava.model.miniJava.SingleTypeRef;
-import org.tetrabox.minijava.model.miniJava.State;
 import org.tetrabox.minijava.model.miniJava.Statement;
 import org.tetrabox.minijava.model.miniJava.StringConstant;
 import org.tetrabox.minijava.model.miniJava.StringTypeRef;
-import org.tetrabox.minijava.model.miniJava.StringValue;
 import org.tetrabox.minijava.model.miniJava.Super;
 import org.tetrabox.minijava.model.miniJava.Superior;
 import org.tetrabox.minijava.model.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.model.miniJava.Symbol;
-import org.tetrabox.minijava.model.miniJava.SymbolBinding;
 import org.tetrabox.minijava.model.miniJava.SymbolRef;
 import org.tetrabox.minijava.model.miniJava.This;
 import org.tetrabox.minijava.model.miniJava.TypeDeclaration;
 import org.tetrabox.minijava.model.miniJava.TypeRef;
 import org.tetrabox.minijava.model.miniJava.TypedDeclaration;
-import org.tetrabox.minijava.model.miniJava.Value;
 import org.tetrabox.minijava.model.miniJava.VariableDeclaration;
 import org.tetrabox.minijava.model.miniJava.VoidTypeRef;
 import org.tetrabox.minijava.model.miniJava.WhileStatement;
@@ -372,78 +355,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSymbolRef(SymbolRef object) {
 				return createSymbolRefAdapter();
-			}
-			@Override
-			public Adapter caseContext(Context object) {
-				return createContextAdapter();
-			}
-			@Override
-			public Adapter caseValue(Value object) {
-				return createValueAdapter();
-			}
-			@Override
-			public Adapter caseIntegerValue(IntegerValue object) {
-				return createIntegerValueAdapter();
-			}
-			@Override
-			public Adapter caseSymbolBinding(SymbolBinding object) {
-				return createSymbolBindingAdapter();
-			}
-			@Override
-			public Adapter caseFieldBinding(FieldBinding object) {
-				return createFieldBindingAdapter();
-			}
-			@Override
-			public Adapter caseStringValue(StringValue object) {
-				return createStringValueAdapter();
-			}
-			@Override
-			public Adapter caseBooleanValue(BooleanValue object) {
-				return createBooleanValueAdapter();
-			}
-			@Override
-			public Adapter caseOutputStream(OutputStream object) {
-				return createOutputStreamAdapter();
-			}
-			@Override
-			public Adapter caseState(State object) {
-				return createStateAdapter();
-			}
-			@Override
-			public Adapter caseFrame(Frame object) {
-				return createFrameAdapter();
-			}
-			@Override
-			public Adapter caseNullValue(NullValue object) {
-				return createNullValueAdapter();
-			}
-			@Override
-			public Adapter caseCall(Call object) {
-				return createCallAdapter();
-			}
-			@Override
-			public Adapter caseNewCall(NewCall object) {
-				return createNewCallAdapter();
-			}
-			@Override
-			public Adapter caseMethodCall2(MethodCall2 object) {
-				return createMethodCall2Adapter();
-			}
-			@Override
-			public Adapter caseObjectInstance(ObjectInstance object) {
-				return createObjectInstanceAdapter();
-			}
-			@Override
-			public Adapter caseArrayInstance(ArrayInstance object) {
-				return createArrayInstanceAdapter();
-			}
-			@Override
-			public Adapter caseObjectRefValue(ObjectRefValue object) {
-				return createObjectRefValueAdapter();
-			}
-			@Override
-			public Adapter caseArrayRefValue(ArrayRefValue object) {
-				return createArrayRefValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -1274,258 +1185,6 @@ public class MiniJavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSymbolRefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.Context <em>Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.Context
-	 * @generated
-	 */
-	public Adapter createContextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.Value
-	 * @generated
-	 */
-	public Adapter createValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.IntegerValue
-	 * @generated
-	 */
-	public Adapter createIntegerValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.SymbolBinding <em>Symbol Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.SymbolBinding
-	 * @generated
-	 */
-	public Adapter createSymbolBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.FieldBinding <em>Field Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.FieldBinding
-	 * @generated
-	 */
-	public Adapter createFieldBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.StringValue <em>String Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.StringValue
-	 * @generated
-	 */
-	public Adapter createStringValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.BooleanValue <em>Boolean Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.BooleanValue
-	 * @generated
-	 */
-	public Adapter createBooleanValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.OutputStream <em>Output Stream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.OutputStream
-	 * @generated
-	 */
-	public Adapter createOutputStreamAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.State <em>State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.State
-	 * @generated
-	 */
-	public Adapter createStateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.Frame <em>Frame</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.Frame
-	 * @generated
-	 */
-	public Adapter createFrameAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.NullValue <em>Null Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.NullValue
-	 * @generated
-	 */
-	public Adapter createNullValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.Call <em>Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.Call
-	 * @generated
-	 */
-	public Adapter createCallAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.NewCall <em>New Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.NewCall
-	 * @generated
-	 */
-	public Adapter createNewCallAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.MethodCall2 <em>Method Call2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.MethodCall2
-	 * @generated
-	 */
-	public Adapter createMethodCall2Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.ObjectInstance <em>Object Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.ObjectInstance
-	 * @generated
-	 */
-	public Adapter createObjectInstanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.ArrayInstance <em>Array Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.ArrayInstance
-	 * @generated
-	 */
-	public Adapter createArrayInstanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.ObjectRefValue <em>Object Ref Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.ObjectRefValue
-	 * @generated
-	 */
-	public Adapter createObjectRefValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.tetrabox.minijava.model.miniJava.ArrayRefValue <em>Array Ref Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.tetrabox.minijava.model.miniJava.ArrayRefValue
-	 * @generated
-	 */
-	public Adapter createArrayRefValueAdapter() {
 		return null;
 	}
 

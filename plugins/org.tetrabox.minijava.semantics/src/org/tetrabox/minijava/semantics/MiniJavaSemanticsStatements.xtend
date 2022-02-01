@@ -1,15 +1,8 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import org.tetrabox.minijava.model.miniJava.ArrayRefValue
-import org.tetrabox.minijava.model.miniJava.BooleanValue
-import org.tetrabox.minijava.model.miniJava.IntegerValue
-import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
-import org.tetrabox.minijava.model.miniJava.ObjectRefValue
-import org.tetrabox.minijava.model.miniJava.State
 import org.tetrabox.minijava.model.miniJava.ArrayAccess
 import org.tetrabox.minijava.model.miniJava.Assignment
 import org.tetrabox.minijava.model.miniJava.Block
@@ -25,6 +18,12 @@ import org.tetrabox.minijava.model.miniJava.Statement
 import org.tetrabox.minijava.model.miniJava.SymbolRef
 import org.tetrabox.minijava.model.miniJava.VariableDeclaration
 import org.tetrabox.minijava.model.miniJava.WhileStatement
+import org.tetrabox.minijava.model.miniJava.semantics.ArrayRefValue
+import org.tetrabox.minijava.model.miniJava.semantics.BooleanValue
+import org.tetrabox.minijava.model.miniJava.semantics.IntegerValue
+import org.tetrabox.minijava.model.miniJava.semantics.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.semantics.SemanticsFactory
+import org.tetrabox.minijava.model.miniJava.semantics.State
 
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
@@ -83,7 +82,7 @@ class AssigmentAspect extends StatementAspect {
 				existingBinding.value = right
 			}
 			VariableDeclaration: {
-				val binding = MiniJavaFactory::eINSTANCE.createSymbolBinding => [
+				val binding = SemanticsFactory::eINSTANCE.createSymbolBinding => [
 					symbol = assignee
 					value = right
 				]
@@ -96,7 +95,7 @@ class AssigmentAspect extends StatementAspect {
 				if (existingBinding !== null) {
 					existingBinding.value = right
 				} else {
-					val binding = MiniJavaFactory::eINSTANCE.createFieldBinding => [
+					val binding = SemanticsFactory::eINSTANCE.createFieldBinding => [
 						field = f
 						value = right
 					]

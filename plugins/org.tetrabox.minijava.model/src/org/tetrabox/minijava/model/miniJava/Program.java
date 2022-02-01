@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.tetrabox.minijava.model.miniJava.semantics.State;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Program</b></em>'.

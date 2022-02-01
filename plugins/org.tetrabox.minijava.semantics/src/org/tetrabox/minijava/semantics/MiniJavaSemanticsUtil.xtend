@@ -1,27 +1,37 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import java.util.HashMap
 import java.util.Map
-import org.tetrabox.minijava.model.miniJava.ArrayRefValue
-import org.tetrabox.minijava.model.miniJava.BooleanValue
-import org.tetrabox.minijava.model.miniJava.Call
-import org.tetrabox.minijava.model.miniJava.Context
-import org.tetrabox.minijava.model.miniJava.Frame
-import org.tetrabox.minijava.model.miniJava.IntegerValue
-import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
-import org.tetrabox.minijava.model.miniJava.NullValue
-import org.tetrabox.minijava.model.miniJava.ObjectInstance
-import org.tetrabox.minijava.model.miniJava.ObjectRefValue
-import org.tetrabox.minijava.model.miniJava.State
-import org.tetrabox.minijava.model.miniJava.StringValue
-import org.tetrabox.minijava.model.miniJava.SymbolBinding
-import org.tetrabox.minijava.model.miniJava.Value
 import org.tetrabox.minijava.model.miniJava.Symbol
+import org.tetrabox.minijava.model.miniJava.semantics.ArrayRefValue
+import org.tetrabox.minijava.model.miniJava.semantics.BooleanValue
+import org.tetrabox.minijava.model.miniJava.semantics.Call
+import org.tetrabox.minijava.model.miniJava.semantics.Context
+import org.tetrabox.minijava.model.miniJava.semantics.Frame
+import org.tetrabox.minijava.model.miniJava.semantics.IntegerValue
+import org.tetrabox.minijava.model.miniJava.semantics.NullValue
+import org.tetrabox.minijava.model.miniJava.semantics.ObjectInstance
+import org.tetrabox.minijava.model.miniJava.semantics.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.semantics.SemanticsFactory
+import org.tetrabox.minijava.model.miniJava.semantics.State
+import org.tetrabox.minijava.model.miniJava.semantics.StringValue
+import org.tetrabox.minijava.model.miniJava.semantics.SymbolBinding
+import org.tetrabox.minijava.model.miniJava.semantics.Value
+import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
+import static extension org.tetrabox.minijava.semantics.MethodAspect.*
+import static extension org.tetrabox.minijava.semantics.MethodSortofStatementAspect.*
+import static extension org.tetrabox.minijava.semantics.ParameterAspect.*
+import static extension org.tetrabox.minijava.semantics.StateAspect.*
+import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
+import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 import static extension org.tetrabox.minijava.semantics.FrameAspect.*
+import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
+
+
+
 
 @Aspect(className=Context)
 class ContextAspect {
@@ -29,7 +39,7 @@ class ContextAspect {
 	private val Map<Symbol, SymbolBinding> cache = new HashMap
 
 	def Context createChildContext() {
-		return MiniJavaFactory::eINSTANCE.createContext => [
+		return SemanticsFactory::eINSTANCE.createContext => [
 			parentContext = _self
 		]
 	}
@@ -85,7 +95,7 @@ class StateAspect {
 	}
 
 	def void pushNewContext() {
-		val newContext = MiniJavaFactory::eINSTANCE.createContext
+		val newContext = SemanticsFactory::eINSTANCE.createContext
 		if (_self.findCurrentContext !== null) {
 			_self.findCurrentContext.childContext = newContext
 		} else {
@@ -101,7 +111,7 @@ class StateAspect {
 	}
 
 	def void pushNewFrame(ObjectInstance receiver, Call c, Context newContext) {
-		val newFrame = MiniJavaFactory::eINSTANCE.createFrame => [
+		val newFrame = SemanticsFactory::eINSTANCE.createFrame => [
 			instance = receiver
 			call = c
 			rootContext = newContext
@@ -153,7 +163,7 @@ class ValueAspect {
 class IntegerValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [value = _self.value]
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [value = _self.value]
 	}
 }
 
@@ -161,7 +171,7 @@ class IntegerValueAspect extends ValueAspect {
 class BooleanValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [value = _self.value]
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [value = _self.value]
 	}
 }
 
@@ -169,7 +179,7 @@ class BooleanValueAspect extends ValueAspect {
 class StringValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MiniJavaFactory::eINSTANCE.createStringValue => [value = _self.value]
+		return SemanticsFactory::eINSTANCE.createStringValue => [value = _self.value]
 	}
 
 }
@@ -178,7 +188,7 @@ class StringValueAspect extends ValueAspect {
 class ObjectRefValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MiniJavaFactory::eINSTANCE.createObjectRefValue => [instance = _self.instance]
+		return SemanticsFactory::eINSTANCE.createObjectRefValue => [instance = _self.instance]
 	}
 }
 
@@ -186,7 +196,7 @@ class ObjectRefValueAspect extends ValueAspect {
 class ArrayRefValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MiniJavaFactory::eINSTANCE.createArrayRefValue => [instance = _self.instance]
+		return SemanticsFactory::eINSTANCE.createArrayRefValue => [instance = _self.instance]
 	}
 }
 
@@ -194,6 +204,6 @@ class ArrayRefValueAspect extends ValueAspect {
 class NullValueAspect extends ValueAspect {
 	@OverrideAspectMethod
 	def Value copy() {
-		return MiniJavaFactory::eINSTANCE.createNullValue
+		return SemanticsFactory::eINSTANCE.createNullValue
 	}
 }

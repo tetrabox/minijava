@@ -1,16 +1,14 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import org.tetrabox.minijava.model.miniJava.BooleanValue
-import org.tetrabox.minijava.model.miniJava.IntegerValue
-import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
-import org.tetrabox.minijava.model.miniJava.State
-import org.tetrabox.minijava.model.miniJava.StringValue
-import org.tetrabox.minijava.model.miniJava.Value
+import java.util.HashMap
+import java.util.Map
 import org.tetrabox.minijava.model.miniJava.And
+import org.tetrabox.minijava.model.miniJava.ArrayAccess
+import org.tetrabox.minijava.model.miniJava.ArrayLength
 import org.tetrabox.minijava.model.miniJava.BoolConstant
+import org.tetrabox.minijava.model.miniJava.BooleanTypeRef
 import org.tetrabox.minijava.model.miniJava.Class
 import org.tetrabox.minijava.model.miniJava.ClassRef
 import org.tetrabox.minijava.model.miniJava.Division
@@ -22,45 +20,46 @@ import org.tetrabox.minijava.model.miniJava.Inequality
 import org.tetrabox.minijava.model.miniJava.Inferior
 import org.tetrabox.minijava.model.miniJava.InferiorOrEqual
 import org.tetrabox.minijava.model.miniJava.IntConstant
+import org.tetrabox.minijava.model.miniJava.IntegerTypeRef
 import org.tetrabox.minijava.model.miniJava.Method
 import org.tetrabox.minijava.model.miniJava.MethodCall
 import org.tetrabox.minijava.model.miniJava.Minus
 import org.tetrabox.minijava.model.miniJava.Multiplication
 import org.tetrabox.minijava.model.miniJava.Neg
+import org.tetrabox.minijava.model.miniJava.NewArray
+import org.tetrabox.minijava.model.miniJava.NewObject
 import org.tetrabox.minijava.model.miniJava.Not
 import org.tetrabox.minijava.model.miniJava.Null
 import org.tetrabox.minijava.model.miniJava.Or
 import org.tetrabox.minijava.model.miniJava.Parameter
 import org.tetrabox.minijava.model.miniJava.Plus
 import org.tetrabox.minijava.model.miniJava.StringConstant
+import org.tetrabox.minijava.model.miniJava.StringTypeRef
 import org.tetrabox.minijava.model.miniJava.Superior
 import org.tetrabox.minijava.model.miniJava.SuperiorOrEqual
 import org.tetrabox.minijava.model.miniJava.SymbolRef
 import org.tetrabox.minijava.model.miniJava.This
 import org.tetrabox.minijava.model.miniJava.TypeRef
+import org.tetrabox.minijava.model.miniJava.semantics.ArrayRefValue
+import org.tetrabox.minijava.model.miniJava.semantics.BooleanValue
+import org.tetrabox.minijava.model.miniJava.semantics.IntegerValue
+import org.tetrabox.minijava.model.miniJava.semantics.NullValue
+import org.tetrabox.minijava.model.miniJava.semantics.ObjectInstance
+import org.tetrabox.minijava.model.miniJava.semantics.ObjectRefValue
+import org.tetrabox.minijava.model.miniJava.semantics.SemanticsFactory
+import org.tetrabox.minijava.model.miniJava.semantics.State
+import org.tetrabox.minijava.model.miniJava.semantics.StringValue
+import org.tetrabox.minijava.model.miniJava.semantics.Value
 
 import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 import static extension org.tetrabox.minijava.semantics.ContextAspect.*
 import static extension org.tetrabox.minijava.semantics.MethodAspect.*
+import static extension org.tetrabox.minijava.semantics.MethodSortofStatementAspect.*
 import static extension org.tetrabox.minijava.semantics.ParameterAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
 import static extension org.tetrabox.minijava.semantics.TypeRefAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueAspect.*
 import static extension org.tetrabox.minijava.semantics.ValueToStringAspect.*
-import static extension org.tetrabox.minijava.semantics.MethodSortofStatementAspect.*
-import org.tetrabox.minijava.model.miniJava.ObjectInstance
-import org.tetrabox.minijava.model.miniJava.ObjectRefValue
-import org.tetrabox.minijava.model.miniJava.NewObject
-import org.tetrabox.minijava.model.miniJava.NewArray
-import org.tetrabox.minijava.model.miniJava.ArrayLength
-import org.tetrabox.minijava.model.miniJava.ArrayRefValue
-import org.tetrabox.minijava.model.miniJava.ArrayAccess
-import org.tetrabox.minijava.model.miniJava.IntegerTypeRef
-import org.tetrabox.minijava.model.miniJava.BooleanTypeRef
-import org.tetrabox.minijava.model.miniJava.StringTypeRef
-import org.tetrabox.minijava.model.miniJava.NullValue
-import java.util.Map
-import java.util.HashMap
 
 @Aspect(className=Expression)
 class ExpressionAspect {
@@ -75,7 +74,7 @@ class NegAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		val intabsvalue = (_self.expression.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [value = -intabsvalue]
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [value = -intabsvalue]
 	}
 }
 
@@ -83,7 +82,7 @@ class NegAspect extends ExpressionAspect {
 class NullAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		return MiniJavaFactory::eINSTANCE.createNullValue
+		return SemanticsFactory::eINSTANCE.createNullValue
 	}
 }
 
@@ -93,7 +92,7 @@ class MinusAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [value = left - right]
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [value = left - right]
 	}
 }
 
@@ -103,7 +102,7 @@ class MultiplicationAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [value = left * right]
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [value = left * right]
 	}
 }
 
@@ -113,7 +112,7 @@ class DivisionAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [value = left / right]
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [value = left / right]
 	}
 }
 
@@ -124,12 +123,12 @@ class PlusAspect extends ExpressionAspect {
 		val left = _self.left.evaluateExpression(state)
 		val right = _self.right.evaluateExpression(state)
 		if (left instanceof StringValue || right instanceof StringValue) {
-			return MiniJavaFactory::eINSTANCE.createStringValue => [
+			return SemanticsFactory::eINSTANCE.createStringValue => [
 				value = left.customToString + right.customToString
 			]
 		} else if (left instanceof IntegerValue) {
 			if (right instanceof IntegerValue) {
-				return MiniJavaFactory::eINSTANCE.createIntegerValue => [
+				return SemanticsFactory::eINSTANCE.createIntegerValue => [
 					value = left.value + right.value
 				]
 			}
@@ -146,7 +145,7 @@ class OrAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 		if (left instanceof BooleanValue) {
 			if (right instanceof BooleanValue) {
-				return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+				return SemanticsFactory::eINSTANCE.createBooleanValue => [
 					value = left.value || right.value
 				]
 			}
@@ -163,7 +162,7 @@ class AndAspect extends ExpressionAspect {
 		val right = _self.right.evaluateExpression(state)
 		if (left instanceof BooleanValue) {
 			if (right instanceof BooleanValue) {
-				return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+				return SemanticsFactory::eINSTANCE.createBooleanValue => [
 					value = left.value && right.value
 				]
 			}
@@ -178,7 +177,7 @@ class InferiorAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = left < right
 		]
 	}
@@ -190,7 +189,7 @@ class InferiorOrEqualAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = left <= right
 		]
 	}
@@ -203,7 +202,7 @@ class SuperiorOrEqualAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = left >= right
 		]
 	}
@@ -215,7 +214,7 @@ class SuperiorAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val left = (_self.left.evaluateExpression(state) as IntegerValue).value
 		val right = (_self.right.evaluateExpression(state) as IntegerValue).value
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = left > right
 		]
 	}
@@ -226,7 +225,7 @@ class NotAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		val expr = (_self.expression.evaluateExpression(state) as BooleanValue).value
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = !expr
 		]
 	}
@@ -254,7 +253,7 @@ class EqualityAspect extends ExpressionAspect {
 				throw new RuntimeException('''Type unsupported for equality operator: «left.class»''')
 			}
 
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = result
 		]
 	}
@@ -281,7 +280,7 @@ class InequalityAspect extends ExpressionAspect {
 			} else {
 				throw new RuntimeException('''Type unsupported for inequality operator: «left.class»''')
 			}
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = result
 		]
 	}
@@ -353,17 +352,17 @@ class MethodCallExpressionAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val realReceiver = (_self.receiver.evaluateExpression(state) as ObjectRefValue).instance
 		val realMethod = _self.method.findOverride(realReceiver.type as Class)
-		val newContext = MiniJavaFactory::eINSTANCE.createContext
+		val newContext = SemanticsFactory::eINSTANCE.createContext
 		for (arg : _self.args) {
 			val param = realMethod.params.get(_self.args.indexOf(arg))
-			val binding = MiniJavaFactory::eINSTANCE.createSymbolBinding => [
+			val binding = SemanticsFactory::eINSTANCE.createSymbolBinding => [
 				symbol = param
 				value = arg.evaluateExpression(state)
 			]
 			newContext.bindings.add(binding)
 		}
 
-		val call = MiniJavaFactory::eINSTANCE.createMethodCall2 => [methodcall = _self]
+		val call = SemanticsFactory::eINSTANCE.createMethodCall2 => [methodcall = _self]
 		state.pushNewFrame(realReceiver, call, newContext)
 		realMethod.call(state)
 		val returnValue = state.findCurrentFrame.returnValue
@@ -383,35 +382,35 @@ class FieldAccessAspect extends ExpressionAspect {
 			return null
 		}
 		else if (binding.value instanceof NullValue){
-			val nullValue = MiniJavaFactory::eINSTANCE.createNullValue
+			val nullValue = SemanticsFactory::eINSTANCE.createNullValue
 			return nullValue
 		}
 		else if (binding.value instanceof StringValue){
-			val stringValue = MiniJavaFactory::eINSTANCE.createStringValue =>[
+			val stringValue = SemanticsFactory::eINSTANCE.createStringValue =>[
 				value = (binding.value as StringValue).value
 			]
 			return stringValue
 		}
 		else if (binding.value instanceof IntegerValue){
-			val intValue = MiniJavaFactory::eINSTANCE.createIntegerValue =>[
+			val intValue = SemanticsFactory::eINSTANCE.createIntegerValue =>[
 				value = (binding.value as IntegerValue).value
 			]
 			return intValue
 		}
 		else if (binding.value instanceof BooleanValue){
-			val boolValue = MiniJavaFactory::eINSTANCE.createBooleanValue =>[
+			val boolValue = SemanticsFactory::eINSTANCE.createBooleanValue =>[
 				value = (binding.value as BooleanValue).value
 			]
 			return boolValue
 		}
 		else if (binding.value instanceof ObjectRefValue){
-			val objRefValue = MiniJavaFactory::eINSTANCE.createObjectRefValue =>[
+			val objRefValue = SemanticsFactory::eINSTANCE.createObjectRefValue =>[
 				instance = (binding.value as ObjectRefValue).instance
 			]
 			return objRefValue
 		}
 		else if (binding.value instanceof ArrayRefValue){
-			val arrayRefValue = MiniJavaFactory::eINSTANCE.createArrayRefValue =>[
+			val arrayRefValue = SemanticsFactory::eINSTANCE.createArrayRefValue =>[
 				instance = (binding.value as ArrayRefValue).instance
 			]
 			return arrayRefValue
@@ -427,7 +426,7 @@ class ThisAspect extends ExpressionAspect {
 		if (currentInstance === null) {
 			throw new RuntimeException('''"this" is not valid in the current context''')
 		} else {
-			return MiniJavaFactory::eINSTANCE.createObjectRefValue => [instance = currentInstance]
+			return SemanticsFactory::eINSTANCE.createObjectRefValue => [instance = currentInstance]
 		}
 	}
 }
@@ -446,12 +445,12 @@ class NewObjectAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 
 		// Creating instance with default bindings
-		val result = MiniJavaFactory::eINSTANCE.createObjectInstance => [type = _self.type]
+		val result = SemanticsFactory::eINSTANCE.createObjectInstance => [type = _self.type]
 		state.objectsHeap.add(result)
 		for (f : result.type.members.filter(Field)) {
 			if (f.defaultValue !== null) {
 				val v = f.defaultValue.evaluateExpression(state)
-				result.fieldbindings.add(MiniJavaFactory::eINSTANCE.createFieldBinding => [
+				result.fieldbindings.add(SemanticsFactory::eINSTANCE.createFieldBinding => [
 					field = f;
 					value = v
 				])
@@ -467,10 +466,10 @@ class NewObjectAspect extends ExpressionAspect {
 		if (constructor !== null) {
 
 			// Create a context with constructor parameters bindings
-			val newContext = MiniJavaFactory::eINSTANCE.createContext
+			val newContext = SemanticsFactory::eINSTANCE.createContext
 			for (arg : _self.args) {
 				val Parameter param = constructor.params.get(_self.args.indexOf(arg))
-				val binding = MiniJavaFactory::eINSTANCE.createSymbolBinding => [
+				val binding = SemanticsFactory::eINSTANCE.createSymbolBinding => [
 					symbol = param;
 					value = (arg as Expression).evaluateExpression(state)
 				]
@@ -478,7 +477,7 @@ class NewObjectAspect extends ExpressionAspect {
 			}
 
 			// Make the constructor call in new frame
-			val call = MiniJavaFactory::eINSTANCE.createNewCall => [^new = _self]
+			val call = SemanticsFactory::eINSTANCE.createNewCall => [^new = _self]
 			state.pushNewFrame(result, call, newContext)
 			constructor.body.evaluateStatement(state)
 			state.popCurrentFrame
@@ -486,7 +485,7 @@ class NewObjectAspect extends ExpressionAspect {
 		}
 
 		// Return constructed instance
-		return MiniJavaFactory::eINSTANCE.createObjectRefValue => [instance = result]
+		return SemanticsFactory::eINSTANCE.createObjectRefValue => [instance = result]
 	}
 }
 
@@ -495,23 +494,23 @@ class NewArrayAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
 		// Creating array with size
-		val result = MiniJavaFactory::eINSTANCE.createArrayInstance
+		val result = SemanticsFactory::eINSTANCE.createArrayInstance
 		result.size = (_self.size.evaluateExpression(state) as IntegerValue).value
 		state.arraysHeap.add(result)
 
 		// Filling array with default values
 		val defaultValue = switch (_self.type) {
-			IntegerTypeRef: MiniJavaFactory::eINSTANCE.createIntegerValue => [value = 0]
-			BooleanTypeRef: MiniJavaFactory::eINSTANCE.createBooleanValue => [value = false]
-			StringTypeRef: MiniJavaFactory::eINSTANCE.createNullValue
-			ClassRef: MiniJavaFactory::eINSTANCE.createNullValue
+			IntegerTypeRef: SemanticsFactory::eINSTANCE.createIntegerValue => [value = 0]
+			BooleanTypeRef: SemanticsFactory::eINSTANCE.createBooleanValue => [value = false]
+			StringTypeRef: SemanticsFactory::eINSTANCE.createNullValue
+			ClassRef: SemanticsFactory::eINSTANCE.createNullValue
 		}
 		for (i : 1 .. result.size) {
 			result.value.add(defaultValue.copy)
 		}
 
 		// Return constructed array
-		return MiniJavaFactory::eINSTANCE.createArrayRefValue => [instance = result]
+		return SemanticsFactory::eINSTANCE.createArrayRefValue => [instance = result]
 	}
 }
 
@@ -519,7 +518,7 @@ class NewArrayAspect extends ExpressionAspect {
 class StringConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		return MiniJavaFactory::eINSTANCE.createStringValue => [
+		return SemanticsFactory::eINSTANCE.createStringValue => [
 			value = _self.value
 		]
 	}
@@ -529,7 +528,7 @@ class StringConstantAspect extends ExpressionAspect {
 class IntConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [
 			value = _self.value
 		]
 	}
@@ -539,7 +538,7 @@ class IntConstantAspect extends ExpressionAspect {
 class BoolConstantAspect extends ExpressionAspect {
 	@OverrideAspectMethod
 	def Value evaluateExpression(State state) {
-		return MiniJavaFactory::eINSTANCE.createBooleanValue => [
+		return SemanticsFactory::eINSTANCE.createBooleanValue => [
 			value = _self.value.equalsIgnoreCase("true")
 		]
 	}
@@ -551,7 +550,7 @@ class ArrayLengthAspect extends ExpressionAspect {
 	def Value evaluateExpression(State state) {
 		val arrayRef = _self.array.evaluateExpression(state) as ArrayRefValue
 		val size = arrayRef.instance.size
-		return MiniJavaFactory::eINSTANCE.createIntegerValue => [
+		return SemanticsFactory::eINSTANCE.createIntegerValue => [
 			value = size
 		]
 	}

@@ -6,32 +6,28 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.tetrabox.minijava.model.miniJava.AccessLevel;
 import org.tetrabox.minijava.model.miniJava.And;
 import org.tetrabox.minijava.model.miniJava.ArrayAccess;
-import org.tetrabox.minijava.model.miniJava.ArrayInstance;
 import org.tetrabox.minijava.model.miniJava.ArrayLength;
-import org.tetrabox.minijava.model.miniJava.ArrayRefValue;
 import org.tetrabox.minijava.model.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.model.miniJava.Assignee;
 import org.tetrabox.minijava.model.miniJava.Assignment;
 import org.tetrabox.minijava.model.miniJava.Block;
 import org.tetrabox.minijava.model.miniJava.BoolConstant;
 import org.tetrabox.minijava.model.miniJava.BooleanTypeRef;
-import org.tetrabox.minijava.model.miniJava.BooleanValue;
-import org.tetrabox.minijava.model.miniJava.Call;
 import org.tetrabox.minijava.model.miniJava.ClassRef;
-import org.tetrabox.minijava.model.miniJava.Context;
 import org.tetrabox.minijava.model.miniJava.Division;
 import org.tetrabox.minijava.model.miniJava.Equality;
 import org.tetrabox.minijava.model.miniJava.Expression;
 import org.tetrabox.minijava.model.miniJava.Field;
 import org.tetrabox.minijava.model.miniJava.FieldAccess;
-import org.tetrabox.minijava.model.miniJava.FieldBinding;
 import org.tetrabox.minijava.model.miniJava.ForStatement;
-import org.tetrabox.minijava.model.miniJava.Frame;
 import org.tetrabox.minijava.model.miniJava.IfStatement;
 import org.tetrabox.minijava.model.miniJava.Import;
 import org.tetrabox.minijava.model.miniJava.Inequality;
@@ -39,12 +35,10 @@ import org.tetrabox.minijava.model.miniJava.Inferior;
 import org.tetrabox.minijava.model.miniJava.InferiorOrEqual;
 import org.tetrabox.minijava.model.miniJava.IntConstant;
 import org.tetrabox.minijava.model.miniJava.IntegerTypeRef;
-import org.tetrabox.minijava.model.miniJava.IntegerValue;
 import org.tetrabox.minijava.model.miniJava.Interface;
 import org.tetrabox.minijava.model.miniJava.Member;
 import org.tetrabox.minijava.model.miniJava.Method;
 import org.tetrabox.minijava.model.miniJava.MethodCall;
-import org.tetrabox.minijava.model.miniJava.MethodCall2;
 import org.tetrabox.minijava.model.miniJava.MiniJavaFactory;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.Minus;
@@ -52,37 +46,28 @@ import org.tetrabox.minijava.model.miniJava.Multiplication;
 import org.tetrabox.minijava.model.miniJava.NamedElement;
 import org.tetrabox.minijava.model.miniJava.Neg;
 import org.tetrabox.minijava.model.miniJava.NewArray;
-import org.tetrabox.minijava.model.miniJava.NewCall;
 import org.tetrabox.minijava.model.miniJava.NewObject;
 import org.tetrabox.minijava.model.miniJava.Not;
 import org.tetrabox.minijava.model.miniJava.Null;
-import org.tetrabox.minijava.model.miniJava.NullValue;
-import org.tetrabox.minijava.model.miniJava.ObjectInstance;
-import org.tetrabox.minijava.model.miniJava.ObjectRefValue;
 import org.tetrabox.minijava.model.miniJava.Or;
-import org.tetrabox.minijava.model.miniJava.OutputStream;
 import org.tetrabox.minijava.model.miniJava.Parameter;
 import org.tetrabox.minijava.model.miniJava.Plus;
 import org.tetrabox.minijava.model.miniJava.PrintStatement;
 import org.tetrabox.minijava.model.miniJava.Program;
 import org.tetrabox.minijava.model.miniJava.Return;
 import org.tetrabox.minijava.model.miniJava.SingleTypeRef;
-import org.tetrabox.minijava.model.miniJava.State;
 import org.tetrabox.minijava.model.miniJava.Statement;
 import org.tetrabox.minijava.model.miniJava.StringConstant;
 import org.tetrabox.minijava.model.miniJava.StringTypeRef;
-import org.tetrabox.minijava.model.miniJava.StringValue;
 import org.tetrabox.minijava.model.miniJava.Super;
 import org.tetrabox.minijava.model.miniJava.Superior;
 import org.tetrabox.minijava.model.miniJava.SuperiorOrEqual;
 import org.tetrabox.minijava.model.miniJava.Symbol;
-import org.tetrabox.minijava.model.miniJava.SymbolBinding;
 import org.tetrabox.minijava.model.miniJava.SymbolRef;
 import org.tetrabox.minijava.model.miniJava.This;
 import org.tetrabox.minijava.model.miniJava.TypeDeclaration;
 import org.tetrabox.minijava.model.miniJava.TypeRef;
 import org.tetrabox.minijava.model.miniJava.TypedDeclaration;
-import org.tetrabox.minijava.model.miniJava.Value;
 import org.tetrabox.minijava.model.miniJava.VariableDeclaration;
 import org.tetrabox.minijava.model.miniJava.VoidTypeRef;
 import org.tetrabox.minijava.model.miniJava.WhileStatement;
@@ -189,24 +174,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 			case MiniJavaPackage.NEW_OBJECT: return createNewObject();
 			case MiniJavaPackage.NEW_ARRAY: return createNewArray();
 			case MiniJavaPackage.SYMBOL_REF: return createSymbolRef();
-			case MiniJavaPackage.CONTEXT: return createContext();
-			case MiniJavaPackage.VALUE: return createValue();
-			case MiniJavaPackage.INTEGER_VALUE: return createIntegerValue();
-			case MiniJavaPackage.SYMBOL_BINDING: return createSymbolBinding();
-			case MiniJavaPackage.FIELD_BINDING: return createFieldBinding();
-			case MiniJavaPackage.STRING_VALUE: return createStringValue();
-			case MiniJavaPackage.BOOLEAN_VALUE: return createBooleanValue();
-			case MiniJavaPackage.OUTPUT_STREAM: return createOutputStream();
-			case MiniJavaPackage.STATE: return createState();
-			case MiniJavaPackage.FRAME: return createFrame();
-			case MiniJavaPackage.NULL_VALUE: return createNullValue();
-			case MiniJavaPackage.CALL: return createCall();
-			case MiniJavaPackage.NEW_CALL: return createNewCall();
-			case MiniJavaPackage.METHOD_CALL2: return createMethodCall2();
-			case MiniJavaPackage.OBJECT_INSTANCE: return createObjectInstance();
-			case MiniJavaPackage.ARRAY_INSTANCE: return createArrayInstance();
-			case MiniJavaPackage.OBJECT_REF_VALUE: return createObjectRefValue();
-			case MiniJavaPackage.ARRAY_REF_VALUE: return createArrayRefValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -820,186 +787,6 @@ public class MiniJavaFactoryImpl extends EFactoryImpl implements MiniJavaFactory
 	public SymbolRef createSymbolRef() {
 		SymbolRefImpl symbolRef = new SymbolRefImpl();
 		return symbolRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Context createContext() {
-		ContextImpl context = new ContextImpl();
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value createValue() {
-		ValueImpl value = new ValueImpl();
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IntegerValue createIntegerValue() {
-		IntegerValueImpl integerValue = new IntegerValueImpl();
-		return integerValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SymbolBinding createSymbolBinding() {
-		SymbolBindingImpl symbolBinding = new SymbolBindingImpl();
-		return symbolBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FieldBinding createFieldBinding() {
-		FieldBindingImpl fieldBinding = new FieldBindingImpl();
-		return fieldBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StringValue createStringValue() {
-		StringValueImpl stringValue = new StringValueImpl();
-		return stringValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BooleanValue createBooleanValue() {
-		BooleanValueImpl booleanValue = new BooleanValueImpl();
-		return booleanValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OutputStream createOutputStream() {
-		OutputStreamImpl outputStream = new OutputStreamImpl();
-		return outputStream;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public State createState() {
-		StateImpl state = new StateImpl();
-		return state;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Frame createFrame() {
-		FrameImpl frame = new FrameImpl();
-		return frame;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NullValue createNullValue() {
-		NullValueImpl nullValue = new NullValueImpl();
-		return nullValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Call createCall() {
-		CallImpl call = new CallImpl();
-		return call;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NewCall createNewCall() {
-		NewCallImpl newCall = new NewCallImpl();
-		return newCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MethodCall2 createMethodCall2() {
-		MethodCall2Impl methodCall2 = new MethodCall2Impl();
-		return methodCall2;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObjectInstance createObjectInstance() {
-		ObjectInstanceImpl objectInstance = new ObjectInstanceImpl();
-		return objectInstance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ArrayInstance createArrayInstance() {
-		ArrayInstanceImpl arrayInstance = new ArrayInstanceImpl();
-		return arrayInstance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObjectRefValue createObjectRefValue() {
-		ObjectRefValueImpl objectRefValue = new ObjectRefValueImpl();
-		return objectRefValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ArrayRefValue createArrayRefValue() {
-		ArrayRefValueImpl arrayRefValue = new ArrayRefValueImpl();
-		return arrayRefValue;
 	}
 
 	/**

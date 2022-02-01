@@ -1,8 +1,7 @@
 package org.tetrabox.minijava.semantics.tests.util
 
 import com.google.inject.Inject
-
-
+import java.util.List
 import java.util.Map
 import java.util.Set
 import java.util.function.Consumer
@@ -10,17 +9,16 @@ import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.Assert
-import org.tetrabox.minijava.model.miniJava.Context
-import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
-import org.tetrabox.minijava.model.miniJava.State
-import org.tetrabox.minijava.model.miniJava.SymbolBinding
-import org.tetrabox.minijava.model.miniJava.Value
 import org.tetrabox.minijava.model.miniJava.Program
+import org.tetrabox.minijava.model.miniJava.semantics.Context
+import org.tetrabox.minijava.model.miniJava.semantics.SemanticsFactory
+import org.tetrabox.minijava.model.miniJava.semantics.State
+import org.tetrabox.minijava.model.miniJava.semantics.SymbolBinding
+import org.tetrabox.minijava.model.miniJava.semantics.Value
 import org.tetrabox.minijava.xtext.tests.MiniJavaInjectorProvider
 
 import static extension org.tetrabox.minijava.semantics.ProgramAspect.*
 import static extension org.tetrabox.minijava.semantics.StateAspect.*
-import java.util.List
 
 @InjectWith(MiniJavaInjectorProvider)
 class MiniJavaTestUtil {
@@ -123,7 +121,7 @@ class MiniJavaTestUtil {
 		}
 	}
 
-	public static val factory = MiniJavaFactory::eINSTANCE
+	public static val factory = SemanticsFactory::eINSTANCE
 
 	public def void genericTest(String program, List<String> args, Consumer<State> oracle) {
 		val helper = new ValidationTestHelper();

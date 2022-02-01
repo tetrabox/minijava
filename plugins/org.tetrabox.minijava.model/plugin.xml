@@ -12,4 +12,12 @@
             genModel="model/XMiniJava.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated XMiniJava -->
+      <package
+            uri="http://org.tetrabox.minijava.xminijava/miniJava/semantics"
+            class="org.tetrabox.minijava.model.miniJava.semantics.SemanticsPackage"
+            genModel="model/XMiniJava.genmodel"/>
+   </extension>
+
 </plugin>

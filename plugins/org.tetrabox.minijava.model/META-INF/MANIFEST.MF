@@ -3,6 +3,9 @@ Bundle-SymbolicName: org.tetrabox.minijava.model;singleton:=true
 Automatic-Module-Name: org.tetrabox.minijava.model
 Export-Package: org.tetrabox.minijava.model.miniJava,
  org.tetrabox.minijava.model.miniJava.impl,
+ org.tetrabox.minijava.model.miniJava.semantics,
+ org.tetrabox.minijava.model.miniJava.semantics.impl,
+ org.tetrabox.minijava.model.miniJava.semantics.util,
  org.tetrabox.minijava.model.miniJava.util
 Bundle-Name: %pluginName
 Bundle-Version: 0.1.0

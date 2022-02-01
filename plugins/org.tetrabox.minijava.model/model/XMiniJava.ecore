@@ -8,7 +8,7 @@
         eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
         eType="#//TypeDeclaration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//semantics/State"
         containment="true">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
@@ -244,114 +244,120 @@
   <eClassifiers xsi:type="ecore:EClass" name="SymbolRef" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" eType="#//Symbol"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
-        eType="#//SymbolBinding" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//Context"
-        eOpposite="#//Context/childContext"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childContext" eType="#//Context"
-        containment="true" eOpposite="#//Context/parentContext"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value">
-    <eAnnotations source="aspect"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="#//Value">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SymbolBinding">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" lowerBound="1"
-        eType="#//Symbol"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FieldBinding">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" eType="#//Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//Value">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//Value">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputStream">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootFrame" eType="#//Frame"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objectsHeap" upperBound="-1"
-        eType="#//ObjectInstance" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="#//OutputStream"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arraysHeap" upperBound="-1"
-        eType="#//ArrayInstance" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Frame">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="call" eType="#//Call" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//ObjectInstance"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childFrame" eType="#//Frame"
-        containment="true" eOpposite="#//Frame/parentFrame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentFrame" eType="#//Frame"
-        eOpposite="#//Frame/childFrame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootContext" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//Value">
-    <eAnnotations source="aspect"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Call">
-    <eAnnotations source="aspect"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NewCall" eSuperTypes="#//Call">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="new" lowerBound="1" eType="#//NewObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodCall2" eSuperTypes="#//Call">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall" lowerBound="1"
-        eType="#//MethodCall"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectInstance">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fieldbindings" upperBound="-1"
-        eType="#//FieldBinding" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Class"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrayInstance">
-    <eAnnotations source="aspect"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
-        eType="#//Value" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectRefValue" eSuperTypes="#//Value">
-    <eAnnotations source="aspect"/>
-    <eOperations name="copy" eType="#//Value">
+  <eSubpackages name="semantics" nsURI="http://org.tetrabox.minijava.xminijava/miniJava/semantics"
+      nsPrefix="semantics">
+    <eClassifiers xsi:type="ecore:EClass" name="Context">
       <eAnnotations source="aspect"/>
-    </eOperations>
-    <eOperations name="customToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+          eType="#//semantics/SymbolBinding" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//semantics/Context"
+          eOpposite="#//semantics/Context/childContext"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childContext" eType="#//semantics/Context"
+          containment="true" eOpposite="#//semantics/Context/parentContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Value">
       <eAnnotations source="aspect"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//ObjectInstance"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrayRefValue" eSuperTypes="#//Value">
-    <eAnnotations source="aspect"/>
-    <eOperations name="copy" eType="#//Value">
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="#//semantics/Value">
       <eAnnotations source="aspect"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//ArrayInstance"/>
-  </eClassifiers>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SymbolBinding">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//semantics/Value"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" lowerBound="1"
+          eType="#//Symbol"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FieldBinding">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1"
+          eType="#//Field"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//semantics/Value"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//semantics/Value">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//semantics/Value">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputStream">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rootFrame" eType="#//semantics/Frame"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectsHeap" upperBound="-1"
+          eType="#//semantics/ObjectInstance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputStream" eType="#//semantics/OutputStream"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arraysHeap" upperBound="-1"
+          eType="#//semantics/ArrayInstance" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Frame">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="call" eType="#//semantics/Call"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//semantics/ObjectInstance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childFrame" eType="#//semantics/Frame"
+          containment="true" eOpposite="#//semantics/Frame/parentFrame"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentFrame" eType="#//semantics/Frame"
+          eOpposite="#//semantics/Frame/childFrame"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rootContext" eType="#//semantics/Context"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//semantics/Value"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//semantics/Value">
+      <eAnnotations source="aspect"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Call">
+      <eAnnotations source="aspect"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NewCall" eSuperTypes="#//semantics/Call">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="new" lowerBound="1" eType="#//NewObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MethodCall2" eSuperTypes="#//semantics/Call">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="methodcall" lowerBound="1"
+          eType="#//MethodCall"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectInstance">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldbindings" upperBound="-1"
+          eType="#//semantics/FieldBinding" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayInstance">
+      <eAnnotations source="aspect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+          eType="#//semantics/Value" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectRefValue" eSuperTypes="#//semantics/Value">
+      <eAnnotations source="aspect"/>
+      <eOperations name="copy" eType="#//semantics/Value">
+        <eAnnotations source="aspect"/>
+      </eOperations>
+      <eOperations name="customToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="aspect"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//semantics/ObjectInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayRefValue" eSuperTypes="#//semantics/Value">
+      <eAnnotations source="aspect"/>
+      <eOperations name="copy" eType="#//semantics/Value">
+        <eAnnotations source="aspect"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//semantics/ArrayInstance"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

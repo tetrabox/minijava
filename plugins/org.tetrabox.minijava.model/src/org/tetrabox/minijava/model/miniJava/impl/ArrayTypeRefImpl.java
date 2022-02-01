@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.tetrabox.minijava.model.miniJava.ArrayTypeRef;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.SingleTypeRef;

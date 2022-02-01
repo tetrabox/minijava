@@ -1,18 +1,19 @@
 package org.tetrabox.minijava.semantics
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.Containment
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.util.List
 import org.tetrabox.minijava.model.miniJava.ArrayTypeRef
 import org.tetrabox.minijava.model.miniJava.Method
-import org.tetrabox.minijava.model.miniJava.MiniJavaFactory
 import org.tetrabox.minijava.model.miniJava.Program
-import org.tetrabox.minijava.model.miniJava.State
 import org.tetrabox.minijava.model.miniJava.StringTypeRef
-import static extension org.tetrabox.minijava.semantics.BlockAspect.*;
-import fr.inria.diverse.k3.al.annotationprocessor.Containment
+import org.tetrabox.minijava.model.miniJava.semantics.SemanticsFactory
+import org.tetrabox.minijava.model.miniJava.semantics.State
+
+import static extension org.tetrabox.minijava.semantics.BlockAspect.*
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -39,30 +40,30 @@ class ProgramAspect {
 		if (main !== null) {
 
 			// Prepare args array
-			val argsArray = MiniJavaFactory::eINSTANCE.createArrayInstance
+			val argsArray = SemanticsFactory::eINSTANCE.createArrayInstance
 			argsArray.size = args.size
 			for (arg : args) {
-				val stringVal = MiniJavaFactory::eINSTANCE.createStringValue => [value = arg]
+				val stringVal = SemanticsFactory::eINSTANCE.createStringValue => [value = arg]
 				argsArray.value.add(stringVal)
 			}
 
 			// Prepare binding for args param
-			val argsBinding = MiniJavaFactory::eINSTANCE.createSymbolBinding => [
+			val argsBinding = SemanticsFactory::eINSTANCE.createSymbolBinding => [
 				symbol = main.params.head
-				value = MiniJavaFactory::eINSTANCE.createArrayRefValue => [
+				value = SemanticsFactory::eINSTANCE.createArrayRefValue => [
 					instance = argsArray
 				]
 			]
 
 			// Prepare root context with args binding
-			val rootCont = MiniJavaFactory::eINSTANCE.createContext
+			val rootCont = SemanticsFactory::eINSTANCE.createContext
 			rootCont.bindings.add(argsBinding)
 
 			// Prepare initial state
 			 
-			val state = MiniJavaFactory::eINSTANCE.createState => [
-				outputStream = MiniJavaFactory::eINSTANCE.createOutputStream
-				rootFrame = MiniJavaFactory::eINSTANCE.createFrame => [
+			val state = SemanticsFactory::eINSTANCE.createState => [
+				outputStream = SemanticsFactory::eINSTANCE.createOutputStream
+				rootFrame = SemanticsFactory::eINSTANCE.createFrame => [
 					rootContext = rootCont
 				]
 			]

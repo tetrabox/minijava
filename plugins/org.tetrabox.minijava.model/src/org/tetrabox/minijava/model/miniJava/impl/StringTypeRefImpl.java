@@ -3,6 +3,7 @@
 package org.tetrabox.minijava.model.miniJava.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.StringTypeRef;
 

@@ -17,11 +17,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.tetrabox.minijava.model.miniJava.Import;
 import org.tetrabox.minijava.model.miniJava.MiniJavaPackage;
 import org.tetrabox.minijava.model.miniJava.Program;
-import org.tetrabox.minijava.model.miniJava.State;
 import org.tetrabox.minijava.model.miniJava.TypeDeclaration;
+
+import org.tetrabox.minijava.model.miniJava.semantics.State;
 
 /**
  * <!-- begin-user-doc -->
