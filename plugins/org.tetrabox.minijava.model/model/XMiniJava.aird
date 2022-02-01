@@ -11,7 +11,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="XMiniJava.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_0MpCwINjEeyfZf47qPee3A" name="abstract syntax" repPath="#_0Mn0oINjEeyfZf47qPee3A" changeId="4a7dbad5-9e39-42d8-996b-c79805a44384">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_0MpCwINjEeyfZf47qPee3A" name="abstract syntax" repPath="#_0Mn0oINjEeyfZf47qPee3A" changeId="ac1e2643-2853-4aae-a370-e84755d0fc67">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="XMiniJava.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3824,7 +3824,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_9uNcWW7uEeyLANeSs8d41Q" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_9uNcWm7uEeyLANeSs8d41Q" fontName="Cantarell" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9uNcW27uEeyLANeSs8d41Q" points="[0, -8, 150, 670]$[0, -439, 150, 239]$[-141, -439, 9, 239]$[-141, -672, 9, 6]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9uNcW27uEeyLANeSs8d41Q" points="[0, -5, 142, 670]$[0, -437, 142, 238]$[-133, -437, 9, 238]$[-133, -669, 9, 6]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9uODZm7uEeyLANeSs8d41Q" id="(0.01694915254237288,0.024271844660194174)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uYij4INoEeyfZf47qPee3A" id="(0.6949152542372882,0.9154929577464789)"/>
         </edges>
